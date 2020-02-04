@@ -1,11 +1,14 @@
 # webapp-treasure-hunt
 
+### Introduction
+The treasure hunt webapp has been developed to help new students get around campus and learn about the points of interest. In this game, gamekeepers (tutors) can define 'routes' for players (students) to follow. A route consists of a list of waypoints.
 
 ## Prerequisites
 - Linux/Windows machine
 - MariaDB
 - Apache
 - PHP 7.4
+- GMAPS API KEY
 
 - WAMP 3.2.0
 
@@ -18,6 +21,17 @@
 ### Git
 - Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
 - Add the origin `git remote add origin https://github.com/adrianomatousek/webapp-treasure-hunt.git
+
+
+### Spinning Up the Test Server
+- Launch WAMP
+- Go to your WAMP [configuration page](http://localhost/)
+- Select 'Add a Virtual Host'
+- Enter 'webapp' in the Name field
+- Enter the full path to your local www directory in the Path field
+- Click the button 'Start the creation of the VirtualHost'
+- In your Toolbar, select WAMP > Tools > Restart DNS
+- [Visit your local webapp](http://webapp/)
 
 ## Release
 - How to release
