@@ -16,7 +16,7 @@
 - (You may have to select PHP version 7.4 after setup)
 
 ### Git
-- Clone the repo `https://github.com/adrianomatousek/webapp-treasure-hunt.git`
+- Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
 - Add the origin `git remote add origin https://github.com/adrianomatousek/webapp-treasure-hunt.git
 
 ## Release
