@@ -22,11 +22,10 @@ The treasure hunt webapp has been developed to help new students get around camp
 - Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
 - Add the origin `git remote add origin https://github.com/adrianomatousek/webapp-treasure-hunt.git
 
-
-### Spinning Up the Test Server
+### Spinning-Up Your Test Server
 - Launch WAMP
 - Go to your WAMP [configuration page](http://localhost/)
-- Select 'Add a Virtual Host'
+- Select 'Add a Virtual Host'z
 - Enter 'webapp' in the Name field
 - Enter the full path to your local www directory in the Path field
 - Click the button 'Start the creation of the VirtualHost'
@@ -35,7 +34,6 @@ The treasure hunt webapp has been developed to help new students get around camp
 
 ## Release
 - How to release
-
 
 ## Development
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
