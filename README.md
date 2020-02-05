@@ -25,7 +25,7 @@ TODO: extend this section
 ### Spinning-Up Your Test Server
 - Launch WAMP
 - Go to your WAMP [configuration page](http://localhost/)
-- Select 'Add a Virtual Host'z
+- Select 'Add a Virtual Host'
 - Enter 'webapp' in the Name field
 - Enter the full path to your local www directory in the Path field
 - Click the button 'Start the creation of the VirtualHost'
