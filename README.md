@@ -2,6 +2,7 @@
 
 ### Introduction
 The treasure hunt webapp has been developed to help new students get around campus and learn about the points of interest. In this game, gamekeepers (tutors) can define 'routes' for players (students) to follow. A route consists of a list of waypoints.
+TODO: extend this section
 
 ## Prerequisites
 - Linux/Windows machine
