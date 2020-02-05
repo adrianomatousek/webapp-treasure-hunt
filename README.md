@@ -18,9 +18,8 @@ The treasure hunt webapp has been developed to help new students get around camp
 - During the setup select PHP 7.4 & MariaDB 10.4.10
 - (You may have to select PHP version 7.4 after setup)
 
-### Git
+### Cloning the Git repo
 - Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
-- Add the origin `git remote add origin https://github.com/adrianomatousek/webapp-treasure-hunt.git
 
 ### Spinning-Up Your Test Server
 - Launch WAMP
