@@ -32,6 +32,12 @@ TODO: extend this section
 - In your Toolbar, select WAMP > Tools > Restart DNS
 - [Visit your local webapp](http://webapp/)
 
+### Initialising MariaDB Tables
+- Left click the WAMP icon, head to mariadb -> mariadb console
+- Type CREATE DATABASE treasurehunt;
+- Copy and paste each statement from database/dataInit.sql into command line
+- SHOW TABLES; will show all tables in the DB, SQL commands can be used to populate
+
 ## Release
 - How to release
 
