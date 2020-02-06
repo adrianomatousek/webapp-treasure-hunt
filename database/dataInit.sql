@@ -47,16 +47,16 @@ ALTER TABLE treasurehunt.clues
 
 
 ALTER TABLE treasurehunt.routes
-    FOREIGN KEY (gamekeeperID)
+    ADD FOREIGN KEY (gamekeeperID)
     REFERENCES treasurehunt.gamekeepers (gameKeeperID)
 ;
 
-ADD CONSTRAINT studGameKeeper
-    FOREIGN KEY (gamekeeperID)
+ALTER TABLE student_users
+    ADD FOREIGN KEY (gamekeeperID)
     REFERENCES treasurehunt.gamekeepers (gameKeeperID)
-    
+;
 
-ADD CONSTRAINT routeID
+ALTER TABLE waypoints
     FOREIGN KEY (routeID)
     REFERENCES treasurehunt.routes (routeID)
 ;
