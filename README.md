@@ -42,3 +42,7 @@ The treasure hunt webapp has been developed to help new students get around camp
 
 ## Development
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
+
+
+## Aknowledgements & Attributions
+- [Material.io](material.io) for various icons
