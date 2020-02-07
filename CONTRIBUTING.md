@@ -5,7 +5,7 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-### Getting in Touch
+## Getting in Touch
 Contact details are available on our website. You can also utilise our community Discord channel.
 
 ## File an Issue
