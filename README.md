@@ -13,6 +13,10 @@ The Treasure Hunt webapp will help new students find their way around campus and
 - GMAPS API KEY
 - WAMP 3.2.0
 
+## Showcase
+- Maybe we could put a screen recording here of the app in use
+- Or screen shots of various pages of the webapp
+
 ## Find Out More
 | **Setup Guide** | **Detailed Documentation** | **Project & Community** |
 | :-------------: | :-------------: | :-------------: |
