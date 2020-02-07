@@ -23,3 +23,4 @@ Insert table here from the other page
 
 ## Aknowledgements & Attributions
 - [Material.io](material.io) for various icons
+- [snowplow](https://github.com/snowplow/snowplow) for their excellent documentation, which we took inspiration from
