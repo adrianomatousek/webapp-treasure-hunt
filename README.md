@@ -12,10 +12,12 @@ The treasure hunt webapp has been developed to help new students get around camp
 - WAMP 3.2.0
 
 ## Find Out More
-Insert table here from the other page
+| **Setup Guide** | **Detailed Documentation** | **Project & Community** |
+| :-------------: | :-------------: | :-------------: |
+| [[https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/getting-started_icon.png]] | [[https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/documentation_icon.png]] | [[https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/contributing_icon.png]] |
+| [Setup Guide](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide) | [Detailed Documentation](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Detailed-Documentation) | [Project & Community](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-&-Community) |
+| A step-by-step guide to running the Treasure Hunt webapp | Detailed documentation (both technical & process) including Requirement Analysis | About the open-source project, our community and how to contribute |
 
-## Release
-- How to release
 
 ## Development
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
