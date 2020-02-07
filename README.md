@@ -5,6 +5,15 @@ This project has been developed for Computer Science module [ECM2434 - Group Sof
 ## Introduction
 The Treasure Hunt webapp helps new students find their way around campus and learn about points of interest. In this game, gamekeepers (tutors) can define 'routes' for players (students) to follow. A route consists of a list of waypoints. Students can use clues to help them find where a waypoint is. Students can scan the QR code to verify they've found a waypoint.
 
+## Showcase
+- Maybe we could put a screen recording here of the app in use
+- Or screen shots of various pages of the webapp
+
+## Technical Overview
+TODO: flesh this out.
+LAMP stack something something something
+
+
 ## Prerequisites
 - Linux/Windows machine
 - MariaDB
@@ -13,10 +22,6 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 - GMAPS API KEY
 - WAMP 3.2.0 (if you're on Windows)
 
-## Showcase
-- Maybe we could put a screen recording here of the app in use
-- Or screen shots of various pages of the webapp
-
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
 | :-------------: | :-------------: | :-------------: |
@@ -24,12 +29,6 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 | [Setup Guide](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide) | [Process Documentation](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Process-Documentation) | [Project and Community](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-and-Community) |
 | A step-by-step guide to running the Treasure Hunt webapp | Process documentation such as Requirement Analysis & how we collaborate as a team | About the open-source project, our community and how to contribute |
 
-
-## Technical Overview
-TODO: flesh this out .
-
-
-LAMP stack something something something
 
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
 
