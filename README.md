@@ -21,7 +21,10 @@ The Treasure Hunt webapp will help new students find their way around campus and
 | A step-by-step guide to running the Treasure Hunt webapp | Detailed documentation (both technical & process) including Requirement Analysis | About the open-source project, our community and how to contribute |
 
 
-## Development
+## Technical Overview
+TODO: flesh this out 
+LAMP stack something something something
+
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
 
 
