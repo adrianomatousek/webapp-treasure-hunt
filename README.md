@@ -26,7 +26,9 @@ The Treasure Hunt webapp will help new students find their way around campus and
 
 
 ## Technical Overview
-TODO: flesh this out 
+TODO: flesh this out .
+
+
 LAMP stack something something something
 
 ### [View the Trello Kanban board](https://trello.com/b/Yg87NVOQ/swe-coursework-kanban-board-group-l)
