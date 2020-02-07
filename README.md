@@ -21,6 +21,12 @@ LAMP stack something something something
 - PHP 7.4
 - GMAPS API KEY
 - WAMP 3.2.0 (if you're on Windows)
+- Docker (optional)
+
+## Quick Setup - Docker
+Quickly boot up a Docker container with everything preinstalled (Linux, Apache, MariaDB, PHP)
+- Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
+- CD into the cloned directory & boot up the Docker container `docker-compose up`
 
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
