@@ -11,7 +11,7 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 - Apache
 - PHP 7.4
 - GMAPS API KEY
-- WAMP 3.2.0
+- WAMP 3.2.0 (if you're on Windows)
 
 ## Showcase
 - Maybe we could put a screen recording here of the app in use
