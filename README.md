@@ -18,11 +18,11 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 - Or screen shots of various pages of the webapp
 
 ## Find Out More
-| **Setup Guide** | **Detailed Documentation** | **Project & Community** |
+| **Setup Guide** | **Process Documentation** | **Project & Community** |
 | :-------------: | :-------------: | :-------------: |
-| <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/getting-started_icon.png)</a> | <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Detailed-Documentation">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/documentation_icon.png)</a> | <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-&-Community">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/contributing_icon.png)</a> |
-| [Setup Guide](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide) | [Detailed Documentation](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Detailed-Documentation) | [Project & Community](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-&-Community) |
-| A step-by-step guide to running the Treasure Hunt webapp | Detailed documentation (both technical & process) including Requirement Analysis | About the open-source project, our community and how to contribute |
+| <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/getting-started_icon.png)</a> | <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Process-Documentation">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/documentation_icon.png)</a> | <a href="https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-&-Community">![](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/images/icons/contributing_icon.png)</a> |
+| [Setup Guide](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Setup-Guide) | [Process Documentation](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Process-Documentation) | [Project & Community](https://github.com/adrianomatousek/webapp-treasure-hunt/wiki/Project-&-Community) |
+| A step-by-step guide to running the Treasure Hunt webapp | Process documentation such as Requirement Analysis & how we collaborate as a team | About the open-source project, our community and how to contribute |
 
 
 ## Technical Overview
