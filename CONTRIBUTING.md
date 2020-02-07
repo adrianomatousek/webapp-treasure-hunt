@@ -11,8 +11,8 @@ Please check our [GitHub issue tracker](https://github.com/adrianomatousek/webap
 You can report bugs and feature requests to GitHub Issues.
 
 Please don't ask question in the issue tracker, instead ask them at one of our other community places:
-- Use the StackOverflow for general issues
-- Use our Discord for specific questions
+- Use StackOverflow for general issues
+- Use our community Discord for specific questions
 
 
 ## Pull Request Process
