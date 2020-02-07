@@ -1,7 +1,7 @@
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) - bear this in mind when making changes to the CHANGELOG.md.
+email, or any other method with the owners of this repository before making a change. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) - bear this in mind when making changes to the [CHANGELOG.md](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/CHANGELOG.md).
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
