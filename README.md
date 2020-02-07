@@ -1,5 +1,7 @@
 # webapp-treasure-hunt
 
+This project has been developed for Computer Science module [ECM2434 - Group Software Engineering Project](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/ECM2434/Module%20ECM2434%20(2019)%20Group%20Software%20Engineering%20Project.pdf) at the [University of Exeter](https://www.exeter.ac.uk). The coursework specification can be [found here](https://github.com/adrianomatousek/webapp-treasure-hunt/blob/master/documentation/ECM2434/ECM2434-project-spec-2020.pdf).
+
 ## Introduction
 The treasure hunt webapp has been developed to help new students get around campus and learn about the points of interest. In this game, gamekeepers (tutors) can define 'routes' for players (students) to follow. A route consists of a list of waypoints.
 
