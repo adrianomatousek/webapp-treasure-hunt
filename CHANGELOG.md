@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [All Releases]
 
-## [0.0.1] - 06/02/2020
+## [0.1.0] - 06/02/2020
 
 ### Added
 
@@ -18,4 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Good examples and basic guidelines
 
 [All Releases]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases
-[0.0.1]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases/tag/v0.0.1
+[0.1.0]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases/tag/v0.1.0
