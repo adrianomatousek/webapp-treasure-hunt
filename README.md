@@ -26,6 +26,7 @@ Quickly boot up a Docker container with everything preinstalled (Linux, Apache, 
 ## Technical Overview
 TODO: flesh this out.
 LAMP stack something something something
+Brief overview of our tech
 
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
