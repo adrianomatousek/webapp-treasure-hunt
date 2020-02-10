@@ -2,11 +2,12 @@
 <html>
   <head>
   <title>Login</title>
+
   </head>
 
   <body>
 
-    <div class = "form">
+    <div class = "container">
       <!-- Login form -->
       <h1>Login</h1>
       <form class = "log" name = "login"method="post" onsubmit="return validation()">
