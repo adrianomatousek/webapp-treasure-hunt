@@ -9,11 +9,6 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 - Maybe we could put a screen recording here of the app in use
 - Or screen shots of various pages of the webapp
 
-## Technical Overview
-TODO: flesh this out.
-LAMP stack something something something
-
-
 ## Prerequisites
 - Linux/Windows machine
 - MariaDB
@@ -21,6 +16,17 @@ LAMP stack something something something
 - PHP 7.4
 - GMAPS API KEY
 - WAMP 3.2.0 (if you're on Windows)
+- Docker (optional)
+
+## Quick Setup - Docker
+Quickly boot up a Docker container with everything preinstalled (Linux, Apache, MariaDB, PHP)
+- Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
+- CD into the cloned directory & boot up the Docker container `docker-compose up`
+
+## Technical Overview
+TODO: flesh this out.
+LAMP stack something something something
+Brief overview of our tech
 
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
