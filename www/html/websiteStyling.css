@@ -1,0 +1,44 @@
+#topNavBar ul {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    width: 90%;
+    font-size: 18px;
+    margin: 0;
+    padding-left: 0;
+    background-color: #1a1a1a;
+    float: left;
+}
+
+#topNavBar li {
+    float: left;
+}
+
+#topNavBar li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 14px 16px;
+    border-right: 1px solid lightblue;
+}
+
+#topNavBar li a:hover{
+    background-color: purple;
+}
+
+body {
+    padding-top:30px;
+    background-color: lightblue;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+#googleMap {
+    height: 90%;
+}
+
+
+p {
+    padding: 0px 0px 0px 0px;
+}
