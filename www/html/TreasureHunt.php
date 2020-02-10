@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
     <title>University of Exeter Treasure Hunt</title>
-    <link rel="stylesheet" href="websiteStyling.css"> 
+    <link rel="stylesheet" href="websiteStyling.css">
     <link rel="stylesheet" href="contactMeStyling.css">
 </head>
     <h1>
@@ -21,7 +21,17 @@
                 // center:new google.maps.LatLng(51.508742,-0.120850),
                    center:new google.maps.LatLng(50.735882,-3.534206),
                 zoom:16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                  {
+                    "featureType": "poi",
+                    "stylers": [
+                      { "visibility": "off" }
+                    ]
+                  }
+                ]
             };
+
                 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             }
     </script>
