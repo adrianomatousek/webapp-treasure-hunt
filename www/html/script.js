@@ -164,6 +164,6 @@ function dayTime() {
 				]
 			}
 		]
-	});
-	console.log("yolo");
+	};
+	map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
