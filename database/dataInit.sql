@@ -55,7 +55,7 @@ ALTER TABLE student_users
     REFERENCES treasurehunt.gamekeepers (gameKeeperID);
 
 ALTER TABLE waypoints
-    FOREIGN KEY (routeID)
+    ADD FOREIGN KEY (routeID)
     REFERENCES treasurehunt.routes (routeID);
 
 INSERT INTO student_users VALUES 
