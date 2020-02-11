@@ -20,19 +20,23 @@ function addMarker(value1, value2) {
 			fontWeight: 'bold',
 		},
 		//labelAnchor: new google.maps.Point(50, 0),
-		//icon: 'img/creeper.png',
+		icon: {
+			url: 'img/creeper.png',
+			scaledSize: new google.maps.Size(50, 50), // scaled size
+			origin: new google.maps.Point(0, 0) // origin
+		},
 		//draggable: true,
 		animation: google.maps.Animation.DROP
 	});
 	markerList.append
 }
 
-function checkTime(){
-	if (isDay){
+function checkTime() {
+	if (isDay) {
 		nightTime();
 		isDay = false;
 	}
-	else{
+	else {
 		dayTime();
 		isDay = true;
 	}
