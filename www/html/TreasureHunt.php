@@ -6,23 +6,22 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="websiteStyling.css">
-    <link rel="stylesheet" href="contactMeStyling.css">
 
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 
 </head>
-    <h1>
-        <div id="topNavBar">
+<body>
+<!-- Top nav bar -->
+    <div id="topNavBar">
             <ul>
                 <li><a href="#index.php">Home</a></li>
 
-            </ul>
-        </div>
-    </h1>
-<body>
+          </ul>
+      </div>
 
+      <!-- Side nav bar -->
 <ul id="slide-out" class="sidenav">
   <li><div class="user-view">
     <h2>Settings</h2>
@@ -41,6 +40,7 @@
   <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
 </ul>
 
+<!-- Google Map -->
 <div id="googleMap" style="width:100%; height: 75vh;"></div>
 
 
@@ -78,5 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
  
 </script>
-
+<style>
+body {
+  width:100%;
+}
+</style>
 </html>

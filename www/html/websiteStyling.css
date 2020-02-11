@@ -1,8 +1,7 @@
 #topNavBar ul {
     list-style-type: none;
-    position: fixed;
     top: 0;
-    width: 90%;
+    width: 100%;
     font-size: 18px;
     margin: 0;
     padding-left: 0;
@@ -27,11 +26,8 @@
 }
 
 body {
-    padding-top:30px;
     background-color: lightblue;
-    width: 90%;
     height: 100%;
-    margin: auto;
 }
 
 #googleMap {
