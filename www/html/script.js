@@ -1,10 +1,89 @@
-console.log("hello world");
 var map;
 var markerList = [];
+var isDay = false;
 
 function myMap() {
-	var mapProp = {
+	map = new google.maps.Map(document.getElementById("googleMap"));
+	dayTime();
+	addMarker(50.735882, -3.534206);
+}
+
+function addMarker(value1, value2) {
+	var marker = new google.maps.Marker({
+		position: { lat: value1, lng: value2 },
+		map: map,
+		title: 'Hello',
+		label: {
+			color: 'black',
+			text: 'Hello',
+			fontSize: '18px',
+			fontWeight: 'bold',
+		},
+		//labelAnchor: new google.maps.Point(50, 0),
+		//icon: 'img/creeper.png',
+		//draggable: true,
+		animation: google.maps.Animation.DROP
+	});
+	markerList.append
+}
+
+function checkTime(){
+	if (isDay){
+		nightTime();
+		isDay = false;
+	}
+	else{
+		dayTime();
+		isDay = true;
+	}
+}
+
+function dayTime() {
+	map.setOptions({
 		// center:new google.maps.LatLng(51.508742,-0.120850),
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: 16,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		styles: [
+			{
+				"featureType": "administrative",
+				"elementType": "geometry",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "poi",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "road",
+				"elementType": "labels.icon",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "transit",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			}
+		]
+	});
+}
+function nightTime() {
+	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
 		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -95,75 +174,5 @@ function myMap() {
 				stylers: [{ color: '#17263c' }]
 			}
 		]
-	};
-
-	map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-	addMarker(50.735882, -3.534206);
-}
-
-function addMarker(value1, value2) {
-	var marker = new google.maps.Marker({
-		position: { lat: value1, lng: value2 },
-		map: map,
-		title: 'Hello',
-		label: {
-			color: 'black',
-			text: 'Hello',
-			fontSize: '18px',
-			fontWeight: 'bold',
-		},
-		//labelAnchor: new google.maps.Point(50, 0),
-		//icon: 'img/creeper.png',
-		//draggable: true,
-		animation: google.maps.Animation.DROP
 	});
-	markerList.append
-}
-
-
-
-function dayTime() {
-	map.setOptions({
-		// center:new google.maps.LatLng(51.508742,-0.120850),
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		styles: [
-			{
-				"featureType": "administrative",
-				"elementType": "geometry",
-				"stylers": [
-					{
-						"visibility": "off"
-					}
-				]
-			},
-			{
-				"featureType": "poi",
-				"stylers": [
-					{
-						"visibility": "off"
-					}
-				]
-			},
-			{
-				"featureType": "road",
-				"elementType": "labels.icon",
-				"stylers": [
-					{
-						"visibility": "off"
-					}
-				]
-			},
-			{
-				"featureType": "transit",
-				"stylers": [
-					{
-						"visibility": "off"
-					}
-				]
-			}
-		]
-	});
-	map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
