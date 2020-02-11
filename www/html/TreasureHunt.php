@@ -26,7 +26,7 @@
 
 <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button>
     
-
+<script src="map_themes.js"></script>
 <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
