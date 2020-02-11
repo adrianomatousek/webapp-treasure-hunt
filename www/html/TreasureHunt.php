@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>University of Exeter Treasure Hunt</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
     <link rel="stylesheet" href="websiteStyling.css">
     <link rel="stylesheet" href="contactMeStyling.css">
 </head>
