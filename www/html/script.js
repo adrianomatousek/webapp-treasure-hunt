@@ -1,6 +1,6 @@
 var map;
 var markerList = [];
-var isDay = false;
+var isDay = true;
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
