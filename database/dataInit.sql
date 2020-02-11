@@ -48,15 +48,25 @@ ALTER TABLE treasurehunt.clues
 
 ALTER TABLE treasurehunt.routes
     ADD FOREIGN KEY (gamekeeperID)
-    REFERENCES treasurehunt.gamekeepers (gameKeeperID)
-;
+    REFERENCES treasurehunt.gamekeepers (gameKeeperID);
 
 ALTER TABLE student_users
     ADD FOREIGN KEY (gamekeeperID)
-    REFERENCES treasurehunt.gamekeepers (gameKeeperID)
-;
+    REFERENCES treasurehunt.gamekeepers (gameKeeperID);
 
 ALTER TABLE waypoints
     FOREIGN KEY (routeID)
-    REFERENCES treasurehunt.routes (routeID)
-;
+    REFERENCES treasurehunt.routes (routeID);
+
+INSERT INTO student_users VALUES 
+(
+  "dgm214",
+  "5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8",
+  "1234567890123456",
+  "Student",
+  "0",
+  "Dan M",
+  "dgm214@exeter.ac.uk",
+  "1"
+);
+  
