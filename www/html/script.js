@@ -1,6 +1,6 @@
 var map;
 var markerList = [];
-var day = true;
+var isDay = true;
 var markers = markerList.length;
 var windowOpen = false;
 
