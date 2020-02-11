@@ -1,34 +1,78 @@
 var map;
 var markerList = [];
+var markers = markerList.length;
 var isDay = false;
+var windowOpen = false;
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
 	dayTime();
-	addMarker(50.735882, -3.534206);
+	addMarker(50.735882, -3.534206, 'Bob`s place');
+	addMarker(50.734882, -3.535206);
+	addMarker(50.735882, -3.536206);
+	addMarker(50.736882, -3.534206);
+	//removeMarker(3);
 }
 
-function addMarker(value1, value2) {
+function addMarker(latValue, lngValue, name, draggable = false) {
+	markerNum = markers + 1;
+
 	var marker = new google.maps.Marker({
-		position: { lat: value1, lng: value2 },
+		position: { lat: latValue, lng: lngValue },
 		map: map,
-		title: 'Hello',
+		title: name,
 		label: {
-			color: 'black',
-			text: 'Hello',
+			color: 'white',
+			text: markerNum.toString(),
 			fontSize: '18px',
-			fontWeight: 'bold',
+			fontWeight: 'bold'
 		},
-		//labelAnchor: new google.maps.Point(50, 0),
 		icon: {
-			url: 'img/creeper.png',
+			url: 'img/chest.png',
 			scaledSize: new google.maps.Size(50, 50), // scaled size
 			origin: new google.maps.Point(0, 0) // origin
 		},
-		//draggable: true,
+		draggable: draggable,
 		animation: google.maps.Animation.DROP
 	});
-	markerList.append
+	
+	if (!name){
+		name = 'Treasure';
+	}
+	
+	var contentString = '<div id="content">' + '<div id="siteNotice">' + '</div>' +
+      '<h1 id="firstHeading" class="firstHeading">' + name + '</h1>' + '<div id="bodyContent">'+
+	  '<p>There is treasure waiting to be found here!</p>' + '</div>';
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+
+	marker.addListener('click', function() {
+		if (!windowOpen) {
+			infowindow.open(map, marker);
+			windowOpen = true;
+		}
+		else {
+			infowindow.close(map, marker);
+			//infowindow.close(map, marker);
+			windowOpen = false;
+		}
+	});
+	markerList.push(marker)
+	markers += 1;
+}
+
+function removeMarker(id) {
+	markerList[id].setMap(null);
+	marketList.splice(id);
+}
+
+function closeAllMarkerWindows() {
+	for (i=0; i < markerList.length; i++) {
+		markerList[i].infowindow.close(map, marker);
+	}
+	
 }
 
 function checkTime() {
