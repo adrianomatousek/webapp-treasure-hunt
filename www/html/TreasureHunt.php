@@ -24,4 +24,6 @@
 </body>
 
 <input type="file" accept="image/*" capture="camera">
+
+<button onclick="dayTime()">Hello</button>
 </html>

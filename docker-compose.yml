@@ -2,7 +2,7 @@ version: '3'
 services:
   php-apache:
     build:
-      context: .\php-apache
+      context: .
     image: 'php:7.2.1-apache'
     ports:
       - '80:80'
