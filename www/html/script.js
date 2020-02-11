@@ -1,9 +1,8 @@
 var map;
 var markerList = [];
+var day = true;
 var markers = markerList.length;
 var windowOpen = false;
-var isDay = true;
-
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
