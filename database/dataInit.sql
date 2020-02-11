@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS treasurehunt.student_users (
   username VARCHAR(10) NOT NULL,
-  hashPass VARCHAR(128) NOT NULL,
-  salt VARCHAR(45) NOT NULL,
+  hashPass VARCHAR(64) NOT NULL,
+  salt VARCHAR(16) NOT NULL,
   accessLevel VARCHAR(10) NOT NULL DEFAULT 'Student',
   score INT(11) NOT NULL DEFAULT '0',
   name VARCHAR(45) NOT NULL,
