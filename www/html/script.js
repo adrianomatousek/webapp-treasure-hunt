@@ -407,5 +407,4 @@ function dayTime() {
 		]
 	};
 	map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-	console.log("yolo");
 }
