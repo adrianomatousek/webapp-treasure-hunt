@@ -10,11 +10,11 @@
     <div class = "container">
       <!-- Login form -->
       <h1>Login</h1>
-      <form class = "log" name = "login"method="post" onsubmit="return validation()">
+      <form class = "log" name = "login"method="post" onsubmit="return validation()" action = "index.php">
         <p>Username</p>
-	      <input type ="text" name ="Username" placeholder="Username"><br>
+	      <input type ="text" name ="inputUsername" placeholder="Username"><br>
         <p>Password</p>
-        <input type = "password" name = "Password" placeholder="Password">
+        <input type = "password" name = "inputPassword" placeholder="Password">
         <input type="submit" name = "login" value="Login">
         <a href="#">Forgotten Password</a><br>
 
@@ -38,9 +38,6 @@
 </html>
 
 <?php
- ?>
-
-<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -51,11 +48,21 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT name FROM student_users";
+$sql = "SELECT username,hashPass FROM student_users";
 $result = $conn->query($sql);
+$found = False;
 // output data of each row
-while($row = $result->fetch_assoc()) {
-  echo $row['name'];
+if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {
+   while($row = $result->fetch_assoc()) {
+     if ($_POST['inputUsername'] == $row['username'] && 
+     hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
+        echo 'Correct password for ',$row['username'];
+        $found = True;
+     }
+   }
+   if(!$found){
+     echo "Incorrect Details";
+   }
 }
-$conn->close();
-?>
+
+ ?>
