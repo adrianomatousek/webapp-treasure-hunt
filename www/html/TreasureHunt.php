@@ -16,8 +16,7 @@
     <h1>
         <div id="topNavBar">
             <ul>
-                <li><a href="#index.php">Home</a></li>
-
+                <li style="float: right;"><a  href="#" data-target="slide-out" class="sidenav-trigger">Menu</a></li>
             </ul>
         </div>
     </h1>
@@ -27,14 +26,20 @@
   <li><div class="user-view">
     <h2>Settings</h2>
   </div></li>
-  <li><a href="#!">Night mode</a>   
+
+
+
+  <!-- <li><a href="#!">Night mode</a>    -->
   <div class="switch">
     <label>
       <input type="checkbox">
-      <span class="lever"></span>
+      <li><a style="display: inline-block" href="#!">Night mode</a>  
+      <span style="float: right; margin: 17px;" class="lever"></span>
     </label>
   </div>
 </li>
+
+
   <li><a href="#!">Second Link</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li>
@@ -44,8 +49,8 @@
 <div id="googleMap" style="width:100%; height: 75vh;"></div>
 
 
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-<button href="#" data-target="slide-out" class="sidenav-trigger">menu</button>
+<!--<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+-->
 
 </body>
 
