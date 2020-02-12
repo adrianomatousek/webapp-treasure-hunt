@@ -30,15 +30,26 @@
 
 
 
-  <!-- <li><a href="#!">Night mode</a>    -->
+  <!-- Night Mode option in settings    -->
   <div class="switch">
+  <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a> 
     <label>
-      <input type="checkbox">
-      <li><a style="display: inline-block" href="#!">Night mode</a>  
+      <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
       <span style="float: right; margin: 17px;" class="lever"></span>
     </label>
   </div>
 </li>
+<script>
+  function tickBox(){
+    var checker = document.getElementById("checkBoxNightMode");
+    if (checker.checked == true){
+      checker.checked = false;
+    }
+    else {
+      checker.checked = true;
+    }
+  }
+</script>
 
 
   <li><a href="#!">Second Link</a></li>
@@ -58,7 +69,7 @@
 
 <input type="file" accept="image/*" capture="camera">
 
-<button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button>
+<!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
     
 <script src="map_themes.js"></script>
 <script src="script.js"></script>
