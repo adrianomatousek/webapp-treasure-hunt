@@ -24,8 +24,8 @@
     <script>
     function validation(){
       //to check if input fields are empty
-      var uname = document.login.Username.value;
-      var psw = document.login.Password.value;
+      var uname = document.login.inputUsername.value;
+      var psw = document.login.inputPassword.value;
       if(uname == "" || psw == ""){
         alert("Please fill in all fields. One or more fields are blank");
         return false;
@@ -54,7 +54,7 @@ $found = False;
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {
    while($row = $result->fetch_assoc()) {
-     if ($_POST['inputUsername'] == $row['username'] && 
+     if ($_POST['inputUsername'] == $row['username'] &&
      hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
         echo 'Correct password for ',$row['username'];
         $found = True;
