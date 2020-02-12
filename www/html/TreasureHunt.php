@@ -34,7 +34,7 @@
   <div class="switch">
   <li><a style="display: inline-block" href="#!">Night mode</a> 
     <label>
-      <input type="checkbox">
+      <input onchange="checkTime()" type="checkbox">
       <span style="float: right; margin: 17px;" class="lever"></span>
     </label>
   </div>
@@ -58,7 +58,7 @@
 
 <input type="file" accept="image/*" capture="camera">
 
-<button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button>
+<!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
     
 <script src="map_themes.js"></script>
 <script src="script.js"></script>
