@@ -7,6 +7,7 @@ var activeInfoLabel;
 var activeMarker;
 var showLabelOnMouseOver = true;  // displays small info/help label when mouse cursor is over a marker
 var enableAnimations = true;
+var supportMarkerList = [];
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
@@ -14,6 +15,7 @@ function myMap() {
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
 	addMarker(50.734882, -3.535206);
 	addMarker(50.735882, -3.536206);
+	//showLabelOnMouseOver = false;
 	addMarker(50.736882, -3.534206);
 	//addMarker(50.736882, -3.534206, '2', true);
 	//addMarker(50.736882, -3.534206, '3', true);
@@ -116,27 +118,24 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 	};
 	*/
 	
-	if (showLabelOnMouseOver) {
-	
-		var mouseOnMarker = false;
+	var mouseOnMarker = false;
 		
-		marker.addListener('mouseover', function() {
-			mouseOnMarker = true;
-			setTimeout(function(){
-				if(mouseOnMarker && !activeInfoWindow) {
-					infoLabel.open(map, marker); 
-					activeInfoLabel = infoLabel;
-				}
-			}, 2000);
-		});
+	marker.addListener('mouseover', function() {
+		mouseOnMarker = true;
+		setTimeout(function(){
+			if(mouseOnMarker && !activeInfoWindow && showLabelOnMouseOver) {
+				infoLabel.open(map, marker); 
+				activeInfoLabel = infoLabel;
+			}
+		}, 2000);
+	});
 
-		marker.addListener('mouseout', function() {
-			mouseOnMarker = false;
-			setTimeout(function(){
-				infoLabel.close(map, marker); 
-			}, 1200);
-		});
-	}
+	marker.addListener('mouseout', function() {
+		mouseOnMarker = false;
+		setTimeout(function(){
+			infoLabel.close(map, marker); 
+		}, 1200);
+	});
 	
 	markerList.push(marker);
 	markers += 1;
