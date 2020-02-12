@@ -32,7 +32,7 @@
 
   <!-- <li><a href="#!">Night mode</a>    -->
   <div class="switch">
-  <li><a style="display: inline-block" href="#!">Night mode</a> 
+  <li><a style="display: inline-block" href="javascript:checkTime();">Night mode</a> 
     <label>
       <input onchange="checkTime()" type="checkbox">
       <span style="float: right; margin: 17px;" class="lever"></span>
