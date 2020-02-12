@@ -6,16 +6,10 @@ var activeInfoWindow;
 var activeInfoLabel;
 var activeMarker;
 var showLabelOnMouseOver = true;  // displays small info/help label when mouse cursor is over a marker
-					
-								// could be one of the options that can be toggled on/off in settings
+var enableAnimations = true;
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
-	/*
-	infoWindow = new google.maps.InfoWindow({
-		content: ''
-	});
-	*/
 	dayTime()
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
 	addMarker(50.734882, -3.535206);
@@ -37,12 +31,14 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 		position: { lat: latValue, lng: lngValue },
 		map: map,
 		//title: name,
+		
 		label: {
 			color: 'white',
 			text: markerNum.toString(),
 			fontSize: '18px',
 			fontWeight: 'bold',
 		},
+		
 		icon: {
 			url: 'img/chest.png',
 			scaledSize: new google.maps.Size(50, 50),
@@ -70,40 +66,7 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 		'</h4><div id="bodyContent"><p> ' + description + ' </p></div>' //+
 		//'<div style="background-image: url('+ imageURL +'); height: 200px; width: 300px;">Picture of Bob:</div>';
 	
-	/*
-	marker.addListener('click', function () {                
-        infoWindow.setContent(marker.contentString);
-        infoWindow.open(map, marker);
-    });
-	*/
 	
-	/* 
-	var infowindow = new google.maps.InfoWindow({
-		content: contentString,
-		isOpen: false
-	});
-	
-	marker.addListener('click', function() {
-		//closeAllMarkerWindows();
-		if (anyWindowOpen) {
-			if (infowindow.isOpen){
-			infowindow.close(map, marker);
-			infowindow.isOpen = false;
-			}
-			else { 
-				//closeAllMarkerWindows();
-				infowindow.open(map, marker);
-				infowindow.isOpen = true;
-			}
-			anyWindowOpen = false;
-		}
-		else{  
-			infowindow.open(map, marker);
-			infowindow.isOpen = true;
-			anyWindowOpen = true;
-		}	
-	});
-	*/
 	
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0,-16),
@@ -117,6 +80,10 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 	});
 	
 	marker.addListener('click', function () {
+		if (activeMarker) {
+			activeMarker.setAnimation(null);
+			activeMarker = null;
+		}
 		if (activeInfoLabel) {
 			activeInfoLabel.close(map, marker);
 		}
@@ -124,22 +91,24 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 			activeInfoWindow.close();
 		}
 		if (activeInfoWindow !== infoWindow){
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-			infoWindow.open(map, marker);
-			activeInfoWindow = infoWindow;
-			if (activeMarker) {
-				activeMarker.setAnimation(null);
-				activeMarker = null;
+			if (enableAnimations) {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
 			}
-			activeMarker = marker;
-			
+			infoWindow.open(map, marker);
+			activeInfoWindow = infoWindow;		
 		}
 		else {
 			activeInfoWindow = null;
-			//activeMarker = null;
 		}	
+		activeMarker = marker;
 	});
 	
+	infoWindow.addListener('closeclick', function() {
+		activeMarker.setAnimation(null);
+		activeMarker = null;
+		activeInfoWindow = null;
+	});
+
 	/*
 	var timer;
 	var timeout = function () {
