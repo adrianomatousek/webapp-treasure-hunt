@@ -32,9 +32,9 @@
 
   <!-- <li><a href="#!">Night mode</a>    -->
   <div class="switch">
+  <li><a style="display: inline-block" href="#!">Night mode</a> 
     <label>
       <input type="checkbox">
-      <li><a style="display: inline-block" href="#!">Night mode</a>  
       <span style="float: right; margin: 17px;" class="lever"></span>
     </label>
   </div>
