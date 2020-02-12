@@ -21,7 +21,6 @@ function myMap() {
 	//removeMarker(3);
 	
 	bob();
-	
 }
 
 function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggable = false) {
@@ -31,14 +30,12 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 		position: { lat: latValue, lng: lngValue },
 		map: map,
 		//title: name,
-		
 		label: {
 			color: 'white',
 			text: markerNum.toString(),
 			fontSize: '18px',
 			fontWeight: 'bold',
 		},
-		
 		icon: {
 			url: 'img/chest.png',
 			scaledSize: new google.maps.Size(50, 50),
@@ -67,7 +64,6 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 		//'<div style="background-image: url('+ imageURL +'); height: 200px; width: 300px;">Picture of Bob:</div>';
 	
 	
-	
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0,-16),
 		content: contentString,
@@ -82,7 +78,6 @@ function addMarker(latValue, lngValue, name, description, /*imageURL,*/ draggabl
 	marker.addListener('click', function () {
 		if (activeMarker) {
 			activeMarker.setAnimation(null);
-			activeMarker = null;
 		}
 		if (activeInfoLabel) {
 			activeInfoLabel.close(map, marker);
