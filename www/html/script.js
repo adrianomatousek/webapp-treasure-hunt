@@ -136,7 +136,7 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 					firstClick = false;
 				}
 				else {
-					markerSetAnimation(marker, 'BOUNCE');
+					markerSetAnimation(marker, 'BOUNCE-IF');
 				}
 			}
 			marker.setOpacity(1);
@@ -363,13 +363,20 @@ function markerSetAnimation(marker, animation) {
 				marker.setAnimation(null);
 			}, 300);
 			break;
-		case 'BOUNCE':
+		case 'BOUNCE-IF':
 		// Has to be done this way because Google's API has a bug that breaks the animation sometimes
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			setTimeout(function() {
 				if (activeMarker == marker) {
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 				}
+			}, 800);
+			break;
+		case 'BOUNCE':
+		// Has to be done this way because Google's API has a bug that breaks the animation sometimes
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+			setTimeout(function() {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
 			}, 800);
 			break;
 		case 'DROP':
