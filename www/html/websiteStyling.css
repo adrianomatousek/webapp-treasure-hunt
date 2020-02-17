@@ -25,6 +25,34 @@
     background-color: purple;
 }
 
+#slide-out{ 
+    background: -webkit-linear-gradient(#FFFEED,#FFEEDD);  
+    background: -moz-linear-gradient(#FFFEED,#FFEEDD);  
+    background: -o-linear-gradient(#FFFEED,#FFEEDD);  
+    background: linear-gradient(#FFFEED,#FFEEDD);
+  
+    -webkit-transition: background 0.5s ease-out;  
+    -moz-transition: background 0.5s ease-out;  
+    -o-transition: background 0.5s ease-out;  
+    transition: background 0.5s ease-out;  
+	
+	color: black;
+	font-size: 30px;
+	-webkit-mask-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+	-webkit-mask-size: 100% 100% 100%;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: left top, left bottom;
+  
+    background-size: 1px 1000px;  
+    border-radius: 0px 0px 0px 0px;  
+    border-right: 1px solid white;  
+    cursor: pointer;  
+	opacity: 1;
+}  
+#slide-out:Hover{  
+    background-position:200px;  
+}  
+
 body {
     background-color: lightblue;
     height: 100%;
