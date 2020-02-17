@@ -12,6 +12,8 @@ var markerOpacity = 0.85;
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	var directionsService = new google.maps.DirectionsService,
+        directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
 	dayTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
 	addMarker(50.734882, -3.535206);
@@ -21,6 +23,11 @@ function myMap() {
 	//addMarker(50.736882, -3.534206, '3', true);
 	//addMarker(50.736882, -3.534206, '4', true);
 	//removeMarker(3);
+	
+	var pointA = new google.maps.LatLng(50.734882, -3.535206);
+	var pointB = new google.maps.LatLng(50.736882, -3.534206);
+	
+	//calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);		// need to enable Directions API
 	
 	bob();
 	
@@ -101,10 +108,10 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
-		//////////////////////////////					  //////////////////////////////
+		///////////////////////// 					  		   /////////////////////////
 		////////////////////// 									  //////////////////////
 		//////////////////	   re-write this entire abomination below //////////////////
-		//////////////////	   (so label changes work)			  	  //////////////////
+		//////////////////	   			  	  						  //////////////////
 		////////////////////// 									  //////////////////////
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
@@ -209,13 +216,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		
 	}); 
 	
-	infoWindow.addListener('closeclick', function() {
-		activeMarker.setAnimation(null);
-		activeMarker.setOpacity(markerOpacity);
-		activeMarker = null;
-		activeInfoWindow = null;
-	});
-	
 	var mouseOnMarker = false;
 	
 	marker.addListener('mouseover', function() {
@@ -268,15 +268,18 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 	});
 	
 	infoWindow.addListener('closeclick', function() {
-		this.setOpacity(markerOpacity);
-		var label = this.getLabel();
+		markerSetAnimation(activeMarker, null);
+		activeMarker.setOpacity(markerOpacity);
+		activeMarker = null;
+		activeInfoWindow = null;
+		var label = marker.getLabel();
 		if (isDay) {
 			label.color = 'black';
 		} 
 		else {
 			label.color = 'white';
 		}
-		this.setLabel(label);
+		marker.setLabel(label);
 		
 		mouseOnMarker = false;
 		if(activeInfoLabel){
@@ -497,8 +500,20 @@ function nightTime() {
 	}
 }
 
-
-
+function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+	directionsService.route({
+		origin: pointA,
+		destination: pointB,
+		travelMode: google.maps.TravelMode.WALKING
+	}, 
+	function(response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+		  directionsDisplay.setDirections(response);
+		} else {
+		  window.alert('Directions request failed due to ' + status);
+		}
+	});
+}
 
 
 ///////////////////////////////////////////////////////////
