@@ -101,10 +101,10 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////					  //////////////////////////////
 		////////////////////// 									  //////////////////////
-		////////////////////// re-write this entire garbage below //////////////////////
-		////////////////////// (so label changes work)			  //////////////////////
+		//////////////////	   re-write this entire abomination below //////////////////
+		//////////////////	   (so label changes work)			  	  //////////////////
 		////////////////////// 									  //////////////////////
 		////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////
@@ -127,6 +127,38 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		
 		if (activeInfoWindow) {
 			activeInfoWindow.close();
+		}
+		
+		if (activeMarker != marker) {
+			var label = this.getLabel();
+			if (isDay) {
+				label.color = '#007766';
+			} 
+			else {
+				label.color = '#00ED87';
+			}
+			this.setLabel(label);
+			
+			if (activeMarker) {
+				var oldLabel = activeMarker.getLabel();
+				if (isDay) {
+					oldLabel.color = 'black';
+				} 
+				else {
+					oldLabel.color = 'white';
+				}
+				activeMarker.setLabel(oldLabel);
+			}
+		}
+		else {
+			var label = this.getLabel();
+			if (isDay) {
+				label.color = 'black';
+			} 
+			else {
+				label.color = 'white';
+			}
+			this.setLabel(label);
 		}
 	
 		if (activeInfoWindow !== infoWindow) {
@@ -173,6 +205,8 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 			activeMarker = null;
 		}	
 		//activeMarker = marker;
+		
+		
 	}); 
 	
 	infoWindow.addListener('closeclick', function() {
@@ -186,7 +220,7 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 	
 	marker.addListener('mouseover', function() {
 		if (marker == activeMarker) {
-			
+			return null;
 		}
 		this.setOpacity(0.9);
 		var label = this.getLabel();
@@ -211,6 +245,9 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 	});
 
 	marker.addListener('mouseout', function() {
+		if (marker == activeMarker) {
+			return null;
+		}
 		this.setOpacity(markerOpacity);
 		var label = this.getLabel();
 		if (isDay) {
@@ -227,58 +264,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 				infoLabel.close(map, marker);
 				activeInfoLabel = null;
 			}, 1200);
-		}
-	});
-	
-	var isClicked = false;
-	
-	// add this to the other listener instead of having 2 'click' listeners
-	marker.addListener('click', function() {
-		if (!isClicked) {
-			isClicked = true;
-			if (marker == activeMarker) {
-				
-			}
-			this.setOpacity(0.9);
-			var label = this.getLabel();
-			if (isDay) {
-				label.color = '#007766'; 
-				//label.fontWeight = 'normal';
-			} 
-			else {
-				label.color = '#00ED87';
-			}
-			this.setLabel(label);
-			
-			if (showLabelOnMouseOver) {
-				mouseOnMarker = true;
-				setTimeout(function(){
-					if(mouseOnMarker && !activeInfoWindow && !activeInfoLabel) {
-						infoLabel.open(map, marker);
-						activeInfoLabel = infoLabel;				
-					}
-				}, 2000);
-			}
-		}
-		else {
-			isClicked = false;
-			this.setOpacity(markerOpacity);
-			var label = this.getLabel();
-			if (isDay) {
-				label.color = 'black';
-			} 
-			else {
-				label.color = 'white';
-			}
-			this.setLabel(label);
-			
-			mouseOnMarker = false;
-			if(activeInfoLabel){
-				setTimeout(function(){
-					infoLabel.close(map, marker);
-					activeInfoLabel = null;
-				}, 1200);
-			}
 		}
 	});
 	
@@ -344,7 +329,7 @@ function addCustomMarker() {
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/purple-custom.png',
+			url: 'img/icons/orange-custom2.png',
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
@@ -527,7 +512,7 @@ function bob(size = 200) {
 		//title: '',
 		label: {
 			color: 'black',
-			text: 'Bob',
+			text: 'Atmaram',
 			fontSize: '18px',
 			fontWeight: 'bold'
 		},
@@ -541,7 +526,7 @@ function bob(size = 200) {
 	});
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0,-15),
-		content: '<div id="content"><div id="siteNotice"></div><h4 id="firstHeading" class="firstHeading">Bob</h4><div id="bodyContent"><p>Beware! A wild Bob has appeared!</p></div>'
+		content: '<div id="content"><div id="siteNotice"></div><h4 id="firstHeading" class="firstHeading">Atmaram</h4><div id="bodyContent"><p>Beware! A wild Atmaram has appeared!</p></div>'
 		//maxWidth: 50
 	});
 	marker.addListener('click', function () {                
