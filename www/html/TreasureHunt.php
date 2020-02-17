@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="websiteStyling.css">
 
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
 
 </head>
@@ -24,6 +26,10 @@
 
       <!-- Side nav bar -->
 <ul id="slide-out" class="sidenav">
+  <div>
+    <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
+  </div>
+
   <li><div class="user-view">
     <h2>Settings</h2>
   </div></li>
@@ -32,7 +38,7 @@
 
   <!-- Night Mode option in settings    -->
   <div class="switch">
-  <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a> 
+  <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
     <label>
       <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
       <span style="float: right; margin: 17px;" class="lever"></span>
@@ -50,13 +56,12 @@
     }
   }
 </script>
-
-
   <li><a href="#!">Second Link</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li>
   <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
 </ul>
+
 
 <!-- Google Map -->
 <div id="googleMap" style="width:100%; height: 85vh;"></div>
@@ -70,14 +75,14 @@
 <input type="file" accept="image/*" capture="camera">
 
 <!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
-    
+
 <script src="map_themes.js"></script>
 <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
+
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -92,9 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Or with jQuery
 
   $(document).ready(function(){
-    $('.sidenav').sidenav();
+    $('.sidenav').sidenav({
+      edge: 'right', // Slide from the right
+    }
+  );
   });
- 
+
 </script>
 <style>
 body {

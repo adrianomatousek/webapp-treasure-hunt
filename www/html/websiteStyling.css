@@ -66,3 +66,8 @@ body {
 p {
     padding: 0px 0px 0px 0px;
 }
+
+.material-icons.md-36 {
+    color:black;
+    font-size: 36px;
+}
