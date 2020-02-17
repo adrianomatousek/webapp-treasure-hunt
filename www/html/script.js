@@ -219,7 +219,78 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		else {
 			label.color = 'white';
 		}
-		label.fontWeight = 'bold';
+		this.setLabel(label);
+		
+		mouseOnMarker = false;
+		if(activeInfoLabel){
+			setTimeout(function(){
+				infoLabel.close(map, marker);
+				activeInfoLabel = null;
+			}, 1200);
+		}
+	});
+	
+	var isClicked = false;
+	
+	// add this to the other listener instead of having 2 'click' listeners
+	marker.addListener('click', function() {
+		if (!isClicked) {
+			isClicked = true;
+			if (marker == activeMarker) {
+				
+			}
+			this.setOpacity(0.9);
+			var label = this.getLabel();
+			if (isDay) {
+				label.color = '#007766'; 
+				//label.fontWeight = 'normal';
+			} 
+			else {
+				label.color = '#00ED87';
+			}
+			this.setLabel(label);
+			
+			if (showLabelOnMouseOver) {
+				mouseOnMarker = true;
+				setTimeout(function(){
+					if(mouseOnMarker && !activeInfoWindow && !activeInfoLabel) {
+						infoLabel.open(map, marker);
+						activeInfoLabel = infoLabel;				
+					}
+				}, 2000);
+			}
+		}
+		else {
+			isClicked = false;
+			this.setOpacity(markerOpacity);
+			var label = this.getLabel();
+			if (isDay) {
+				label.color = 'black';
+			} 
+			else {
+				label.color = 'white';
+			}
+			this.setLabel(label);
+			
+			mouseOnMarker = false;
+			if(activeInfoLabel){
+				setTimeout(function(){
+					infoLabel.close(map, marker);
+					activeInfoLabel = null;
+				}, 1200);
+			}
+		}
+	});
+	
+	infoWindow.addListener('closeclick', function() {
+		this.setOpacity(markerOpacity);
+		var label = this.getLabel();
+		if (isDay) {
+			label.color = 'black';
+		} 
+		else {
+			label.color = 'white';
+		}
 		this.setLabel(label);
 		
 		mouseOnMarker = false;
@@ -273,7 +344,7 @@ function addCustomMarker() {
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/orange-custom2.png',
+			url: 'img/icons/purple-custom.png',
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
