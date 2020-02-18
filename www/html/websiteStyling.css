@@ -9,6 +9,10 @@
     float: left;
 }
 
+body {
+    width:100%;
+  }
+
 #topNavBar li {
     float: left;
 }
