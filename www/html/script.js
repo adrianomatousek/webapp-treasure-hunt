@@ -197,20 +197,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 			marker.setOpacity(1);
 			infoWindow.open(map, marker);
 			activeInfoWindow = infoWindow;
-			/*
-			if (activeMarker && activeMarker !== marker) {
-				// try to set/change the label contents of the marker without replacing the entire label
-				var label = this.getLabel();
-				var oldLabel = activeMarker.getLabel();
-				marker.set('labelContent', 'sdda');
-				label.fontWeight = 'normal';			
-				oldLabel.fontWeight = 'bold';
-				this.setLabel(label);
-				var markerToBeSet = activeMarker;
-				setTimeout(function(){
-					markerToBeSet.setLabel(oldLabel);
-				}, 1000);
-			}*/
 			activeMarker = marker;
 		}
 		else {		
