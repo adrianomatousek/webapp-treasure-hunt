@@ -9,6 +9,8 @@ var showLabelOnMouseOver = true;  // displays small info/help label when mouse c
 var enableAnimations = true;
 var customMarker;
 var markerOpacity = 0.85;
+var showMarkerNames = false;
+var showInfoLabels = true;
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
@@ -32,6 +34,10 @@ function myMap() {
 	bob();
 	
 	addCustomMarker();
+	
+	// setMarkerOpacity(0.5);
+	
+	// toggleMarkerNames();		// switches the numbers underneath each marker to the number + name of the marker/location
 }
 
 function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = false) {
@@ -43,6 +49,11 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 	else {
 		color = 'white';
 	}
+
+	if (!name || name.length < 3){
+		name = 'Treasure';
+	}
+	
 	var marker = new google.maps.Marker({
 		position: { lat: latPos, lng: lngPos },
 		map: map,
@@ -62,12 +73,9 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		draggable: draggable,
 		animation: google.maps.Animation.DROP,
 		id: markerNum - 1,
-		opacity: markerOpacity
+		opacity: markerOpacity,
+		name: name
 	});
-	
-	if (!name || name.length < 3){
-		name = 'Treasure';
-	}
 	
 	if (!description || description.length < 10){
 		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
@@ -94,6 +102,16 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		pixelOffset: new google.maps.Size(0,-16),
 		content: '<div id="bodyContent"><p> This location contains a hidden treasure. Click for more info. </p></div>'
 	});
+	
+	/*
+	google.maps.event.addListener(marker, 'map_changed', function() {
+        if (this.getMap()) {
+          infowindow.open(this.getMap(), this);
+        } else {
+          infowindow.close()
+        }
+      });
+	*/
 	
 	var firstClick;
 	
@@ -124,9 +142,7 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		
 		if (activeMarker) {
 			markerToBeSet = activeMarker;
-			setTimeout(function() {
-				markerToBeSet.setAnimation(null);
-			}, 300);
+			markerSetAnimation(markerToBeSet, null);
 			
 			activeMarker.setOpacity(markerOpacity);
 			//activeMarker = null;
@@ -197,23 +213,11 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 			}*/
 			activeMarker = marker;
 		}
-		else {
-			/*
-			if (activeMarker) {
-				var label = this.getLabel();
-				label.fontWeight = 'bold';			
-				this.setLabel(label);
-			}*/
-			
-			setTimeout(function() {
-				markerToBeSet.setAnimation(null);
-			}, 300);
+		else {		
+			markerSetAnimation(markerToBeSet, null);
 			activeInfoWindow = null;
 			activeMarker = null;
 		}	
-		//activeMarker = marker;
-		
-		
 	}); 
 	
 	var mouseOnMarker = false;
@@ -222,7 +226,7 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		if (marker == activeMarker) {
 			return null;
 		}
-		this.setOpacity(0.9);
+		this.setOpacity(markerOpacity + 0.05);
 		var label = this.getLabel();
 		if (isDay) {
 			label.color = '#007766'; 
@@ -348,19 +352,6 @@ function addCustomMarker() {
 		isOpen: false
 	});
 	
-	/*
-	marker.addListener('click', toggleBounce);
-	
-	function toggleBounce() {
-		if (marker.getAnimation() !== null) {
-			marker.setAnimation(null);
-		} 
-		else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}
-	*/
-	
 	var isOpen = false;
 
 	marker.addListener('dragstart', function () {
@@ -386,7 +377,6 @@ function addCustomMarker() {
 	infoWindow.addListener('closeclick', function() {
 		markerSetAnimation(marker, 'BOUNCE');
 		infoWindow.isOpen = false;
-		
 	});
 	
 	marker.addListener('dblclick', function() {
@@ -404,17 +394,7 @@ function saveCustomMarker() {
 	customMarker.setMap(null);
 	customMarker = null;
 }
-/*
-function markerSetBounceAnimation(marker) {
-	// Has to be done this way because Google's API has a bug that breaks the animation sometimes
-	marker.setAnimation(google.maps.Animation.BOUNCE);
-	setTimeout(function() {
-		if (activeMarker == marker) {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}, 800);
-}
-*/
+
 function markerSetAnimation(marker, animation) {
 	switch (animation) {
 		case null:
@@ -497,6 +477,46 @@ function nightTime() {
 		var label = customMarker.getLabel();
 		label.color = 'white';
 		customMarker.setLabel(label);
+	}
+}
+
+function toggleMarkerNames() {
+	if (!showMarkerNames) {
+		showAllMarkerNames();
+	}
+	else {
+		hideAllMarkerNames();
+	}
+}
+
+function showAllMarkerNames() {
+	if (markerList.length > 0) { 
+		for (i=0; i < markerList.length; i++) {
+			var label = markerList[i].getLabel();
+			label.text = i + 1 + '. ' + markerList[i].name;
+			label.fontSize = '14px';
+			markerList[i].setLabel(label);
+		}
+	}
+}
+
+function hideAllMarkerNames() {
+	if (markerList.length > 0) { 
+		for (i=0; i < markerList.length; i++) {
+			var label = markerList[i].getLabel();
+			label.text = markerList[i].id + 1;
+			label.fontSize = '18px';
+			markerList[i].setLabel(label);
+		}
+	}
+}
+
+function setMarkerOpacity(value){
+	markerOpacity = value;
+	if (markerList.length > 0) {
+		for (i=0; i < markerList.length; i++) {
+			markerList[i].setOpacity(value);
+		}
 	}
 }
 
