@@ -12,6 +12,7 @@
 
     <div id="container">
       <div class="col s12 z-depth-6 card-panel">
+        <h1>Login</h1>
         <form form class = "log" name = "login" method="post" onsubmit="return validation()" action = "index.php">
           <div class="row">
           </div>
@@ -32,7 +33,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <input type="submit" class="btn waves-effect waves-light col s12" name="login" value="Login" />
+               <button type='submit' name='login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
             </div>
           </div>
           <div class="row">
