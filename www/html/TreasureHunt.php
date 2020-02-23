@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-
-
 </head>
 <body>
 <!-- Top nav bar -->
@@ -63,6 +61,8 @@
 </ul>
 
 
+
+
 <!-- Google Map -->
 <div id="googleMap" style="width:100%; height: 85vh;"></div>
 
@@ -74,67 +74,29 @@
 
 <input type="file" accept="image/*" capture="camera">
 
+<!-- Bottom Nav Bar -->
+
+
+  <div class="bottom-nav">
+    <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
+      <ul class="tabs tabs-fixed-width transparent white-text">
+        <li class="tab col s3 white-text"><a href="#test1" class="active white-text"><i
+              class="material-icons">account_circle</i></a></li>
+        <li class="tab col s3"><a href="#test2" class="white-text"><i class="material-icons">chat_bubble</i></a></li>
+        <li class="tab col s3"><a href="#test3" class="white-text"><i class="material-icons">explore</i></a></li>
+      </ul>
+    </div>
+  </div>
+
 <!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script src="map_themes.js"></script>
+<script src="map_script.js"></script>
 <script src="script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-  // var collapsibleElem = document.querySelector('.collapsible');
-  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav({
-      edge: 'right', // Slide from the right
-    }
-  );
-  });
-
-</script>
-
-<script>
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(pos);
-      },
-      function() {
-          handleLocationError(true, infoWindow, map.getCenter());
-      });
-  }
-  else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-      'Error: The Geolocation service failed.' :
-      'Error: Your browser doesn\'t support geolocation.');
-      infoWindow.open(map);
-  }
-</script>
 
 </html>
