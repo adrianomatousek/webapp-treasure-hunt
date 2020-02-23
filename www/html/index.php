@@ -2,23 +2,23 @@
 <html>
   <head>
   <title>Login</title>
-
+  <link rel="stylesheet" type="text/css" href="login_styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
 
   <body>
 
     <div class = "container">
+      <a href="#!" class="test"><i class="material-icons md-48">account_circle</i></a>
       <!-- Login form -->
-      <h1>Login</h1>
-      <form class = "log" name = "login"method="post" onsubmit="return validation()" action = "index.php">
-        <p>Username</p>
-	      <input type ="text" name ="inputUsername" placeholder="Username"><br>
-        <p>Password</p>
-        <input type = "password" name = "inputPassword" placeholder="Password">
-        <input type="submit" name = "login" value="Login">
-        <a href="#">Forgotten Password</a><br>
+        <h1>Login</h1>
+        <form class = "log" name = "login"method="post" onsubmit="return validation()" action = "index.php">
+  	      <input type ="text" name ="inputUsername" placeholder="Username"><br>
+          <input type = "password" name = "inputPassword" placeholder="Password">
+          <input type="submit" name = "login" value="Login">
+          <a href="#">Forgotten Password</a><br>
 
-      </form>
+        </form>
     </div>
 
     <script>
