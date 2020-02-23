@@ -1,8 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
 body{
   margin: 0;
   padding: 0;
+  display: table-cell;
+    vertical-align: middle;
 }
 
+/*
 .container{
   width: 320px;
   height: 450px;
@@ -14,7 +25,7 @@ body{
   padding: 60px 40px;
   background-color: #F5F5DC;
   border-radius: 5px;
-}
+}*/
 
 .material-icons.md-48 {
     margin-top: -40px;
@@ -23,39 +34,13 @@ body{
     padding-left: 30%;
 }
 
-.container p{
-    margin: 0;
-    padding: 0;
+#container{
+  width: 400px;
 }
 
-.container input{
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.container input[type="text"], input[type="password"]
-{
-    border: none;
-    border-bottom: 1px solid black;
-    height: 40px;
-    font-size: 16px;
-    padding-left: 5px;
-}
-
-.container input[type="submit"]
-{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: #fb2525;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
-}
-
-.container input[type="submit"]:hover
-{
-    cursor: pointer;
-    background: #ffc107;
-    color: #000;
+.card {
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
 }
