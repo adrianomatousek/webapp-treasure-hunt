@@ -31,7 +31,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <input type="submit" class="btn waves-effect waves-light col s12" id="btnsubmit" name="submit" value="Login" />
+              <input type="submit" class="btn waves-effect waves-light col s12" name="login" value="Login" />
             </div>
           </div>
           <div class="row">
