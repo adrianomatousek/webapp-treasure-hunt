@@ -1,6 +1,6 @@
 <?php
 require("connection.php");
-$sql = "SELECT * FROM waypoints WHERE routeID='1'"; //TODO don't hardcode this
+$sql = "SELECT * FROM waypoints WHERE routeID='1' ORDER BY positionInRoute ASC"; //TODO don't hardcode this
 $result = $conn->query($sql);
 $table = array();
 if ($result->num_rows > 0) {
