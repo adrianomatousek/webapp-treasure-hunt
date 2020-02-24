@@ -69,4 +69,18 @@ INSERT INTO student_users VALUES
   "dgm214@exeter.ac.uk",
   "1"
 );
+
+INSERT INTO gamekeepers VALUES(
+  "ChiefGamekeeper",
+  "C. Game"
+);
+
+INSERT INTO routes VALUES
+(
+  "1",
+  "Main Route",
+  "ChiefGamekeeper"
+);
+
+
   
