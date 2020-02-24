@@ -25,7 +25,7 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <i class="material-icons prefix">lock_outline</i>
+              <i class="material-icons prefix">lock</i>
               <input id="inputPassword" name = "inputPassword" type="password">
               <label for="inputPassword">Password</label>
             </div>
