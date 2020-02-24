@@ -82,5 +82,35 @@ INSERT INTO routes VALUES
   "ChiefGamekeeper"
 );
 
+INSERT INTO waypoints VALUES
+(
+  '1',
+  '50.735882,-3.534206',
+  '1',
+  'SAMPLE PRIZE',
+  '1'
+)
+(
+  '2',
+  '50.734882,-3.535206',
+  '1',
+  'SAMPLE PRIZE',
+  '2'
+)
+(
+  '3',
+  '50.735882,-3.536206',
+  '1',
+  'SAMPLE PRIZE',
+  '3'
+)
+(
+  '4',
+  '50.736882, -3.534206',
+  '1',
+  'SAMPLE PRIZE',
+  '4'
+);
+
 
   

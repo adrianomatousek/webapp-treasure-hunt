@@ -15,6 +15,7 @@ if ($result->num_rows > 0) {
   for ($i = 0; $i < sizeof($table); $i++){
     array_push($output,table[i][1]);
   }
+  //ouputs array as JSON
   $outputJSON = json_encode($output);
   echo $outputJSON;
 }
