@@ -58,6 +58,7 @@
   <li><div class="divider"></div></li>
   <li><a class="subheader">Subheader</a></li>
   <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  <li><a href="#!"><i class="material-icons">directions_run</i>Logout</a></li>
 </ul>
 
 
