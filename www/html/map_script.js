@@ -14,7 +14,7 @@ var showInfoLabels = true;
 var points;
 var activeClue;
 
-$.get('loadMarkers.php', function (data) {
+$.post('loadMarkers.php', function (data) {
  points = JSON.parse(data);
 	});
 
