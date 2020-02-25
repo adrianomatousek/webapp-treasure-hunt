@@ -34,7 +34,7 @@ function myMap() {
 	var button = document.getElementById('verify');
 
 	button.onclick = function() {
-	    bob();
+	    //bob();
 
 			if(points.length>0){
 				var marker = points[0].split(',');
