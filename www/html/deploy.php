@@ -71,7 +71,7 @@ $commands = array(
 	// 'echo $PWD',
     'whoami',
     'git status',
-	'cd /var/ && git pull https://adrianomatousek:'+$PWD+'@github.com/adrianomatousek/webapp-treasure-hunt'',
+	'cd /var/ && git pull https://adrianomatousek:'+$PWD+'@github.com/adrianomatousek/webapp-treasure-hunt',
 	// 'git status',
 	// 'git submodule sync',
 	// 'git submodule update',
