@@ -73,7 +73,7 @@
 
 <input type="file" accept="image/*" capture="camera">
 <button type="button" id ="verify">Verify Location!</button>
-
+<h2>Dan TES 1212 3U!"P£"U </h2>
 <!-- Bottom Nav Bar -->
 
 
