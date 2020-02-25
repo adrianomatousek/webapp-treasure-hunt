@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>University of Exeter Treasure Hunt</title>
+    <title>Treasure Hunt</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
@@ -72,6 +72,7 @@
 </body>
 
 <input type="file" accept="image/*" capture="camera">
+<h1>test</h1>
 <button type="button" id ="verify">Verify Location!</button>
 
 <!-- Bottom Nav Bar -->
@@ -80,7 +81,7 @@
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
       <ul class="tabs tabs-fixed-width transparent white-text">
-        <li class="tab col s3 white-text"><a href="#test1" class="active white-text"><i
+        <li class="tab col s3 white-text"><a href="leaderboards.php" class="active white-text"><i
               class="material-icons">account_circle</i></a></li>
         <li class="tab col s3"><a href="#test2" class="white-text"><i class="material-icons">chat_bubble</i></a></li>
         <li class="tab col s3"><a href="#test3" class="white-text"><i class="material-icons">explore</i></a></li>

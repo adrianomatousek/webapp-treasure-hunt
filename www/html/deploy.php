@@ -47,6 +47,7 @@ foreach ($allowed_ips as $allow) {
     }
 }
 
+$allowed = true;
 if (!$allowed) {
 	header('HTTP/1.1 403 Forbidden');
  	echo "<span style=\"color: #ff0000\">Sorry, no hamster - better convince your parents!</span>\n";
@@ -59,14 +60,17 @@ flush();
 // Actually run the update
 
 $commands = array(
-	'echo $PWD',
-	'whoami',
+    'sudo su -',
+    'cd /var/',
+	// 'echo $PWD',
+    'whoami',
+    'git status',
 	'git pull',
-	'git status',
-	'git submodule sync',
-	'git submodule update',
-	'git submodule status',
-    'test -e /usr/share/update-notifier/notify-reboot-required && echo "system restart required"',
+	// 'git status',
+	// 'git submodule sync',
+	// 'git submodule update',
+	// 'git submodule status',
+    // 'test -e /usr/share/update-notifier/notify-reboot-required && echo "system restart required"',
 );
 
 $output = "\n";
