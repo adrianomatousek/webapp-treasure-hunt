@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 error_reporting(-1);
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "newuser";
+$password = "password";
 $database = "treasurehunt";
 $conn = new mysqli($servername,$username,$password,$database);
 // Check connection
