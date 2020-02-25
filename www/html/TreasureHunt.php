@@ -32,7 +32,6 @@
       <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
 
-<<<<<<< Updated upstream
     <li><div class="user-view">
       <h2>Settings</h2>
     </div></li>
@@ -56,25 +55,6 @@
       else {
         checker.checked = true;
       }
-=======
-  <!-- Night Mode option in settings    -->
-  <div class="switch">
-  <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
-    <label>
-      <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-      <span style="float: right; margin: 17px;" class="lever"></span>
-    </label>
-  </div>
-</li>
-<script>
-  function tickBox(){
-    var checker = document.getElementById("checkBoxNightMode");
-    if (checker.checked == true){
-      checker.checked = false;
-    }
-    else {
-      checker.checked = true;
->>>>>>> Stashed changes
     }
   </script>
 
@@ -92,7 +72,6 @@
       <a href="#!" style="float: right;" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
 
-<<<<<<< Updated upstream
     <li><div class="user-view">
       <h2>Clues</h2>
     </div></li>
@@ -109,16 +88,6 @@
 <input type="file" accept="image/*" capture="camera">
 <button type="button" id ="verify">Verify Location!</button>
 <h2>Dan TES 1212 3U!"P£"U </h2>
-=======
-<!-- Google Map -->
-<div id="googleMap" style="width:100%; height: 85vh;"></div>
-
-<!--<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
--->
-
-</body>
-
->>>>>>> Stashed changes
 <!-- Bottom Nav Bar -->
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
