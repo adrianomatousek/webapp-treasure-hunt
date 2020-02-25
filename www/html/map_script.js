@@ -11,6 +11,9 @@ var customMarker;
 var markerOpacity = 0.85;
 var showMarkerNames = false;
 var showInfoLabels = true;
+var points = ["50.735882,-3.534206","50.734882,-3.535206","50.735882,-3.536206","50.736882,-3.534206"];
+
+
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
@@ -18,9 +21,9 @@ function myMap() {
 		directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
 	dayTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
-	addMarker(50.734882, -3.535206);
-	addMarker(50.735882, -3.536206);
-	addMarker(50.736882, -3.534206);
+	//addMarker(50.734882, -3.535206);
+	//addMarker(50.735882, -3.536206);
+	//addMarker(50.736882, -3.534206);
 	//addMarker(50.736882, -3.534206, '2', true);
 	//addMarker(50.736882, -3.534206, '3', true);
 	//addMarker(50.736882, -3.534206, '4', true);
@@ -28,10 +31,25 @@ function myMap() {
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
+	var button = document.getElementById('verify');
 
+	button.onclick = function() {
+	    bob();
+
+			if(points.length>0){
+				var marker = points[0].split(',');
+				var lat = parseFloat(marker[0]);
+				var long = parseFloat(marker[1]);
+				addMarker(lat,long);
+				points.shift();
+			}
+
+		  // do something with myJson
+
+	};
 	//calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);		// need to enable Directions API
 
-	bob();
+	//bob();
 
 	addCustomMarker();
 
@@ -556,7 +574,7 @@ function bob(size = 200) {
 }
 
 
-// Geolocation 
+// Geolocation
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function (position) {
 		var pos = {

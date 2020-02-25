@@ -74,6 +74,7 @@
 </body>
 
 <input type="file" accept="image/*" capture="camera">
+<button type="button" id ="verify">Verify Location!</button>
 
 <!-- Bottom Nav Bar -->
 
