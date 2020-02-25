@@ -60,7 +60,7 @@ flush();
 // Actually run the update
 
 $commands = array(
-    'sudo su',
+    'sudo su -',
     'cd /var/',
 	// 'echo $PWD',
 	'whoami',
