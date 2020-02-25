@@ -5,6 +5,8 @@
 
 echo $_GET['key'];
 
+$PWD = $_GET['key'];
+
 $TITLE   = 'Git Deployment Hamster';
 $VERSION = '0.11';
 
