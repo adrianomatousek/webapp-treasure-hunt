@@ -3,6 +3,10 @@
 // Forked from https://gist.github.com/1809044
 // Available from https://gist.github.com/nichtich/5290675#file-deploy-php
 
+echo $_GET['key'];
+
+$PWD = $_GET['key'];
+
 $TITLE   = 'Git Deployment Hamster';
 $VERSION = '0.11';
 
@@ -65,7 +69,8 @@ $commands = array(
 	// 'echo $PWD',
     'whoami',
     'git status',
-	'git pull',
+    'echo "$PWD"',
+	'cd /var/ && git pull https://adrianomatousek:'.$PWD.'@github.com/adrianomatousek/webapp-treasure-hunt',
 	// 'git status',
 	// 'git submodule sync',
 	// 'git submodule update',
