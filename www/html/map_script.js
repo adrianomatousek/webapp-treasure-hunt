@@ -85,9 +85,9 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 
 	var contentString = '<div id="content"><div id="siteNotice">Treasure Location</div>' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
-		'</h4><div id="bodyContent"><p> ' + description + 
-		' <input type="button" id="cluesButton" onclick="displayCluesPage()" value="Clues for this treasure">' +
-		'</p></div>'
+		'</h4><div id="bodyContent"><p> ' + description + '</p>' +
+		'<input type="button" id="cluesButton"  value="Clues for this treasure" data-target="cluesPage" class="sidenav-trigger">' +
+		'</div>'
 
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
