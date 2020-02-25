@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>University of Exeter Treasure Hunt</title>
+    <title>Treasure Hunt</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
@@ -74,6 +74,7 @@
 </body>
 
 <input type="file" accept="image/*" capture="camera">
+<h1>test</h1>
 <button type="button" id ="verify">Verify Location!</button>
 
 <!-- Bottom Nav Bar -->
