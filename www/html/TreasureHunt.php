@@ -68,8 +68,6 @@
 <div id="googleMap" style="width:100%; height: 85vh;"></div>
 
 
-<!--<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
--->
 
 </body>
 

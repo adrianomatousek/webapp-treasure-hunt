@@ -12,7 +12,7 @@ var markerOpacity = 0.85;
 var showMarkerNames = false;
 var showInfoLabels = true;
 var points = ["50.735882,-3.534206","50.734882,-3.535206","50.735882,-3.536206","50.736882,-3.534206"];
-
+var activeClue;
 
 
 function myMap() {
@@ -21,20 +21,12 @@ function myMap() {
 		directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
 	dayTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
-	//addMarker(50.734882, -3.535206);
-	//addMarker(50.735882, -3.536206);
-	//addMarker(50.736882, -3.534206);
-	//addMarker(50.736882, -3.534206, '2', true);
-	//addMarker(50.736882, -3.534206, '3', true);
-	//addMarker(50.736882, -3.534206, '4', true);
-	//removeMarker(3);
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 	var button = document.getElementById('verify');
 
 	button.onclick = function() {
-	    //bob();
 
 			if(points.length>0){
 				var marker = points[0].split(',');
@@ -44,21 +36,14 @@ function myMap() {
 				points.shift();
 			}
 
-		  // do something with myJson
 
 	};
-	//calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB);		// need to enable Directions API
-
-	//bob();
 
 	addCustomMarker();
 
-	// setMarkerOpacity(0.5);
-
-	// toggleMarkerNames();		// switches the numbers underneath each marker to the number + name of the marker/location
 }
 
-function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = false) {
+function addMarker(latPos, lngPos, name, description, draggable = false) {
 	markerNum = markers + 1;
 	var color;
 	if (isDay) {
@@ -75,7 +60,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 	var marker = new google.maps.Marker({
 		position: { lat: latPos, lng: lngPos },
 		map: map,
-		//title: name,
 		label: {
 			color: color,
 			text: markerNum.toString(),
@@ -99,37 +83,21 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
 	}
 
-	/*
-	if (!imageURL || imageURL.length < 9){
-		imageURL = '';
-	}*/
-
 	var contentString = '<div id="content"><div id="siteNotice">Treasure Location</div>' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
-		'</h4><div id="bodyContent"><p> ' + description + ' </p></div>' //+
-	//'<div style="background-image: url('+ imageURL +'); height: 200px; width: 300px;">Picture of Bob:</div>';
-
+		'</h4><div id="bodyContent"><p> ' + description + 
+		' <input type="button" id="cluesButton" onclick="displayCluesPage()" value="Clues for this treasure">' +
+		'</p></div>'
 
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
 		content: contentString,
-		//maxWidth: 300
 	});
 
 	var infoLabel = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
 		content: '<div id="bodyContent"><p> This location contains a hidden treasure. Click for more info. </p></div>'
 	});
-
-	/*
-	google.maps.event.addListener(marker, 'map_changed', function() {
-        if (this.getMap()) {
-          infowindow.open(this.getMap(), this);
-        } else {
-          infowindow.close()
-        }
-      });
-	*/
 
 	var firstClick;
 
@@ -139,23 +107,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 			activeInfoLabel = null;
 		}
 
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		///////////////////////// 					  		   /////////////////////////
-		////////////////////// 									  //////////////////////
-		//////////////////	   re-write this entire abomination below //////////////////
-		//////////////////	   			  	  						  //////////////////
-		////////////////////// 									  //////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////
-
 		var markerToBeSet;
 
 		if (activeMarker) {
@@ -163,7 +114,6 @@ function addMarker(latPos, lngPos, name, description, /*imageURL,*/ draggable = 
 			markerSetAnimation(markerToBeSet, null);
 
 			activeMarker.setOpacity(markerOpacity);
-			//activeMarker = null;
 		}
 
 		if (activeInfoWindow) {
@@ -314,6 +264,7 @@ function removeMarker(id) {
 		activeInfoWindow = null;
 	}
 }
+
 
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
