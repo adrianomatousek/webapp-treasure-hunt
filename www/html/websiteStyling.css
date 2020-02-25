@@ -13,6 +13,10 @@
     float: right;
 }
 
+h2 {
+
+}
+
 #topNavBar li {
     float: left;
 }
@@ -30,7 +34,7 @@
 }
 
 body {
-    background-color: lightblue;
+    background-color: #1a1a1a;
     height: 100%;
     width:100%;
 }
@@ -43,4 +47,23 @@ p {
 .material-icons.md-36 {
     color:black;
     font-size: 36px;
+}
+
+/*css for camera button*/
+#custom-button {
+  color: white;
+  background-color: #1a1a1a;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#custom-button:hover {
+  background-color: #1a1a1a;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
 }
