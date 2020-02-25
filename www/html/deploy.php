@@ -59,14 +59,16 @@ flush();
 // Actually run the update
 
 $commands = array(
-	'echo $PWD',
+    'sudo su',
+    'cd /var/',
+	// 'echo $PWD',
 	'whoami',
 	'git pull',
-	'git status',
-	'git submodule sync',
-	'git submodule update',
-	'git submodule status',
-    'test -e /usr/share/update-notifier/notify-reboot-required && echo "system restart required"',
+	// 'git status',
+	// 'git submodule sync',
+	// 'git submodule update',
+	// 'git submodule status',
+    // 'test -e /usr/share/update-notifier/notify-reboot-required && echo "system restart required"',
 );
 
 $output = "\n";
