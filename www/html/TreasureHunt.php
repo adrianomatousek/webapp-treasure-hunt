@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Treasure Hunt 2</title>
+    <title>The Hunt</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
@@ -87,7 +87,6 @@
 
 <input type="file" accept="image/*" capture="camera">
 <button type="button" id ="verify">Verify Location!</button>
-<h2>Dan TES 1212 3U!"P£"U </h2>
 <!-- Bottom Nav Bar -->
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
