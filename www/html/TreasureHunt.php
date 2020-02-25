@@ -82,7 +82,7 @@
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
       <ul class="tabs tabs-fixed-width transparent white-text">
-        <li class="tab col s3 white-text"><a href="#test1" class="active white-text"><i
+        <li class="tab col s3 white-text"><a href="leaderboards.php" class="active white-text"><i
               class="material-icons">account_circle</i></a></li>
         <li class="tab col s3"><a href="#test2" class="white-text"><i class="material-icons">chat_bubble</i></a></li>
         <li class="tab col s3"><a href="#test3" class="white-text"><i class="material-icons">explore</i></a></li>
