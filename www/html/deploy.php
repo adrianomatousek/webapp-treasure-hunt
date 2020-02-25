@@ -3,11 +3,7 @@
 // Forked from https://gist.github.com/1809044
 // Available from https://gist.github.com/nichtich/5290675#file-deploy-php
 
-if ($_GET['key'] === $PWD)  {
-    echo $pwd;
-} else {
-    echo "no key";
-}
+echo $_GET['key'];
 
 $TITLE   = 'Git Deployment Hamster';
 $VERSION = '0.11';
@@ -71,7 +67,8 @@ $commands = array(
 	// 'echo $PWD',
     'whoami',
     'git status',
-	'cd /var/ && git pull https://adrianomatousek:'+$PWD+'@github.com/adrianomatousek/webapp-treasure-hunt',
+    'echo "$PWD"',
+	'cd /var/ && git pull https://adrianomatousek:'.$PWD.'@github.com/adrianomatousek/webapp-treasure-hunt',
 	// 'git status',
 	// 'git submodule sync',
 	// 'git submodule update',
