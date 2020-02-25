@@ -28,7 +28,7 @@ function myMap() {
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 	var button = document.getElementById('verify');
-
+ 
 	button.onclick = function() {
 			if(points.length>0){
 				var marker = points[0].split(',');

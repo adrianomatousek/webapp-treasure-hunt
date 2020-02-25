@@ -16,52 +16,62 @@
 <!-- Top nav bar -->
     <div id="topNavBar">
             <ul>
-                <li style="float: right;"><a  href="#" data-target="slide-out" class="sidenav-trigger">Menu</a></li>
+                <li style="float: right;"><a  href="javascript: settingsPage();" data-target="settingsPage" class="sidenav-trigger">Menu</a></li>
             </ul>
         </div>
     </h1>
 <body>
 
-      <!-- Side nav bar -->
-<ul id="slide-out" class="sidenav">
-  <div>
-    <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
-  </div>
+<!-- Side scrolling page -->
+<ul id="settingsPage" class="sidenav">
+    <div>
+      <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
+    </div>
 
-  <li><div class="user-view">
-    <h2>Settings</h2>
-  </div></li>
+    <li><div class="user-view">
+      <h2>Settings</h2>
+    </div></li>
 
 
-
-  <!-- Night Mode option in settings    -->
-  <div class="switch">
-  <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
-    <label>
-      <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-      <span style="float: right; margin: 17px;" class="lever"></span>
-    </label>
-  </div>
-</li>
-<script>
-  function tickBox(){
-    var checker = document.getElementById("checkBoxNightMode");
-    if (checker.checked == true){
-      checker.checked = false;
+    <!-- Night Mode option in settings    -->
+    <div class="switch">
+    <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
+      <label>
+        <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+        <span style="float: right; margin: 17px;" class="lever"></span>
+      </label>
+    </div>
+  </li>
+  <script>
+    function tickBox(){
+      var checker = document.getElementById("checkBoxNightMode");
+      if (checker.checked == true){
+        checker.checked = false;
+      }
+      else {
+        checker.checked = true;
+      }
     }
-    else {
-      checker.checked = true;
-    }
-  }
-</script>
-  <li><a href="#!">Second Link</a></li>
-  <li><div class="divider"></div></li>
-  <li><a class="subheader">Subheader</a></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  <li><a href="#!"><i class="material-icons">directions_run</i>Logout</a></li>
-</ul>
+  </script>
 
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a href="#!"><i class="material-icons">directions_run</i>Logout</a></li>
+  </ul>
 
+<!-- Clues page -->
+<ul id="cluesPage" class="sidenav">
+  
+    <div>
+      <a href="#!" style="float: right;" class="sidenav-close"><i class="material-icons md-36">close</i></a>
+    </div>
+
+    <li><div class="user-view">
+      <h2>Clues</h2>
+    </div></li>
+  </ul>
 
 
 <!-- Google Map -->
@@ -72,7 +82,6 @@
 </body>
 
 <input type="file" accept="image/*" capture="camera">
-<h1>test</h1>
 <button type="button" id ="verify">Verify Location!</button>
 
 <!-- Bottom Nav Bar -->
