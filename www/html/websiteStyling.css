@@ -9,9 +9,9 @@
     float: left;
 }
 
-body {
-    width:100%;
-  }
+#cluesButton{
+    float: right;
+}
 
 #topNavBar li {
     float: left;
@@ -32,10 +32,7 @@ body {
 body {
     background-color: lightblue;
     height: 100%;
-}
-
-#googleMap {
-    height: 90%;
+    width:100%;
 }
 
 

@@ -112,5 +112,53 @@ INSERT INTO waypoints VALUES
   '4'
 );
 
-
+INSERT INTO clues VALUES
+(
+  '1',
+  '1',
+  'Clue 1 Waypoint 1',
+  '1'
+),
+(
+  '2',
+  '1',
+  'Clue 2 Waypoint 1',
+  '2'
+),
+(
+  '3',
+  '2',
+  'Clue 1 Waypoint 2',
+  '1'
+),
+(
+  '4',
+  '2',
+  'Clue 2 Waypoint 2',
+  '2'
+),
+(
+  '5',
+  '3',
+  'Clue 1 Waypoint 3',
+  '1'
+),
+(
+  '6',
+  '3',
+  'Clue 2 Waypoint 3',
+  '2'
+),
+(
+  '7',
+  '4',
+  'Clue 1 Waypoint 4',
+  '1'
+),
+(
+  '8',
+  '4',
+  'Clue 2 Waypoint 4',
+  '2'
+);
   
