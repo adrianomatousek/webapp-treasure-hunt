@@ -74,7 +74,7 @@
       <div class="user-view">
         <h2 style="margin: 0px;">Clues</h2>
       </div>
-      <input type="button" value="Get Clue" onclick="fillClues()">
+      <input type="button" id="cluesGetButton" value="Get Clue" onclick="fillClues()">
       <p id="cluesP">
       </p>
     </li>
