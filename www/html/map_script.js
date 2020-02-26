@@ -44,7 +44,7 @@ function fillClues(){
 		(clues[activeTreasure][activeClue+1].length > 0)){
 
 		console.log(clues[activeTreasure][activeClue+1]);
-		cluesParagraph.innerHTML += clues[activeTreasure][activeClue+1];
+		cluesParagraph.innerHTML += clues[activeTreasure][activeClue+1]+'<br>';
 		activeClue++;
 	}
 }

@@ -9,6 +9,12 @@
     float: left;
 }
 
+#cluesP{
+    font-size: 15px;
+    display: inline-block;
+    float: center;
+}
+
 #cluesButton {
     float: right;
 }
