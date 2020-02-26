@@ -13,7 +13,7 @@ var showMarkerNames = false;
 var showInfoLabels = true;
 var points;
 var activeClue;
-var infoWindow;
+
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -32,27 +32,7 @@ function myMap() {
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 	var button = document.getElementById('verify');
-	// Geolocation
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function (position) {
-				var pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
 
-				infoWindow.setPosition(pos);
-				infoWindow.setContent('Location found.');
-				infoWindow.open(map);
-				map.setCenter(pos);
-			},
-			function () {
-				handleLocationError(true, infoWindow, map.getCenter());
-			});
-	} else {
-		// Browser doesn't support Geolocation
-		handleLocationError(false, infoWindow, map.getCenter());
-	}
-	
 	button.onclick = function () {
 		if (points.length > 0) {
 			var marker = points[0].split(',');
@@ -545,6 +525,26 @@ function bob(size = 200) {
 }
 
 
+// Geolocation
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(function (position) {
+			var pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
+
+			infoWindow.setPosition(pos);
+			infoWindow.setContent('Location found.');
+			infoWindow.open(map);
+			map.setCenter(pos);
+		},
+		function () {
+			handleLocationError(true, infoWindow, map.getCenter());
+		});
+} else {
+	// Browser doesn't support Geolocation
+	handleLocationError(false, infoWindow, map.getCenter());
+}
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	infoWindow.setPosition(pos);
