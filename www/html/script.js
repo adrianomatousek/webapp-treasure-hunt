@@ -36,10 +36,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.carousel-pages').slick({
         slidesToShow: 1,
-        dots: !0,
         infinite: !1,
         speed: 500,
-        adaptiveHeight: !0,
         draggable: false,
         swipe: false,
         swipeToSlide: false,

@@ -77,15 +77,18 @@
       </div>
     </li>
   </ul>
-
-
-  <!-- Google Map -->
-  <div class="map-container">
-    <div id="googleMap" class="map"></div>
+  <br>
+  <!-- <div> this somehow fixes weird bug where map dissapears lol?? -->
+  <div>
+    <h1>
+    </h1>
   </div>
+
 
   <div class="carousel-pages">
     <div class="carousel-page">
+      <div id="googleMap" class="map"></div>
+
       hello
     </div>
     <div class="carousel-page">your content 2</div>
