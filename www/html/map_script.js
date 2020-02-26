@@ -14,6 +14,16 @@ var showInfoLabels = true;
 var points;
 var activeClue;
 
+function nextWaypoint() {
+	if (points.length > 0) {
+		var marker = points[0].split(',');
+		var lat = parseFloat(marker[0]);
+		var long = parseFloat(marker[1]);
+		addMarker(lat, long);
+		points.shift();
+	}
+}
+
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -31,17 +41,7 @@ function myMap() {
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
-	var button = document.getElementById('verify');
 
-	button.onclick = function () {
-		if (points.length > 0) {
-			var marker = points[0].split(',');
-			var lat = parseFloat(marker[0]);
-			var long = parseFloat(marker[1]);
-			addMarker(lat, long);
-			points.shift();
-		}
-	};
 	addCustomMarker();
 }
 
