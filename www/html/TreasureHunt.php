@@ -110,9 +110,6 @@
 
   <br>
 
-
-
-  <button type="button" id="verify">Verify Location!</button>
   <!-- Bottom Nav Bar -->
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
