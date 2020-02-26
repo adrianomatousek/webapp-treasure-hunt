@@ -44,6 +44,11 @@ $(document).ready(function () {
 
 function bottomNavGoTo(i) { //changes to a different carousel page
     $('.carousel-pages').slick('slickGoTo', i);
+    if (i==1){
+        cameraEnabled = true;
+    } else{
+        cameraEnabled = false;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
