@@ -141,12 +141,8 @@
         </table>
       </div>
 
-
-
     </div>
   </div>
-
-  <br>
 
   <!-- Bottom Nav Bar -->
   <footer class="page-footer">
