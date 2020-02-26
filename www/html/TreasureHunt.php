@@ -33,7 +33,7 @@
     </ul>
   </div>
 
-  <!-- Side scrolling page -->
+  <!-- Settings side menu -->
   <ul id="settingsPage" class="sidenav">
     <div>
       <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
@@ -55,16 +55,6 @@
         </label>
     </div>
     </li>
-    <script>
-      function tickBox() {
-        var checker = document.getElementById("checkBoxNightMode");
-        if (checker.checked == true) {
-          checker.checked = false;
-        } else {
-          checker.checked = true;
-        }
-      }
-    </script>
 
     <li><a href="#!">Second Link</a></li>
     <li>
@@ -75,7 +65,7 @@
     <li><a href="#!"><i class="material-icons">directions_run</i>Logout</a></li>
   </ul>
 
-  <!-- Clues page -->
+  <!-- Clues side menu -->
   <ul id="cluesPage" class="sidenav">
     <div>
       <a href="#!" style="float: right;" class="sidenav-close"><i class="material-icons md-36">close</i></a>

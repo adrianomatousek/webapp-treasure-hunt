@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var instances = M.Sidenav.init(elems, {});
 });
 
+
+function tickBox() {
+    var checker = document.getElementById("checkBoxNightMode");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
 // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
 // var collapsibleElem = document.querySelector('.collapsible');
 // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
