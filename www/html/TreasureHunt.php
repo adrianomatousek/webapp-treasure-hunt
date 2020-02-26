@@ -67,7 +67,7 @@
   <!-- Clues side menu -->
   <ul id="cluesPage" class="sidenav">
     <div>
-      <a href="#!" style="float: right;" class="sidenav-close"><i class="material-icons md-36">close</i></a>
+      <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
 
     <li>

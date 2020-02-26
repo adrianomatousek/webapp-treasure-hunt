@@ -39,6 +39,14 @@ body {
     overflow: hidden;
 }
 
+#cluesButton{
+    float: right;
+}
+
+#cluesPage a {
+    display: block;
+    text-align: right;
+}
 
 p {
     padding: 0px 0px 0px 0px;
