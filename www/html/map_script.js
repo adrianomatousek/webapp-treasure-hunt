@@ -22,8 +22,6 @@ $.post('loadMarkers.php', function (data) {
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
-	var geoloccontrol = new klokantech.GeolocationControl(map, 18);
-
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
@@ -43,14 +41,8 @@ function myMap() {
 			addMarker(lat, long);
 			points.shift();
 		}
-
-
 	};
-
-
-
 	addCustomMarker();
-
 }
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
