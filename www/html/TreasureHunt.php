@@ -75,8 +75,10 @@
         <h2 style="margin: 0px;">Clues</h2>
       </div>
       <input type="button" id="cluesGetButton" value="Get Clue" onclick="fillClues()">
-      <p id="cluesP">
-      </p>
+      <div>
+        <p id="cluesP">
+        </p>
+      </div>
     </li>
   </ul>
   <br>
@@ -166,31 +168,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- camera -->
-  <input type="file" id="real-file" hidden="hidden" />
-  <span id="custom-text"></span>
-
-
-  <script>
-    const realFileBtn = document.getElementById("real-file");
-    const customBtn = document.getElementById("custom-button");
-    const customTxt = document.getElementById("custom-text");
-
-    customBtn.addEventListener("click", function () {
-      realFileBtn.click();
-    });
-
-    realFileBtn.addEventListener("change", function () {
-      if (realFileBtn.value) {
-        customTxt.innerHTML = realFileBtn.value.match(
-          /[\/\\]([\w\d\s\.\-\(\)]+)$/
-        )[1];
-      } else {
-        customTxt.innerHTML = "No file chosen, yet.";
-      }
-    });
-  </script>
 
   <!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
