@@ -56,6 +56,7 @@ function tick() {
               nextWaypoint();
               currentWaypointIndex++;
               accessedURLs.push(code);
+              bottomNavGoTo(0);
             }
 
         } else {
