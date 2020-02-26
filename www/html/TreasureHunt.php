@@ -72,16 +72,20 @@
 
     <li>
       <div class="user-view">
-        <h2>Clues</h2>
+        <h2 style="margin: 0px;">Clues</h2>
       </div>
+      <input type="button" value="Get Clue" onclick="fillClues()">
+      <p id="cluesP">
+      </p>
     </li>
   </ul>
   <br>
-  <!-- <div> this somehow fixes weird bug where map dissapears lol?? -->
+  <!-- <br>
+   <div> this somehow fixes weird bug where map dissapears lol?? -->
   <div>
     <h1>
     </h1>
-  </div>
+  </div> 
 
 
   <div class="carousel-pages">

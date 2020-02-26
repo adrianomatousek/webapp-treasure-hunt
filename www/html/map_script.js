@@ -12,7 +12,9 @@ var markerOpacity = 0.85;
 var showMarkerNames = false;
 var showInfoLabels = true;
 var points;
-var activeClue;
+var clues;
+var activeTreasure = 0; //Ideally in database. Used in fillClues().
+var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
 function nextWaypoint() {
 	if (points.length > 0) {
@@ -24,10 +26,28 @@ function nextWaypoint() {
 	}
 }
 
-
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
 });
+
+$.post('loadClues.php', function (data) {
+	clues = JSON.parse(data);
+	console.log(clues[1][1]);
+});
+
+function fillClues(){
+	//Add to the end of the id of the given id.
+	var cluesParagraph = document.getElementById('cluesP');
+	console.log("REACHED THIS POINT");
+	console.log(clues[1][1]);
+	if (clues[activeTreasure][activeClue+1].length() > 0){
+
+		console.log(clues[activeTreasure][activeClue+1]);
+		cluesParagraph.innerHTML+clues[activeTreasure][activeClue+1];
+		activeClue++;
+	}
+}
+
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
