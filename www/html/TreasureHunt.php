@@ -44,7 +44,6 @@
       </div>
     </li>
 
-
     <!-- Night Mode option in settings    -->
     <div class="switch">
       <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
@@ -53,6 +52,16 @@
           <span style="float: right; margin: 17px;" class="lever"></span>
         </label>
     </div>
+
+    <!-- Test -->
+    <div class="switch">
+      <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Option 2</a>
+        <label>
+          <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+          <span style="float: right; margin: 17px;" class="lever"></span>
+        </label>
+    </div>
+
     </li>
 
     <li><a href="#!">Second Link</a></li>
@@ -88,8 +97,6 @@
     <div class="carousel-page">
       <!-- Page 1: Google Maps -->
       <div id="googleMap" class="map"></div>
-
-      hello
     </div>
     <div class="carousel-page">
       <!-- Page 2: QR Scanner -->
@@ -117,7 +124,7 @@
         <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
               class="material-icons">account_circle</i></a></li>
         <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i class="material-icons"
-              style="font-size:50px;">adjust</i></a></li>
+              style="font-size:55px; position: relative; top: -3px;">adjust</i></a></li>
         <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
               class="material-icons">explore</i></a>
         </li>
@@ -128,7 +135,6 @@
   <!-- camera -->
   <input type="file" id="real-file" hidden="hidden" />
   <span id="custom-text"></span>
-
 
   <script>
     const realFileBtn = document.getElementById("real-file");
