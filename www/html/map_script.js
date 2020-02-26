@@ -299,7 +299,7 @@ function removeMarker(id) {
 	id - Index of marker in array
 	*/
 	markerList[id].setMap(null);
-	marketList.splice(id); // not sure if this is the correct syntax for removing an element from an array, check this later
+	marketList.splice(id); 			// removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -325,21 +325,22 @@ function removeAllMarkers() {
 
 }
 
+// Function that allows the game masters to add a custom marker when needed
 function addCustomMarker() {
 	var marker = new google.maps.Marker({
-		position: {
+		position: {											// setting the original position of the marker
 			lat: 50.735700,
 			lng: -3.531150
 		},
 		map: map,
-		label: {
+		label: {												// Text "Drag Me" that follows the marker
 			color: 'black',
 			text: 'Drag Me',
 			fontSize: '16px',
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/orange-custom2.png',
+			url: 'img/icons/orange-custom2.png',					// marker icon
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
@@ -388,6 +389,7 @@ function addCustomMarker() {
 	customMarker = marker;
 }
 
+// Adds a new Treasure Location
 function saveCustomMarker() {
 	var name = prompt("Enter the name of the place (minimum 3 characters): ");
 	var description = prompt("Enter the description of the place (minimum 10 characters): ");
@@ -398,6 +400,7 @@ function saveCustomMarker() {
 	customMarker = null;
 }
 
+// Setting the bounce animation for the treasure markers
 function markerSetAnimation(marker, animation) {
 	switch (animation) {
 		case null:
@@ -429,6 +432,8 @@ function markerSetAnimation(marker, animation) {
 	}
 }
 
+
+// Utility function for checking time
 function checkTime() {
 	if (isDay) {
 		nightTime();
@@ -439,6 +444,7 @@ function checkTime() {
 	}
 }
 
+// sets light mode
 function dayTime() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
@@ -462,6 +468,7 @@ function dayTime() {
 
 }
 
+// sets night mode
 function nightTime() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
@@ -483,6 +490,7 @@ function nightTime() {
 	}
 }
 
+// utility function changing the numbers to names
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
@@ -491,6 +499,7 @@ function toggleMarkerNames() {
 	}
 }
 
+// shows marker names
 function showAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
@@ -502,6 +511,7 @@ function showAllMarkerNames() {
 	}
 }
 
+// hide marker names
 function hideAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
@@ -513,6 +523,7 @@ function hideAllMarkerNames() {
 	}
 }
 
+// sets opacity of markers
 function setMarkerOpacity(value) {
 	markerOpacity = value;
 	if (markerList.length > 0) {
