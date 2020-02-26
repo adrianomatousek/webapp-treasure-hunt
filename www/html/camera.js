@@ -52,7 +52,7 @@ function tick() {
             outputData.parentElement.hidden = false;
             outputData.innerText = code.data;
             console.log(code);
-            if (parseInt(code)==currentWaypointIndex && !accessedURLs.includes(code)){
+            if (parseInt(code.data)==currentWaypointIndex && !accessedURLs.includes(code)){
               nextWaypoint
               currentWaypointIndex++;
               accessedURLs.push(code);
