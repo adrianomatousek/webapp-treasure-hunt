@@ -77,7 +77,11 @@ p {
 
 /* Carousel Stylings */
 .carousel-pages {
+<<<<<<< HEAD
     height: 80%;
+=======
+    height: 78%;
+>>>>>>> 0037f61c385b6d1516610b7321772ca96e40896c
 }
 
 /* Map Stylings */
