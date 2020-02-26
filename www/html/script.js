@@ -22,10 +22,10 @@ function tickBox() {
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
-    $('.cluesPage').sidenav({
-        edge: 'left', // Slide from the right
+    $('#cluesPage').sidenav({
+        edge: 'left' // Slide from the right
     });
-    $('.settingsPage').sidenav({
+    $('#settingsPage').sidenav({
         edge: 'right'
     });
 });
@@ -61,13 +61,3 @@ document.addEventListener('DOMContentLoaded', function () {
 // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
 // Or with jQuery
-
-$(document).ready(function () {
-    $('.sidenav').sidenav();
-    $('.settingsPage').sidenav({
-        edge: 'left',
-    });
-    $('.cluesPage').sidenav({
-        edge: 'left',
-    });
-});

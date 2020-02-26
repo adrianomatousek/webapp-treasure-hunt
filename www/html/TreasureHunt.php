@@ -28,12 +28,12 @@
   <div id="topNavBar">
     <ul class="z-depth-1">
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
-          class="sidenav-trigger">Menu</a></li>
+          class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
     </ul>
   </div>
 
   <!-- Settings side menu -->
-  <ul id="settingsPage" class="sidenav">
+  <ul id="settingsPage" class="sidenav fixed right-aligned">
     <div>
       <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
@@ -44,6 +44,7 @@
       </div>
     </li>
 
+
     <!-- Night Mode option in settings    -->
     <div class="switch">
       <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
@@ -52,16 +53,6 @@
           <span style="float: right; margin: 17px;" class="lever"></span>
         </label>
     </div>
-
-    <!-- Test -->
-    <div class="switch">
-      <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Option 2</a>
-        <label>
-          <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-          <span style="float: right; margin: 17px;" class="lever"></span>
-        </label>
-    </div>
-
     </li>
 
     <li><a href="#!">Second Link</a></li>
@@ -81,12 +72,16 @@
 
     <li>
       <div class="user-view">
-        <h2>Clues</h2>
+        <h2 style="margin: 0px;">Clues</h2>
       </div>
+      <input type="button" id="cluesGetButton" value="Get Clue" onclick="fillClues()">
+      <p id="cluesP">
+      </p>
     </li>
   </ul>
   <br>
-  <!-- <div> this somehow fixes weird bug where map dissapears lol?? -->
+  <!-- <br>
+   <div> this somehow fixes weird bug where map dissapears lol?? -->
   <div>
     <h1>
     </h1>
@@ -175,6 +170,7 @@
   <!-- camera -->
   <input type="file" id="real-file" hidden="hidden" />
   <span id="custom-text"></span>
+
 
   <script>
     const realFileBtn = document.getElementById("real-file");

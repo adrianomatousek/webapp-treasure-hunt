@@ -9,11 +9,21 @@
     float: left;
 }
 
+#cluesP {
+    font-size: 15px;
+    display: inline-block;
+    float: center;
+    padding-left: 10px;
+}
+
+#cluesGetButton {
+    display: inline-block;
+    float: center;
+}
+
 #cluesButton {
     float: right;
 }
-
-h2 {}
 
 #topNavBar li {
     float: left;
@@ -27,9 +37,10 @@ h2 {}
     border-right: 1px solid lightblue;
 }
 
+/*
 #topNavBar li a:hover {
     background-color: purple;
-}
+}*/
 
 html,
 body {
@@ -79,7 +90,7 @@ p {
 
 /* Carousel Stylings */
 .carousel-pages {
-    height: 78%;
+    height: 80%;
 }
 
 /* Map Stylings */
