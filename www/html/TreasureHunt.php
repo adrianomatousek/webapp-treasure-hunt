@@ -28,7 +28,7 @@
   <div id="topNavBar">
     <ul class="z-depth-1">
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
-          class="sidenav-trigger">Menu</a></li>
+          class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
     </ul>
   </div>
 
@@ -107,34 +107,36 @@
     </div>
     <div class="carousel-page">
       <!-- Page 3: Leaderboard -->
-      <table>
-        <tbody>
-          <tr>
-          	<th>Place</th>
-          	<th>Username</th>
-          	<th>Points</th>
-            <th>Time</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Jessie</td>
-            <td>102,345</td>
-            <td>1s</td>
-      	</tr>
-          <tr>
-            <td>2</td>
-            <td>Bob</td>
-            <td>2,321</td>
-            <td>2s</td>
-      	</tr>
-        <tr>
-          <td>3</td>
-          <td>Test</td>
-          <td>321</td>
-          <td>3s</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="container">
+        <table>
+          <tbody>
+            <tr>
+              <th>Place</th>
+              <th>Username</th>
+              <th>Points</th>
+              <th>Time</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Jessie</td>
+              <td>102,345</td>
+              <td>1s</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Bob</td>
+              <td>2,321</td>
+              <td>2s</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Test</td>
+              <td>321</td>
+              <td>3s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
 
 

@@ -25,9 +25,10 @@
     border-right: 1px solid lightblue;
 }
 
+/*
 #topNavBar li a:hover {
     background-color: purple;
-}
+}*/
 
 html,
 body {
@@ -37,7 +38,7 @@ body {
     overflow: hidden;
 }
 
-#cluesButton{
+#cluesButton {
     float: right;
 }
 
@@ -152,6 +153,13 @@ p {
 }
 
 .canvas-container {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* QR Code Stylings */
+#output {
     width: 100%;
     text-align: center;
 }
