@@ -75,8 +75,10 @@
         <h2 style="margin: 0px;">Clues</h2>
       </div>
       <input type="button" id="cluesGetButton" value="Get Clue" onclick="fillClues()">
-      <p id="cluesP">
-      </p>
+      <div>
+        <p id="cluesP">
+        </p>
+      </div>
     </li>
   </ul>
   <br>
