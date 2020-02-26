@@ -90,14 +90,14 @@ p {
 
 /* Carousel Stylings */
 .carousel-pages {
-    height: 80%;
+    height: 76%;
 }
 
 /* Map Stylings */
 
 .map {
     width: 100%;
-    height: 80vh;
+    height: 76vh;
 }
 
 .map-container {
