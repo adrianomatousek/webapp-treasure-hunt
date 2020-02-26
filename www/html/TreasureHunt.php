@@ -91,7 +91,14 @@
 
       hello
     </div>
-    <div class="carousel-page">your content 2</div>
+    <div class="carousel-page">
+      <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+      <canvas id="canvas" hidden=""></canvas>
+      <div id="output" hidden="">
+        <div id="outputMessage">No QR code detected.</div>
+        <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
+      </div>
+    </div>
     <div class="carousel-page">your content 3</div>
   </div>
 
@@ -153,6 +160,9 @@
   </script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="jsQR.js"></script>
+  <script src="camera.js"></script>
+
 </body>
 
 </html>
