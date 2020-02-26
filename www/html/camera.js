@@ -5,6 +5,8 @@ var loadingMessage = document.getElementById("loadingMessage");
 var outputContainer = document.getElementById("output");
 var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
+var accessedURLs = [];
+var currentWaypointIndex = 1;
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
@@ -50,6 +52,12 @@ function tick() {
             outputData.parentElement.hidden = false;
             outputData.innerText = code.data;
             console.log(code);
+            if (parseInt(code)==currentWaypointIndex && !accessedURLs.includes(code)){
+              nextWaypoint
+              currentWaypointIndex++;
+              accessedURLs.push(code);
+            }
+
         } else {
             outputMessage.hidden = false;
             outputData.parentElement.hidden = true;
