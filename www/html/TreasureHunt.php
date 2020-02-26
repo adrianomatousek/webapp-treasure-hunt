@@ -27,7 +27,7 @@
 <body>
   <!-- Top nav bar -->
   <div id="topNavBar">
-    <ul>
+    <ul class="z-depth-4">
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
           class="sidenav-trigger">Menu</a></li>
     </ul>
@@ -80,7 +80,9 @@
 
 
   <!-- Google Map -->
-  <div id="googleMap" style="width:100%; height: 85vh;"></div>
+  <div class="map-container">
+    <div id="googleMap" class="map"></div>
+  </div>
 
   <div class="carousel-pages">
     <div class="carousel-page">
