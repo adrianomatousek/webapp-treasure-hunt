@@ -40,10 +40,11 @@ function fillClues(){
 	var cluesParagraph = document.getElementById('cluesP');
 	console.log("REACHED THIS POINT");
 	console.log(clues[1][1]);
-	if (clues[activeTreasure][activeClue+1].length > 0){
+	if ((clues[activeTreasure][activeClue+1]) &&
+		(clues[activeTreasure][activeClue+1].length > 0)){
 
 		console.log(clues[activeTreasure][activeClue+1]);
-		cluesParagraph.innerHTML+clues[activeTreasure][activeClue+1];
+		cluesParagraph.innerHTML += clues[activeTreasure][activeClue+1];
 		activeClue++;
 	}
 }
