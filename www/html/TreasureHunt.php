@@ -67,7 +67,7 @@
   <!-- Clues side menu -->
   <ul id="cluesPage" class="sidenav">
     <div>
-      <a href="#!" style="float: right;" class="sidenav-close"><i class="material-icons md-36">close</i></a>
+      <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
 
     <li>
@@ -110,9 +110,6 @@
 
   <br>
 
-
-
-  <button type="button" id="verify">Verify Location!</button>
   <!-- Bottom Nav Bar -->
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
