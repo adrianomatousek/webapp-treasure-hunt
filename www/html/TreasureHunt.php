@@ -95,7 +95,9 @@
     <div class="carousel-page">
       <!-- Page 2: QR Scanner -->
       <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
-      <canvas id="canvas" hidden=""></canvas>
+      <div class="canvas-container">
+        <canvas id="canvas" hidden=""></canvas>
+      </div>
       <div id="output" hidden="">
         <div id="outputMessage">No QR code detected.</div>
         <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
