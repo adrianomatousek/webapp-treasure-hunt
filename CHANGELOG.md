@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [All Releases]
 
+## [0.2.0] - 26/02/2020
+
+### Added
+- QR code reader
+- Verify QR code
+- Google Map with custom waypoints
+- Carousel with bottom nav bar to navigate to Map, Camera, Leaderboard
+- Database setup
+
 ## [0.1.0] - 06/02/2020
 
 ### Added
-
 - This CHANGELOG file to hopefully serve as an evolving example of a
   standardized open source project CHANGELOG.
 - README
@@ -19,3 +27,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [All Releases]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases
 [0.1.0]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases/tag/v0.1.0
+[0.2.0]: https://github.com/adrianomatousek/webapp-treasure-hunt/releases/tag/v0.2.0
