@@ -96,7 +96,9 @@
   <div class="carousel-pages">
     <div class="carousel-page">
       <!-- Page 1: Google Maps -->
-      <div id="googleMap" class="map"></div>
+      <div class="map-container">
+        <div id="googleMap" class="map"></div>
+      </div>
     </div>
     <div class="carousel-page">
       <!-- Page 2: QR Scanner -->
@@ -150,19 +152,25 @@
   <br>
 
   <!-- Bottom Nav Bar -->
-  <div class="bottom-nav">
-    <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
-      <ul class="tabs tabs-fixed-width transparent white-text">
-        <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
-              class="material-icons">account_circle</i></a></li>
-        <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i class="material-icons"
-              style="font-size:50px;">adjust</i></a></li>
-        <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
-              class="material-icons">explore</i></a>
-        </li>
-      </ul>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="bottom-nav">
+          <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
+            <ul class="tabs tabs-fixed-width transparent white-text">
+              <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
+                    class="material-icons">account_circle</i></a></li>
+              <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i
+                    class="material-icons" style="font-size:50px;">adjust</i></a></li>
+              <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
+                    class="material-icons">explore</i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </footer>
 
   <!-- camera -->
   <input type="file" id="real-file" hidden="hidden" />
