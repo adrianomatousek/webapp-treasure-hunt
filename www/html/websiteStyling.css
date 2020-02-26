@@ -131,3 +131,7 @@ p {
     width: inherit;
     height: inherit;
 }
+
+.black-text {
+    color: black;
+}

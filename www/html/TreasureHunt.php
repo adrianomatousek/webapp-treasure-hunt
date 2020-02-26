@@ -87,11 +87,13 @@
 
   <div class="carousel-pages">
     <div class="carousel-page">
+      <!-- Page 1: Google Maps -->
       <div id="googleMap" class="map"></div>
 
       hello
     </div>
     <div class="carousel-page">
+      <!-- Page 2: QR Scanner -->
       <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
       <canvas id="canvas" hidden=""></canvas>
       <div id="output" hidden="">
@@ -99,7 +101,10 @@
         <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
       </div>
     </div>
-    <div class="carousel-page">your content 3</div>
+    <div class="carousel-page">
+      <!-- Page 3: Leaderboard -->
+      add stuff here
+    </div>
   </div>
 
   <br>
@@ -111,11 +116,11 @@
   <div class="bottom-nav">
     <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
       <ul class="tabs tabs-fixed-width transparent white-text">
-        <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active white-text"><i
+        <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
               class="material-icons">account_circle</i></a></li>
-        <li id="custom-button" class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="white-text"><i
-              class="material-icons" style="font-size:50px;">adjust</i></a></li>
-        <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="white-text"><i
+        <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i class="material-icons"
+              style="font-size:50px;">adjust</i></a></li>
+        <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
               class="material-icons">explore</i></a>
         </li>
       </ul>
