@@ -178,6 +178,4 @@ p {
 .page-footer {
     background-color: white !important;
     box-shadow: 0px -16px 41px -29px rgba(120, 120, 120, 1) !important;
-    position: sticky;
-    bottom: 0;
 }
