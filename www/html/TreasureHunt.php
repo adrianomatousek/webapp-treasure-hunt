@@ -24,12 +24,6 @@
 </head>
 
 <body>
-  <p>Click the button to get your coordinates.</p>
-
-  <button onclick="getLocation()">Try It</button>
-
-  <p id="demo"></p>
-
   <!-- Top nav bar -->
   <div id="topNavBar">
     <ul class="z-depth-4">
@@ -139,22 +133,6 @@
   <span id="custom-text"></span>
 
 
-  <script>
-  var x = document.getElementById("demo");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-  }
-  </script>
   <script>
     const realFileBtn = document.getElementById("real-file");
     const customBtn = document.getElementById("custom-button");
