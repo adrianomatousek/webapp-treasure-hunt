@@ -67,7 +67,7 @@ INSERT INTO student_users VALUES
   "0",
   "Dan M",
   "dgm214@exeter.ac.uk",
-  "1"
+  "ChiefGamekeeper"
 );
 
 INSERT INTO gamekeepers VALUES(
