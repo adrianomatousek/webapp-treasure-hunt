@@ -26,7 +26,7 @@ $(document).ready(function () {
         edge: 'left', // Slide from the right
     });
     $('.settingsPage').sidenav({
-        edge: 'right'
+        fixed: 'right',
     });
 });
 // }

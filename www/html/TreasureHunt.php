@@ -33,7 +33,7 @@
   </div>
 
   <!-- Settings side menu -->
-  <ul id="settingsPage" class="sidenav">
+  <ul id="settingsPage" class="sidenav fixed right-aligned">
     <div>
       <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
@@ -89,7 +89,6 @@
       <!-- Page 1: Google Maps -->
       <div id="googleMap" class="map"></div>
 
-      hello
     </div>
     <div class="carousel-page">
       <!-- Page 2: QR Scanner -->
