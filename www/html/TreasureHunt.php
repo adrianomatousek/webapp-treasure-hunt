@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+
   <!-- icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -86,62 +92,72 @@
   <!-- Google Map -->
   <div id="googleMap" style="width:100%; height: 85vh;"></div>
 
-
-
-
-<button type="button" id="verify">Verify Location!</button>
-<!-- Bottom Nav Bar -->
-<div class="bottom-nav">
-  <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
-    <ul class="tabs tabs-fixed-width transparent white-text">
-      <li class="tab col s3 white-text"><a href="leaderboards.php" class="active white-text"><i
-            class="material-icons">account_circle</i></a></li>
-      <li id="custom-button" class="tab col s3"><a href="#test2" class="white-text"><i class="material-icons"
-            style="font-size:50px;">adjust</i></a></li>
-      <li class="tab col s3"><a href="#test3" class="white-text"><i class="material-icons">explore</i></a></li>
-    </ul>
+  <div class="carousel-pages">
+    <div class="carousel-page">
+      hello
+    </div>
+    <div class="carousel-page">your content 2</div>
+    <div class="carousel-page">your content 3</div>
   </div>
-</div>
 
-<!-- camera -->
-<input type="file" id="real-file" hidden="hidden" />
-<span id="custom-text"></span>
+  <br>
 
+
+
+  <button type="button" id="verify">Verify Location!</button>
+  <!-- Bottom Nav Bar -->
+  <div class="bottom-nav">
+    <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
+      <ul class="tabs tabs-fixed-width transparent white-text">
+        <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active white-text"><i
+              class="material-icons">account_circle</i></a></li>
+        <li id="custom-button" class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="white-text"><i
+              class="material-icons" style="font-size:50px;">adjust</i></a></li>
+        <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="white-text"><i
+              class="material-icons">explore</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- camera -->
+  <input type="file" id="real-file" hidden="hidden" />
+  <span id="custom-text"></span>
+
+
+  <script>
+    const realFileBtn = document.getElementById("real-file");
+    const customBtn = document.getElementById("custom-button");
+    const customTxt = document.getElementById("custom-text");
+
+    customBtn.addEventListener("click", function () {
+      realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function () {
+      if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+          /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+      } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+      }
+    });
+  </script>
+
+  <!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="slick/slick.js"></script>
+
+  <script src="map_themes.js"></script>
+  <script src="map_script.js"></script>
+  <script src="script.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap">
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-
-<script>
-  const realFileBtn = document.getElementById("real-file");
-  const customBtn = document.getElementById("custom-button");
-  const customTxt = document.getElementById("custom-text");
-
-  customBtn.addEventListener("click", function () {
-    realFileBtn.click();
-  });
-
-  realFileBtn.addEventListener("change", function () {
-    if (realFileBtn.value) {
-      customTxt.innerHTML = realFileBtn.value.match(
-        /[\/\\]([\w\d\s\.\-\(\)]+)$/
-      )[1];
-    } else {
-      customTxt.innerHTML = "No file chosen, yet.";
-    }
-  });
-
-
-</script>
-
-<!-- <button type="button" class="btn btn-primary" onclick="checkTime()">Change Colour Mode</button> -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-<script src="map_themes.js"></script>
-<script src="map_script.js"></script>
-<script src="script.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap">
-</script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </html>

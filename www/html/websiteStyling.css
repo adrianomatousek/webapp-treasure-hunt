@@ -9,13 +9,11 @@
     float: left;
 }
 
-#cluesButton{
+#cluesButton {
     float: right;
 }
 
-h2 {
-
-}
+h2 {}
 
 #topNavBar li {
     float: left;
@@ -29,14 +27,14 @@ h2 {
     border-right: 1px solid lightblue;
 }
 
-#topNavBar li a:hover{
+#topNavBar li a:hover {
     background-color: purple;
 }
 
 body {
-    background-color: #1a1a1a;
+    background-color: white;
     height: 100%;
-    width:100%;
+    width: 100%;
 }
 
 
@@ -45,25 +43,25 @@ p {
 }
 
 .material-icons.md-36 {
-    color:black;
+    color: black;
     font-size: 36px;
 }
 
 /*css for camera button*/
 #custom-button {
-  color: white;
-  background-color: #1a1a1a;
-  border: 1px solid #000;
-  border-radius: 5px;
-  cursor: pointer;
+    color: white;
+    background-color: #1a1a1a;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #custom-button:hover {
-  background-color: #1a1a1a;
+    background-color: #1a1a1a;
 }
 
 #custom-text {
-  margin-left: 10px;
-  font-family: sans-serif;
-  color: #aaa;
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: #aaa;
 }
