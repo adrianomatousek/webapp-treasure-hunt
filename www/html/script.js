@@ -29,7 +29,6 @@ $(document).ready(function () {
         edge: 'right'
     });
 });
-// }
 
 
 // Carousel (slick.js) initialisation
