@@ -11,23 +11,24 @@ var customMarker;
 var markerOpacity = 0.85;
 var showMarkerNames = false;
 var showInfoLabels = true;
-var points;
+var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
-function nextWaypoint() {
+function nextWaypoint() { //fucntion to display the next way point
 	if (points.length > 0) {
-		var marker = points[0].split(',');
+		var marker = points[0].split(','); //split at the comma
 		var lat = parseFloat(marker[0]);
 		var long = parseFloat(marker[1]);
-		addMarker(lat, long);
+		addMarker(lat, long); //adds the marks to the map
 		points.shift();
 	}
 }
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
+	//retireves a JSON array of points and is converted to a JavaScript array
 });
 
 $.post('loadClues.php', function (data) {
