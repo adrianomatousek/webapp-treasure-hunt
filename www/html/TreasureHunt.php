@@ -28,7 +28,7 @@
   <div id="topNavBar">
     <ul class="z-depth-1">
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
-          class="sidenav-trigger">Menu</a></li>
+          class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
     </ul>
   </div>
 
