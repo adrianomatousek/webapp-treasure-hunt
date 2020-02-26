@@ -18,15 +18,13 @@ The Treasure Hunt webapp helps new students find their way around campus and lea
 - WAMP 3.2.0 (if you're on Windows)
 - Docker (optional)
 
-## Quick Setup - Docker
+## Quick Setup - Docker (still WIP)
 Quickly boot up a Docker container with everything preinstalled (Linux, Apache, MariaDB, PHP)
 - Clone the repo `git clone https://github.com/adrianomatousek/webapp-treasure-hunt.git`
 - CD into the cloned directory & boot up the Docker container `docker-compose up`
 
 ## Technical Overview
-TODO: flesh this out.
-LAMP stack something something something
-Brief overview of our tech
+We are using a LAMP stack. For the frontend we use the Materialize CSS framework. jsQR for QR code scanning.
 
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
@@ -42,3 +40,5 @@ Brief overview of our tech
 ## Aknowledgements & Attributions
 - [Material.io](material.io) for various icons
 - [snowplow](https://github.com/snowplow/snowplow) for their excellent documentation, which we took inspiration from
+- [Materialize](https://materializecss.com/) for their framework
+- [jsQR](https://github.com/cozmo/jsQR) a javascript library to scan QR codes

@@ -16,7 +16,10 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
-function nextWaypoint() { //fucntion to display the next way point
+function nextWaypoint() {
+	/*
+	Function that displays the next waypoint when the current is found
+	*/
 	if (points.length > 0) {
 		var marker = points[0].split(','); //split at the comma
 		var lat = parseFloat(marker[0]);
@@ -52,6 +55,9 @@ function fillClues(){
 
 
 function myMap() {
+	/*
+	Function that initializes the map
+	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
 	var directionsService = new google.maps.DirectionsService,
@@ -68,6 +74,15 @@ function myMap() {
 }
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
+	/*
+	Functions that adds a marker on the maps
+	parameters:
+	latPos - Latitutde coordinates of the marker
+	lngPos - Longitude coordinates of the marker
+	name - Name of the location
+	description - Descrition of the location
+	draggable - Whether it can be dragged or not
+	*/
 	markerNum = markers + 1;
 	var color;
 	if (isDay) {
@@ -80,7 +95,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		name = 'Treasure';
 	}
 
-	var marker = new google.maps.Marker({
+	var marker = new google.maps.Marker({ //adds marker
 		position: {
 			lat: latPos,
 			lng: lngPos
@@ -105,6 +120,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		name: name
 	});
 
+	//description if its too long
 	if (!description || description.length < 10) {
 		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
 	}
@@ -127,6 +143,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 
 	var firstClick;
 
+
 	marker.addListener('click', function () {
 		if (activeInfoLabel) {
 			activeInfoLabel.close(map, marker);
@@ -146,6 +163,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			activeInfoWindow.close();
 		}
 
+		//Changes label content when the marker is clickedon
 		if (activeMarker != marker) {
 			var label = this.getLabel();
 			if (isDay) {
@@ -155,6 +173,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			}
 			this.setLabel(label);
 
+			//sets marker label for new marker
 			if (activeMarker) {
 				var oldLabel = activeMarker.getLabel();
 				if (isDay) {
@@ -174,6 +193,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			this.setLabel(label);
 		}
 
+		//animation for marker and opens/closes info window (if its open)
 		if (activeInfoWindow !== infoWindow) {
 			if (enableAnimations) {
 				if (firstClick) {
@@ -196,6 +216,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 
 	var mouseOnMarker = false;
 
+	//TO DO Not useful on mobile delete later
 	marker.addListener('mouseover', function () {
 		if (marker == activeMarker) {
 			return null;
@@ -221,6 +242,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		}
 	});
 
+	// TO DO Remove later as not useful on mobile
 	marker.addListener('mouseout', function () {
 		if (marker == activeMarker) {
 			return null;
@@ -243,6 +265,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		}
 	});
 
+	//closes info window when you click X button
 	infoWindow.addListener('closeclick', function () {
 		markerSetAnimation(activeMarker, null);
 		activeMarker.setOpacity(markerOpacity);
@@ -270,8 +293,13 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 }
 
 function removeMarker(id) {
+	/*
+	Function to remove a marker
+	parameter:
+	id - Index of marker in array
+	*/
 	markerList[id].setMap(null);
-	marketList.splice(id); // not sure if this is the correct syntax for removing an element from an array, check this later
+	marketList.splice(id); 			// removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -297,21 +325,22 @@ function removeAllMarkers() {
 
 }
 
+// Function that allows the game masters to add a custom marker when needed
 function addCustomMarker() {
 	var marker = new google.maps.Marker({
-		position: {
+		position: {											// setting the original position of the marker
 			lat: 50.735700,
 			lng: -3.531150
 		},
 		map: map,
-		label: {
+		label: {												// Text "Drag Me" that follows the marker
 			color: 'black',
 			text: 'Drag Me',
 			fontSize: '16px',
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/orange-custom2.png',
+			url: 'img/icons/orange-custom2.png',					// marker icon
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
@@ -360,6 +389,7 @@ function addCustomMarker() {
 	customMarker = marker;
 }
 
+// Adds a new Treasure Location
 function saveCustomMarker() {
 	var name = prompt("Enter the name of the place (minimum 3 characters): ");
 	var description = prompt("Enter the description of the place (minimum 10 characters): ");
@@ -370,6 +400,7 @@ function saveCustomMarker() {
 	customMarker = null;
 }
 
+// Setting the bounce animation for the treasure markers
 function markerSetAnimation(marker, animation) {
 	switch (animation) {
 		case null:
@@ -401,6 +432,8 @@ function markerSetAnimation(marker, animation) {
 	}
 }
 
+
+// Utility function for checking time
 function checkTime() {
 	if (isDay) {
 		nightTime();
@@ -411,6 +444,7 @@ function checkTime() {
 	}
 }
 
+// sets light mode
 function dayTime() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
@@ -434,6 +468,7 @@ function dayTime() {
 
 }
 
+// sets night mode
 function nightTime() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
@@ -455,6 +490,7 @@ function nightTime() {
 	}
 }
 
+// utility function changing the numbers to names
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
@@ -463,6 +499,7 @@ function toggleMarkerNames() {
 	}
 }
 
+// shows marker names
 function showAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
@@ -474,6 +511,7 @@ function showAllMarkerNames() {
 	}
 }
 
+// hide marker names
 function hideAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
@@ -485,6 +523,7 @@ function hideAllMarkerNames() {
 	}
 }
 
+// sets opacity of markers
 function setMarkerOpacity(value) {
 	markerOpacity = value;
 	if (markerList.length > 0) {
