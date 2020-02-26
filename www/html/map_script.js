@@ -5,7 +5,7 @@ var markers = markerList.length;
 var activeInfoWindow;
 var activeInfoLabel;
 var activeMarker;
-var showLabelOnMouseOver = true;  // displays small info/help label when mouse cursor is over a marker
+var showLabelOnMouseOver = true; // displays small info/help label when mouse cursor is over a marker
 var enableAnimations = true;
 var customMarker;
 var markerOpacity = 0.85;
@@ -14,29 +14,35 @@ var showInfoLabels = true;
 var points;
 var activeClue;
 
+
 $.post('loadMarkers.php', function (data) {
- points = JSON.parse(data);
-	});
+	points = JSON.parse(data);
+});
 
 function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
+
+	var geoloccontrol = new klokantech.GeolocationControl(map, 18);
+
 	var directionsService = new google.maps.DirectionsService,
-		directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
+		directionsDisplay = new google.maps.DirectionsRenderer({
+			map: map
+		});
 	dayTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 	var button = document.getElementById('verify');
- 
-	button.onclick = function() {
-			if(points.length>0){
-				var marker = points[0].split(',');
-				var lat = parseFloat(marker[0]);
-				var long = parseFloat(marker[1]);
-				addMarker(lat,long);
-				points.shift();
-			}
+
+	button.onclick = function () {
+		if (points.length > 0) {
+			var marker = points[0].split(',');
+			var lat = parseFloat(marker[0]);
+			var long = parseFloat(marker[1]);
+			addMarker(lat, long);
+			points.shift();
+		}
 
 
 	};
@@ -52,8 +58,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var color;
 	if (isDay) {
 		color = 'black';
-	}
-	else {
+	} else {
 		color = 'white';
 	}
 
@@ -62,7 +67,10 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	}
 
 	var marker = new google.maps.Marker({
-		position: { lat: latPos, lng: lngPos },
+		position: {
+			lat: latPos,
+			lng: lngPos
+		},
 		map: map,
 		label: {
 			color: color,
@@ -128,8 +136,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			var label = this.getLabel();
 			if (isDay) {
 				label.color = '#007766';
-			}
-			else {
+			} else {
 				label.color = '#00ED87';
 			}
 			this.setLabel(label);
@@ -138,19 +145,16 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 				var oldLabel = activeMarker.getLabel();
 				if (isDay) {
 					oldLabel.color = 'black';
-				}
-				else {
+				} else {
 					oldLabel.color = 'white';
 				}
 				activeMarker.setLabel(oldLabel);
 			}
-		}
-		else {
+		} else {
 			var label = this.getLabel();
 			if (isDay) {
 				label.color = 'black';
-			}
-			else {
+			} else {
 				label.color = 'white';
 			}
 			this.setLabel(label);
@@ -161,8 +165,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 				if (firstClick) {
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 					firstClick = false;
-				}
-				else {
+				} else {
 					markerSetAnimation(marker, 'BOUNCE-IF');
 				}
 			}
@@ -170,8 +173,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			infoWindow.open(map, marker);
 			activeInfoWindow = infoWindow;
 			activeMarker = marker;
-		}
-		else {
+		} else {
 			markerSetAnimation(markerToBeSet, null);
 			activeInfoWindow = null;
 			activeMarker = null;
@@ -189,8 +191,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		if (isDay) {
 			label.color = '#007766';
 			//label.fontWeight = 'normal';
-		}
-		else {
+		} else {
 			label.color = '#00ED87';
 		}
 		this.setLabel(label);
@@ -214,8 +215,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		var label = this.getLabel();
 		if (isDay) {
 			label.color = 'black';
-		}
-		else {
+		} else {
 			label.color = 'white';
 		}
 		this.setLabel(label);
@@ -237,8 +237,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		var label = marker.getLabel();
 		if (isDay) {
 			label.color = 'black';
-		}
-		else {
+		} else {
 			label.color = 'white';
 		}
 		marker.setLabel(label);
@@ -258,7 +257,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 
 function removeMarker(id) {
 	markerList[id].setMap(null);
-	marketList.splice(id);  // not sure if this is the correct syntax for removing an element from an array, check this later
+	marketList.splice(id); // not sure if this is the correct syntax for removing an element from an array, check this later
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -286,7 +285,10 @@ function removeAllMarkers() {
 
 function addCustomMarker() {
 	var marker = new google.maps.Marker({
-		position: { lat: 50.735700, lng: -3.531150 },
+		position: {
+			lat: 50.735700,
+			lng: -3.531150
+		},
 		map: map,
 		label: {
 			color: 'black',
@@ -389,8 +391,7 @@ function checkTime() {
 	if (isDay) {
 		nightTime();
 		isDay = false;
-	}
-	else {
+	} else {
 		dayTime();
 		isDay = true;
 	}
@@ -418,6 +419,7 @@ function dayTime() {
 	}
 
 }
+
 function nightTime() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
@@ -442,8 +444,7 @@ function nightTime() {
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
-	}
-	else {
+	} else {
 		hideAllMarkerNames();
 	}
 }
@@ -481,10 +482,10 @@ function setMarkerOpacity(value) {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
 	directionsService.route({
-		origin: pointA,
-		destination: pointB,
-		travelMode: google.maps.TravelMode.WALKING
-	},
+			origin: pointA,
+			destination: pointB,
+			travelMode: google.maps.TravelMode.WALKING
+		},
 		function (response, status) {
 			if (status == google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(response);
@@ -501,7 +502,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 
 function bob(size = 200) {
 	var marker = new google.maps.Marker({
-		position: { lat: 50.745882, lng: -3.534206 },
+		position: {
+			lat: 50.745882,
+			lng: -3.534206
+		},
 		map: map,
 		//title: '',
 		label: {
@@ -532,21 +536,20 @@ function bob(size = 200) {
 // Geolocation
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function (position) {
-		var pos = {
-			lat: position.coords.latitude,
-			lng: position.coords.longitude
-		};
+			var pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
 
-		infoWindow.setPosition(pos);
-		infoWindow.setContent('Location found.');
-		infoWindow.open(map);
-		map.setCenter(pos);
-	},
+			infoWindow.setPosition(pos);
+			infoWindow.setContent('Location found.');
+			infoWindow.open(map);
+			map.setCenter(pos);
+		},
 		function () {
 			handleLocationError(true, infoWindow, map.getCenter());
 		});
-}
-else {
+} else {
 	// Browser doesn't support Geolocation
 	handleLocationError(false, infoWindow, map.getCenter());
 }

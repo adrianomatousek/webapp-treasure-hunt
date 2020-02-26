@@ -20,6 +20,7 @@
 
   <!-- icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
 
 
 </head>
