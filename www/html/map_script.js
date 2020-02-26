@@ -526,6 +526,7 @@ function bob(size = 200) {
 
 
 // Geolocation
+var infoWindow;
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function (position) {
 			var pos = {
