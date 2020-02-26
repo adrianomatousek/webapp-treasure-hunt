@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <!-- Login page -->
     <div id="container">
       <div class="col s12 z-depth-6 card-panel">
         <h1>Login</h1>
@@ -69,7 +70,7 @@ $sql = "SELECT username,hashPass FROM student_users";
 $result = $conn->query($sql);
 $found = False;
 // output data of each row
-if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {
+if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username'] &&
      hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
