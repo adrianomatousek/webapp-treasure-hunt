@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function tickBox() {
+function tickBox() { //for night mode
     var checker = document.getElementById("checkBoxNightMode");
     if (checker.checked == true) {
         checker.checked = false;
@@ -14,16 +14,11 @@ function tickBox() {
     }
 }
 
-// Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-// var collapsibleElem = document.querySelector('.collapsible');
-// var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
-// Or with jQuery
-
-$(document).ready(function () {
+$(document).ready(function () { //Initialize the sidenavs with Materializecss
     $('.sidenav').sidenav();
     $('#cluesPage').sidenav({
-        edge: 'left' // Slide from the right
+        edge: 'left' // Slide from the left
     });
     $('#settingsPage').sidenav({
         edge: 'right'
@@ -37,7 +32,7 @@ $(document).ready(function () {
         slidesToShow: 1,
         infinite: !1,
         speed: 500,
-        draggable: false,
+        draggable: false, //disable drag because we don't want accidental swiping
         swipe: false,
         swipeToSlide: false,
         touchMove: false,
@@ -47,16 +42,11 @@ $(document).ready(function () {
     });
 });
 
-function bottomNavGoTo(i) {
+function bottomNavGoTo(i) { //changes to a different carousel page
     $('.carousel-pages').slick('slickGoTo', i);
 }
-document.addEventListener('DOMContentLoaded', function () {
+
+document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
 });
-
-// Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-// var collapsibleElem = document.querySelector('.collapsible');
-// var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-// Or with jQuery
