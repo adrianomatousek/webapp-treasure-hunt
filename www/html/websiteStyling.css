@@ -12,13 +12,11 @@
 #cluesP {
     font-size: 15px;
     display: inline-block;
-    float: center;
     padding-left: 10px;
 }
 
 #cluesGetButton {
     display: inline-block;
-    float: center;
 }
 
 #cluesButton {
