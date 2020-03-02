@@ -70,8 +70,10 @@ function myMap() {
 		function success(position) {
 					 var i = 0;
 					 setInterval(function(){
+						var lat=position.coords.latitude;
+ 					  var lon=position.coords.longitude;
+ 					  updateMap(lat, lon);
 
-					 addMarker(position.coords.latitude,position.coords.longitude,'','',true);
 					 i = i >= 2 ? 0 : i + 1;
 
 			 }, 1000)
@@ -95,6 +97,22 @@ function myMap() {
 
 	addCustomMarker();
 }
+
+
+
+function updateMap(lat, lon) {
+    var latlon=new google.maps.LatLng(lat, lon),
+
+    var myOptions={
+      center:latlon,zoom:14,
+      mapTypeId:google.maps.MapTypeId.ROADMAP,
+      mapTypeControl:false,
+      navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  map=new google.maps.Map(document.getElementById("googleMap"),myOptions);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
