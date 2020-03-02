@@ -72,7 +72,8 @@ function myMap() {
 					 setInterval(function(){
 						var lat=position.coords.latitude;
  					  var lon=position.coords.longitude;
- 					  updateMap(lat, lon);
+						var latlon=new google.maps.LatLng(lat, lon),
+						var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 
 					 i = i >= 2 ? 0 : i + 1;
 
@@ -99,19 +100,6 @@ function myMap() {
 }
 
 
-
-function updateMap(lat, lon) {
-    var latlon=new google.maps.LatLng(lat, lon),
-
-    var myOptions={
-      center:latlon,zoom:14,
-      mapTypeId:google.maps.MapTypeId.ROADMAP,
-      mapTypeControl:false,
-      navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-  };
-  map=new google.maps.Map(document.getElementById("googleMap"),myOptions);
-  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-}
 
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
