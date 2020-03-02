@@ -66,7 +66,6 @@ function myMap() {
 		}
 
 		function success(position) {
-					 navigator.geolocation.getCurrentPosition(showPosition,showError);
 					 var i = 0;
 					 setInterval(function(){
 
