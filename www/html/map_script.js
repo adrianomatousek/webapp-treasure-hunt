@@ -59,15 +59,24 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.watchPosition(showPosition);
-	    } else {
-	        alert("Geolocation is not supported by this browser.");
-	    }
-	}
-	function showPosition(position) {
-	    addMarker(position.coords.latitude,position.coords.longitude,'','',true);
+	// Get user's location
+
+  if ('geolocation' in navigator) {
+
+    navigator.geolocation.getCurrentPosition(
+
+      position => console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
+
+      err => alert(`Error (${err.code}): ${err.message}`)
+
+    );
+
+	  } else {
+
+	    alert('Geolocation is not supported by your browser.');
+
+	  }
+
 	}
 
 	var directionsService = new google.maps.DirectionsService,
