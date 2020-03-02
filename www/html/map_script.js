@@ -63,15 +63,15 @@ function myMap() {
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
-				marker.setPosition({
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-				});
-				map.panTo({
-				  lat: position.coords.latitude,
-				  lng: position.coords.longitude
-				});
-
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+				addMarker(pos['lat'],pos['lng'],'','',true)
+				infoWindow.setPosition(pos);
+				infoWindow.setContent('Location found.');
+				infoWindow.open(map);
+				map.setCenter(pos);
 			},
 			function () {
 				handleLocationError(true, infoWindow, map.getCenter());
