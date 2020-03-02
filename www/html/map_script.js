@@ -72,7 +72,7 @@ function myMap() {
 					 addMarker(position.coords.latitude,position.coords.longitude,'','',true);
 					 i = i >= 2 ? 0 : i + 1;
 
-			 }, 15000)
+			 }, 1000)
 
 		}
 
