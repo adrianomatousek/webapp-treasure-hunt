@@ -62,32 +62,25 @@ function myMap() {
 	// Get user's location
 
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function (position) {
-				var pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-				addMarker(pos['lat'],pos['lng'],'','',true)
-				infoWindow.setPosition(pos);
-				infoWindow.setContent('Location found.');
-				infoWindow.open(map);
-				map.setCenter(pos);
-			},
-			function () {
-				handleLocationError(true, infoWindow, map.getCenter());
-			});
-	} else {
-		// Browser doesn't support Geolocation
-		handleLocationError(false, infoWindow, map.getCenter());
-	}
+  	navigator.geolocation.getCurrentPosition(success, error);
+		} else {
+		  alert('geolocation not supported');
+		}
 
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-		infoWindow.setPosition(pos);
-		infoWindow.setContent(browserHasGeolocation ?
-			'Error: The Geolocation service failed.' :
-			'Error: Your browser doesn\'t support geolocation.');
-		infoWindow.open(map);
-	}
+		function success(position) {
+					 var i = 0;
+					 setInterval(function(){
+
+					 addMarker(position.coords.latitude,position.coords.longitude,'','',true);
+					 i = i >= 2 ? 0 : i + 1;
+
+			 }, 1000)
+
+		}
+
+		function error(msg) {
+		  alert('error: ' + msg);
+		}
 
 
 	var directionsService = new google.maps.DirectionsService,
