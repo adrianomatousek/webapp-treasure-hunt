@@ -59,7 +59,20 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	if (navigator.geolocation) {
+  	navigator.geolocation.getCurrentPosition(success, error);
+		} else {
+		  alert('geolocation not supported');
+		}
 
+		function success(position) {
+		  alert(position.coords.latitude + ', ' + position.coords.longitude);
+		}
+
+		function error(msg) {
+		  alert('error: ' + msg);
+		}
+		
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
