@@ -65,9 +65,9 @@ function myMap() {
 
     navigator.geolocation.getCurrentPosition(
 
-      position => console.log(`Lat: ${position.coords.latitude} Lng: ${position.coords.longitude}`),
+      position => console.log( position.coords.latitude, position.coords.longitude),
 
-      err => alert(`Error (${err.code}): ${err.message}`)
+      err => alert("error")
 
     );
 
