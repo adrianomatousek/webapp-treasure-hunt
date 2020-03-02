@@ -70,13 +70,12 @@ function myMap() {
 					 var i = 0;
 					 setInterval(function(){
 
-					 addMarker(coordinates[i][0], coordinates[i][1], '', '',true);
+					 addMarker(position.coords.latitude,position.coords.longitude,'','',true);
 					 i = i >= 2 ? 0 : i + 1;
 
 			 }, 15000)
-	 	}
-	  
 
+		}
 
 		function error(msg) {
 		  alert('error: ' + msg);
