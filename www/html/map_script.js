@@ -70,11 +70,8 @@ function myMap() {
 		function success(position) {
 					 var i = 0;
 					 setInterval(function(){
-						var lat=position.coords.latitude;
- 					  var lon=position.coords.longitude;
-						var latlon=new google.maps.LatLng(lat, lon),
-						var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 
+					 addMarker(position.coords.latitude,position.coords.longitude,'','',true);
 					 i = i >= 2 ? 0 : i + 1;
 
 			 }, 1000)
@@ -98,9 +95,6 @@ function myMap() {
 
 	addCustomMarker();
 }
-
-
-
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
