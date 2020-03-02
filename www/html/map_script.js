@@ -67,7 +67,30 @@ function myMap() {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude
 				};
-				addMarker(pos['lat'],pos['lng'],'','',true)
+				var marker = new google.maps.Marker({ //adds marker
+					position: {
+						lat: pos['lat'],
+						lng: pos['lng']
+					},
+					map: map,
+					label: {
+						color: color,
+						text: markerNum.toString(),
+						fontSize: '18px',
+						fontWeight: 'bold',
+					},
+					icon: {
+						url: 'img/icons/chest.png',
+						scaledSize: new google.maps.Size(50, 50),
+						origin: new google.maps.Point(0, 0),
+						labelOrigin: new google.maps.Point(25, 54)
+					},
+					draggable: draggable,
+					animation: google.maps.Animation.DROP,
+					id: markerNum - 1,
+					opacity: markerOpacity,
+					name: name
+				});
 				infoWindow.setPosition(pos);
 				infoWindow.setContent('Location found.');
 				infoWindow.open(map);
