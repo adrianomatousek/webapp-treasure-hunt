@@ -66,13 +66,13 @@ function myMap() {
 		}
 
 		function success(position) {
-		  alert(position.coords.latitude + ', ' + position.coords.longitude);
+		  addmarker(position.coords.latitude,position.coords.longitude,'','',true);
 		}
 
 		function error(msg) {
 		  alert('error: ' + msg);
 		}
-		
+
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
