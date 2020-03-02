@@ -66,7 +66,7 @@ function myMap() {
 		}
 
 		function success(position) {
-		  addmarker(position.coords.latitude,position.coords.longitude,'','',true);
+		  addMarker(position.coords.latitude,position.coords.longitude,'','',true);
 		}
 
 		function error(msg) {
