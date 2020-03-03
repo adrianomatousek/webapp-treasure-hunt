@@ -26,9 +26,9 @@ function nextWaypoint() {
 		var long = parseFloat(marker[1]);
 		addMarker(lat, long); //adds the marks to the map
 		points.shift();
+		activeTreasure++;
+		document.getElementById('cluesP').innerHTML = '';
 	}
-	activeTreasure++;
-	document.getElementById('cluesP').innerHTML = '';
 }
 
 $.post('loadMarkers.php', function (data) {
@@ -590,6 +590,8 @@ function bob(size = 200) {
 }
 
 
+
+var currentLocation = new google.maps.Marker({});
 // Geolocation
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function (position) {
@@ -601,7 +603,7 @@ if (navigator.geolocation) {
 			infoWindow.setPosition(pos);
 			infoWindow.setContent('Location found.');
 			infoWindow.open(map);
-			map.setCenter(pos);
+			currentLocation.setPosition({lat:lat, lng:lng});
 		},
 		function () {
 			handleLocationError(true, infoWindow, map.getCenter());
