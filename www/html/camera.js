@@ -1,3 +1,5 @@
+// Adapted from https://github.com/cozmo/jsQR
+
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
@@ -31,8 +33,8 @@ navigator.mediaDevices.getUserMedia({
 });
 
 function tick() {
-    if (cameraEnabled){
-        loadingMessage.innerText = "⌛ Loading video..."
+    if (cameraEnabled) {
+        loadingMessage.innerText = "Camera Status: " + cameraEnabled.toString();
         if (video.readyState === video.HAVE_ENOUGH_DATA) {
             loadingMessage.hidden = true;
             canvasElement.hidden = false;
@@ -54,10 +56,10 @@ function tick() {
                 outputData.parentElement.hidden = false;
                 outputData.innerText = code.data;
                 console.log(code);
-                if (parseInt(code.data)==currentWaypointIndex && !accessedURLs.includes(code)){
+                if (parseInt(code.data) == currentWaypointIndex && !accessedURLs.includes(code)) {
                     nextWaypoint();
                     activeTreasure++;
-		            document.getElementById('cluesP').innerHTML = '';
+                    document.getElementById('cluesP').innerHTML = '';
                     currentWaypointIndex++;
                     accessedURLs.push(code);
                     bottomNavGoTo(0);
