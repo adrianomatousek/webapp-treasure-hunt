@@ -34,7 +34,7 @@ navigator.mediaDevices.getUserMedia({
 
 function tick() {
     document.getElementById('debugMessage').innerHTML = "Camera Status: " + cameraEnabled.toString();
-    if (cameraEnabled) {
+    if (true) {
         loadingMessage.innerText = "⌛ Loading video..."
         if (video.readyState === video.HAVE_ENOUGH_DATA) {
             loadingMessage.hidden = true;
