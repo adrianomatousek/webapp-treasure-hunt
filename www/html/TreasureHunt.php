@@ -104,9 +104,9 @@
         <canvas id="canvas" hidden=""></canvas>
       </div>
       <div id="output" hidden="">
+        <div id="debugMessage">test</div>
         <div id="outputMessage">No QR code detected.</div>
         <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
-        <div id="debugMessage">test</div>
       </div>
     </div>
     <div class="carousel-page">
