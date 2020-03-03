@@ -106,6 +106,7 @@
       <div id="output" hidden="">
         <div id="outputMessage">No QR code detected.</div>
         <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
+        <div id="debugMessage">test</div>
       </div>
     </div>
     <div class="carousel-page">
