@@ -10,7 +10,6 @@ var outputData = document.getElementById("outputData");
 var accessedURLs = [];
 var currentWaypointIndex = 1;
 var cameraEnabled = true;
-var placeHolderImage = document.getElementById("scream");
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
@@ -36,47 +35,44 @@ navigator.mediaDevices.getUserMedia({
 function tick() {
     document.getElementById('debugMessage').innerHTML = "Camera Status: " + cameraEnabled.toString();
     loadingMessage.innerText = "⌛ Loading video..."
+    if (cameraEnabled) {
+        if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            loadingMessage.hidden = true;
+            canvasElement.hidden = false;
+            outputContainer.hidden = false;
 
-    if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        loadingMessage.hidden = true;
-        canvasElement.hidden = false;
-        outputContainer.hidden = false;
+            canvasElement.height = video.videoHeight;
+            canvasElement.width = video.videoWidth;
 
-        canvasElement.height = video.videoHeight;
-        canvasElement.width = video.videoWidth;
-
-        if (cameraEnabled) {
             canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-        } else {
-            canvas.drawImage(placeHolderImage, 0, 0, canvasElement.width, canvasElement.height);
-        }
-        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var code = jsQR(imageData.data, imageData.width, imageData.height, {
-            inversionAttempts: "dontInvert",
-        });
-        if (code) {
-            drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-            drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-            drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-            drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-            outputMessage.hidden = true;
-            outputData.parentElement.hidden = false;
-            outputData.innerText = code.data;
-            console.log(code);
-            if (parseInt(code.data) == currentWaypointIndex && !accessedURLs.includes(code)) {
-                nextWaypoint();
-                activeTreasure++;
-                document.getElementById('cluesP').innerHTML = '';
-                currentWaypointIndex++;
-                accessedURLs.push(code);
-                bottomNavGoTo(0);
-            }
 
-        } else {
-            outputMessage.hidden = false;
-            outputData.parentElement.hidden = true;
+            var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+            var code = jsQR(imageData.data, imageData.width, imageData.height, {
+                inversionAttempts: "dontInvert",
+            });
+            if (code) {
+                drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+                drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+                drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+                drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+                outputMessage.hidden = true;
+                outputData.parentElement.hidden = false;
+                outputData.innerText = code.data;
+                console.log(code);
+                if (parseInt(code.data) == currentWaypointIndex && !accessedURLs.includes(code)) {
+                    nextWaypoint();
+                    activeTreasure++;
+                    document.getElementById('cluesP').innerHTML = '';
+                    currentWaypointIndex++;
+                    accessedURLs.push(code);
+                    bottomNavGoTo(0);
+                }
+
+            } else {
+                outputMessage.hidden = false;
+                outputData.parentElement.hidden = true;
+            }
         }
     }
-    //}
     requestAnimationFrame(tick);
 }
