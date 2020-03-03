@@ -10,6 +10,7 @@ var outputData = document.getElementById("outputData");
 var accessedURLs = [];
 var currentWaypointIndex = 1;
 var cameraEnabled = false;
+var previousVideoState;
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
@@ -35,15 +36,19 @@ navigator.mediaDevices.getUserMedia({
 function tick() {
     document.getElementById('debugMessage').innerHTML = "Camera Status: " + cameraEnabled.toString();
     loadingMessage.innerText = "⌛ Loading video..."
+
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         loadingMessage.hidden = true;
         canvasElement.hidden = false;
         outputContainer.hidden = false;
+        previousVideoState = video;
 
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
-        if (true) {
+        if (cameraEnabled) {
             canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        } else {
+            canvas.drawImage(previousVideoState, 0, 0, canvasElement.width, canvasElement.height);
         }
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
