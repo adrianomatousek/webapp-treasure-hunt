@@ -34,11 +34,6 @@ navigator.mediaDevices.getUserMedia({
 
 function tick() {
     document.getElementById('debugMessage').innerHTML = "Camera Status: " + cameraEnabled.toString();
-    if (cameraEnabled) {
-        video.getTracks()[0].start();
-    } else {
-        video.getTracks()[0].stop();
-    }
     loadingMessage.innerText = "⌛ Loading video..."
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         loadingMessage.hidden = true;
@@ -47,7 +42,9 @@ function tick() {
 
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
-        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        if (cameraEnabled) {
+            canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        }
         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
         var code = jsQR(imageData.data, imageData.width, imageData.height, {
             inversionAttempts: "dontInvert",
@@ -75,6 +72,5 @@ function tick() {
             outputData.parentElement.hidden = true;
         }
     }
-}
-requestAnimationFrame(tick);
+    requestAnimationFrame(tick);
 }
