@@ -27,6 +27,8 @@ function nextWaypoint() {
 		addMarker(lat, long); //adds the marks to the map
 		points.shift();
 	}
+	activeTreasure++;
+	document.getElementById('cluesP').innerHTML = '';
 }
 
 $.post('loadMarkers.php', function (data) {
