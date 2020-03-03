@@ -145,6 +145,8 @@
     </div>
   </div>
 
+  <img hidden id="scream" width="220" height="277" src="img/img_the_scream.jpg">
+
   <!-- Bottom Nav Bar -->
   <footer class="page-footer">
     <div class="container">
