@@ -44,9 +44,9 @@ $(document).ready(function () {
 
 function bottomNavGoTo(i) { //changes to a different carousel page
     $('.carousel-pages').slick('slickGoTo', i);
-    if (i==1){
+    if (i == 1) {
         cameraEnabled = true;
-    } else{
+    } else {
         cameraEnabled = false;
     }
 }
@@ -54,4 +54,9 @@ function bottomNavGoTo(i) { //changes to a different carousel page
 document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
+});
+
+
+$(document).ready(function () {
+    cameraEnabled = false;
 });

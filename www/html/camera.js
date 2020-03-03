@@ -9,7 +9,7 @@ var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
 var accessedURLs = [];
 var currentWaypointIndex = 1;
-var cameraEnabled = false;
+var cameraEnabled = true;
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
@@ -34,7 +34,7 @@ navigator.mediaDevices.getUserMedia({
 
 function tick() {
     document.getElementById('debugMessage').innerHTML = "Camera Status: " + cameraEnabled.toString();
-    if (true) {
+    if (cameraEnabled) {
         loadingMessage.innerText = "⌛ Loading video..."
         if (video.readyState === video.HAVE_ENOUGH_DATA) {
             loadingMessage.hidden = true;
