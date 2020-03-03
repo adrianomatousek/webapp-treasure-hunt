@@ -26,8 +26,6 @@ function nextWaypoint() {
 		var long = parseFloat(marker[1]);
 		addMarker(lat, long); //adds the marks to the map
 		points.shift();
-		activeTreasure++;
-		document.getElementById('cluesP').innerHTML = '';
 	}
 }
 

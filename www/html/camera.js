@@ -55,10 +55,12 @@ function tick() {
                 outputData.innerText = code.data;
                 console.log(code);
                 if (parseInt(code.data)==currentWaypointIndex && !accessedURLs.includes(code)){
-                nextWaypoint();
-                currentWaypointIndex++;
-                accessedURLs.push(code);
-                bottomNavGoTo(0);
+                    nextWaypoint();
+                    activeTreasure++;
+		            document.getElementById('cluesP').innerHTML = '';
+                    currentWaypointIndex++;
+                    accessedURLs.push(code);
+                    bottomNavGoTo(0);
                 }
 
             } else {
