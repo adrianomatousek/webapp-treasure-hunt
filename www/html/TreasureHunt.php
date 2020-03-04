@@ -102,7 +102,7 @@
           <tbody>
             <tr>
               <th>Place</th>
-              <th>Username</th>
+              <th>Team</th>
               <th>Points</th>
               <th>Time</th>
             </tr>
