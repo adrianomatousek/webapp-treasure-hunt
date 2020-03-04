@@ -626,6 +626,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // Clues
 
 function showNextClue(treasureIndex, button) {
+	console.log("Showing next clue " + treasureIndex + button);
 	newElement = '<div>Clue for treausre with index ' + treasureIndex + '</div>';
 	button.parentNode.insertBefore(newElement, someElement.nextSibling);
 }
