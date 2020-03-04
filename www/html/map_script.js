@@ -66,15 +66,8 @@ function myMap() {
 
 	function showLocation(position)
 	{
-		var pos = {
-	              lat: position.coords.latitude,
-	              lng: position.coords.longitude
-	            };
-
-	            infoWindow.setPosition(pos);
-	            infoWindow.setContent('Location found.');
-	            infoWindow.open(map);
-	            map.setCenter(pos);
+	var latlon = position.coords.latitude + "," + position.coords.longitude;
+	console.log(latlon);
 
 	}
 
