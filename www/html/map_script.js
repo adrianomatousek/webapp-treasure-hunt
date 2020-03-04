@@ -66,7 +66,7 @@ function myMap() {
 
 	function showLocation(position)
 	{
-	var my_position = new google.maps.LatLng(position.coords.latitude + "," + position.coords.longitude;);
+	var latlon = position.coords.latitude + "," + position.coords.longitude;
 	console.log(latlon);
 
 	}
