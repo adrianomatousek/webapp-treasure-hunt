@@ -117,8 +117,10 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClue-' + markerNum + '" class="waves-effect waves-light btn-small" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
-		'</p></div>'
+		'<br><input type="button" " class="waves-effect waves-light btn-small" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
+		'</p></div><br>' +
+		'<div class="clues-section" id="showClue-' + markerNum + '</div>'
+
 
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
@@ -617,10 +619,10 @@ function showNextClue(treasureIndex) {
 	if ((clues[treasureIndex - 1][activeClue + 1]) &&
 		(clues[treasureIndex - 1][activeClue + 1].length > 0)) {
 
-		var clueButton = document.getElementById("showClue-" + treasureIndex);
+		var clueSection = document.getElementById("showClue-" + treasureIndex);
 		console.log("Showing next clue " + treasureIndex);
 		newElement = '<div>Clue for treausre with index ' + clues[treasureInde - 1][activeClue + 1] + '</div>';
-		clueButton.outerHTML += newElement;
+		clueSection.innerHTML += newElement;
 
 		activeClue++;
 	}
