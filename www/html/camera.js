@@ -62,7 +62,6 @@ function tick() {
                 if (parseInt(code.data) == currentWaypointIndex && !accessedURLs.includes(code)) {
                     nextWaypoint();
                     activeTreasure++;
-                    document.getElementById('cluesP').innerHTML = '';
                     currentWaypointIndex++;
                     accessedURLs.push(code);
                     bottomNavGoTo(0);
