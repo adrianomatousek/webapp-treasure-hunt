@@ -29,7 +29,9 @@ function nextWaypoint() {
 		points.shift();
 
 		activeTreasure += 1;
-		document.getElementById("showClueButton-" + activeTreasure).remove();
+		if (document.getElementById("showClueButton-" + activeTreasure)) {
+			document.getElementById("showClueButton-" + activeTreasure).remove();
+		}
 
 		activeClue = -1; //reset the clue count
 	}
@@ -122,7 +124,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
+		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1)" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
 
