@@ -180,3 +180,8 @@ p {
     position: absolute !important;
     width: 100%;
 }
+
+
+#score-section {
+    text-align: center;
+}

@@ -95,7 +95,7 @@
     <div class="carousel-page">
       <!-- Page 3: Leaderboard -->
       <div class="container">
-        <div>
+        <div class="score-section">
           <h6>Score: <span id="your-score">2</span></h6>
         </div>
         <table>
