@@ -12,8 +12,8 @@
     <!-- Login page -->
     <div id="container">
       <div class="col s12 z-depth-6 card-panel">
-        <h1>Login</h1>
-        <form form class = "log" name = "login" method="post" onsubmit="return validation()" action = "index.php">
+        <h1>Register</h1>
+        <form form class = "reg" name = "register" method="post" onsubmit="return validation()">
           <div class="row">
           </div>
           <div class="row">
@@ -33,15 +33,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-               <button type='submit' name='login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6 m6 l6">
-              <p class="margin medium-small"><a href="register.php">Register Now!</a></p>
-            </div>
-            <div class="input-field col s6 m6 l6">
-                <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
 
@@ -65,26 +57,3 @@
 
 
 </html>
-
-<?php
-require ("connection.php");
-session_start();
-$sql = "SELECT username,hashPass FROM student_users";
-$result = $conn->query($sql);
-$found = False;
-// output data of each row
-if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-   while($row = $result->fetch_assoc()) {
-     if ($_POST['inputUsername'] == $row['username'] &&
-     hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
-        // echo 'Correct password for ',$row['username'];
-        header('Location: TreasureHunt.php');
-        $found = True;
-     }
-   }
-   if(!$found){
-     echo "Incorrect Details";
-   }
-}
-
- ?>
