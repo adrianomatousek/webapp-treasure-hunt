@@ -29,7 +29,7 @@ function nextWaypoint() {
 		points.shift();
 
 		activeTreasure += 1;
-		//document.getElementById("showClueButton-" + activeTreasure).remove();
+		document.getElementById("showClueButton-" + activeTreasure).remove();
 
 		activeClue = -1; //reset the clue count
 	}
