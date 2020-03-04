@@ -621,3 +621,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 		'Error: Your browser doesn\'t support geolocation.');
 	infoWindow.open(map);
 }
+
+
+// Clues
+
+function showNextClue(treasureIndex, button) {
+	newElement = '<div>Clue for treausre with index ' + treasureIndex + '</div>';
+	button.parentNode.insertBefore(newElement, someElement.nextSibling);
+}
