@@ -28,7 +28,7 @@ function nextWaypoint() {
 		addMarker(lat, long); //adds the marks to the map
 		points.shift();
 
-		document.getElementById("showClueButton-" + treasureIndex).remove();
+		document.getElementById("showClueButton-" + activeTreasure).remove();
 
 		activeTreasure += 1;
 		activeClue = -1; //reset the clue count
