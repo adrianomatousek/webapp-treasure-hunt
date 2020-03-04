@@ -68,7 +68,7 @@
 
 <?php
 require ("connection.php");
-
+session_start();
 $sql = "SELECT username,hashPass FROM student_users";
 $result = $conn->query($sql);
 $found = False;
