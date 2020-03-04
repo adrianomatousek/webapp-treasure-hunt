@@ -162,6 +162,8 @@
   <script src="map_themes.js"></script>
   <script src="map_script.js"></script>
   <script src="script.js"></script>
+  <script src="clues_script.js"></script>
+  <script src="score_script.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1BcEMRCURawddT4GEKPVl_NXxRwPyRrQ&callback=myMap">
   </script>
