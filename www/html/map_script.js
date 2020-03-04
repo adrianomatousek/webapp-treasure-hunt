@@ -614,12 +614,12 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // Clues
 
 function showNextClue(treasureIndex) {
-	if ((clues[treasureIndex][activeClue + 1]) &&
-		(clues[treasureIndex][activeClue + 1].length > 0)) {
+	if ((clues[treasureIndex - 1][activeClue + 1]) &&
+		(clues[treasureIndex - 1][activeClue + 1].length > 0)) {
 
 		var clueButton = document.getElementById("showClue-" + treasureIndex);
 		console.log("Showing next clue " + treasureIndex);
-		newElement = '<div>Clue for treausre with index ' + clues[treasureIndex][activeClue + 1] + '</div>';
+		newElement = '<div>Clue for treausre with index ' + clues[treasureInde - 1][activeClue + 1] + '</div>';
 		clueButton.outerHTML += newElement;
 
 		activeClue++;
