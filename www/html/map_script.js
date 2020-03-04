@@ -629,5 +629,5 @@ function showNextClue(treasureIndex) {
 	var clueButton = document.getElementById("showClue-" + treasureIndex);
 	console.log("Showing next clue " + treasureIndex);
 	newElement = '<div>Clue for treausre with index ' + treasureIndex + '</div>';
-	clueButton.parentNode.insertBefore(newElement, clueButton.nextSibling);
+	clueButton.outerHTML += newElement;
 }
