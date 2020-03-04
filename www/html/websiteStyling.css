@@ -182,6 +182,6 @@ p {
 }
 
 
-#score-section {
-    text-align: center;
+.score-section {
+    text-align: center !important;
 }
