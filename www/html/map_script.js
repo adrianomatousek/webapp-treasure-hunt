@@ -61,40 +61,6 @@ function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
 
-	var watchID;
-	var geoLoc;
-	var infoWindow;
-
-	function showLocation(position) {
-		var latlon = position.coords.latitude + "," + position.coords.longitude;
-		console.log(latlon);
-		//addMarker(position.coords.latitude, position.coords.longitude, "myLoc", "you");
-	}
-
-	function errorHandler(err) {
-		if (err.code == 1) {
-			alert("Error: Access is denied!");
-		} else if (err.code == 2) {
-			alert("Error: Position is unavailable!");
-		}
-	}
-
-	function getLocationUpdate() {
-
-		if (navigator.geolocation) {
-			// timeout at 120000 milliseconds (120 seconds)
-			var options = {
-				timeout: 3000
-			};
-			geoLoc = navigator.geolocation;
-			watchID = geoLoc.watchPosition(showLocation,
-				errorHandler,
-				options);
-		} else {
-			alert("Sorry, browser does not support geolocation!");
-		}
-	}
-	getLocationUpdate();
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
