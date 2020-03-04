@@ -27,8 +27,6 @@
   <!-- Top nav bar -->
   <div id="topNavBar">
     <ul class="z-depth-1">
-      <li style="float: right;">Score:1</li>
-
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
           class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
     </ul>
@@ -98,7 +96,7 @@
       <!-- Page 3: Leaderboard -->
       <div class="container">
         <div>
-          <h2>Score:<span id="your-score">2</span></h2>
+          <h6>Score: <span id="your-score">2</span></h6>
         </div>
         <table>
           <tbody>
