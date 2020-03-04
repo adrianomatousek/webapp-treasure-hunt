@@ -16,6 +16,7 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
+
 function nextWaypoint() {
 	/*
 	Function that displays the next waypoint when the current is found
@@ -39,20 +40,6 @@ $.post('loadClues.php', function (data) {
 	console.log(clues[1][1]);
 	console.log(clues);
 });
-
-function fillClues() {
-	//Add to the end of the id of the given id.
-	var cluesParagraph = document.getElementById('cluesP');
-	console.log("REACHED THIS POINT");
-	console.log(clues[1][1]);
-	if ((clues[activeTreasure][activeClue + 1]) &&
-		(clues[activeTreasure][activeClue + 1].length > 0)) {
-
-		console.log(clues[activeTreasure][activeClue + 1]);
-		cluesParagraph.innerHTML += clues[activeTreasure][activeClue + 1] + '<br>';
-		activeClue++;
-	}
-}
 
 
 function myMap() {
@@ -627,8 +614,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // Clues
 
 function showNextClue(treasureIndex) {
-	var clueButton = document.getElementById("showClue-" + treasureIndex);
-	console.log("Showing next clue " + treasureIndex);
-	newElement = '<div>Clue for treausre with index ' + treasureIndex + '</div>';
-	clueButton.outerHTML += newElement;
+	if ((clues[treasureIndex][activeClue + 1]) &&
+		(clues[treasureIndex][activeClue + 1].length > 0)) {
+
+		var clueButton = document.getElementById("showClue-" + treasureIndex);
+		console.log("Showing next clue " + treasureIndex);
+		newElement = '<div>Clue for treausre with index ' + clues[treasureIndex][activeClue + 1] + '</div>';
+		clueButton.outerHTML += newElement;
+
+		activeClue++;
+	}
 }
