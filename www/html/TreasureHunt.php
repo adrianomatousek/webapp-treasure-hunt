@@ -96,7 +96,7 @@
       <!-- Page 3: Leaderboard -->
       <div class="container">
         <div class="score-section">
-          <h6>Score: <span id="your-score">2</span></h6>
+          <h6>Score: <span id="your-score">0</span></h6>
         </div>
         <table>
           <tbody>
