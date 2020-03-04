@@ -67,9 +67,12 @@ function myMap() {
 	function showLocation(position)
 	{
 	var my_position = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-	var my_map = new google.maps.Map(document.getElementById("map"), {
-    center: my_position,
-    zoom: 17
+	// Init marker
+  var my_marker = new google.maps.Marker({
+    position: my_position,
+    map: map,
+    draggable: true,
+    title: "Choose location..."
   });
 	}
 
