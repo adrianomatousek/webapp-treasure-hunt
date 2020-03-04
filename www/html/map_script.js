@@ -28,9 +28,9 @@ function nextWaypoint() {
 		addMarker(lat, long); //adds the marks to the map
 		points.shift();
 
+		activeTreasure += 1;
 		document.getElementById("showClueButton-" + activeTreasure).remove();
 
-		activeTreasure += 1;
 		activeClue = -1; //reset the clue count
 	}
 }
