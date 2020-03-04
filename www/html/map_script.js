@@ -82,7 +82,7 @@ function myMap() {
 
 	   if(navigator.geolocation){
 	      // timeout at 120000 milliseconds (120 seconds)
-	      var options = {timeout:300000000};
+	      var options = {timeout:3000};
 	      geoLoc = navigator.geolocation;
 	      watchID = geoLoc.watchPosition(showLocation,
 	                                     errorHandler,
