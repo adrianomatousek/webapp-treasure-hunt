@@ -66,31 +66,9 @@ function myMap() {
 
 	function showLocation(position)
 	{
-	// Init marker
-	var marker = new google.maps.Marker({ //adds marker
-		position: {
-			lat: position.coords.latitude,
-			lng: position.coords.longitude
-		},
-		map: map,
-		label: {
-			color: color,
-			text: markerNum.toString(),
-			fontSize: '18px',
-			fontWeight: 'bold',
-		},
-		icon: {
-			url: 'img/icons/chest.png',
-			scaledSize: new google.maps.Size(50, 50),
-			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(25, 54)
-		},
-		draggable: draggable,
-		animation: google.maps.Animation.DROP,
-		id: markerNum - 1,
-		opacity: markerOpacity,
-		name: name
-	});
+	var my_position = new google.maps.LatLng(position.coords.latitude + "," + position.coords.longitude;);
+	console.log(latlon);
+
 	}
 
 	function errorHandler(err) {
