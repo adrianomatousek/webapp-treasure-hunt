@@ -39,16 +39,16 @@ $.post('loadClues.php', function (data) {
 	console.log(clues[1][1]);
 });
 
-function fillClues(){
+function fillClues() {
 	//Add to the end of the id of the given id.
 	var cluesParagraph = document.getElementById('cluesP');
 	console.log("REACHED THIS POINT");
 	console.log(clues[1][1]);
-	if ((clues[activeTreasure][activeClue+1]) &&
-		(clues[activeTreasure][activeClue+1].length > 0)){
+	if ((clues[activeTreasure][activeClue + 1]) &&
+		(clues[activeTreasure][activeClue + 1].length > 0)) {
 
-		console.log(clues[activeTreasure][activeClue+1]);
-		cluesParagraph.innerHTML += clues[activeTreasure][activeClue+1]+'<br>';
+		console.log(clues[activeTreasure][activeClue + 1]);
+		cluesParagraph.innerHTML += clues[activeTreasure][activeClue + 1] + '<br>';
 		activeClue++;
 	}
 }
@@ -65,32 +65,34 @@ function myMap() {
 	var geoLoc;
 	var infoWindow;
 
-	function showLocation(position)
-	{
-	var latlon = position.coords.latitude + "," + position.coords.longitude;
-	console.log(latlon);
-
+	function showLocation(position) {
+		var latlon = position.coords.latitude + "," + position.coords.longitude;
+		console.log(latlon);
+		addMarker(position.coords.latitude, position.coords.longitude, "myLoc", "you");
 	}
 
 	function errorHandler(err) {
-		if(err.code == 1) {
+		if (err.code == 1) {
 			alert("Error: Access is denied!");
-		}else if( err.code == 2) {
+		} else if (err.code == 2) {
 			alert("Error: Position is unavailable!");
 		}
 	}
-	function getLocationUpdate(){
 
-		 if(navigator.geolocation){
-				// timeout at 120000 milliseconds (120 seconds)
-				var options = {timeout:3000};
-				geoLoc = navigator.geolocation;
-				watchID = geoLoc.watchPosition(showLocation,
-																			 errorHandler,
-																			 options);
-		 }else{
-				alert("Sorry, browser does not support geolocation!");
-		 }
+	function getLocationUpdate() {
+
+		if (navigator.geolocation) {
+			// timeout at 120000 milliseconds (120 seconds)
+			var options = {
+				timeout: 3000
+			};
+			geoLoc = navigator.geolocation;
+			watchID = geoLoc.watchPosition(showLocation,
+				errorHandler,
+				options);
+		} else {
+			alert("Sorry, browser does not support geolocation!");
+		}
 	}
 	getLocationUpdate();
 	var directionsService = new google.maps.DirectionsService,
@@ -332,7 +334,7 @@ function removeMarker(id) {
 	id - Index of marker in array
 	*/
 	markerList[id].setMap(null);
-	marketList.splice(id); 			// removing an element from an array
+	marketList.splice(id); // removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -361,19 +363,19 @@ function removeAllMarkers() {
 // Function that allows the game masters to add a custom marker when needed
 function addCustomMarker() {
 	var marker = new google.maps.Marker({
-		position: {											// setting the original position of the marker
+		position: { // setting the original position of the marker
 			lat: 50.735700,
 			lng: -3.531150
 		},
 		map: map,
-		label: {												// Text "Drag Me" that follows the marker
+		label: { // Text "Drag Me" that follows the marker
 			color: 'black',
 			text: 'Drag Me',
 			fontSize: '16px',
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/orange-custom2.png',					// marker icon
+			url: 'img/icons/orange-custom2.png', // marker icon
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
@@ -621,6 +623,7 @@ function bob(size = 200) {
 
 
 var currentLocation = new google.maps.Marker({});
+
 // Geolocation
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function (position) {
@@ -632,7 +635,10 @@ if (navigator.geolocation) {
 			infoWindow.setPosition(pos);
 			infoWindow.setContent('Location found.');
 			infoWindow.open(map);
-			currentLocation.setPosition({lat:lat, lng:lng});
+			currentLocation.setPosition({
+				lat: lat,
+				lng: lng
+			});
 		},
 		function () {
 			handleLocationError(true, infoWindow, map.getCenter());
