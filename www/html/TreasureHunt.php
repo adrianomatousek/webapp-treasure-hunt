@@ -64,23 +64,6 @@
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
   </ul>
 
-  <!-- Clues side menu -->
-  <ul id="cluesPage" class="sidenav">
-    <div>
-      <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
-    </div>
-
-    <li>
-      <div class="user-view">
-        <h2 style="margin: 0px;">Clues</h2>
-      </div>
-      <input type="button" id="cluesGetButton" value="Get Clue" onclick="fillClues()">
-      <div>
-        <p id="cluesP">
-        </p>
-      </div>
-    </li>
-  </ul>
   <br>
   <!-- <br>
    <div> this somehow fixes weird bug where map dissapears lol?? -->
