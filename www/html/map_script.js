@@ -37,6 +37,7 @@ $.post('loadMarkers.php', function (data) {
 $.post('loadClues.php', function (data) {
 	clues = JSON.parse(data);
 	console.log(clues[1][1]);
+	console.log(clues);
 });
 
 function fillClues() {
