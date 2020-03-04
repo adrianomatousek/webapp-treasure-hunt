@@ -66,9 +66,12 @@ function myMap() {
 
 	function showLocation(position)
 	{
-	var latlon = position.coords.latitude + "," + position.coords.longitude;
+	var my_position = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 	console.log(latlon);
-
+	var my_map = new google.maps.Map(document.getElementById("map"), {
+    center: my_position,
+    zoom: 17
+  });
 	}
 
 	function errorHandler(err) {
