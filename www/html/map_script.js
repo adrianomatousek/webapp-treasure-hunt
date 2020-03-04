@@ -119,7 +119,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		'</h4><div id="bodyContent"><p> ' + description +
 		'<br><input type="button" " class="waves-effect waves-light btn-small" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
-		'<div class="clues-section" id="showClue-' + markerNum + '></div>'
+		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
 
 
 	var infoWindow = new google.maps.InfoWindow({
