@@ -13,7 +13,7 @@
     <div id="container">
       <div class="col s12 z-depth-6 card-panel">
         <h1>Register</h1>
-        <form form class = "reg" name = "register" method="post" onsubmit="return validation()">
+        <form form class = "reg" name = "register" method="post" onsubmit="return validation()" action="register.php">
           <div class="row">
           </div>
           <div class="row">
@@ -57,3 +57,19 @@
 
 
 </html>
+
+
+ <?php
+ require ("connection.php");
+
+ // output data of each row
+ if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
+  $user = $_POST['inputUsername'];
+  $pwd = hash('sha256',$_POST['inputPassword']);
+  $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', 'sal','acessLevel',0,'name','email','gamekeeperID')";
+  if ($result = $conn->query($sql)) {
+  echo "added";
+  }
+ }
+
+  ?>
