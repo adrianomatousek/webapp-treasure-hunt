@@ -60,7 +60,35 @@ function myMap() {
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
+	var watchID;
+	var geoLoc;
 
+	function showLocation(position)
+	{
+	alert('latitude: '+position.coords.latitude+' AND longitude: '+position.coords.longitude);
+	}
+
+	function errorHandler(err) {
+	  if(err.code == 1) {
+	    alert("Error: Access is denied!");
+	  }else if( err.code == 2) {
+	    alert("Error: Position is unavailable!");
+	  }
+	}
+	function getLocationUpdate(){
+
+	   if(navigator.geolocation){
+	      // timeout at 120000 milliseconds (120 seconds)
+	      var options = {timeout:120000};
+	      geoLoc = navigator.geolocation;
+	      watchID = geoLoc.watchPosition(showLocation,
+	                                     errorHandler,
+	                                     options);
+	   }else{
+	      alert("Sorry, browser does not support geolocation!");
+	   }
+	}
+	getLocationUpdate();
 
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
