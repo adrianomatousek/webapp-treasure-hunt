@@ -68,7 +68,7 @@ function myMap() {
 	function showLocation(position) {
 		var latlon = position.coords.latitude + "," + position.coords.longitude;
 		console.log(latlon);
-		addMarker(position.coords.latitude, position.coords.longitude, "myLoc", "you");
+		//addMarker(position.coords.latitude, position.coords.longitude, "myLoc", "you");
 	}
 
 	function errorHandler(err) {
