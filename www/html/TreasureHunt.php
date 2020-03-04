@@ -27,6 +27,8 @@
   <!-- Top nav bar -->
   <div id="topNavBar">
     <ul class="z-depth-1">
+      <li style="float: right;">Score:1</li>
+
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
           class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
     </ul>
