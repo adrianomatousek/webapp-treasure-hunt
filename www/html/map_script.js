@@ -129,7 +129,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" class="showClueButton" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ',' + this + ')">' +
+		'<br><input type="button" id="showClue-' + markerNum + '" class="showClueButton" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div>'
 
 	var infoWindow = new google.maps.InfoWindow({
@@ -625,8 +625,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 // Clues
 
-function showNextClue(treasureIndex, button) {
+function showNextClue(treasureIndex) {
+	var clueButton = document.getElementById("showClue-" + treasureIndex);
 	console.log("Showing next clue " + treasureIndex + button);
 	newElement = '<div>Clue for treausre with index ' + treasureIndex + '</div>';
-	button.parentNode.insertBefore(newElement, someElement.nextSibling);
+	clueButton.parentNode.insertBefore(newElement, someElement.nextSibling);
 }
