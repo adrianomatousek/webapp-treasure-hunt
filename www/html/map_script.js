@@ -16,6 +16,7 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
+
 function nextWaypoint() {
 	/*
 	Function that displays the next waypoint when the current is found
@@ -37,21 +38,8 @@ $.post('loadMarkers.php', function (data) {
 $.post('loadClues.php', function (data) {
 	clues = JSON.parse(data);
 	console.log(clues[1][1]);
+	console.log(clues);
 });
-
-function fillClues() {
-	//Add to the end of the id of the given id.
-	var cluesParagraph = document.getElementById('cluesP');
-	console.log("REACHED THIS POINT");
-	console.log(clues[1][1]);
-	if ((clues[activeTreasure][activeClue + 1]) &&
-		(clues[activeTreasure][activeClue + 1].length > 0)) {
-
-		console.log(clues[activeTreasure][activeClue + 1]);
-		cluesParagraph.innerHTML += clues[activeTreasure][activeClue + 1] + '<br>';
-		activeClue++;
-	}
-}
 
 
 function myMap() {
@@ -129,8 +117,10 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" class="showClueButton" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
-		'</p></div>'
+		'<br><input type="button" " class="waves-effect waves-light btn-small" value="Clues for this treasure" onclick="showNextClue(' + markerNum + ')">' +
+		'</p></div><br>' +
+		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
+
 
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
@@ -620,4 +610,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 		'Error: The Geolocation service failed.' :
 		'Error: Your browser doesn\'t support geolocation.');
 	infoWindow.open(map);
+}
+
+
+// Clues
+
+function showNextClue(treasureIndex) {
+	if ((clues[treasureIndex - 1][activeClue + 1]) &&
+		(clues[treasureIndex - 1][activeClue + 1].length > 0)) {
+
+		var clueSection = document.getElementById("showClue-" + treasureIndex);
+		console.log("Showing next clue " + treasureIndex);
+		newElement = '<div>Clue for treausre with index ' + clues[treasureIndex - 1][activeClue + 1] + '</div>';
+		clueSection.innerHTML += newElement;
+
+		activeClue++;
+	}
 }
