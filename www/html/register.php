@@ -22,20 +22,21 @@
 
       <div class="col s12 m6 l4 z-depth-6 card-panel">
         <h1>Register</h1>
-        <form form class="reg" name="register" method="post" onsubmit="return validation()" action="register.php">
+        <form form class="reg" name="register" method="post" action="register.php">
+        <!-- onsubmit="return validation()"  -->
           <div class="row">
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="inputUsername" name="inputUsername" type="text">
+              <input class="validate" id="inputUsername" name="inputUsername" type="text" required/>
               <label for="inputUsername">Username</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
-              <input id="inputPassword" name="inputPassword" type="password">
+              <input id="inputPassword" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
           </div>
@@ -53,20 +54,22 @@
     </div>
   </div>
 
-  <script>
+<!-- Consider creating a function to toggle visibility of password so they can see. -->
+
+  <!-- <script>
     function validation() {
       //to check if input fields are empty
       var uname = document.getElementById('inputUsername').value;
       var psw = document.getElementById('inputPassword').value;
       console.log(uname);
       console.log(psw);
-      if (uname == null || psw == null) {
+      if (uname == "" || psw == "") {
         alert("Please fill in all fields. One or more fields are blank");
         return false;
       }
       return true;
     }
-  </script>
+  </script> -->
 </body>
 
 
@@ -118,8 +121,4 @@ require ("connection.php");
         header("location: index.php");
       // }
     }
-    // else if (isset($_POST['register'])){
-    //   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
-    // }
-  // }
 ?>
