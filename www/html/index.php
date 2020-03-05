@@ -93,7 +93,6 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
         $found = True;
        }
      }
-     }
    }
    if(!$found){
      echo "Incorrect Details";
