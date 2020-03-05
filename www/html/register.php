@@ -81,13 +81,26 @@ function generateRandomString($length = 10) {
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
 
+  $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
+  //Fills prepared statement with a string, avoids injection and allows us to check DB.
+  $query->bind_param("s", $user);
+  //Executes query and stores it in memory.
+  $query->execute();
+  //Checks how many rows affected, if 1 or more, the account must already exist.
+  if ($query->affected_rows === 0){
+    echo "<script> alert('Account already exists') </script>";
+    // header("location: index.php");
+  }
+  $query->close();
+
   $salt = generateRandomString(16);
   $pwd = hash('sha256',$_POST['inputPassword'].$salt);
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
-    echo "added";
-    header("location: index.php");
+    echo "<script> alert('Account added') </script>";
+    // header("location: index.php");
   }
  }
+ header("location: index.php");
 
   ?>

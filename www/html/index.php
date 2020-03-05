@@ -103,6 +103,10 @@
 // }
 
 
+//https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
+//https://stackoverflow.com/questions/44997146/how-fetch-multiple-rows-from-mysql-using-prepared-statements
+//References I used ^^^
+
 session_start();
 //Why log in again? Only way to logout is to click logout.
 //Having this avoids them having to type in the full URL if they want to go straight to treasure hunt.
