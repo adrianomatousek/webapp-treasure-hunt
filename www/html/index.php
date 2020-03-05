@@ -87,6 +87,8 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
    while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username']) {
        echo "found matching username";
+       echo "<br>Hash pass: " . $row['hashPass'];
+       echo "<br>";
        if (hash('sha256',$_POST['inputPassword'].$row['salt']) == $row['hashPass']) {
         echo 'Correct password for ',$row['username'];
         header('Location: TreasureHunt.php');
