@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   //  $sqlQuery = "SELECT * FROM student_users";
   //  $database = $conn->query($sqlQuery);
-$query= mysqli("SELECT username, hashPass, accessLevel FROM student_users WHERE username = ".$_SESSION['$CheckUsername']." ");
+$query= "SELECT username, hashPass, accessLevel FROM student_users WHERE username = ".$_SESSION['$CheckUsername'];
 $database = mysql_fetch_array($query);
 
    while ($user = $database->fetch_assoc()){
