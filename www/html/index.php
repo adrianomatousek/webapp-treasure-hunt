@@ -14,9 +14,11 @@
 
 <body>
   <!-- Login page -->
-  <div id="container">
+  <div class="container">
     <div class="row">
-      <div class="col s12 m8 l4 z-depth-6 card-panel">
+      <div class="col s0 m3 l4">
+      </div>
+      <div class="col s12 m6 l4 z-depth-6 card-panel">
         <h1>Login</h1>
         <form form class="log" name="login" method="post" onsubmit="return validation()" action="index.php">
           <div class="row">
@@ -51,6 +53,8 @@
           </div>
 
         </form>
+      </div>
+      <div class="col s0 m3 l4">
       </div>
     </div>
   </div>
