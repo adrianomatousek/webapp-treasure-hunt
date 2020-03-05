@@ -95,7 +95,8 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
         echo "Attempt Hash: " . $attempt_hash_2;
         echo "<br>";
        echo "found matching username: " . $row['username'];
-       echo "<br>Hash pass: " . $row['hashPass'];
+       echo "Salt for user: " . $row['salt'];
+       echo "<br>Hash for user: " . $row['hashPass'];
        echo "<br>";
        if ($attempt_hash == $row['hashPass']) {
         echo 'Correct password for ',$row['username'];
