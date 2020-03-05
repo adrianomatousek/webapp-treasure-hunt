@@ -111,9 +111,9 @@ require ("connection.php");
       $salt = generateRandomString(16);
       $pwd = hash('sha256',$_POST['inputPassword'].$salt);
       // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
-      $addAcc = $conn->prepare("INSERT INTO `student_users`(username, hashPass, salt, accessLevel, score, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?,?)");
-      $paramTypes = 'sssssisss';
-      $addAcc->bind_param($paramTypes, $user, $pwd, $salt, 'Student', (int) 0, 'name','email','chiefGamekeeper');
+      $addAcc = $conn->prepare("INSERT INTO `student_users`(username, hashPass, salt, accessLevel, score,fullName, email, gamekeeperID) VALUES (?,?,?,?,?,?,?,?)");
+      $paramTypes = 'ssssisss';
+      $addAcc->bind_param($paramTypes, $user, $pwd, $salt, 'Student',0, 'fullName','email','chiefGamekeeper');
       $addAcc->execute();
       $addAcc->close();
 

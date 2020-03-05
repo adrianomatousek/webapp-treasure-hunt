@@ -26,14 +26,14 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="inputUsername" name="inputUsername" type="text">
+              <input class="validate" id="inputUsername" name="inputUsername" type="text" required/>
               <label for="inputUsername">Username</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
-              <input id="inputPassword" name="inputPassword" type="password">
+              <input id="inputPassword" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
           </div>
