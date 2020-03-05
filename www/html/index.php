@@ -151,18 +151,18 @@ $query->close();
 $error = "Incorrect username or password.";
 
 //Counts login attempts.
-if(isset($_SESSION["counter"])) {
-  //If they fail to login, will reach this stage (won't die()) and increase counter.
-  $_SESSION["counter"] = $_SESSION["counter"] + 1;
-  //If 3 failed login attempts I'll freeze the page for 10 seconds.
-  if (($_SESSION["counter"]) > 3){
-    $error = "Too many incorrect login attempts. Waited 10 seconds. Please try again.";
-  }
-}
+// if(isset($_SESSION["counter"])) {
+//   //If they fail to login, will reach this stage (won't die()) and increase counter.
+//   $_SESSION["counter"] = $_SESSION["counter"] + 1;
+//   //If 3 failed login attempts I'll freeze the page for 10 seconds.
+//   if (($_SESSION["counter"]) > 3){
+//     $error = "Too many incorrect login attempts. Waited 10 seconds. Please try again.";
+//   }
+// }
 
   //Initialises counter if not created.
-  else{
-    $_SESSION["counter"] = 0;
-  }
+  // else{
+  //   $_SESSION["counter"] = 0;
+  // }
 }
 ?>
