@@ -123,11 +123,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
 $query->bind_param("s", $CheckUsername);
 $query->execute();
-$result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
+// $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
+$result = $query->get_result();
 // $database = $conn->query($query);
 
   //  while ($user = $database->fetch_assoc()){
-  while ($user = $result->fetch_row()){
+  while ($user = $result->fetch_assoc()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
       $_SESSION["loggedin"] = true;
       $_SESSION["id"] = $user["id"];
