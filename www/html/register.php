@@ -36,7 +36,7 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
-              <input id="inputPassword" minlength="10" name="inputPassword" type="password" required/>
+              <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
           </div>
