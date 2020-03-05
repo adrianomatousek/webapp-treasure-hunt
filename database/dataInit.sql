@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS treasurehunt;
+
+USE treasurehunt;
+
 CREATE TABLE IF NOT EXISTS treasurehunt.student_users (
   username VARCHAR(10) NOT NULL,
   hashPass VARCHAR(64) NOT NULL,
@@ -58,21 +62,21 @@ ALTER TABLE waypoints
     ADD FOREIGN KEY (routeID)
     REFERENCES treasurehunt.routes (routeID);
 
+INSERT INTO gamekeepers VALUES(
+  "ChiefGamekeeper",
+  "C. Game"
+);
+
 INSERT INTO student_users VALUES 
 (
   "dgm214",
-  "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-  "1234567890123456",
+  "7a37b85c8918eac19a9089c0fa5a2ab4dce3f90528dcdeec108b23ddf3607b99",
+  "salt",
   "Student",
   "0",
   "Dan M",
   "dgm214@exeter.ac.uk",
   "ChiefGamekeeper"
-);
-
-INSERT INTO gamekeepers VALUES(
-  "ChiefGamekeeper",
-  "C. Game"
 );
 
 INSERT INTO routes VALUES

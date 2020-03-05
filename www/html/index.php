@@ -81,31 +81,17 @@ $sql = "SELECT username,hashPass,salt FROM student_users";
 $result = $conn->query($sql);
 $found = False;
 
+$row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-   while($row = $result->fetch_assoc()) {
-
-     if ($_POST['inputUsername'] == $row['username'] &&
-     hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
-        // echo 'Correct password for ',$row['username'];
-
-    echo "<tr>";
-    foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function.
-    }
-    echo "</tr>";
-      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
-      $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
-      echo "Attempt Hash: " . $attempt_hash;
-      echo "<br>";
-
-
+   while($row = $result->fetch_assgitoc()) {
      if ($_POST['inputUsername'] == $row['username']) {
-      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);  
        if ($attempt_hash == $row['hashPass']) {
         echo 'Correct password for ',$row['username'];
         header('Location: TreasureHunt.php');
         $found = True;
+       }
      }
    }
    if(!$found){
