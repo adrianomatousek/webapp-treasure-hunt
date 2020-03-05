@@ -60,7 +60,7 @@
       var psw = document.login.inputPassword.value;
       if (uname == "" || psw == "") {
         alert("Please fill in all fields. One or more fields are blank");
-        return false;
+        //return false;
       }
     }
   </script>
@@ -115,8 +115,8 @@ require ("connection.php");
         header("location: index.php");
       // }
     }
-    else if ($_POST['register']){
-      echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
-    }
+    // else if (isset($_POST['register'])){
+    //   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
+    // }
   // }
 ?>
