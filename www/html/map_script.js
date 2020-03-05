@@ -74,6 +74,8 @@ function myMap() {
 						map: map,
 						title: 'Golden Gate Bridge'
 						});
+						console.log(position.coords.latitude);
+						console.log(position.coords.longitude);
 					 i = i >= 2 ? 0 : i + 1;
 
 			 }, 1000)
