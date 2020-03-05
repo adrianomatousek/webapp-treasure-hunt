@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Login</title>
+  <title>Registration</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
 
