@@ -16,7 +16,7 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 var posmarker;
-
+var posmarkers =[];
 
 function nextWaypoint() {
 	/*
@@ -85,7 +85,7 @@ function getGeo(){
 
 	function showLocation(position)
 	{
-		posmarker.setMap(null);
+		posmarkers.setMap(null);
 		posmarker = new google.maps.Marker({
  		 position: {
  			lat: position.coords.latitude,
@@ -94,6 +94,7 @@ function getGeo(){
  		map: map,
  		title: 'Golden Gate Bridge'
  		});
+		posmarkers.push(posmarker);
  		console.log(position.coords.latitude);
  		console.log(position.coords.longitude);
 
