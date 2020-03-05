@@ -106,7 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $pwd = hash('sha256',$_POST['inputPassword'].$salt);
     // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
     $addAcc = $conn->prepare("INSERT INTO `student_users`(username, hashPass, salt, accessLevel, score, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?,?)");
-    $addAcc->bind_param("ssssisss", $user, $pwd, $salt, 'Student',$a=0, 'name','email','chiefGamekeeper');
+    $paramTypes = 'ssssisss';
+    $addAcc->bind_param($paramTypes, $user, $pwd, $salt, 'Student', (int) $a=0, 'name','email','chiefGamekeeper');
     $addAcc->execute();
     $addAcc->close();
 
