@@ -22,7 +22,7 @@
 
       <div class="col s12 m6 l4 z-depth-6 card-panel">
         <h1>Register</h1>
-        <form form class="reg" name="register" method="post" onsubmit="return validation()" action="register.php">
+        <form form class="reg" name="register" method="post" onsubmit="validation()" action="register.php">
           <div class="row">
           </div>
           <div class="row">
