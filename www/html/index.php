@@ -111,6 +111,7 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
      echo "<br>Pass: " . $_POST['inputPassword'];
      echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].$row['salt']);
      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+     echo "$attempt_hash <br>";
      if ($attempt_hash == $row['hashPass']) {
        echo "$attempt_hash <br>";
       echo 'Correct password for ',$row['username'];
