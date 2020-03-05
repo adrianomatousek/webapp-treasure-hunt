@@ -100,7 +100,7 @@ function generateRandomString($length = 10) {
     echo '<script type="text/javascript"> alert("Account already exists"); </script>';
     // header("location: index.php");
   }
-  header("location: index.php");
+  // header("location: index.php");
  }
 
   ?>
