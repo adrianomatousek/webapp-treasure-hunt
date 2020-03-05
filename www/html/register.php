@@ -117,10 +117,10 @@ require ("connection.php");
       $salt = generateRandomString(16);
       $pwd = hash('sha256',$_POST['inputPassword'].$salt);
       // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
-      $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, realName, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
+      $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
       
 
-      $addAcc->bind_param("sssssss", $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
+      $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
       $addAcc->execute();
       $addAcc->close();
 
