@@ -119,10 +119,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   //  $sqlQuery = "SELECT * FROM student_users";
   //  $database = $conn->query($sqlQuery);
-$query= "SELECT username, hashPass, accessLevel FROM student_users WHERE username = ".$_SESSION['$CheckUsername'];
-$database = $conn->query($query);
+// $query= "SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = '".$_SESSION['$CheckUsername']."'";
+$query = $pdo->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
+$query->execute(array($_SESSION['CheckUsername']));
 
-   while ($user = $database->fetch_assoc()){
+// $database = $conn->query($query);
+
+  //  while ($user = $database->fetch_assoc()){
+  while ($user = $database->fetch_assoc()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
       $_SESSION["loggedin"] = true;
       $_SESSION["id"] = $user["id"];
