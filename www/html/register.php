@@ -56,8 +56,8 @@
   <script>
     function validation() {
       //to check if input fields are empty
-      var uname = document.login.inputUsername.value;
-      var psw = document.login.inputPassword.value;
+      var uname = document.getElementById('inputUsername').value;
+      var psw = document.getElementById('inputPassword').value;
       console.log(uname);
       console.log(psw);
       if (uname == null || psw == null) {
