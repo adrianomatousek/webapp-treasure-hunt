@@ -72,7 +72,7 @@
 
 <?php
  require ("connection.php");
-
+ echo "test";
  // output data of each row
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
