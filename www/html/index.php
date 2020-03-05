@@ -86,10 +86,14 @@ $row_test = "";
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+      $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
       echo "Attempt Hash: " . $attempt_hash;
       echo "<br>";
   
      if ($_POST['inputUsername'] == $row['username']) {
+        $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
+        echo "Attempt Hash: " . $attempt_hash_2;
+        echo "<br>";
        echo "found matching username";
        echo "<br>Hash pass: " . $row['hashPass'];
        echo "<br>";
