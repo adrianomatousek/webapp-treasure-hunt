@@ -107,7 +107,7 @@ function generateRandomString($length = 10) {
   }
  }
  else{
-   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>'
+   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
  }
 
   ?>
