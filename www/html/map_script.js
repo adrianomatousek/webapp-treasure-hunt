@@ -57,6 +57,11 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	map.setOptions({
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: 16,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+	});
 	if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(success, error);
 		} else {
