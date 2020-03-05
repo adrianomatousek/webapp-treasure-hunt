@@ -81,6 +81,7 @@ $sql = "SELECT username,hashPass,salt FROM student_users";
 $result = $conn->query($sql);
 $found = False;
 
+$row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
