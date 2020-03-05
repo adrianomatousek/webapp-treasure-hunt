@@ -71,6 +71,8 @@
 
 
 <?php
+ echo "test1";
+
  require ("connection.php");
  echo "test";
  // output data of each row
