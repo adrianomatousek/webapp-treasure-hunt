@@ -15,6 +15,7 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
+var posmarker;
 
 
 function nextWaypoint() {
@@ -56,6 +57,33 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	if (navigator.geolocation) {
+  	navigator.geolocation.getCurrentPosition(success, error);
+		} else {
+		  alert('geolocation not supported');
+		}
+
+		function success(position) {
+					 var i = 0;
+					 setInterval(function(){
+					 posmarker = new google.maps.Marker({
+						 position: {
+ 							lat: position.coords.latitude,
+ 							lng: position.coords.longitude
+ 						},
+						map: map,
+						title: 'Golden Gate Bridge'
+						});
+					 i = i >= 2 ? 0 : i + 1;
+
+			 }, 1000)
+
+		}
+
+		function error(msg) {
+		  alert('error: ' + msg);
+		}
+
 
 
 	var directionsService = new google.maps.DirectionsService,
