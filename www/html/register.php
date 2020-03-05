@@ -111,9 +111,9 @@ if(isset($_POST['submit'])){
     $addAcc->execute();
     $addAcc->close();
 
-    if ($result = $conn->query($sql)) {
+    // if ($result = $conn->query($sql)) {
       header("location: index.php");
-    }
+    // }
   }
   else if ($_POST['register']){
     echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
