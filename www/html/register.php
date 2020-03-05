@@ -110,7 +110,7 @@ require ("connection.php");
       $student = 'Student';
       $realName = 'realName';
       $email = 'email';
-      $accessLevel = 'chiefGamekeeper'
+      $accessLevel = 'chiefGamekeeper';
 
 
 
