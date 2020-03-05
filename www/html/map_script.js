@@ -85,6 +85,7 @@ function getGeo(){
 
 	function showLocation(position)
 	{
+		posmarker.setMap(null);
 		posmarker = new google.maps.Marker({
  		 position: {
  			lat: position.coords.latitude,
