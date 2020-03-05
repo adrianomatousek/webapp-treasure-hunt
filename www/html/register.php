@@ -100,7 +100,7 @@ function generateRandomString($length = 10) {
     echo "<script> alert('Account added') </script>";
     // header("location: index.php");
   }
+  header("location: index.php");
  }
- header("location: index.php");
 
   ?>
