@@ -80,7 +80,7 @@ function generateRandomString($length = 10) {
  // output data of each row
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
-  $salt = generateRandomString(24);
+  $salt = generateRandomString(16);
   $pwd = hash('sha256',$_POST['inputPassword'].$salt);
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
