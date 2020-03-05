@@ -76,38 +76,45 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("Location: TreasureHunt.php");
   exit;
 }
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+  }
 
-function generateRandomString($length = 10) {
-  return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+  require ("connection.php");
+  // output data of each row
+  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
+    $user = $_POST['inputUsername'];
+
+    $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
+    //Fills prepared statement with a string, avoids injection and allows us to check DB.
+    $query->bind_param("s", $user);
+    //Executes query and stores it in memory.
+    $query->execute();
+    //Checks how many rows affected, if 1 or more, the account must already exist.
+    if ($query->get_result() != null){
+      echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+      //Avoid doing anything else (saves processing power and data usage).
+      die();
+    }
+    $query->close();
+
+    //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
+
+    $salt = generateRandomString(16);
+    $pwd = hash('sha256',$_POST['inputPassword'].$salt);
+    // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
+    $addAcc = $conn->prepare("INSERT INTO `student_users`(username, hashPass, salt, accessLevel, score, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?,?)");
+    $addAcc->bind_param("ssssissi", $user, $pwd, $salt, 'Student',0, 'name','email','chiefGamekeeper');
+    $addAcc->execute();
+    $addAcc->close();
+    
+    if ($result = $conn->query($sql)) {
+      header("location: index.php");
+    }
+  }
+  else{
+    echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
+  }
 }
-
- require ("connection.php");
- // output data of each row
- if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-  $user = $_POST['inputUsername'];
-
-  $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
-  //Fills prepared statement with a string, avoids injection and allows us to check DB.
-  $query->bind_param("s", $user);
-  //Executes query and stores it in memory.
-  $query->execute();
-  //Checks how many rows affected, if 1 or more, the account must already exist.
-  if ($query->get_result() != null){
-    echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
-    //Avoid doing anything else (saves processing power and data usage).
-    die();
-  }
-  $query->close();
-
-  $salt = generateRandomString(16);
-  $pwd = hash('sha256',$_POST['inputPassword'].$salt);
-  $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
-  if ($result = $conn->query($sql)) {
-    header("location: index.php");
-  }
- }
- else{
-   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
- }
-
   ?>
