@@ -106,5 +106,8 @@ function generateRandomString($length = 10) {
     header("location: index.php");
   }
  }
+ else{
+   echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>'
+ }
 
   ?>
