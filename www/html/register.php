@@ -29,14 +29,14 @@
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="inputUsername" name="inputUsername" type="text" required/>
+              <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
               <label for="inputUsername">Username</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
-              <input id="inputPassword" name="inputPassword" type="password" required/>
+              <input id="inputPassword" minlength="10" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
           </div>
@@ -112,8 +112,7 @@ require ("connection.php");
       $pwd = hash('sha256',$_POST['inputPassword'].$salt);
       // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
       $addAcc = $conn->prepare("INSERT INTO `student_users`(username, hashPass, salt, accessLevel, score,fullName, email, gamekeeperID) VALUES (?,?,?,?,?,?,?,?)");
-      $paramTypes = 'ssssisss';
-      $addAcc->bind_param($paramTypes, $user, $pwd, $salt, 'Student',0, 'fullName','email','chiefGamekeeper');
+      $addAcc->bind_param('ssssisss', $user, $pwd, $salt, 'Student',0, 'fullName','email','chiefGamekeeper');
       $addAcc->execute();
       $addAcc->close();
 
