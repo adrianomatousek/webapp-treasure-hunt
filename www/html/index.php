@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //  $sqlQuery = "SELECT * FROM student_users";
   //  $database = $conn->query($sqlQuery);
 // $query= "SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = '".$_SESSION['$CheckUsername']."'";
-$query = $pdo->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
+$query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
 $query->execute(array($_SESSION['CheckUsername']));
 
 // $database = $conn->query($query);
@@ -133,7 +133,7 @@ $query->execute(array($_SESSION['CheckUsername']));
       $_SESSION["username"] = $CheckUsername;
       $_SESSION["privileges"] = $user["accessLevel"];
 
-    header("Location: StockPage.php");
+    header("Location: TreasureHunt.php");
     die();
   }
 }
