@@ -85,6 +85,7 @@ $row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
+     echo $row ."<br>";
       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
       $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
       echo "Attempt Hash: " . $attempt_hash;
