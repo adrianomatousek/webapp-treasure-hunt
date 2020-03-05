@@ -85,6 +85,7 @@ $found = False;
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username'] &&
+
      hash('sha256',$_POST['inputPassword'].$row['salt']) == $row['hashPass']) {
         // echo 'Correct password for ',$row['username'];
         header('Location: TreasureHunt.php');
@@ -92,6 +93,7 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
      }
    }
    if(!$found){
+     echo hash('sha256',$_POST['inputPassword'].$row['salt']);
      echo "Incorrect Details";
    }
 }
