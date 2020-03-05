@@ -65,8 +65,9 @@
  // output data of each row
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
-  $pwd = hash('sha256',$_POST['inputPassword']);
-  $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', 'sal','acessLevel',0,'name','email','gamekeeperID')";
+  $salt = random_bytes(16);
+  $pwd = hash('sha256',$_POST['inputPassword'].$salt);
+  $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','acessLevel',0,'name','email','gamekeeperID')";
   if ($result = $conn->query($sql)) {
   echo "added";
   }

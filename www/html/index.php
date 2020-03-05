@@ -69,7 +69,7 @@
 <?php
 require ("connection.php");
 session_start();
-$sql = "SELECT username,hashPass FROM student_users";
+$sql = "SELECT username,hashPass,salt FROM student_users";
 $result = $conn->query($sql);
 $found = False;
 
@@ -77,7 +77,7 @@ $found = False;
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username'] &&
-     hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
+     hash('sha256',$_POST['inputPassword'].$row['salt']) == $row['hashPass']) {
         // echo 'Correct password for ',$row['username'];
         header('Location: TreasureHunt.php');
         $found = True;
