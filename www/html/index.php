@@ -109,7 +109,7 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
      echo "Incorrect Details";
      echo "<br>Name: " . $_POST['inputUsername'];
      echo "<br>Pass: " . $_POST['inputPassword'];
-     echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].$row['salt']);
+     echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].'??Z+79?`?w85|');
    }
 }
 
