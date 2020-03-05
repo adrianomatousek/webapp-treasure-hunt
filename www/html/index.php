@@ -84,12 +84,15 @@ $found = False;
 $row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
+  $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+  echo "Attempt Hash: " . $attempt_hash;
+  echo "<br>";
    while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username']) {
        echo "found matching username";
        echo "<br>Hash pass: " . $row['hashPass'];
        echo "<br>";
-       if (hash('sha256',$_POST['inputPassword'].$row['salt']) == $row['hashPass']) {
+       if ($attempt_hash == $row['hashPass']) {
         echo 'Correct password for ',$row['username'];
         header('Location: TreasureHunt.php');
         $found = True;
