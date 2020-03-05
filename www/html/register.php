@@ -85,7 +85,8 @@ function generateRandomString($length = 10) {
   $pwd = hash('sha256',$_POST['inputPassword'].$salt);
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
-  echo "added";
+    echo "added";
+    header("location: index.php");
   }
  }
 
