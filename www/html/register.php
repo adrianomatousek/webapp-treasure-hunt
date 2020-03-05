@@ -81,6 +81,8 @@
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','acessLevel',0,'name','email','gamekeeperID')";
   if ($result = $conn->query($sql)) {
   echo "added";
+  } else {
+   echo "didn't add";
   }
  }
 
