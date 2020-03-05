@@ -76,7 +76,7 @@
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
   $salt = random_bytes(16);
-  $pwd = hash('sha256',$_POST['inputPassword'].$salt);
+  $pwd = hash('sha256',$_POST['inputPassword']);
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
   echo "added";
