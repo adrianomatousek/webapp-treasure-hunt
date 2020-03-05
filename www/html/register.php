@@ -88,7 +88,7 @@ function generateRandomString($length = 10) {
   $query->execute();
   //Checks how many rows affected, if 1 or more, the account must already exist.
   if ($query->affected_rows === 0){
-    echo "<script> alert('Account already exists') </script>";
+    echo "<script> alert('Account already exists'); </script>";
     // header("location: index.php");
   }
   $query->close();
@@ -97,7 +97,7 @@ function generateRandomString($length = 10) {
   $pwd = hash('sha256',$_POST['inputPassword'].$salt);
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
-    echo "<script> alert('Account added') </script>";
+    echo "<script> alert('Account added'); </script>";
     // header("location: index.php");
   }
   header("location: index.php");
