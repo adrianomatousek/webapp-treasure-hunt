@@ -127,15 +127,15 @@ $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 // $database = $conn->query($query);
 
   //  while ($user = $database->fetch_assoc()){
-  while ($user = $result->fetch_assoc()){
+  while ($user = $result->fetch_row()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
       $_SESSION["loggedin"] = true;
       $_SESSION["id"] = $user["id"];
       $_SESSION["username"] = $CheckUsername;
       $_SESSION["privileges"] = $user["accessLevel"];
 
-    header("Location: TreasureHunt.php");
-    die();
+      header("Location: TreasureHunt.php");
+      die();
   }
 }
 $query->close();
