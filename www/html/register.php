@@ -94,6 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //Checks how many rows affected, if 1 or more, the account must already exist.
     if ($query->get_result() != null){
       echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+      $query->close();
       //Avoid doing anything else (saves processing power and data usage).
       die();
     }
@@ -108,12 +109,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $addAcc->bind_param("ssssissi", $user, $pwd, $salt, 'Student',0, 'name','email','chiefGamekeeper');
     $addAcc->execute();
     $addAcc->close();
-    
+
     if ($result = $conn->query($sql)) {
       header("location: index.php");
     }
   }
-  else{
+  else if ($_POST['register']){
     echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
   }
 }
