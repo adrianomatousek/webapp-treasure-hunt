@@ -84,15 +84,44 @@ $found = False;
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
+<<<<<<< HEAD
      if ($_POST['inputUsername'] == $row['username'] &&
      hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
         // echo 'Correct password for ',$row['username'];
+=======
+    echo "<tr>";
+    foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
+        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+    }
+    echo "</tr>";
+      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+      $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
+      echo "Attempt Hash: " . $attempt_hash;
+      echo "<br>";
+  
+     if ($_POST['inputUsername'] == $row['username']) {
+        $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
+        echo "Attempt Hash: " . $attempt_hash_2;
+        echo "<br>";
+       echo "found matching username: " . $row['username'];
+       echo "Salt for user: " . $row['salt'];
+       echo "<br>Hash for user: " . $row['hashPass'];
+       echo "<br>";
+       if ($attempt_hash_2 == $row['hashPass']) {
+        echo 'Correct password for ',$row['username'];
+>>>>>>> 3f1daefbd41e13a860365d19e3c9bfa3bbbf215b
         header('Location: TreasureHunt.php');
         $found = True;
      }
    }
    if(!$found){
      echo "Incorrect Details";
+<<<<<<< HEAD
+=======
+     echo "<br>Name: " . $_POST['inputUsername'];
+     echo "<br>Pass: " . $_POST['inputPassword'];
+     echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].'??Z+79?`?w85|');
+>>>>>>> 3f1daefbd41e13a860365d19e3c9bfa3bbbf215b
    }
 }
 
