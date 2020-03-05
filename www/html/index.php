@@ -123,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
 $query->bind_param("s", $CheckUsername);
 $query->execute();
-$result = $query->fetch_assoc();
+$result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 // $database = $conn->query($query);
 
   //  while ($user = $database->fetch_assoc()){
