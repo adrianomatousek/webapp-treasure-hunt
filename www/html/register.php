@@ -107,10 +107,10 @@ require ("connection.php");
       $query->close();
 
       //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
-      $accessLevel = 'Student';
-      $realName = 'realName';
-      $email = 'email'; 
-      $gamekeeperID = 'chiefGamekeeper';
+      $accessLevel1 = 'Student';
+      $realName1 = 'realName';
+      $email1 = 'email'; 
+      $gamekeeperID1 = 'chiefGamekeeper';
 
 
 
@@ -120,7 +120,7 @@ require ("connection.php");
       $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, realName, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
       
 
-      $addAcc->bind_param("sssssss", $user, $pwd, $salt, $accessLevel, $realName, $email, $gamekeeperID);
+      $addAcc->bind_param("sssssss", $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
       $addAcc->execute();
       $addAcc->close();
 
