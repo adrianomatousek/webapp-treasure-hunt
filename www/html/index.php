@@ -104,53 +104,66 @@
 
 
 session_start();
+//Why log in again? Only way to logout is to click logout.
+//Having this avoids them having to type in the full URL if they want to go straight to treasure hunt.
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("Location: TreasureHunt.php");
   exit;
 }
 
+//Ensures the connection to the database is established. We only need it initialised once.
 require_once "connection.php";
 
+//Avoids errors to do with get URLs.
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
    $CheckUsername = $_POST['inputUsername'];
    $CheckPassword = $_POST['inputPassword'];
 
 
-  //  $sqlQuery = "SELECT * FROM student_users";
-  //  $database = $conn->query($sqlQuery);
-// $query= "SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = '".$_SESSION['$CheckUsername']."'";
-$query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
-$query->bind_param("s", $CheckUsername);
-$query->execute();
-// $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
-$result = $query->get_result();
-// $database = $conn->query($query);
-
-  //  while ($user = $database->fetch_assoc()){
+  //Prepared statement that allows us to select wanted things.
+  $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
+  //Fills prepared statement with a string, avoids injection and allows us to check DB.
+  $query->bind_param("s", $CheckUsername);
+  //Executes query and stores it in memory.
+  $query->execute();
+  //Creates associative array with table output from executing.
+  $result = $query->get_result();
+  
+  //Check if the username matches the password.
   while ($user = $result->fetch_assoc()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
+      //Allows skipping log in page again and means no unauthorised access in other pages.
       $_SESSION["loggedin"] = true;
-      $_SESSION["id"] = $user["id"];
       $_SESSION["username"] = $CheckUsername;
+      //Tells us if they're a gamemaker or a player.
       $_SESSION["privileges"] = $user["accessLevel"];
 
+      //Redirects
       header("Location: TreasureHunt.php");
       die();
   }
 }
+//Frees memory result of query.
 $query->close();
 
+//Incorrect credentials result.
 $error = "Incorrect username or password.";
 
+//Counts login attempts.
 if(isset($_SESSION["counter"])) {
+  //If they fail to login, will reach this stage (won't die()) and increase counter.
   $_SESSION["counter"] = $_SESSION["counter"] + 1;
+  //If 3 failed login attempts I'll freeze the page for 10 seconds.
   if (($_SESSION["counter"]) > 3){
     $error = "Too many incorrect login attempts. Waited 10 seconds. Please try again.";
   }
 }
-else{
-  $_SESSION["counter"] = 0;
+
+  //Initialises counter if not created.
+  else{
+    $_SESSION["counter"] = 0;
+  }
 }
-}
+echo $error;
 ?>
