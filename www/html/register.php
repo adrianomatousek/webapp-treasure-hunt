@@ -90,7 +90,6 @@ function generateRandomString($length = 10) {
   if ($query->get_result() != null){
     echo '<script type="text/javascript"> alert("Account already exists"); </script>';
     // header("location: index.php");
-    die();
   }
   $query->close();
 
@@ -99,7 +98,7 @@ function generateRandomString($length = 10) {
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
     echo '<script type="text/javascript"> alert("Account added"); </script>';
-    // header("location: index.php");
+    header("location: index.php");
   }
   // header("location: index.php");
  }
