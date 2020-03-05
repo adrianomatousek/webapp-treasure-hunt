@@ -121,7 +121,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //  $database = $conn->query($sqlQuery);
 // $query= "SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = '".$_SESSION['$CheckUsername']."'";
 $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
-$query->execute(array($_SESSION['CheckUsername']));
+$query->bind_param("s", $CheckUsername)
+$query->execute();
 
 // $database = $conn->query($query);
 
