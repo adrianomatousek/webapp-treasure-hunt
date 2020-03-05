@@ -94,7 +94,7 @@ if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['
    if(!$found){
      echo "Incorrect Details";
      echo "<br>Name: " . $_POST['inputUsername'];
-     echo "<br>Pass: " . $_POST['inputPassword']);
+     echo "<br>Pass: " . $_POST['inputPassword'];
    }
 }
 
