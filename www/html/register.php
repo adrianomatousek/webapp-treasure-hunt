@@ -81,7 +81,7 @@ function generateRandomString($length = 10) {
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
 
-  $query = $conn->prepare("SELECT username, hashPass, salt, accessLevel FROM `student_users` WHERE username = ?");
+  $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
   //Fills prepared statement with a string, avoids injection and allows us to check DB.
   $query->bind_param("s", $user);
   //Executes query and stores it in memory.
