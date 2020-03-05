@@ -71,10 +71,7 @@
 
 
 <?php
- echo "test1";
-
  require ("connection.php");
- echo "test";
  // output data of each row
  if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
   $user = $_POST['inputUsername'];
@@ -83,9 +80,6 @@
   $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
   if ($result = $conn->query($sql)) {
   echo "added";
-  } else {
-   echo "didn't add";
-   echo $sql;
   }
  }
 
