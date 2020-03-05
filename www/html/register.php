@@ -87,7 +87,7 @@ function generateRandomString($length = 10) {
   //Executes query and stores it in memory.
   $query->execute();
   //Checks how many rows affected, if 1 or more, the account must already exist.
-  if ($query->get_result() != 0){
+  if ($query->get_result() != null){
     echo '<script type="text/javascript"> alert("Account already exists"); </script>';
     // header("location: index.php");
   }
