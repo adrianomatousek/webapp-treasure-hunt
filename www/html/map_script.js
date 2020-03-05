@@ -78,34 +78,47 @@ function getGeo(){
 		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	});
-	if (navigator.geolocation) {
-  	navigator.geolocation.getCurrentPosition(success, error);
-		} else {
-		  alert('geolocation not supported');
-		}
 
-		function success(position) {
-					 var i = 0;
-					 setInterval(function(){
-					 posmarker = new google.maps.Marker({
-						 position: {
- 							lat: position.coords.latitude,
- 							lng: position.coords.longitude
- 						},
-						map: map,
-						title: 'Golden Gate Bridge'
-						});
-						console.log(position.coords.latitude);
-						console.log(position.coords.longitude);
-					 i = i >= 2 ? 0 : i + 1;
+	var watchID;
+	var geoLoc;
+	var infoWindow;
 
-			 }, 1000)
+	function showLocation(position)
+	{
+		posmarker = new google.maps.Marker({
+ 		 position: {
+ 			lat: position.coords.latitude,
+ 			lng: position.coords.longitude
+ 		},
+ 		map: map,
+ 		title: 'Golden Gate Bridge'
+ 		});
+ 		console.log(position.coords.latitude);
+ 		console.log(position.coords.longitude);
 
-		}
+	}
 
-		function error(msg) {
-		  alert('error: ' + msg);
-		}
+	function errorHandler(err) {
+	  if(err.code == 1) {
+	    alert("Error: Access is denied!");
+	  }else if( err.code == 2) {
+	    alert("Error: Position is unavailable!");
+	  }
+	}
+	function getLocationUpdate(){
+
+	   if(navigator.geolocation){
+	      // timeout at 120000 milliseconds (120 seconds)
+	      var options = {timeout:3000};
+	      geoLoc = navigator.geolocation;
+	      watchID = geoLoc.watchPosition(showLocation,
+	                                     errorHandler,
+	                                     options);
+	   }else{
+	      alert("Sorry, browser does not support geolocation!");
+	   }
+	}
+	getLocationUpdate();
 
 }
 
