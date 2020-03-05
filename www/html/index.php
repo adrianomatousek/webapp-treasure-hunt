@@ -85,7 +85,11 @@ $row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
    while($row = $result->fetch_assoc()) {
-     echo $row ."<br>";
+    echo "<tr>";
+    foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
+        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+    }
+    echo "</tr>";
       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
       $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
       echo "Attempt Hash: " . $attempt_hash;
