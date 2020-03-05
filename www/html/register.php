@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
       header("location: index.php");
     // }
   }
-  else if ($SERVER{'REQUEST_METHOD'] == "POST"}){
+  else if ($_SERVER{'REQUEST_METHOD'] == "POST"}){
     echo '<script type="text/javascript"> alert("Please enter a username and password."); </script>';
   }
 }
