@@ -15,8 +15,14 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
-var posmarker;
-
+var posmarker= new google.maps.Marker({
+ 		 position: {
+ 			lat: 0,
+ 			lng: 0
+ 		},
+ 		map: map,
+ 		title: 'Golden Gate Bridge'
+ 		});
 
 function nextWaypoint() {
 	/*
@@ -85,14 +91,8 @@ function getGeo(){
 
 	function showLocation(position)
 	{
-		posmarker = new google.maps.Marker({
- 		 position: {
- 			lat: position.coords.latitude,
- 			lng: position.coords.longitude
- 		},
- 		map: map,
- 		title: 'Golden Gate Bridge'
- 		});
+		var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    posmarker.setPosition( latLng );
  		console.log(position.coords.latitude);
  		console.log(position.coords.longitude);
 
