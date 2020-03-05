@@ -22,7 +22,7 @@
 
       <div class="col s12 m6 l4 z-depth-6 card-panel">
         <h1>Register</h1>
-        <form form class="reg" name="register" method="post" onsubmit="validation()" action="register.php">
+        <form form class="reg" name="register" method="post" onsubmit="return validation()" action="register.php">
           <div class="row">
           </div>
           <div class="row">
@@ -58,10 +58,13 @@
       //to check if input fields are empty
       var uname = document.login.inputUsername.value;
       var psw = document.login.inputPassword.value;
-      if (uname == "" || psw == "") {
+      console.log(uname);
+      console.log(psw);
+      if (uname == null || psw == null) {
         alert("Please fill in all fields. One or more fields are blank");
-        //return false;
+        return false;
       }
+      return true;
     }
   </script>
 </body>
@@ -82,7 +85,7 @@ function generateRandomString($length = 10) {
 }
 require ("connection.php");
 
-  // if ($_SERVER["REQUEST_METHOD"] == "POST"){
+// if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
 
