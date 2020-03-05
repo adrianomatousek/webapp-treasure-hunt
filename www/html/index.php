@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   //  $sqlQuery = "SELECT * FROM student_users";
   //  $database = $conn->query($sqlQuery);
 $query= "SELECT username, hashPass, accessLevel FROM student_users WHERE username = ".$_SESSION['$CheckUsername'];
-$database = mysql_fetch_array($query);
+$database = $conn->query($query);
 
    while ($user = $database->fetch_assoc()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
