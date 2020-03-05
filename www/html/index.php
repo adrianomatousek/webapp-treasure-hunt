@@ -75,45 +75,87 @@
 
 </html>
 <?php
-require ("connection.php");
-session_start();
-$sql = "SELECT username,hashPass,salt FROM student_users";
-$result = $conn->query($sql);
-$found = False;
+// require_once ("connection.php");
+// session_start();
+// $sql = "SELECT username,hashPass,salt FROM student_users";
+// $result = $conn->query($sql);
+// $found = False;
 
-// output data of each row
-if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-   while($row = $result->fetch_assoc()) {
+// // output data of each row
+// if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
+//    while($row = $result->fetch_assoc()) {
 
-     if ($_POST['inputUsername'] == $row['username'] &&
-     hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
-        // echo 'Correct password for ',$row['username'];
+//      if ($_POST['inputUsername'] == $row['username'] &&
+//      hash('sha256',$_POST['inputPassword']) == $row['hashPass']) {
+//         // echo 'Correct password for ',$row['username'];
 
-    echo "<tr>";
-    foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function.
+//     echo "<tr>";
+//     foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
+//         echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function.
+//     }
+//     echo "</tr>";
+//       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+//       $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
+//       echo "Attempt Hash: " . $attempt_hash;
+//       echo "<br>";
+
+
+//      if ($_POST['inputUsername'] == $row['username']) {
+//       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
+//        if ($attempt_hash == $row['hashPass']) {
+//         echo 'Correct password for ',$row['username'];
+//         header('Location: TreasureHunt.php');
+//         $found = True;
+//      }
+//    }
+//    if(!$found){
+//      echo "Incorrect Details";
+//      echo "<br>Name: " . $_POST['inputUsername'];
+//      echo "<br>Pass: " . $_POST['inputPassword'];
+//      echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].'??Z+79?`?w85|');
+//    }
+// }
+
+  session_start();
+  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("Location: TreasureHunt.php");
+    exit;
+  }
+
+  require_once "connection.php";
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+	   $CheckUsername = $_POST['inputUsername'];
+     $CheckPassword = $_POST['inputPassword'];
+
+
+	  //  $sqlQuery = "SELECT * FROM student_users";
+    //  $database = $conn->query($sqlQuery);
+$query= mysql_query("SELECT * FROM `student_users` WHERE `username` = '".$_SESSION['$CheckUsername']."' ")or die(mysql_error());
+$database = mysql_fetch_array($query);
+
+     while ($user = $database->fetch_assoc()){
+  		if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
+  			$_SESSION["loggedin"] = true;
+        $_SESSION["id"] = $user["id"];
+        $_SESSION["username"] = $CheckUsername;
+        $_SESSION["privileges"] = $user["accessLevel"];
+
+			header("Location: StockPage.php");
+			die();
+		}
+	}
+	$error = "Incorrect username or password.";
+
+  if(isset($_SESSION["counter"])) {
+    $_SESSION["counter"] = $_SESSION["counter"] + 1;
+    if (($_SESSION["counter"]) > 3){
+      $error = "Too many incorrect login attempts. Waited 10 seconds. Please try again.";
     }
-    echo "</tr>";
-      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
-      $attempt_hash_2 = hash('sha256',$_POST['inputPassword'].$row['salt']);
-      echo "Attempt Hash: " . $attempt_hash;
-      echo "<br>";
-
-
-     if ($_POST['inputUsername'] == $row['username']) {
-      $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);
-       if ($attempt_hash == $row['hashPass']) {
-        echo 'Correct password for ',$row['username'];
-        header('Location: TreasureHunt.php');
-        $found = True;
-     }
-   }
-   if(!$found){
-     echo "Incorrect Details";
-     echo "<br>Name: " . $_POST['inputUsername'];
-     echo "<br>Pass: " . $_POST['inputPassword'];
-     echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].'??Z+79?`?w85|');
-   }
+  }
+  else{
+    $_SESSION["counter"] = 0;
+  }
 }
-
- ?>
+?>
