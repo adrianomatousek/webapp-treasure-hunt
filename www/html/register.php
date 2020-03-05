@@ -85,6 +85,7 @@
   echo "added";
   } else {
    echo "didn't add";
+   echo $sql;
   }
  }
 
