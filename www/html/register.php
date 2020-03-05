@@ -120,7 +120,7 @@ require ("connection.php");
       $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, realName, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
       
 
-      $addAcc->bind_param("sssssss", $user, $pwd, $salt, $Student, $realName, $email, $chiefGamekeeper$);
+      $addAcc->bind_param("sssssss", $user, $pwd, $salt, $accessLevel, $student, $realName, $email, $chiefGamekeeper);
       $addAcc->execute();
       $addAcc->close();
 
