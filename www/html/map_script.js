@@ -15,8 +15,7 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
-var posmarker;
-var posmarkers =[];
+
 
 function nextWaypoint() {
 	/*
@@ -57,7 +56,7 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
-	getGeo();
+
 
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
@@ -70,59 +69,6 @@ function myMap() {
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 
 	addCustomMarker();
-}
-
-function getGeo(){
-	map.setOptions({
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-	});
-
-	var watchID;
-	var geoLoc;
-	var infoWindow;
-
-	function showLocation(position)
-	{
-
-		posmarker = new google.maps.Marker({
- 		 position: {
- 			lat: position.coords.latitude,
- 			lng: position.coords.longitude
- 		},
- 		map: map,
- 		title: 'Golden Gate Bridge'
- 		});
-		posmarkers.push(posmarker);
-		posmarkers[0].setMap(null);
- 		console.log(position.coords.latitude);
- 		console.log(position.coords.longitude);
-
-	}
-
-	function errorHandler(err) {
-	  if(err.code == 1) {
-	    alert("Error: Access is denied!");
-	  }else if( err.code == 2) {
-	    alert("Error: Position is unavailable!");
-	  }
-	}
-	function getLocationUpdate(){
-
-	   if(navigator.geolocation){
-	      // timeout at 120000 milliseconds (120 seconds)
-	      var options = {timeout:1000};
-	      geoLoc = navigator.geolocation;
-	      watchID = geoLoc.watchPosition(showLocation,
-	                                     errorHandler,
-	                                     options);
-	   }else{
-	      alert("Sorry, browser does not support geolocation!");
-	   }
-	}
-	getLocationUpdate();
-
 }
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
