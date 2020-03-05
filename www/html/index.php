@@ -84,7 +84,7 @@ $found = False;
 $row_test = "";
 // output data of each row
 if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-   while($row = $result->fetch_assgitoc()) {
+   while($row = $result->fetch_assoc()) {
      if ($_POST['inputUsername'] == $row['username']) {
       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);  
        if ($attempt_hash == $row['hashPass']) {
