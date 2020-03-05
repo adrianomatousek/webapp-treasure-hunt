@@ -57,6 +57,22 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	getGeo();
+
+	var directionsService = new google.maps.DirectionsService,
+		directionsDisplay = new google.maps.DirectionsRenderer({
+			map: map
+		});
+	dayTime();
+	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
+
+	var pointA = new google.maps.LatLng(50.734882, -3.535206);
+	var pointB = new google.maps.LatLng(50.736882, -3.534206);
+
+	addCustomMarker();
+}
+
+function getGeo(){
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
 		zoom: 16,
@@ -77,7 +93,23 @@ function myMap() {
  							lng: position.coords.longitude
  						},
 						map: map,
-						title: 'Golden Gate Bridge'
+						label: {
+							color: color,
+							text: markerNum.toString(),
+							fontSize: '18px',
+							fontWeight: 'bold',
+						},
+						icon: {
+							url: 'img/icons/chest.png',
+							scaledSize: new google.maps.Size(50, 50),
+							origin: new google.maps.Point(0, 0),
+							labelOrigin: new google.maps.Point(25, 54)
+						},
+						draggable: draggable,
+						animation: google.maps.Animation.DROP,
+						id: markerNum - 1,
+						opacity: markerOpacity,
+						name: name
 						});
 						console.log(position.coords.latitude);
 						console.log(position.coords.longitude);
@@ -91,19 +123,6 @@ function myMap() {
 		  alert('error: ' + msg);
 		}
 
-
-
-	var directionsService = new google.maps.DirectionsService,
-		directionsDisplay = new google.maps.DirectionsRenderer({
-			map: map
-		});
-	dayTime();
-	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
-
-	var pointA = new google.maps.LatLng(50.734882, -3.535206);
-	var pointB = new google.maps.LatLng(50.736882, -3.534206);
-
-	addCustomMarker();
 }
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
