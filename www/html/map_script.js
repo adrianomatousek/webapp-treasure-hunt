@@ -85,7 +85,7 @@ function getGeo(){
 
 	function showLocation(position)
 	{
-		posmarkers.setMap(null);
+
 		posmarker = new google.maps.Marker({
  		 position: {
  			lat: position.coords.latitude,
@@ -95,6 +95,7 @@ function getGeo(){
  		title: 'Golden Gate Bridge'
  		});
 		posmarkers.push(posmarker);
+		posmarkers[0].setMap(null);
  		console.log(position.coords.latitude);
  		console.log(position.coords.longitude);
 
