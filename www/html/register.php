@@ -111,8 +111,10 @@ require ("connection.php");
         // }
       } catch (Exception $e){
         if $conn->errno === 1062) {
-          echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+          //echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+          exit("Username already in use!");
         }
+        exit("Error with request.");
       }
       // else{ 
         // $query->close();
