@@ -89,7 +89,13 @@ function checkError(error) {
 						 pos.coords.latitude,
 						 pos.coords.longitude
 				 ),
-				 title: "Current Position"
+				 title: "Current Position",
+				 icon: {
+		 			url: 'img/icons/blue-dot.png',
+		 			scaledSize: new google.maps.Size(50, 50),
+		 			origin: new google.maps.Point(0, 0),
+		 			labelOrigin: new google.maps.Point(25, 54)
+		 		}
 		 });
 		 map.panTo(new google.maps.LatLng(
 						 pos.coords.latitude,
