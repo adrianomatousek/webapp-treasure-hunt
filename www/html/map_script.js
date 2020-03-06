@@ -56,7 +56,12 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
-	initLocationProcedure();
+
+	if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
+	} else {
+			alert("Your browser does not support the Geolocation API");
+	}
 
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
@@ -114,14 +119,6 @@ function locError(error) {
 						 position.coords.latitude,
 						 position.coords.longitude)
 		 );
- }
-
- function initLocationProcedure() {
-		 if (navigator.geolocation) {
-				 navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
-		 } else {
-				 alert("Your browser does not support the Geolocation API");
-		 }
  }
 
 
