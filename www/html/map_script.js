@@ -89,7 +89,8 @@ function checkError(error) {
 						 pos.coords.latitude,
 						 pos.coords.longitude
 				 ),
-				 title: "Current Position"
+				 title: "Current Position",
+				 icon: 'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png',
 		 });
 		 map.panTo(new google.maps.LatLng(
 						 pos.coords.latitude,
