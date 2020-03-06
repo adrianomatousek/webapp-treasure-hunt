@@ -102,8 +102,11 @@ require ("connection.php");
 
       $query->bind_result($usernameCount);
       if ($usernameCount > 0){
+        echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+
         die("Username taken!");
       }
+      else{
       //Checks how many rows affected, if 1 or more, the account must already exist.
       // if (mysql_affected_rows($result) > 0){
       //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
@@ -139,5 +142,5 @@ require ("connection.php");
           header("location: index.php");
         }
       }
-  // }
+  }
 ?>
