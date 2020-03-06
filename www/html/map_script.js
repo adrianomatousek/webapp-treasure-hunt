@@ -117,7 +117,6 @@ function locError(error) {
  }
 
  function initLocationProcedure() {
-		 initializeMap();
 		 if (navigator.geolocation) {
 				 navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
 		 } else {
