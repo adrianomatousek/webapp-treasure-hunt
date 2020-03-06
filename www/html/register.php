@@ -102,7 +102,7 @@ require ("connection.php");
       $result = $query->get_result();
 
   
-      $data = $result->fetch_assoc()){
+      $data = $result->fetch_assoc();
 
 
       $usernameCount = $data['usernameNo'];
