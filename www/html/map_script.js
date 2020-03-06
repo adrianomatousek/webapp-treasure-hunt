@@ -56,7 +56,7 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
-
+	initLocationProcedure();
 
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
@@ -125,9 +125,6 @@ function locError(error) {
 		 }
  }
 
- $(document).ready(function() {
-		 initLocationProcedure();
- });
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
