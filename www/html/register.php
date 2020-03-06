@@ -101,7 +101,7 @@ require ("connection.php");
 
       $result = $query->get_result();
       //Checks how many rows affected, if 1 or more, the account must already exist.
-      if (mysql_affected_rows($result)){
+      if (mysql_affected_rows($result) > 0){
         echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
         echo $query->get_result();
         $query->close();
