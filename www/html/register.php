@@ -93,23 +93,29 @@ require ("connection.php");
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
 
-      $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
-      //Fills prepared statement with a string, avoids injection and allows us to check DB.
-      $query->bind_param("s", $user);
-      //Executes query and stores it in memory.
-      $query->execute();
+      try{
+        $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
+        //Fills prepared statement with a string, avoids injection and allows us to check DB.
+        $query->bind_param("s", $user);
+        //Executes query and stores it in memory.
+        $query->execute();
 
-      $result = $query->get_result();
-      //Checks how many rows affected, if 1 or more, the account must already exist.
-      if (mysql_affected_rows($result) > 0){
-        echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
-        echo $query->get_result();
         $query->close();
-        //Avoid doing anything else (saves processing power and data usage).
-        die();
+        //Checks how many rows affected, if 1 or more, the account must already exist.
+        // if (mysql_affected_rows($result) > 0){
+        //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+        //   echo $query->get_result();
+        //   $query->close();
+        //   //Avoid doing anything else (saves processing power and data usage).
+        //   die();
+        // }
+      } catch (Exception $e){
+        if $conn->errno === 1062) {
+          echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+        }
       }
-      else{ 
-        $query->close();
+      // else{ 
+        // $query->close();
 
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
         $accessLevel1 = 'Student';
@@ -135,5 +141,5 @@ require ("connection.php");
           header("location: index.php");
         }
       }
-  }
+  // }
 ?>
