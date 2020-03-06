@@ -93,29 +93,25 @@ require ("connection.php");
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
 
-      try{
-        $query = $conn->prepare("SELECT username FROM `student_users` WHERE username = ?");
-        //Fills prepared statement with a string, avoids injection and allows us to check DB.
-        $query->bind_param("s", $user);
-        //Executes query and stores it in memory.
-        $query->execute();
+      $query = $conn->prepare("SELECT COUNT(*) FROM `student_users` WHERE username = ?");
+      //Fills prepared statement with a string, avoids injection and allows us to check DB.
+      $query->bind_param("s", $user);
+      //Executes query and stores it in memory.
+      $query->execute();
+      $query->close();
 
-        $query->close();
-        //Checks how many rows affected, if 1 or more, the account must already exist.
-        // if (mysql_affected_rows($result) > 0){
-        //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
-        //   echo $query->get_result();
-        //   $query->close();
-        //   //Avoid doing anything else (saves processing power and data usage).
-        //   die();
-        // }
-      } catch (Exception $e){
-        if ($conn->errno === 1062) {
-          //echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
-          exit("Username already in use!");
-        }
-        exit("Error with request.");
+      $query->bind_results($usernameCount);
+      if ($usernameCount > 0){
+        exit("Username taken!");
       }
+      //Checks how many rows affected, if 1 or more, the account must already exist.
+      // if (mysql_affected_rows($result) > 0){
+      //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+      //   echo $query->get_result();
+      //   $query->close();
+      //   //Avoid doing anything else (saves processing power and data usage).
+      //   die();
+      // }
       // else{ 
         // $query->close();
 
