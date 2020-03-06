@@ -93,18 +93,19 @@ require ("connection.php");
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
 
-      $query = $conn->prepare("SELECT COUNT(*) FROM `student_users` WHERE username = ?");
+      $query = $conn->prepare("SELECT COUNT(*) as usernameNo FROM `student_users` WHERE username = ?");
       //Fills prepared statement with a string, avoids injection and allows us to check DB.
       $query->bind_param("s", $user);
       //Executes query and stores it in memory.
       $query->execute();
+      $data=mysql_fetch_assoc($result);
+      $usernameCount = $data['usernameNo'];
       $query->close();
 
-      $query->bind_result($usernameCount);
       if ($usernameCount > 0){
         echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
       }
-      else{
+      if ($usernameCount === 0){
       //Checks how many rows affected, if 1 or more, the account must already exist.
       // if (mysql_affected_rows($result) > 0){
       //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
