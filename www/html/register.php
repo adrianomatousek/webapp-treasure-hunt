@@ -99,7 +99,7 @@ require ("connection.php");
       //Executes query and stores it in memory.
       $query->execute();
       //Checks how many rows affected, if 1 or more, the account must already exist.
-      if (($query->get_result() != null) && ($_POST['register'])){
+      if ($query->get_result() != null){
         echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
         $query->close();
         //Avoid doing anything else (saves processing power and data usage).
