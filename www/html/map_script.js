@@ -89,7 +89,11 @@ function checkError(error) {
 						 pos.coords.latitude,
 						 pos.coords.longitude
 				 ),
-				 title: "Current Position"
+				 title: "Current Position",
+				 icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                                                    new google.maps.Size(22,22),
+                                                    new google.maps.Point(0,18),
+                                                    new google.maps.Point(11,11))
 		 });
 		 map.panTo(new google.maps.LatLng(
 						 pos.coords.latitude,
