@@ -98,14 +98,17 @@ require ("connection.php");
       $query->bind_param("s", $user);
       //Executes query and stores it in memory.
       $query->execute();
+
+      $result = $query->get_result();
       //Checks how many rows affected, if 1 or more, the account must already exist.
-      if ($query->get_result() != null){
+      if (mysql_affected_rows($result)){
         echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
+        echo $query->get_result();
         $query->close();
         //Avoid doing anything else (saves processing power and data usage).
         die();
       }
-      // else{ 
+      else{ 
         $query->close();
 
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
@@ -132,5 +135,5 @@ require ("connection.php");
           header("location: index.php");
         }
       }
-  // }
+  }
 ?>
