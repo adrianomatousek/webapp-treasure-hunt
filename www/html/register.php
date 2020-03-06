@@ -102,7 +102,7 @@ require ("connection.php");
 
       $query->bind_result($usernameCount);
       if ($usernameCount > 0){
-        exit("Username taken!");
+        die("Username taken!");
       }
       //Checks how many rows affected, if 1 or more, the account must already exist.
       // if (mysql_affected_rows($result) > 0){
