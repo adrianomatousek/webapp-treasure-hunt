@@ -100,7 +100,7 @@ require ("connection.php");
       $query->execute();
       $query->close();
 
-      $query->bind_results($usernameCount);
+      $query->bind_result($usernameCount);
       if ($usernameCount > 0){
         exit("Username taken!");
       }
