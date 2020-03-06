@@ -119,13 +119,14 @@ require ("connection.php");
       // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
       $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
       
-
+      //Ideally passed as parameters (don't think you can pass as strings in bind_param).
+      //Parameters need to be replaced with actual values that we can use and send.
       $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
       $addAcc->execute();
       $addAcc->close();
 
-      // if ($result = $conn->query($sql)) {
+      if ($result = $conn->query($sql)) {
         header("location: index.php");
-      // }
+      }
     }
 ?>
