@@ -1,4 +1,5 @@
 var map;
+var currentPositionMarker;
 var markerList = [];
 var isDay = true;
 var markers = markerList.length;
