@@ -91,10 +91,7 @@ function checkError(error) {
 				 ),
 				 title: "Current Position",
 				 icon: {
-		 			url: 'img/icons/blue-dot.png',
-		 			scaledSize: new google.maps.Size(50, 50),
-		 			origin: new google.maps.Point(0, 0),
-		 			labelOrigin: new google.maps.Point(25, 54)
+		 			url: 'img/icons/blue-dot.png'
 		 		}
 		 });
 		 map.panTo(new google.maps.LatLng(
