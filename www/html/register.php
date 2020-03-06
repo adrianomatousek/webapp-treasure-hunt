@@ -99,7 +99,12 @@ require ("connection.php");
       //Executes query and stores it in memory.
       $query->execute();
 
-      $data = fetch_assoc($result);
+      $result = $query->get_result();
+
+  
+      $data = $result->fetch_assoc()){
+
+
       $usernameCount = $data['usernameNo'];
 
       $query->close();
