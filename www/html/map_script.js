@@ -81,8 +81,11 @@ function locError(error) {
 		 alert("The current position could not be found!");
  }
 
- function setCurrentPosition(pos) {
-		 currentPositionMarker = new google.maps.Marker({
+
+
+ function displayAndWatch(position) {
+		 // set current position
+		 currentPosition = new google.maps.Marker({
 				 map: map,
 				 position: new google.maps.LatLng(
 						 pos.coords.latitude,
@@ -94,24 +97,16 @@ function locError(error) {
 						 pos.coords.latitude,
 						 pos.coords.longitude
 				 ));
- }
-
- function displayAndWatch(position) {
-		 // set current position
-		 setCurrentPosition(position);
 		 // watch position
-		 watchCurrentPosition();
- }
-
- function watchCurrentPosition() {
 		 var positionTimer = navigator.geolocation.watchPosition(
 				 function (position) {
 						 setMarkerPosition(
-								 currentPositionMarker,
+								 currentPosition,
 								 position
 						 );
 				 });
  }
+
 
  function setMarkerPosition(marker, position) {
 		 marker.setPosition(
