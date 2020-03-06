@@ -82,6 +82,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("Location: TreasureHunt.php");
   exit;
 }
+$registered = false;
 
 function generateRandomString($length = 10) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
@@ -123,9 +124,10 @@ require ("connection.php");
       //Parameters need to be replaced with actual values that we can use and send.
       $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
       $addAcc->execute();
+      $registered = true;
       $addAcc->close();
 
-      if ($result = $conn->query($sql)) {
+      if (registered) {
         header("location: index.php");
       }
     }
