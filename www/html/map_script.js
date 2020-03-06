@@ -82,7 +82,7 @@ function locError(error) {
  }
 
  function setCurrentPosition(pos) {
-		 currentPosition = new google.maps.Marker({
+		 currentPositionMarker = new google.maps.Marker({
 				 map: map,
 				 position: new google.maps.LatLng(
 						 pos.coords.latitude,
@@ -107,7 +107,7 @@ function locError(error) {
 		 var positionTimer = navigator.geolocation.watchPosition(
 				 function (position) {
 						 setMarkerPosition(
-								 currentPosition,
+								 currentPositionMarker,
 								 position
 						 );
 				 });
