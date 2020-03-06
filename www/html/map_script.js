@@ -58,7 +58,7 @@ function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
 	if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(displayAndWatch, locError);
+			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
 	} else {
 			alert("Your browser does not support the Geolocation API");
 	}
@@ -76,7 +76,7 @@ function myMap() {
 	addCustomMarker();
 }
 
-function locError(error) {
+function checkError(error) {
 		 // the current position could not be located
 		 alert("The current position could not be found!");
  }
