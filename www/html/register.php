@@ -98,8 +98,10 @@ require ("connection.php");
       $query->bind_param("s", $user);
       //Executes query and stores it in memory.
       $query->execute();
-      $data=mysql_fetch_assoc($result);
+
+      $data = fetch_assoc($result);
       $usernameCount = $data['usernameNo'];
+
       $query->close();
 
       if ($usernameCount > 0){
