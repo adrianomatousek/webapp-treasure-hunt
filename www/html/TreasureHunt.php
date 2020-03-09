@@ -99,12 +99,10 @@
     </div>
     </li>
 
-    <!-- <li><a href="#!">Second Link</a></li> -->
     <li>
       <div class="divider"></div>
     </li>
     <li><a class="subheader">Subheader</a></li>
-    <!-- <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">support</i>FAQ</a></li>
@@ -113,7 +111,11 @@
     if ($_SESSION['accessLevel'] == 'Admin'){ ?>
     <li id="hiddenAdminPage"><a href="adminPage.php"></a></li>
 
+    
+    <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
+      <li><a href=adminPage.php>Admin Page</a></li>
     <?php } ?>
+
   </ul>
 
   <br>
@@ -213,14 +215,12 @@
 </body>
 
 </html>
-
-
 <?php
 session_start();
-$user = $_SESSION['username'];
-if (!isset($_SESSION['user'])){ //can only come to stock management if user is logged in
+
+if ($_SESSION["loggedin"] != true){
   header("Location: index.php");
+  exit;
 }
 
-
- ?>
+?>

@@ -8,7 +8,6 @@
   <form name="assign" method="post">
       <p>Select privileges to give user:</p>
       <select name="privileges">
-        <option value=""></option>
         <option value="Student">Student</option>
         <option value="Gamekeeper">Gamekeeper</option>
         <option value="Admin">Admin</option>
@@ -30,23 +29,19 @@ session_start();
 
 require_once ("connection.php");
 
-ini_set('display_errors',1);
-error_reporting(-1);
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  if ($_SESSION["accessLevel"] != 'Admin'){
+    header("Location: TreasureHunt.php");
+    exit;
+  }
+}
+else{
+  header("Location: index.php");
+}
 
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//   if (!isset($_SESSION["accessLevel"]) || ($_SESSION["accessLevel"] != 'Admin')){
-//     header("Location: TreasureHunt.php");
-//     exit;
-//   }
-//   else{
-//     header("Location: index.php");
-//   }
-// }
 echo "Access Level: ".$_SESSION['accessLevel']."<br>";
-echo "Username: ".$_SESSION['username'];
-echo "New Level: ".$_POST['privileges'];
+echo "Username: ".$_SESSION['username'],"<br>";
 
-// if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
   if(isset($_POST['assign'])){
     $user = $_POST['inputUsername'];
 
@@ -65,14 +60,14 @@ echo "New Level: ".$_POST['privileges'];
     if ($usernameCount !== 1){
       echo '<script type="text/javascript"> alert("Invalid username"); </script>';
     }
-    if ($username == 1){
+    if ($usernameCount == 1){
       $newAccessLevel = $_POST['privileges'];
       
       $setLevel = $conn->prepare("UPDATE `student_users` SET `accessLevel`=? WHERE `username`=?");
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
-      echo "Username: ".$user." privileges: ".$newAccessLevel;
+      echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
 }
 ?>
