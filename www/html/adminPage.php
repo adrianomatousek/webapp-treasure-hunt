@@ -26,6 +26,8 @@
 
 <?php
 
+session_start();
+
 require_once ("connection.php");
 
 ini_set('display_errors',1);
