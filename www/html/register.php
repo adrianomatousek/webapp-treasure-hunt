@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="row">
-                <label>
+                <label style="margin-left: 5%;">
                 <input type="checkbox" id="showPassword" onclick="togglePass()" autocomplete="off"/>
                 <span>Tick to show password</span>
                 </label>
@@ -62,7 +62,7 @@
               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
-          <p style="font-size: 8px;"> Fields marked with an * are required </p>
+          <p style="font-size: 9px;"> Fields marked with an asterisk(*) are required </p>
         </form>
       </div>
       <div class="col s0 m3 l4">
