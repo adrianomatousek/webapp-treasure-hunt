@@ -34,7 +34,7 @@ error_reporting(-1);
 // display_errors = on;
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  if ($_SESSION['privileges'] != 'Admin'){
+  if ($_SESSION["accessLevel"] != 'Admin'){
     header("Location: TreasureHunt.php");
     exit;
   }

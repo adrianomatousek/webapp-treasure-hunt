@@ -114,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $_SESSION["loggedin"] = true;
       $_SESSION["username"] = $CheckUsername;
       //Tells us if they're a gamemaker or a player.
-      $_SESSION["privileges"] = $user["accessLevel"];
+      $_SESSION["accessLevel"] = $user["accessLevel"];
 
       //Redirects
       header("Location: TreasureHunt.php");
