@@ -5,7 +5,7 @@
     </h1>
   </head>
   <body>
-    <form>
+  <form name="assign" method="post">
       <p>Select privileges to give user:</p>
       <select name="privileges">
         <option value=""></option>
