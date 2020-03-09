@@ -39,13 +39,12 @@
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
-            <!-- <div class="row"> -->
-            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
-            <label for="showPassword"> Click to show password</label><br> -->
-            <!-- </div> -->
+            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
+            <input type="checkbox" id="showPassword" />
+            <label for="showPassword"> Click to show password</label><br>
           </div>
-          <input type="checkbox" id="showPassword" onchange="togglePass()"/>
-          <label for="showPassword"> Click to show password</label><br>
+          <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
+          <label for="showPassword"> Click to show password</label><br> -->
           
 
           <!-- <div class="row">
@@ -73,8 +72,12 @@
   </div>
 <script>
 
+const box = document.getElementById('showPassword');
+box.addEventListener('change', (event) => {
+  togglePass();
+})
+
 function togglePass(){
-  var box = document.getElementById("showPassword");
   var passwordID = document.getElementById("inputPassword");
   if (box.checked){
     passwordID.type == 'text';
