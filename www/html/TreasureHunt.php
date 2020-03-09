@@ -139,32 +139,15 @@
         <div class="score-section">
           <h6>Score: <span id="your-score">0</span></h6>
         </div>
-        <table>
-          <tbody>
-            <tr>
-              <th>Place</th>
-              <th>Team</th>
-              <th>Points</th>
-              <th>Time</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Jessie</td>
-              <td>102,345</td>
-              <td>1s</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Bob</td>
-              <td>2,321</td>
-              <td>2s</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Test</td>
-              <td>321</td>
-              <td>3s</td>
-            </tr>
+        <table width ="450">
+          <!-- Table created to store data -->
+          <tr>
+            <th>Place</th>
+            <th>Team</th>
+            <th>Points</th>
+            <th>Time</th>
+          </tr>
+          <tbody  id="mytable">
           </tbody>
         </table>
       </div>
@@ -213,6 +196,25 @@
   <script src="jsQR.js"></script>
   <script src="camera.js"></script>
 
+  <script>
+  //AJAX calls to retrive data from data base from query.php
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.response);
+      console.log(myObj[0].username);
+      var alldata = ""; //all data from database stored in variable
+
+      for (x = 0; x < myObj.length; x++){ //table data and drop down list data retrieved
+        alldata += "<tr>" + "<td>" + myObj[x].username + "</td><td>" +
+          myObj[x].score + "</td><td>" + myObj[x].score + "</td><td>" + myObj[x].username +"</td></tr>";
+      }
+      document.getElementById("mytable").innerHTML = alldata;
+    }
+  }
+  xmlhttp.open("GET", "query.php", true);
+  xmlhttp.send();
+  </script>
 </body>
 
 </html>
