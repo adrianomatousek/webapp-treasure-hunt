@@ -114,6 +114,12 @@ if ($_SESSION["loggedin"] != true){
     <li><a class="subheader">Subheader</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
+    <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">support</i>FAQ</a></li>
+
+  <?php
+    if ($_SESSION['accessLevel'] == 'Admin'){ ?>
+    <li id="hiddenAdminPage"><a href="adminPage.php"></a></li>
+
     
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
       <li><a href=adminPage.php>Admin Page</a></li>
@@ -168,6 +174,10 @@ if ($_SESSION["loggedin"] != true){
         </table>
       </div>
 
+    </div>
+    <div class="carousel-page">
+      <!-- Page 3: FAQ -->
+      <h1> FAQ stuff here</h1>
     </div>
   </div>
 
