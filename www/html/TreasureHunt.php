@@ -105,7 +105,7 @@
     <li><a class="subheader">Subheader</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
-    <li><a href="tel:01392723999"></a><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
+    <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
   </ul>
 
   <br>
