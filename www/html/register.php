@@ -44,7 +44,7 @@
           <div class="row">
             <p>
                 <label>
-                <input type="checkbox" id="showPassword" onclick="togglePass()" />
+                <input type="checkbox" id="showPassword" onclick="togglePass()" autocomplete="off"/>
                 <span>Tick to show password</span>
                 </label>
             </p>
@@ -74,6 +74,7 @@
     </div>
   </div>
 <script>
+
 
 
 function togglePass(){
