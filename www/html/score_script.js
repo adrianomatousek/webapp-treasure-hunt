@@ -22,7 +22,7 @@ function addScore(amount) {
 }
 
 
-//AJAX calls to retrive data from data base from query.php
+//AJAX calls to retrive data from data base from leaderboardsData.php
 
 function update_board() {
     console.log("updating board");
