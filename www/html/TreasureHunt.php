@@ -99,14 +99,20 @@
     </div>
     </li>
 
-    <li><a href="#!">Second Link</a></li>
+    <!-- <li><a href="#!">Second Link</a></li> -->
     <li>
       <div class="divider"></div>
     </li>
     <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <!-- <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
+
+  <?php
+    if ($_SESSION['accessLevel'] === 'Admin'){ ?>  
+    <li id="hiddenAdminPage"><a href="adminPage.php"></a></li>
+
+    <?php } ?>
   </ul>
 
   <br>
