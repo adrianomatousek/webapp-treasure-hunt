@@ -64,7 +64,7 @@ echo "Username: ".$_SESSION['username'],"<br>";
     if ($usernameCount !== 1){
       echo '<script type="text/javascript"> alert("Invalid username"); </script>';
     }
-    if ($username == 1){
+    if ($usernameCount == 1){
       $newAccessLevel = $_POST['privileges'];
       
       $setLevel = $conn->prepare("UPDATE `student_users` SET `accessLevel`=? WHERE `username`=?");
@@ -73,14 +73,16 @@ echo "Username: ".$_SESSION['username'],"<br>";
       $setLevel->close();
       echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
-    if ($newAccessLevel == 'Admin'){
-      echo '<script type="text/javascript"> alert("Admin privileges given to".$user."); </script>';
-    }
-    else if ($newAccessLevel == 'Gamekeeper'){
-      echo '<script type="text/javascript"> alert("Gamekeeper privileges given to".$user."); </script>'; 
-    }
-    else if ($newAccessLevel == 'Student'){
-      echo '<script type="text/javascript"> alert("Student privileges given to".$user."); </script>';
-    }
+    if (isset($newAccessLevel)){
+      if ($newAccessLevel == 'Admin'){
+        echo '<script type="text/javascript"> alert("Admin privileges given to".$user."); </script>';
+      }
+      else if ($newAccessLevel == 'Gamekeeper'){
+        echo '<script type="text/javascript"> alert("Gamekeeper privileges given to".$user."); </script>'; 
+      }
+      else if ($newAccessLevel == 'Student'){
+        echo '<script type="text/javascript"> alert("Student privileges given to".$user."); </script>';
+      }
+  }
 }
 ?>
