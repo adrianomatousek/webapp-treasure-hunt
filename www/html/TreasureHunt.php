@@ -116,7 +116,10 @@
   <br>
   <!-- <br>
    <div> this somehow fixes weird bug where map dissapears lol?? -->
-
+  <div>
+    <h1>
+    </h1>
+  </div>
 
 
   <div class="carousel-pages">
@@ -200,6 +203,7 @@
   <script src="camera.js"></script>
 
 
+</body>
 
 </html>
 <?php
