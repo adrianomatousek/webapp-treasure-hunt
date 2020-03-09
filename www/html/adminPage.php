@@ -73,6 +73,5 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       $setLevel->close();
       echo "Username: ".$user." privileges: ".$newAccessLevel;
     }
-  }
 }
 ?>
