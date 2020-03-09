@@ -12,7 +12,10 @@ function addScore(amount) {
             score: playerScore
         },
         success: console.log("update score success"),
-        dataType: "text"
+        dataType: "text",
+        error: function (req, err) {
+            console.log('my message' + err);
+        }
     });
 }
 
