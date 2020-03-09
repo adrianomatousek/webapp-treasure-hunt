@@ -34,13 +34,13 @@ ini_set('display_errors',1);
 error_reporting(-1);
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  if (!isset($_SESSION["accessLevel"]) || ($_SESSION["accessLevel"] != 'Admin')){
+  if ($_SESSION["accessLevel"] != 'Admin'){
     header("Location: TreasureHunt.php");
     exit;
   }
-  else{
-    header("Location: index.php");
-  }
+}
+else{
+  header("Location: index.php");
 }
 
 echo "Access Level: ".$_SESSION['accessLevel']."<br>";
