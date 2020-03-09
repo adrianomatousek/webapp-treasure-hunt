@@ -71,7 +71,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
+      echo "Username: ".$user." privileges: ".$newAccessLevel;
     }
-    echo "Username: ".$user." privileges: ".$newAccessLevel;
+  }
 }
 ?>
