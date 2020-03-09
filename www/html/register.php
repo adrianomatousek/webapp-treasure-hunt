@@ -39,7 +39,29 @@
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
+            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
+            <p>
+              <label>
+              <input type="checkbox" id="showPassword" />
+              <span>Tick to show password</span>
+              </label>
+              <!-- <label for="showPassword"> Click to show password</label><br> -->
+            </p>
           </div>
+          <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
+          <label for="showPassword"> Click to show password</label><br> -->
+          
+
+          <!-- <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
+              <label for="inputUsername">Username</label>
+            </div>
+          </div> -->
+
+
+
 
           <div class="row">
             <div class="input-field col s12">
@@ -53,26 +75,29 @@
       </div>
     </div>
   </div>
+<script>
+
+const box = document.getElementById('showPassword');
+box.addEventListener('change', (event) => {
+  togglePass();
+})
+
+function togglePass(){
+  var passwordID = document.getElementById("inputPassword");
+  if (box.checked){
+    passwordID.type == 'text';
+  }
+  else{
+    passwordID.type == 'password';
+  }
+}
+
+</script>
+
 
 <!-- Consider creating a function to toggle visibility of password so they can see. -->
 
-  <!-- <script>
-    function validation() {
-      //to check if input fields are empty
-      var uname = document.getElementById('inputUsername').value;
-      var psw = document.getElementById('inputPassword').value;
-      console.log(uname);
-      console.log(psw);
-      if (uname == "" || psw == "") {
-        alert("Please fill in all fields. One or more fields are blank");
-        return false;
-      }
-      return true;
-    }
-  </script> -->
 </body>
-
-
 </html>
 
 
@@ -82,14 +107,12 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   header("Location: TreasureHunt.php");
   exit;
 }
-// $registered = false;
 
-function generateRandomString($length = 10) {
+function generateRandomString($length = 16) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
 require ("connection.php");
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
 
@@ -98,13 +121,9 @@ require ("connection.php");
       $query->bind_param("s", $user);
       //Executes query and stores it in memory.
       $query->execute();
-
+      
       $result = $query->get_result();
-
-  
       $data = $result->fetch_assoc();
-
-
       $usernameCount = $data['usernameNo'];
 
       $query->close();
@@ -113,16 +132,6 @@ require ("connection.php");
         echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
       }
       if ($usernameCount === 0){
-      //Checks how many rows affected, if 1 or more, the account must already exist.
-      // if (mysql_affected_rows($result) > 0){
-      //   echo '<script type="text/javascript"> alert("Account with that username already exists"); </script>';
-      //   echo $query->get_result();
-      //   $query->close();
-      //   //Avoid doing anything else (saves processing power and data usage).
-      //   die();
-      // }
-      // else{ 
-        // $query->close();
 
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
         $accessLevel1 = 'Student';
@@ -132,16 +141,14 @@ require ("connection.php");
 
 
 
-        $salt = generateRandomString(16);
+        $salt = generateRandomString();
         $pwd = hash('sha256',$_POST['inputPassword'].$salt);
-        // $sql = "INSERT INTO student_users (username,hashPass,salt,accessLevel,score,name,email,gamekeeperID) VALUES ('$user', '$pwd', '$salt','Student',0,'name','email','ChiefGamekeeper')";
         $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
         
         //Ideally passed as parameters (don't think you can pass as strings in bind_param).
         //Parameters need to be replaced with actual values that we can use and send.
         $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
         $addAcc->execute();
-        // $registered = true;
         $addAcc->close();
 
         if (registered) {
