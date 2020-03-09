@@ -11,7 +11,9 @@ function addScore(amount) {
         data: {
             score: playerScore
         },
-        success: console.log("update score success"),
+        success: function (response) {
+            console.log('my message' + response);
+        },
         dataType: "text",
         error: function (req, err) {
             console.log('my message' + err);
