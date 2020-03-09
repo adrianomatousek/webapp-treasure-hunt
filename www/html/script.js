@@ -39,9 +39,9 @@ $(document).ready(function () {
         // draggable: false, //disable drag because we don't want accidental swiping
         // swipe: false,
         swipeToSlide: false,
-        touchMove: false,
-        draggable: false,
-        accessibility: false,
+        // touchMove: false,
+        // draggable: false,
+        // accessibility: false,
         arrows: false
     });
 });
