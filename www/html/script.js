@@ -36,8 +36,8 @@ $(document).ready(function () {
         slidesToShow: 1,
         infinite: !1,
         speed: 500,
-        draggable: false, //disable drag because we don't want accidental swiping
-        swipe: false,
+        // draggable: false, //disable drag because we don't want accidental swiping
+        // swipe: false,
         swipeToSlide: false,
         touchMove: false,
         draggable: false,
