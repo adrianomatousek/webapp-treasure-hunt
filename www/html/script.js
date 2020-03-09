@@ -23,6 +23,9 @@ $(document).ready(function () { //Initialize the sidenavs with Materializecss
     $('#settingsPage').sidenav({
         edge: 'right'
     });
+    $('#helpPage').sidenav({
+        edge: 'left' // Slide from the left
+    });
 });
 
 
@@ -54,4 +57,14 @@ function bottomNavGoTo(i) { //changes to a different carousel page
 document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
+});
+
+// help page
+document.getElementById('helpButton').addEventListener('click', function() {
+    document.querySelector('.bg-modal').style.display = 'flex';
+});
+
+// close help page
+document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('.bg-modal').style.display = 'none';
 });
