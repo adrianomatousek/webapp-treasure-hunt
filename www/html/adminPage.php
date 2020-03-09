@@ -73,5 +73,14 @@ echo "Username: ".$_SESSION['username'],"<br>";
       $setLevel->close();
       echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
+    if ($newAccessLevel == 'Admin'){
+      echo '<script type="text/javascript"> alert("Admin privileges given to".$user."); </script>';
+    }
+    else if ($newAccessLevel == 'Gamekeeper'){
+      echo '<script type="text/javascript"> alert("Gamekeeper privileges given to".$user."); </script>'; 
+    }
+    else if ($newAccessLevel == 'Student'){
+      echo '<script type="text/javascript"> alert("Student privileges given to".$user."); </script>';
+    }
 }
 ?>
