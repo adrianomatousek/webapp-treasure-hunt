@@ -74,7 +74,7 @@
 function togglePass(){
   var box = document.getElementById("showPassword");
   var passwordID = document.getElementById("inputPassword");
-  if (box.is(':checked')){
+  if (box.checked)){
     passwordID.type == 'text';
   }
   else{
