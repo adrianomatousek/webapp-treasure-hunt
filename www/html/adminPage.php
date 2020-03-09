@@ -8,7 +8,6 @@
   <form name="assign" method="post">
       <p>Select privileges to give user:</p>
       <select name="privileges">
-        <option value=""></option>
         <option value="Student">Student</option>
         <option value="Gamekeeper">Gamekeeper</option>
         <option value="Admin">Admin</option>
@@ -30,9 +29,6 @@ session_start();
 
 require_once ("connection.php");
 
-ini_set('display_errors',1);
-error_reporting(-1);
-
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   if ($_SESSION["accessLevel"] != 'Admin'){
     header("Location: TreasureHunt.php");
@@ -46,7 +42,6 @@ else{
 echo "Access Level: ".$_SESSION['accessLevel']."<br>";
 echo "Username: ".$_SESSION['username'],"<br>";
 
-// if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
   if(isset($_POST['assign'])){
     $user = $_POST['inputUsername'];
 
@@ -74,16 +69,5 @@ echo "Username: ".$_SESSION['username'],"<br>";
       $setLevel->close();
       echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
-    if (isset($newAccessLevel)){
-      if ($newAccessLevel == 'Admin'){
-        echo '<script type="text/javascript"> alert("Admin privileges given to".$user."); </script>';
-      }
-      else if ($newAccessLevel == 'Gamekeeper'){
-        echo '<script type="text/javascript"> alert("Gamekeeper privileges given to".$user."); </script>'; 
-      }
-      else if ($newAccessLevel == 'Student'){
-        echo '<script type="text/javascript"> alert("Student privileges given to".$user."); </script>';
-      }
-  }
 }
 ?>
