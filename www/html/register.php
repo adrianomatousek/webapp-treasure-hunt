@@ -56,7 +56,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <!-- <i class="material-icons prefix"></i> -->
+              <i class="material-icons prefix">email</i>
               <input class="validate" id="inputEmail" name="inputEmail" maxlength="45" type="email" required/>
               <label for="inputEmail">* Email</label>
             </div>
@@ -108,7 +108,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 function generateRandomString($length = 16) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
-require ("connection.php");
+require_once ("connection.php");
 
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
@@ -132,8 +132,8 @@ require ("connection.php");
 
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
         $accessLevel1 = 'Student';
-        $realName1 = 'realName';
-        $email1 = 'email'; 
+        $realName1 = $_POST['inputFull'];
+        $email1 = $_POST['inputEmail']; 
         $gamekeeperID1 = 'chiefGamekeeper';
 
 
