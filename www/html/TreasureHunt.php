@@ -107,6 +107,11 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
+    
+    <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
+      <li><a href=adminPage.php>Admin Page</a></li>
+    <?php } ?>
+    
   </ul>
 
   <br>
