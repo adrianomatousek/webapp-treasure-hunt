@@ -32,6 +32,7 @@ $(document).ready(function () { //Initialize the sidenavs with Materializecss
 // Carousel (slick.js) initialisation
 $(document).ready(function () {
     $('.carousel-pages').slick({
+        initialSlide: 1,
         slidesToShow: 1,
         infinite: !1,
         speed: 500,
@@ -60,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function () { //initialise the sid
 });
 
 // help page
-document.getElementById('helpButton').addEventListener('click', function() {
+document.getElementById('helpButton').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'flex';
 });
 
 // close help page
-document.querySelector('.close').addEventListener('click', function() {
+document.querySelector('.close').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
