@@ -127,6 +127,5 @@ $query->close();
 //Incorrect credentials result.
 $error = "Incorrect username or password.";
 
-
 }
 ?>
