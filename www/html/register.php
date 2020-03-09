@@ -132,8 +132,8 @@ require ("connection.php");
 
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
         $accessLevel1 = 'Student';
-        $realName1 = 'realName';
-        $email1 = 'email'; 
+        $realName1 = $_POST['inputFull'];
+        $email1 = $_POST['inputEmail']; 
         $gamekeeperID1 = 'chiefGamekeeper';
 
 
