@@ -58,7 +58,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
       
       $statement = 'UPDATE student_users SET accessLevel=? WHERE username=?';
       
-      $selectLevel = $conn->prepare($statement);
+      $setLevel = $conn->prepare($statement);
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
