@@ -2,9 +2,10 @@
 <html>
 
 <head>
-  <title>The Hunt 2</title>
+  <title>The Hunt</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="stylesheet" href="websiteStyling.css">
 
@@ -142,7 +143,7 @@
         <div class="score-section">
           <h6>Score: <span id="your-score">0</span></h6>
         </div>
-        <table width ="450">
+        <table width="450">
           <!-- Table created to store data -->
           <tr>
             <th>Place</th>
@@ -150,15 +151,13 @@
             <th>Points</th>
             <th>Time</th>
           </tr>
-          <tbody  id="mytable">
+          <tbody id="mytable">
           </tbody>
         </table>
       </div>
 
     </div>
   </div>
-
-  <img hidden id="scream" width="220" height="277" src="img/img_the_scream.jpg">
 
   <!-- Bottom Nav Bar -->
   <footer class="page-footer">
@@ -168,11 +167,11 @@
           <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
             <ul class="tabs tabs-fixed-width transparent white-text">
               <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
-                    class="material-icons">account_circle</i></a></li>
+                    class="material-icons">explore</i></a></li>
               <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i
                     class="material-icons" style="font-size:50px;">adjust</i></a></li>
               <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
-                    class="material-icons">explore</i></a>
+                    class="material-icons">account_circle</i></a>
               </li>
             </ul>
           </div>
@@ -200,23 +199,23 @@
   <script src="camera.js"></script>
 
   <script>
-  //AJAX calls to retrive data from data base from query.php
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var gameData = JSON.parse(this.response);
-      var alldata = ""; //all data from database stored in variable
-      var length = gameData.length;
+    //AJAX calls to retrive data from data base from query.php
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var gameData = JSON.parse(this.response);
+        var alldata = ""; //all data from database stored in variable
+        var length = gameData.length;
 
-      for (x = 0; x < length; x++){ //table data and drop down list data retrieved
-        alldata += "<tr>" + "<td>" + gameData[x].username + "</td><td>" +
-          gameData[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username +"</td></tr>";
+        for (x = 0; x < length; x++) { //table data and drop down list data retrieved
+          alldata += "<tr>" + "<td>" + gameData[x].username + "</td><td>" +
+            gameData[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username + "</td></tr>";
+        }
+        document.getElementById("mytable").innerHTML = alldata;
       }
-      document.getElementById("mytable").innerHTML = alldata;
     }
-  }
-  xmlhttp.open("GET", "leaderboardsData.php", true);
-  xmlhttp.send();
+    xmlhttp.open("GET", "leaderboardsData.php", true);
+    xmlhttp.send();
   </script>
 </body>
 

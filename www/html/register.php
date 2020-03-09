@@ -5,6 +5,7 @@
   <title>Registration</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="stylesheet" type="text/css" href="login_styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -24,49 +25,49 @@
         <h1>Register</h1>
         <form form class="reg" name="register" method="post" action="register.php">
         <!-- onsubmit="return validation()"  -->
-          <div class="row">
+          <div style="margin-bottom: 8px;" class="row">
+            <div class="input-field col s12">
+            <!-- <i class="material-icons prefix"></i> -->
+              <input class="validate" id="inputFull" name="inputFull" maxlength="45" type="text" required/>
+              <label for="inputFull">* Full name</label>
+            </div>
           </div>
-          <div class="row">
+   
+          <div style="margin-bottom: 8px;" class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
-              <label for="inputUsername">Username</label>
+              <label for="inputUsername">* Username</label>
             </div>
           </div>
-          <div class="row">
+          <div style="margin-bottom: 0px;" class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
-              <label for="inputPassword">Password</label>
+              <label for="inputPassword">* Password</label>
             </div>
-            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
           </div>
           <div class="row">
-            <p>
-                <label>
-                <input type="checkbox" id="showPassword" onclick="togglePass()" />
+                <label style="margin-left: 5%;">
+                <input type="checkbox" id="showPassword" onclick="togglePass()" autocomplete="off"/>
                 <span>Tick to show password</span>
                 </label>
-            </p>
           </div>
-          <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
-          <label for="showPassword"> Click to show password</label><br> -->
-          
 
-          <!-- <div class="row">
+          <div class="row">
             <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
-              <label for="inputUsername">Username</label>
+              <!-- <i class="material-icons prefix"></i> -->
+              <input class="validate" id="inputEmail" name="inputEmail" maxlength="45" type="email" required/>
+              <label for="inputEmail">* Email</label>
             </div>
-          </div> -->
+          </div>
 
           <div class="row">
             <div class="input-field col s12">
               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
-
+          <p style="font-size: 9px;"> Fields marked with an asterisk(*) are required </p>
         </form>
       </div>
       <div class="col s0 m3 l4">
@@ -74,6 +75,7 @@
     </div>
   </div>
 <script>
+
 
 
 function togglePass(){
