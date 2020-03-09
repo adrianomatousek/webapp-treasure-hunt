@@ -5,14 +5,15 @@ function addScore(amount) {
     playerScore += amount;
     document.getElementById("your-score").innerHTML = playerScore;
 
-    //should probs update server here
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'leaderboardsUpdateScore.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        score: playerScore
-    }));
-
+    $.ajax({
+        type: "POST",
+        url: 'leaderboardsUpdateScore.php',
+        data: {
+            score: playerScore
+        },
+        success: console.log("update score success"),
+        dataType: "text"
+    });
 }
 
 
