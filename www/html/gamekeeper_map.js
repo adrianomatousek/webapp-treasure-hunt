@@ -17,6 +17,8 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
+var newMarkers = []; //NEW stores created markers
+
 
 function nextWaypoint() {
 	/*
@@ -453,6 +455,9 @@ function saveCustomMarker() {
 	addMarker(latPos, lngPos, name, description);
 	customMarker.setMap(null);
 	customMarker = null;
+	//NEW adds waypoints to new markers array and sets up new marker
+	newMarkers.add(latPos+lngPos);
+	addCustomMarker();
 }
 
 // Setting the bounce animation for the treasure markers
