@@ -116,13 +116,8 @@ if ($_SESSION["loggedin"] != true){
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">support</i>FAQ</a></li>
 
-  <?php
-    if ($_SESSION['accessLevel'] == 'Admin'){ ?>
-    <li id="hiddenAdminPage"><a href="adminPage.php"></a></li>
-
-    
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
-      <li><a href=adminPage.php>Admin Page</a></li>
+      <li><a href="adminPage.php">Admin Page</a></li>
     <?php } ?>
 
   </ul>
