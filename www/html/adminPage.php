@@ -28,7 +28,10 @@
 
 require_once ("connection.php");
 
+// error_reporting(-1);
+ini_set('display_errors',1);
 error_reporting(-1);
+// display_errors = on;
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   if ($_SESSION['privileges'] != 'Admin'){
