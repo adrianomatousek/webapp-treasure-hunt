@@ -42,6 +42,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("Location: index.php");
   }
 }
+echo $_SESSION['accessLevel'];
+echo $_SESSION['username'];
 
 // if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
   if(isset($_POST['assign'])){
