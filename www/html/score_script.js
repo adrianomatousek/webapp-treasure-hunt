@@ -7,7 +7,7 @@ function addScore(amount) {
 
     //should probs update server here
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'leaderboardsData.php', true);
+    xhr.open("POST", 'leaderboardsUpdateScore.php', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         score: playerScore
