@@ -40,8 +40,13 @@
               <label for="inputPassword">Password</label>
             </div>
             <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
-            <input type="checkbox" id="showPassword" />
-            <label for="showPassword"> Click to show password</label><br>
+            <p>
+              <label>
+              <input type="checkbox" id="showPassword" />
+              <span>Tick to show password</span>
+              </label>
+              <!-- <label for="showPassword"> Click to show password</label><br> -->
+            </p>
           </div>
           <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
           <label for="showPassword"> Click to show password</label><br> -->
