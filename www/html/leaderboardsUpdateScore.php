@@ -7,7 +7,7 @@
       $uname = $_SESSION['username'];
       echo $uname;
 
-      $sql = "UPDATE student_users SET score = $score WHERE username = $uname";
+      $sql = "UPDATE student_users SET score=$score WHERE username='$uname'";
 
       if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
