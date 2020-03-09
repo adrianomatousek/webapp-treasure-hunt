@@ -205,7 +205,6 @@
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.response);
-      console.log(myObj[0].username);
       var alldata = ""; //all data from database stored in variable
 
       for (x = 0; x < myObj.length; x++){ //table data and drop down list data retrieved
@@ -215,7 +214,7 @@
       document.getElementById("mytable").innerHTML = alldata;
     }
   }
-  xmlhttp.open("GET", "query.php", true);
+  xmlhttp.open("GET", "leaderboardsData.php", true);
   xmlhttp.send();
   </script>
 </body>
