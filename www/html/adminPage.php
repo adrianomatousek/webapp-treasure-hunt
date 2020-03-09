@@ -67,7 +67,6 @@ echo "Username: ".$_SESSION['username'],"<br>";
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
-      echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
 }
 ?>
