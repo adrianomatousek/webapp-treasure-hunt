@@ -5,6 +5,7 @@
   <title>Registration</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="stylesheet" type="text/css" href="login_styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

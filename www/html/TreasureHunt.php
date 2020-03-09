@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>The Hunt 2</title>
+  <title>The Hunt</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="favicon.png" />
