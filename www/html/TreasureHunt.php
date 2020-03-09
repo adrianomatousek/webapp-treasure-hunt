@@ -167,11 +167,11 @@
           <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
             <ul class="tabs tabs-fixed-width transparent white-text">
               <li class="tab col s3 white-text"><a href="javascript: bottomNavGoTo(0);" class="active black-text"><i
-                    class="material-icons">account_circle</i></a></li>
+                    class="material-icons">explore</i></a></li>
               <li class="tab col s3"><a href="javascript: bottomNavGoTo(1);" class="black-text"><i
                     class="material-icons" style="font-size:50px;">adjust</i></a></li>
               <li class="tab col s3"><a href="javascript: bottomNavGoTo(2);" class="black-text"><i
-                    class="material-icons">explore</i></a>
+                    class="material-icons">account_circle</i></a>
               </li>
             </ul>
           </div>
