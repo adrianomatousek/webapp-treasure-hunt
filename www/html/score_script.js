@@ -34,4 +34,4 @@ function update_board() {
 }
 
 update_board()
-setTimeout(update_board, 3000);
+setInterval(update_board, 3000);
