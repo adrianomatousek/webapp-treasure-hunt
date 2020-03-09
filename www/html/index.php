@@ -75,33 +75,6 @@
 
 </html>
 <?php
-// require ("connection.php");
-// session_start();
-// $sql = "SELECT username,hashPass,salt FROM student_users";
-// $result = $conn->query($sql);
-// $found = False;
-
-// $row_test = "";
-// // output data of each row
-// if (isset($_POST['login']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
-//    while($row = $result->fetch_assoc()) {
-//      if ($_POST['inputUsername'] == $row['username']) {
-//       $attempt_hash = hash('sha256',$_POST['inputPassword'].$row['salt']);  
-//        if ($attempt_hash == $row['hashPass']) {
-//         echo 'Correct password for ',$row['username'];
-//         header('Location: TreasureHunt.php');
-//         $found = True;
-//        }
-//      }
-//    }
-//    if(!$found){
-//      echo "Incorrect Details";
-//      echo "<br>Name: " . $_POST['inputUsername'];
-//      echo "<br>Pass: " . $_POST['inputPassword'];
-//      echo "<br>Hash: " . hash('sha256',$_POST['inputPassword'].'??Z+79?`?w85|');
-//    }
-// }
-
 
 //https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
 //https://stackoverflow.com/questions/44997146/how-fetch-multiple-rows-from-mysql-using-prepared-statements
@@ -154,19 +127,6 @@ $query->close();
 //Incorrect credentials result.
 $error = "Incorrect username or password.";
 
-//Counts login attempts.
-// if(isset($_SESSION["counter"])) {
-//   //If they fail to login, will reach this stage (won't die()) and increase counter.
-//   $_SESSION["counter"] = $_SESSION["counter"] + 1;
-//   //If 3 failed login attempts I'll freeze the page for 10 seconds.
-//   if (($_SESSION["counter"]) > 3){
-//     $error = "Too many incorrect login attempts. Waited 10 seconds. Please try again.";
-//   }
-// }
 
-  //Initialises counter if not created.
-  // else{
-  //   $_SESSION["counter"] = 0;
-  // }
 }
 ?>

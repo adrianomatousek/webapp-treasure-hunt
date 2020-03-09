@@ -3,6 +3,7 @@
 <form>
     <p>Select privileges to give user:</p>
     <select name="privileges">
+        <option value=""></option>
         <option value="Student">Student</option>
         <option value="Gamekeeper">Gamekeeper</option>
         <option value="Admin">Admin</option>
@@ -20,6 +21,13 @@
 <?php
 
 require_once ("connection.php");
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  if ($_SESSION['privileges'] != 'Admin'){
+    header("Location: TreasureHunt.php");
+    exit;
+  }
+}
 
 if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
     $user = $_POST['inputUsername'];
