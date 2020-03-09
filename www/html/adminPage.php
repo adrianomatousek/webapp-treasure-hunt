@@ -42,8 +42,9 @@ error_reporting(-1);
 //     header("Location: index.php");
 //   }
 // }
-echo "Access Level: ".$_SESSION['accessLevel'];
+echo "Access Level: ".$_SESSION['accessLevel']."<br>";
 echo "Username: ".$_SESSION['username'];
+echo "New Level: ".$_POST['privileges'];
 
 // if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
   if(isset($_POST['assign'])){
@@ -66,8 +67,8 @@ echo "Username: ".$_SESSION['username'];
     }
     if ($username == 1){
       $newAccessLevel = $_POST['privileges'];
-      echo "New Level: ".$newAccessLevel;
-      $setLevel = $conn->prepare("UPDATE `student_users` SET accessLevel=? WHERE username=?");
+      
+      $setLevel = $conn->prepare("UPDATE `student_users` SET `accessLevel`=? WHERE `username`=?");
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
