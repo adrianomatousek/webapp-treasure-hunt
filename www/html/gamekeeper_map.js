@@ -19,7 +19,6 @@ var activeClue = -1; //Would be in database as determines the score. Used in fil
 
 //NEW stores created markers
 var newMarkers = [];
-var newMarkerPos = 0; //tracks position in route
 
 
 function nextWaypoint() {
@@ -459,8 +458,7 @@ function saveCustomMarker() {
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
 	//descriptions for waypoints are not presently stored in the database, maybe have it as clue
-	newMarkerPos++;
-	newMarkers.push([""+latPos+lngPos,newMarkerPos]);
+	newMarkers.push(""+latPos+lngPos);
 	addCustomMarker();
 }
 
