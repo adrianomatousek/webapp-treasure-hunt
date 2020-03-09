@@ -40,10 +40,12 @@
               <label for="inputPassword">Password</label>
             </div>
             <!-- <div class="row"> -->
-            <input type="checkbox" id="showPassword" onchange="togglePass()"/>
-            <label for="showPassword"> Click to show password</label><br>
+            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
+            <label for="showPassword"> Click to show password</label><br> -->
             <!-- </div> -->
           </div>
+          <input type="checkbox" id="showPassword" onchange="togglePass()"/>
+          <label for="showPassword"> Click to show password</label><br>
           
 
           <!-- <div class="row">
@@ -74,7 +76,7 @@
 function togglePass(){
   var box = document.getElementById("showPassword");
   var passwordID = document.getElementById("inputPassword");
-  if (box.checked)){
+  if (box.checked){
     passwordID.type == 'text';
   }
   else{
