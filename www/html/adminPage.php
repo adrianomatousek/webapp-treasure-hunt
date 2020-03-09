@@ -27,6 +27,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("Location: TreasureHunt.php");
     exit;
   }
+  else{
+    header("Location: index.php");
+  }
 }
 
 if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
