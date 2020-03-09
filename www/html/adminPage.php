@@ -17,14 +17,9 @@
 </form>
 </html>
 
-<?php>
+<?php
 
 require_once ("connection.php");
-
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("Location: TreasureHunt.php");
-  exit;
-}
 
 if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
     $user = $_POST['inputUsername'];
@@ -53,4 +48,4 @@ if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
     $setLevel->execute();
     $setLevel->close();
 }
-<?>
+?>
