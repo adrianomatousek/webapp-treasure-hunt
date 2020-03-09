@@ -40,12 +40,13 @@
               <label for="inputPassword">Password</label>
             </div>
             <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
+          </div>
+          <div class="row">
             <p>
-              <label>
-              <input type="checkbox" id="showPassword" />
-              <span>Tick to show password</span>
-              </label>
-              <!-- <label for="showPassword"> Click to show password</label><br> -->
+                <label>
+                <input type="checkbox" id="showPassword" onclick="togglePass()" />
+                <span>Tick to show password</span>
+                </label>
             </p>
           </div>
           <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
@@ -59,9 +60,6 @@
               <label for="inputUsername">Username</label>
             </div>
           </div> -->
-
-
-
 
           <div class="row">
             <div class="input-field col s12">
@@ -77,18 +75,15 @@
   </div>
 <script>
 
-const box = document.getElementById('showPassword');
-box.addEventListener('change', (event) => {
-  togglePass();
-})
 
 function togglePass(){
   var passwordID = document.getElementById("inputPassword");
-  if (box.checked){
-    passwordID.type == 'text';
+  var box = document.getElementById("showPassword");
+  if (box.checked != false){
+    passwordID.type = 'text';
   }
   else{
-    passwordID.type == 'password';
+    passwordID.type = 'password';
   }
 }
 
