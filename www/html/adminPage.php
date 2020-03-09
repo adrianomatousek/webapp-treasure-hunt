@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<body>
 <form>
     <p>Select privileges to give user:</p>
     <select name="privileges">
@@ -16,6 +17,7 @@
     <button type='submit' name='assign'>Assign privileges</button>
             
 </form>
+</body>
 </html>
 
 <?php
@@ -32,7 +34,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   }
 }
 
-if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
+// if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
+  if($_SERVER["REQUEST_METHOD"] == "POST")
     $user = $_POST['inputUsername'];
 
     $query = $conn->prepare("SELECT COUNT(*) as usernameNo FROM `student_users` WHERE username = ?");

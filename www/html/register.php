@@ -110,7 +110,7 @@ function generateRandomString($length = 16) {
 }
 require_once ("connection.php");
 
-    if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
+    if (isset($_POST['register'])) {
       $user = $_POST['inputUsername'];
 
       $query = $conn->prepare("SELECT COUNT(*) as usernameNo FROM `student_users` WHERE username = ?");
