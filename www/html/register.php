@@ -30,29 +30,24 @@
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
-              <label for="inputUsername">Username</label>
+              <label for="inputUsername">* Username</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
-              <label for="inputPassword">Password</label>
+              <label for="inputPassword">* Password</label>
             </div>
-            <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/> -->
           </div>
           <div class="row">
-            <p>
                 <label>
                 <input type="checkbox" id="showPassword" onclick="togglePass()" autocomplete="off"/>
                 <span>Tick to show password</span>
                 </label>
-            </p>
           </div>
-          <!-- <input type="checkbox" id="showPassword" onchange="togglePass()"/>
-          <label for="showPassword"> Click to show password</label><br> -->
-          
 
+          
           <!-- <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
@@ -66,7 +61,7 @@
               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
-
+          <p style="font-size: 8px;"> Fields marked with an * are required </p>
         </form>
       </div>
       <div class="col s0 m3 l4">
