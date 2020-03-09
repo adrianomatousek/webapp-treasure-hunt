@@ -17,29 +17,6 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
-
-function nextWaypoint() {
-	/*
-	Function that displays the next waypoint when the current is found
-	*/
-	if (points.length > 0) {
-		var marker = points[0].split(','); //split at the comma
-		var lat = parseFloat(marker[0]);
-		var long = parseFloat(marker[1]);
-		addMarker(lat, long); //adds the marks to the map
-		points.shift();
-
-		activeTreasure += 1;
-		if (document.getElementById("showClueButton-" + activeTreasure)) {
-			document.getElementById("showClueButton-" + activeTreasure).remove();
-		}
-
-		activeClue = -1; //reset the clue count
-
-		addScore(5);
-	}
-}
-
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
 	//retireves a JSON array of points and is converted to a JavaScript array
@@ -57,6 +34,7 @@ function myMap() {
 	Function that initializes the map
 	*/
 	map = new google.maps.Map(document.getElementById("googleMap"));
+	map.getZoom();
 
 	if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
@@ -67,14 +45,37 @@ function myMap() {
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
-		});
-	dayTime();
-	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here.</br>', true);
+	});
+
+	setTime();
+	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 
 	addCustomMarker();
+}
+
+function nextWaypoint() {
+	/*
+	Function that displays the next waypoint when the current is found
+	*/
+	if (points.length > 0) {
+		var marker = points[0].split(','); //split at the comma
+		var lat = parseFloat(marker[0]);
+		var lng = parseFloat(marker[1]);
+		addMarker(lat, lng); //adds the marks to the map
+		points.shift();
+
+		activeTreasure += 1;
+		if (document.getElementById("showClueButton-" + activeTreasure)) {
+			document.getElementById("showClueButton-" + activeTreasure).remove();
+		}
+
+		activeClue = -1; //reset the clue count
+
+		addScore(5);
+	}
 }
 
 function checkError(error) {
@@ -120,7 +121,7 @@ function checkError(error) {
 				 });
  }
 
- function setMarkerPosition(marker, position) {
+function setMarkerPosition(marker, position) {
 		 marker.setPosition(
 				 new google.maps.LatLng(
 						 position.coords.latitude,
@@ -131,27 +132,29 @@ function checkError(error) {
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
-	Functions that adds a marker on the maps
-	parameters:
-	latPos - Latitutde coordinates of the marker
-	lngPos - Longitude coordinates of the marker
-	name - Name of the location
-	description - Descrition of the location
-	draggable - Whether it can be dragged or not
+	Function that adds a Google Maps marker with event listeners on the map and 
+	stores its information, such as the position and name in an array. 
+	
+	Parameters:
+		latPos: latitutde coordinates of the marker,
+		lngPos: longitude coordinates of the marker,
+		name: name of the location, e.g. "Exeter Library",
+		description: a descrition of the location,
+		draggable: boolean representing whether the marker can be dragged around when clicked on.
 	*/
 	markerNum = markers + 1;
-	var color;
-	if (isDay) {
-		color = 'black';
-	} else {
-		color = 'white';
-	}
-
-	if (!name || name.length < 3) {
+	var color = getColor();
+	// Sets a default name in case the given one is too short or long
+	if (!name || name.length < 3 || name.length > 24) {
 		name = 'Treasure';
 	}
+	// Sets a default description in case the given one is too short or long
+	if (!description || description.length < 10 || description.length > 500) {
+		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
+	}
 
-	var marker = new google.maps.Marker({ //adds marker
+	// Creates new Google Maps marker
+	var marker = new google.maps.Marker({
 		position: {
 			lat: latPos,
 			lng: lngPos
@@ -173,13 +176,9 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		animation: google.maps.Animation.DROP,
 		id: markerNum - 1,
 		opacity: markerOpacity,
-		name: name
+		name: name,
+		mouseOnMarker: false  // used to determine if mouse is on marker; used by event listeners
 	});
-
-	//description if its too long
-	if (!description || description.length < 10) {
-		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
-	}
 
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
@@ -187,21 +186,35 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1)" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
-
-
+		
+	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
 		content: contentString,
 	});
 
+	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
 	var infoLabel = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
 		content: '<div id="bodyContent"><p> This location contains a hidden treasure. Click for more info. </p></div>'
 	});
+	
+	// Event listeners for markers when clicked or hovered over
+	addMarkerClickListeners(marker, infoWindow);
+	addMarkerMouseOverListeners(marker, infoWindow);
+	
+	markerList.push(marker);
+	markers += 1;
+}
 
+function addMarkerClickListeners(marker, infoWindow){
+	/*
+		Function adds event listeners to the marker for a 'click' event.
+		Parameters:
+			marker: the object of the marker that is to have event listeners added,
+			infoWindow: the Info Window associated with this marker.
+	*/
 	var firstClick;
-
-
 	marker.addListener('click', function () {
 		if (activeInfoLabel) {
 			activeInfoLabel.close(map, marker);
@@ -251,30 +264,60 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			this.setLabel(label);
 		}
 
-		//animation for marker and opens/closes info window (if its open)
+		// Sets a bounce animation correctly when a marker is clicked on (if animations are enabled)
 		if (activeInfoWindow !== infoWindow) {
 			if (enableAnimations) {
 				if (firstClick) {
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 					firstClick = false;
 				} else {
-					markerSetAnimation(marker, 'BOUNCE-IF');
+					markerSetAnimation(marker, 'BOUNCE-IF');  // This function has to be used to set the animation.
 				}
 			}
 			marker.setOpacity(1);
 			infoWindow.open(map, marker);
 			activeInfoWindow = infoWindow;
 			activeMarker = marker;
-		} else {
+		} 
+		else {
 			markerSetAnimation(markerToBeSet, null);
 			activeInfoWindow = null;
 			activeMarker = null;
 		}
 	});
+	
+	// Handles the event when 'X' is pressed to close the Info Window
+	infoWindow.addListener('closeclick', function () {
+		markerSetAnimation(activeMarker, null);
+		activeMarker.setOpacity(markerOpacity);
+		activeMarker = null;
+		activeInfoWindow = null;
+		var label = marker.getLabel();
+		if (isDay) {
+			label.color = 'black';
+		} else {
+			label.color = 'white';
+		}
+		marker.setLabel(label);
 
-	var mouseOnMarker = false;
+		marker.mouseOnMarker = false;
+		if (activeInfoLabel) {
+			setTimeout(function () {
+				infoLabel.close(map, marker);
+				activeInfoLabel = null;
+			}, 1200);
+		}
+	});
+}
 
-	//TO DO Not useful on mobile delete later
+function addMarkerMouseOverListeners(marker, infoWindow){
+	/*
+		Function adds event listeners to a marker for a 'mouseover' and a 'mouseout' event.
+		Parameters:
+			marker: the object of the marker that is to have event listeners added,
+			infoWindow: the Info Window associated with this marker.
+	*/
+	// Listener for when hovering over the marker; used on PC only
 	marker.addListener('mouseover', function () {
 		if (marker == activeMarker) {
 			return null;
@@ -290,9 +333,9 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		this.setLabel(label);
 
 		if (showLabelOnMouseOver) {
-			mouseOnMarker = true;
+			marker.mouseOnMarker = true;
 			setTimeout(function () {
-				if (mouseOnMarker && !activeInfoWindow && !activeInfoLabel) {
+				if (marker.mouseOnMarker && !activeInfoWindow && !activeInfoLabel) {
 					infoLabel.open(map, marker);
 					activeInfoLabel = infoLabel;
 				}
@@ -300,7 +343,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		}
 	});
 
-	// TO DO Remove later as not useful on mobile
+	// Follows from listener above for when mouse is taken off the marker.
 	marker.addListener('mouseout', function () {
 		if (marker == activeMarker) {
 			return null;
@@ -314,7 +357,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		}
 		this.setLabel(label);
 
-		mouseOnMarker = false;
+		marker.mouseOnMarker = false;
 		if (activeInfoLabel) {
 			setTimeout(function () {
 				infoLabel.close(map, marker);
@@ -322,32 +365,6 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			}, 1200);
 		}
 	});
-
-	//closes info window when you click X button
-	infoWindow.addListener('closeclick', function () {
-		markerSetAnimation(activeMarker, null);
-		activeMarker.setOpacity(markerOpacity);
-		activeMarker = null;
-		activeInfoWindow = null;
-		var label = marker.getLabel();
-		if (isDay) {
-			label.color = 'black';
-		} else {
-			label.color = 'white';
-		}
-		marker.setLabel(label);
-
-		mouseOnMarker = false;
-		if (activeInfoLabel) {
-			setTimeout(function () {
-				infoLabel.close(map, marker);
-				activeInfoLabel = null;
-			}, 1200);
-		}
-	});
-
-	markerList.push(marker);
-	markers += 1;
 }
 
 function removeMarker(id) {
@@ -366,6 +383,7 @@ function removeMarker(id) {
 		activeMarker = null;
 		activeInfoWindow = null;
 	}
+	markers -= 1;
 }
 
 
@@ -380,7 +398,7 @@ function removeAllMarkers() {
 	marketList = null;
 	activeMarker = null;
 	activeInfoWindow = null;
-
+	markers = 0;
 }
 
 // Function that allows the game masters to add a custom marker when needed
@@ -500,6 +518,24 @@ function checkTime() {
 		dayTime();
 		isDay = true;
 	}
+}
+
+function setTime() {
+	if (isDay) {
+		dayTime();
+	} else {
+		nightTime();
+	}
+}
+
+function getColor() {
+	var color;
+	if (isDay) {
+		color = 'black';
+	} else {
+		color = 'white';
+	}
+	return color;
 }
 
 // sets light mode
