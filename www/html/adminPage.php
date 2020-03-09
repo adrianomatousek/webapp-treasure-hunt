@@ -39,13 +39,15 @@ if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
     if ($usernameCount !== 1){
       echo '<script type="text/javascript"> alert("Invalid username""); </script>';
     }
-    $newAccessLevel = $_POST['privileges'];
-    
-    $statement = 'UPDATE student_users SET accessLevel=? WHERE username=?';
-    
-    $selectLevel = $conn->prepare($statement);
-    $setLevel->bind_param('ss', $newAccessLevel, $user);
-    $setLevel->execute();
-    $setLevel->close();
+    if ($username == 1){
+      $newAccessLevel = $_POST['privileges'];
+      
+      $statement = 'UPDATE student_users SET accessLevel=? WHERE username=?';
+      
+      $selectLevel = $conn->prepare($statement);
+      $setLevel->bind_param('ss', $newAccessLevel, $user);
+      $setLevel->execute();
+      $setLevel->close();
+    }
 }
 ?>
