@@ -210,7 +210,7 @@
 
       for (x = 0; x < length; x++){ //table data and drop down list data retrieved
         alldata += "<tr>" + "<td>" + gameData[x].username + "</td><td>" +
-          gamedata[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username +"</td></tr>";
+          gameData[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username +"</td></tr>";
       }
       document.getElementById("mytable").innerHTML = alldata;
     }
