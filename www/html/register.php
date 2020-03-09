@@ -25,16 +25,22 @@
         <h1>Register</h1>
         <form form class="reg" name="register" method="post" action="register.php">
         <!-- onsubmit="return validation()"  -->
-          <div class="row">
+          <div style="margin-bottom: 8px;" class="row">
+            <div class="input-field col s12">
+            <!-- <i class="material-icons prefix"></i> -->
+              <input class="validate" id="inputFull" name="inputFull" maxlength="45" type="text" required/>
+              <label for="inputFull">* Full name</label>
+            </div>
           </div>
-          <div class="row">
+   
+          <div style="margin-bottom: 8px;" class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
               <label for="inputUsername">* Username</label>
             </div>
           </div>
-          <div class="row">
+          <div style="margin-bottom: 0px;" class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">lock_outline</i>
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
@@ -48,14 +54,13 @@
                 </label>
           </div>
 
-          
-          <!-- <div class="row">
+          <div class="row">
             <div class="input-field col s12">
-              <i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
-              <label for="inputUsername">Username</label>
+              <!-- <i class="material-icons prefix"></i> -->
+              <input class="validate" id="inputEmail" name="inputEmail" maxlength="45" type="email" required/>
+              <label for="inputEmail">* Email</label>
             </div>
-          </div> -->
+          </div>
 
           <div class="row">
             <div class="input-field col s12">
