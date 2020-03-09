@@ -108,7 +108,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 function generateRandomString($length = 16) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
-require ("connection.php");
+require_once ("connection.php");
 
     if (isset($_POST['register']) && !empty($_POST['inputUsername']) && !empty($_POST['inputPassword'])) {  //login validation
       $user = $_POST['inputUsername'];
