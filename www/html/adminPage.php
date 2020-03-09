@@ -8,7 +8,7 @@
   <form name="assign" method="post">
       <p>Select privileges to give user:</p>
       <select name="privileges">
-        <!-- <option value=""></option> -->
+        <option value=""></option>
         <option value="Student">Student</option>
         <option value="Gamekeeper">Gamekeeper</option>
         <option value="Admin">Admin</option>
@@ -44,7 +44,6 @@ error_reporting(-1);
 // }
 echo "Access Level: ".$_SESSION['accessLevel']."<br>";
 echo "Username: ".$_SESSION['username'],"<br>";
-echo "New Level: ".$_POST['privileges'];
 
 // if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
   if(isset($_POST['assign'])){
@@ -72,7 +71,7 @@ echo "New Level: ".$_POST['privileges'];
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
-      echo "Username: ".$user." privileges: ".$newAccessLevel;
+      echo("<script>console.log('PHP: " . "New Level: ".$_POST['privileges'] . "');</script>");
     }
 }
 ?>
