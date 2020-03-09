@@ -176,10 +176,10 @@ if ($_SESSION["loggedin"] != true){
         <p>Frequently Asked Questions</p>
         <ul class="collapsible">
             <li>
-              <div class="collapsible-header"><i class="material-icons">filter_drama</i>How do I scan a QR code?</div>
-              <div class="collapsible-body"><span>To scan a QR to verify that you
+              <div class="collapsible-header"><i class="material-icons">camera_enhance</i>How do I scan a QR code?</div>
+              <div class="collapsible-body"><span>To scan a QR and verify that you
                  have been to the location please click the ion at centre of the
-                  bottom navigation which is a circl and use the camer to scan the QR code.</span></div>
+                  bottom navigation which is a circle and use the camera to scan the QR code.</span></div>
             </li>
             <li>
               <div class="collapsible-header"><i class="material-icons">place</i>How do I know I am getting close to the waypoint?</div>
