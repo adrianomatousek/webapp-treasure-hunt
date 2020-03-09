@@ -109,7 +109,7 @@
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
 
   <?php
-    if ($_SESSION['accessLevel'] === 'Admin'){ ?>  
+    if ($_SESSION['accessLevel'] == 'Admin'){ ?>  
     <li id="hiddenAdminPage"><a href="adminPage.php"></a></li>
 
     <?php } ?>
