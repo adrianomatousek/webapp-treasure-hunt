@@ -12,6 +12,7 @@ function addScore(amount) {
 //AJAX calls to retrive data from data base from query.php
 
 function update_board() {
+    console.log("updating board");
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
