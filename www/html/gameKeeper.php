@@ -201,7 +201,7 @@
   <script type="text/javascript" src="slick/slick.js"></script>
 
   <script src="map_themes.js"></script>
-  <script src="map_script.js"></script>
+  <script src="gamekeeper_map.js"></script>
   <script src="script.js"></script>
   <script src="clues_script.js"></script>
   <script src="score_script.js"></script>
