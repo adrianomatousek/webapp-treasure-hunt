@@ -5,7 +5,7 @@
   <title>The Hunt 2</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <link rel="shortcut" type="image/png" href="img/icons/chest.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="stylesheet" href="websiteStyling.css">
 
@@ -158,8 +158,6 @@
 
     </div>
   </div>
-
-  <img hidden id="scream" width="220" height="277" src="img/img_the_scream.jpg">
 
   <!-- Bottom Nav Bar -->
   <footer class="page-footer">
