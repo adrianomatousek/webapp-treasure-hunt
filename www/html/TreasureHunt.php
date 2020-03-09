@@ -204,12 +204,13 @@
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var myObj = JSON.parse(this.response);
+      var gameData = JSON.parse(this.response);
       var alldata = ""; //all data from database stored in variable
+      var length = gameData.length;
 
-      for (x = 0; x < myObj.length; x++){ //table data and drop down list data retrieved
-        alldata += "<tr>" + "<td>" + myObj[x].username + "</td><td>" +
-          myObj[x].score + "</td><td>" + myObj[x].score + "</td><td>" + myObj[x].username +"</td></tr>";
+      for (x = 0; x < length; x++){ //table data and drop down list data retrieved
+        alldata += "<tr>" + "<td>" + gameData[x].username + "</td><td>" +
+          gamedata[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username +"</td></tr>";
       }
       document.getElementById("mytable").innerHTML = alldata;
     }
