@@ -456,7 +456,7 @@ function saveCustomMarker() {
 	customMarker.setMap(null);
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
-	newMarkers.add(latPos+lngPos);
+	newMarkers.push(""+latPos+lngPos);
 	addCustomMarker();
 }
 
