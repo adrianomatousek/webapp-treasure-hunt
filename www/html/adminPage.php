@@ -57,5 +57,6 @@ if (isset($_POST['assign']) && !empty($_POST['inputUsername'])) {
       $setLevel->execute();
       $setLevel->close();
     }
+    echo "$_SESSION['privileges'], for account $_SESSION['username']";
 }
 ?>
