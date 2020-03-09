@@ -39,17 +39,19 @@
               <input id="inputPassword" minlength="8" name="inputPassword" type="password" required/>
               <label for="inputPassword">Password</label>
             </div>
+          </div>
+          <div class="row">
             <input type="checkbox" id="showPassword" onchange="togglePass(inputPassword,$(this))"/>
             <label for="showPassword"> Click to show password</label><br>
           </div>
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
               <label for="inputUsername">Username</label>
             </div>
-          </div>
+          </div> -->
 
 
 
