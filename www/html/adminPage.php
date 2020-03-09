@@ -33,15 +33,15 @@ require_once ("connection.php");
 ini_set('display_errors',1);
 error_reporting(-1);
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  if (!isset($_SESSION["accessLevel"]) || ($_SESSION["accessLevel"] != 'Admin')){
-    header("Location: TreasureHunt.php");
-    exit;
-  }
-  else{
-    header("Location: index.php");
-  }
-}
+// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+//   if (!isset($_SESSION["accessLevel"]) || ($_SESSION["accessLevel"] != 'Admin')){
+//     header("Location: TreasureHunt.php");
+//     exit;
+//   }
+//   else{
+//     header("Location: index.php");
+//   }
+// }
 echo "Access Level: ".$_SESSION['accessLevel'];
 echo "Username: ".$_SESSION['username'];
 
@@ -66,10 +66,8 @@ echo "Username: ".$_SESSION['username'];
     }
     if ($username == 1){
       $newAccessLevel = $_POST['privileges'];
-      
-      $statement = "UPDATE `student_users` SET accessLevel=? WHERE username=?";
-      
-      $setLevel = $conn->prepare($statement);
+      echo "New Level: ".$newAccessLevel;
+      $setLevel = $conn->prepare("UPDATE `student_users` SET accessLevel=? WHERE username=?");
       $setLevel->bind_param('ss', $newAccessLevel, $user);
       $setLevel->execute();
       $setLevel->close();
