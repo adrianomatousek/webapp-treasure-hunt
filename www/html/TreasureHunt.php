@@ -172,7 +172,23 @@ if ($_SESSION["loggedin"] != true){
     </div>
     <div class="carousel-page">
       <!-- Page 3: FAQ -->
-      <h1> FAQ stuff here</h1>
+        <div class="container">
+        <ul class="collapsible">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
+                
+      </div>
     </div>
   </div>
 

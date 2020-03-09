@@ -69,3 +69,8 @@ document.getElementById('helpButton').addEventListener('click', function () {
 document.querySelector('.close').addEventListener('click', function () {
     document.querySelector('.bg-modal').style.display = 'none';
 });
+
+// FAQ
+$(document).ready(function () {
+    $('.collapsible').collapsible();
+});
