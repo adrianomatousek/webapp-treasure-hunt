@@ -56,7 +56,7 @@ function myMap() {
 	//enableAnimations = true;
 	setTime();
 	setMarkerNames();
-	//toggleMarkerNames();
+	toggleMarkerNames();
 	showLabelOnMouseOver = true;
 	//setMarkerOpacity(0.85);
 	
