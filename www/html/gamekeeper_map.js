@@ -632,6 +632,9 @@ function toggleMarkerOpacity() {
 function toggleMarkerAnimations() {
 	if (enableAnimations) {
 		enableAnimations = false;
+		if (customMarker) {
+			customMarker.setAnimation(null);
+		}
 	} else {
 		enableAnimations = true;
 	}
