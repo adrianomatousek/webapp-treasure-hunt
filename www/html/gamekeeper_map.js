@@ -41,27 +41,29 @@ function saveRoute() {
 	if (newClues.length == 0){
 		alert("Please add a clue");
 	}
-	if (newMarkers.length == 0){
+	else if (newMarkers.length == 0){
 		alert("Please add a marker before creating a route!");
 	}
+	else{
 
-	$.ajax({
-		url: "saveRoute.php",
-		type: "POST",
-		data: postData,
-		success: function (returnData) {
-			alert("Route added");
-			alert(returnData);
-		},
-		error: function (xhr, textStatus, errorThrown) {
-			alert("Route saving unsuccessful" + xhr.statusText);
-			console.log(textStatus);
-			console.log(error);
-		}
-	});
-	removeAllMarkers();
-	newMarkers = [];
-	newClues = [];
+		$.ajax({
+			url: "saveRoute.php",
+			type: "POST",
+			data: postData,
+			success: function (returnData) {
+				alert("Route added");
+				alert(returnData);
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				alert("Route saving unsuccessful" + xhr.statusText);
+				console.log(textStatus);
+				console.log(error);
+			}
+		});
+		removeAllMarkers();
+		newMarkers = [];
+		newClues = [];
+	}
 }
 
 
