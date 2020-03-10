@@ -3,8 +3,8 @@ echo "pretty please";
 require_once ("connection.php");
 $passed_json = $_POST['data'];
 
-echo $passed_json->clues[0][0];
-echo $passed_json->waypoints[0];
+echo $passed_json;
+echo $passed_json;
 
 
 $waypointsArray = []; //TODO pass in data from inputted array
