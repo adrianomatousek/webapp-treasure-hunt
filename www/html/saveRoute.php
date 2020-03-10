@@ -44,8 +44,8 @@ $addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
 //Ideally passed as parameters (don't think you can pass as strings in bind_param).
 //Parameters need to be replaced with actual values that we can use and send.
 $addRoute->bind_param('sss', $newRouteID, $routeName, $_SESSION['keeperID']);
-$addAcc->execute();
-$addAcc->close();
+$addRoute->execute();
+$addRoute->close();
 
 
 //TEMPLATE loads values from input array into string for SQL statement
