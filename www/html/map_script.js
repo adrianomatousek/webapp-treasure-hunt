@@ -695,7 +695,7 @@ function hideAllMarkerNames() {
 			labelContent = markerList[i].id + 1;
 			string = labelContent.toString();
 			label.text = string;
-			label.fontSize = '18px';
+			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
