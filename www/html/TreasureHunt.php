@@ -83,7 +83,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
     <!-- Night Mode option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
+		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();"><i class="material-icons">wb_sunny</i>Night mode</a>
 			<label>
 				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -93,7 +93,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Animations option in settings -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();">Disable animations</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();"><i class="material-icons">directions_run</i>Disable animations</a>
 			<label>
 				<input id="checkBoxNightMode" onchange="toggleMarkerAnimations()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -103,7 +103,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Marker names option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Show marker names</a>
 			<label>
 				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -113,7 +113,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 	
 	<!-- Help/hints for how to use the app (not used yet - remove later if not used at all)    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();">Hide hints</a>
+		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();"><i class="material-icons">info</i>Hide hints</a>
 			<label>
 				<input id="checkBoxHints" onchange="toggleHints()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -123,7 +123,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 	
 	<!-- Marker opacity    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();">Reduce marker opacity</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin</i>Reduce marker opacity</a>
 			<label>
 				<input id="checkBoxMarkerOpacity" onchange="toggleMarkerOpacity()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
