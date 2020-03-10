@@ -9,7 +9,9 @@ var activeMarker;
 var showLabelOnMouseOver = true; // displays small info/help label when mouse cursor is over a marker
 var enableAnimations = true;
 var customMarker;
-var markerOpacity = 0.85;
+var defaultMarkerOpacity = 0.85;
+var reducedMarkerOpacity = 0.45;
+var markerOpacity = defaultMarkerOpacity;
 var showMarkerNames = false;
 var showInfoLabels = true;
 var points; //array of all the waypoints
@@ -703,7 +705,26 @@ function nightTime() {
 	}
 }
 
-function toggleMarkerOpacity(){}
+/*
+	Toggle options used by settings
+*/
+
+function toggleHints(){
+	if (showHints){
+		showHints = false;
+	} else {
+		showHints = true;
+	}
+}
+
+function toggleMarkerOpacity(){
+	if (markerOpacity == defaultMarkerOpacity) {
+		setMarkerOpacity(reducedMarkerOpacity);
+	}
+	else {
+		setMarkerOpacity(defaultMarkerOpacity)
+	}
+}
 
 function toggleMarkerAnimations() {
 	if (enableAnimations) {
@@ -714,7 +735,6 @@ function toggleMarkerAnimations() {
 	}
 }
 
-// utility function changing the numbers to names
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
