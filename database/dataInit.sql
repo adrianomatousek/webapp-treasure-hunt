@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS treasurehunt.waypoints (
   routeID INT NOT NULL,
   prize VARCHAR(45) NULL,
   positionInRoute INT NOT NULL,
+  waypointName VARCHAR(45) NOT NULL
   PRIMARY KEY (waypointID)
 );
 
