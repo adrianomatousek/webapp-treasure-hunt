@@ -67,7 +67,7 @@ function myMap() {
 	showHints = true;
 	setMarkerOpacity(0.85);
 	
-	scaleMarkerSizeOnZoom(2);  // Calls the function which is made to scale the size of markers when zooming in/out.
+	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
 	
 	// addCustomMarker();
 }
@@ -101,7 +101,7 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
 	handling the event change, using the "setMarkerSize" function.
 	Parameter:
-		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (default: 5).
+		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
