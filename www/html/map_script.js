@@ -714,6 +714,7 @@ function toggleHints(){
 		showHints = false;
 	} else {
 		showHints = true;
+	}
 }
 
 function toggleMarkerOpacity(){
