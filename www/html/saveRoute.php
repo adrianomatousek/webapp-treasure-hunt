@@ -38,7 +38,7 @@ if ($lastWaypoint->num_rows == 1) {
 $addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
 //Ideally passed as parameters (don't think you can pass as strings in bind_param).
 //Parameters need to be replaced with actual values that we can use and send.
-$addRoute->bind_param('sss', $newRouteID, $routeName, $_SESSION['keeperID']);
+$addRoute->bind_param('iss', $newRouteID, $routeName, $_SESSION['keeperID']);
 $addRoute->execute();
 $addRoute->close();
 
