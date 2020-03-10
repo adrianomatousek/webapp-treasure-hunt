@@ -66,25 +66,6 @@ if ($_SESSION["loggedin"] != true){
 
   </div>
 
-  <!--
-  <div id="helpPage" class="sidenav fixed left-aligned">
-    <ul>
-      <div>
-        <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
-      </div>
-
-      <div class="user-view">
-        <h2>How To Play</h2>
-        <li><a href="#!">Step 1: Move to your current treasure location </a></li>
-        <br>
-        <li><a href="#!">Step 2: Find and scan QR code at the treasure location </a></li>
-        <br>
-        <li><a href="#!">Step 3: Move to the next treasure location </a></li>
-        <br>
-      </div>
-    </ul>
-  </div>
--->
 
   <!-- Settings side menu -->
   <ul id="settingsPage" class="sidenav fixed right-aligned">
@@ -127,26 +108,6 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
-
-	<!-- Info/Help/Hint option in settings
-    <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox4();">Hide hints</a>
-			<label>
-				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-				<span style="float: right; margin: 17px;" class="lever"></span>
-			</label>
-		</li>
-    </div> -->
-
-	<!-- Marker opacity in settings
-	<div class="switch">
-		<li><a style="display: inline-block" href="javascript:setMarkerOpacity(0.55); tickBox5();">Reduce marker opacity</a>
-			<label>
-				<input id="checkBoxMarkerOpacity" onchange="setMarkerOpacity(0.85)" type="checkbox">
-				<span style="float: right; margin: 17px;" class="lever"></span>
-			</label>
-		</li>
-    </div> -->
 
     <li>
       <div class="divider"></div>

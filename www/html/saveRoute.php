@@ -1,5 +1,5 @@
 <?php
-require("connection.php");
+require_once ("connection.php");
 
 $waypointsArray = []; //TODO pass in data from inputted array
 
