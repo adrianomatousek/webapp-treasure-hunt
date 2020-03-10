@@ -108,7 +108,7 @@ function scaleMarkerSizeOnZoom(){
 
 	idiotWindow = new google.maps.InfoWindow({
 		content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Click the button below or zoom<br>back in and continue your treasure hunt. Don`t let your team down!</br></p>' +
-				 '<input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></div>'
+				 '<p><br><input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></p></div><br>'
 	});
 	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
