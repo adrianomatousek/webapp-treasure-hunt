@@ -37,19 +37,9 @@ function saveRoute() {
 	};
 
 	console.log(postData);
-
-	/*
-	var postData = newClues;
-	postData.push(newMarkers);
-	JSON.stringify(postData);
-	// */
-	// var my_array = new Array(waypoints, clues);
-	// var jsonString = JSON.stringify(my_array);
-
 	$.ajax({
 		url: "saveRoute.php",
 		type: "POST",
-		// contentType: "application/json; charset=utf-8",
 		data: postData,
 		success: function (returnData) {
 			alert("Route added");
@@ -61,9 +51,9 @@ function saveRoute() {
 			console.log(error);
 		}
 	});
-	//removeAllMarkers();
-	//newMarkers = [];
-	//newClues = [];
+	removeAllMarkers();
+	newMarkers = [];
+	newClues = [];
 }
 
 
