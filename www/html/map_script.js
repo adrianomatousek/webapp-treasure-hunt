@@ -412,7 +412,7 @@ function removeAllMarkers() {
 	markers = 0;
 }
 
-function setMarkerSize(scaledSize = 50, fontSize = 14, labelOriginHeightOffset = 4){
+function setMarkerSize(scaledSize = 50, fontSize = 18, labelOriginHeightOffset = 4){
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
