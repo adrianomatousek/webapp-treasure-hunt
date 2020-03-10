@@ -176,26 +176,52 @@ if ($_SESSION["loggedin"] != true){
         <p>Frequently Asked Questions</p>
         <ul class="collapsible">
             <li>
-              <div class="collapsible-header"><i class="material-icons">camera_enhance</i>How do I scan a QR code?  <i class="caret material-icons">keyboard_arrow_down</i></div>
-              <div class="collapsible-body"><span>To scan a QR and verify that you
+              <div class="collapsible-header"><i class="material-icons">camera_enhance</i>How do I scan a QR code?
+                <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>To scan a QR and verify that you
                  have been to the location please click the icon at centre of the
-                  bottom navigation which is a circle and use the camera to scan the QR code.</span></div>
+                  bottom navigation which is a circle and use the camera to scan the QR code.
+                </span>
+              </div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>How do I know I am getting close to the waypoint? <i class="caret material-icons">keyboard_arrow_down</i></div>
-              <div class="collapsible-body"><span>If you are struggling or think
+              <div class="collapsible-header"><i class="material-icons">place</i>How do I know I am getting close to the waypoint?
+                <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>If you are struggling or think
                  you are lost we have made it so your current location is displayed
-                  as a blue marker in the map to help you navigate.</span></div>
+                  as a blue marker in the map to help you navigate.
+                  </span>
+              </div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">whatshot</i>How can I check how I am doing against other teams?  <i class="caret material-icons">keyboard_arrow_down</i></div>
-              <div class="collapsible-body"><span>By clicking on the last item
-                the Leaderboard icon on the navigation bar at the bottom you will be able to see how you are doing against other teams.</span></div>
+              <div class="collapsible-header"><i class="material-icons">whatshot</i>How can I check how I am doing against other teams?
+                 <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>By clicking on the last item
+                the Leaderboard icon on the navigation bar at the bottom you will be able to see how you are doing against other teams.
+                </span>
+              </div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>My current location isnt showing?  <i class="caret material-icons">keyboard_arrow_down</i></div>
-              <div class="collapsible-body"><span>Please go to setting and ensure
-                 location access is allowed by your browser if you dont recieve the popup when entering the site.</span></div>
+              <div class="collapsible-header"><i class="material-icons">place</i>My current location isnt showing?
+                <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>Please go to setting and ensure
+                 location access is allowed by your browser if you dont recieve the popup when entering the site.
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">place</i>Need some help with finding the treasure?
+                <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>Please click the treasure chest marking the position and click the
+                  green show clue button to get a clue to help you find the place. Please note
+                  that this will cost you one point and can use a mximum of 2 clues for each point.
+                </span>
+              </div>
             </li>
           </ul>
 
