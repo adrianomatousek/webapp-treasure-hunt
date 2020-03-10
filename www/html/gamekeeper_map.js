@@ -43,8 +43,8 @@ function saveRoute(){
 		success: function(data){
 			alert("Route added");
 		},
-		error: function(XMLHttpRequest, textStatus, errorThrown){
-			alert("Route saving unsuccessful",textStatus,errorThrown);
+		error: function(xhr, textStatus, errorThrown){
+			alert("Route saving unsuccessful"+xhr.statusText);
 		}
 	});
 	removeAllMarkers();
