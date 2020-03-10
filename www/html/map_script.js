@@ -113,6 +113,7 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
 				scaledFontSize = scaledFontSizeNum.toString();
 				scaledFontSizeString = scaledFontSize;
+				console.log('scaledFontSizeString = ' + scaledFontSizeString);
 			} else {
 				scaledFontSizeString = defaultFontSizeString;
 			}
