@@ -116,6 +116,12 @@ if ($_SESSION["loggedin"] != true){
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">contact_support</i>FAQ</a></li>
+	
+	<li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Gamekeeper Tools</a></li>
+	
     <li><a onclick="saveRoute()">Save Route</a></li>
 
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
