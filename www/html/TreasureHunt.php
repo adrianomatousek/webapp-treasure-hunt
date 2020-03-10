@@ -107,6 +107,46 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
+	
+	<!-- Animations option in settings    
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox2();">Disable animations</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div> -->
+	
+	<!-- Marker names option in settings    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
+			<label>
+				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+	
+	<!-- Info/Help/Hint option in settings    
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox4();">Hide hints</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div> -->
+	
+	<!-- Marker opacity in settings    -->
+	<div class="switch">
+		<li><a style="display: inline-block" href="javascript:setMarkerOpacity(0.55); tickBox5();">Reduce marker opacity</a>
+			<label>
+				<input id="checkBoxMarkerOpacity" onchange="setMarkerOpacity(0.85)" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
 
     <li>
       <div class="divider"></div>
