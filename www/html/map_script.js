@@ -67,7 +67,7 @@ function myMap() {
 	showHints = true;
 	setMarkerOpacity(0.85);
 	
-	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
+	scaleMarkerSizeOnZoom(2);  // Calls the function which is made to scale the size of markers when zooming in/out.
 	
 	// addCustomMarker();
 }
@@ -109,7 +109,7 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 		if(zoom < defaultZoom && zoom > (defaultZoom - 5)) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
-			var scaledFontSizeNum = defaultFontSize - (defaultZoom - zoom);
+			var scaledFontSizeNum = (defaultFontSize - (defaultZoom - zoom))*(scaledSizeMultipler/5);
 			scaledFontSize = scaledFontSizeNum.toString() + 'pt';
 			console.log('scaledFontSize = ' + scaledFontSize);
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
