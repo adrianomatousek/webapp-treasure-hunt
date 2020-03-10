@@ -18,13 +18,13 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
-var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
-var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
-var defaultScaledSize = 50;  // Default size of the icon of the marker
-var defaultLabelOriginHeightOffset = 4;  // 
+var showHints = true; // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
+var defaultZoom = 16; // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
+var defaultScaledSize = 50; // Default size of the icon of the marker
+var defaultLabelOriginHeightOffset = 4; // 
 var defaultFontSize = 16;
 var defaultFontSizeString = '16pt';
-var reduceFontSizeBy = 4;  // when switching to marker names option in settings
+var reduceFontSizeBy = 4; // when switching to marker names option in settings
 var idiotWindow;
 
 $.post('loadMarkers.php', function (data) {
@@ -48,35 +48,35 @@ function myMap() {
 	});
 
 	if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
+		navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
 	} else {
-			alert("Your browser does not support the Geolocation API");
+		alert("Your browser does not support the Geolocation API");
 	}
 
 	var directionsService = new google.maps.DirectionsService,
 		directionsDisplay = new google.maps.DirectionsRenderer({
 			map: map
-	});
+		});
 
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
-	
-	
+
+
 	// Apply Settings
-	setTime();	
+	setTime();
 	enableAnimations = true;
 	//setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
-	
-	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
-	
+
+	scaleMarkerSizeOnZoom(); // Calls the function which is made to scale the size of markers when zooming in/out.
+
 	// addCustomMarker();
 }
 
-function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset){
+function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
 	/*
 	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
 	Parameters:	
@@ -91,30 +91,30 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 			label.color = getColor();
 			label.fontSize = fontSize;
 			markerList[i].setLabel(label);
-			
+
 			var icon = markerList[i].getIcon();
 			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
-			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
+			icon.labelOrigin = new google.maps.Point((scaledSize / 2), scaledSize + labelOriginHeightOffset);
 			markerList[i].setIcon(icon);
 		}
 	}
 }
 
-function scaleMarkerSizeOnZoom(){
+function scaleMarkerSizeOnZoom() {
 	/*
 	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
 	handling the event change, using the "setMarkerSize" function. The defaultZoom should be set to 16.
 	Parameter:
 		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
-	var scaledSizeMultiplier = 5;  // Do not change this value (recommended).
+	var scaledSizeMultiplier = 5; // Do not change this value (recommended).
 
 	idiotWindow = new google.maps.InfoWindow({
 		content: '<div id="bodyContent" style="text-align:center"><p> Hey! You are zooming too far away! Click the button below or zoom<br>back in and continue your treasure hunt. Don`t let your team down!</br></p>' +
-				 '<input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></div>'
+			'<input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></div>'
 	});
-	
-	google.maps.event.addListener(map, 'zoom_changed', function() {
+
+	google.maps.event.addListener(map, 'zoom_changed', function () {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
 		if (markerList.length < 1) {
@@ -122,23 +122,23 @@ function scaleMarkerSizeOnZoom(){
 			return -1;
 		}
 		if (zoom < defaultZoom && zoom > (defaultZoom - scaledSizeMultiplier)) {
-			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
+			var scaledSize = defaultScaledSize - (scaledSizeMultiplier * (defaultZoom - zoom));
 			var scaledFontSize;
 			var scaledFontSizeNum = (defaultFontSize - (defaultZoom - zoom));
 			scaledFontSize = scaledFontSizeNum.toString() + 'pt';
 			console.log('scaledFontSize = ' + scaledFontSize);
-			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
+			var scaledLabelOriginHeightOffset = (defaultScaledSize / 2) / scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
 		if (zoom == defaultZoom) {
-			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
+			var scaledSize = defaultScaledSize - (scaledSizeMultiplier * (defaultZoom - zoom));
 			var scaledFontSize = defaultFontSizeString;
 			console.log('scaledFontSize = ' + scaledFontSize);
-			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
+			var scaledLabelOriginHeightOffset = (defaultScaledSize / 2) / scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom < (defaultZoom - scaledSizeMultiplier + 2)) { 
-			
+		if (zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
+
 			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
 				for (i = 0; i < markerList.length; i++) {
 					markerList[i].setVisible(false);
@@ -151,20 +151,19 @@ function scaleMarkerSizeOnZoom(){
 						activeInfoLabel.close();
 						activeInfoLabel = null;
 					}
-					idiotWindow.open(map, markerList[markerList.length-1]);
+					idiotWindow.open(map, markerList[markerList.length - 1]);
 				}
-			}
-			else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
+			} else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
 				for (i = 0; i < markerList.length; i++) {
 					idiotWindow.close();
 					markerList[i].setVisible(true);
 				}
 			}
-		}	
+		}
 	});
 }
 
-function resetMapZoom(){
+function resetMapZoom() {
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
 		zoom: defaultZoom
@@ -174,7 +173,7 @@ function resetMapZoom(){
 	}
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
-					markerList[i].setVisible(true);
+			markerList[i].setVisible(true);
 		}
 	}
 }
@@ -197,60 +196,60 @@ function nextWaypoint() {
 
 		activeClue = -1; //reset the clue count
 
-		addScore(5); 
+		addScore(5);
 	}
 }
 
 function checkError(error) {
-		 // the current position could not be located
-		 alert("The current position could not be found!");
- }
+	// the current position could not be located
+	alert("The current position could not be found!");
+}
 
 function setCurrentPosition(pos) {
-		 currentPositionMarker = new google.maps.Marker({
-				 map: map,
-				 position: new google.maps.LatLng(
-						 pos.coords.latitude,
-						 pos.coords.longitude
-				 ),
-				 title: "Current Position",
-				 icon: {
-		 			url: 'img/icons/blue-dot.png',
-					scaledSize: new google.maps.Size(40, 40),
-					origin: new google.maps.Point(0, 0),
-					labelOrigin: new google.maps.Point(20, -30)
-		 		}
-		 });
-		 map.panTo(new google.maps.LatLng(
-						 pos.coords.latitude,
-						 pos.coords.longitude
-				 ));
- }
+	currentPositionMarker = new google.maps.Marker({
+		map: map,
+		position: new google.maps.LatLng(
+			pos.coords.latitude,
+			pos.coords.longitude
+		),
+		title: "Current Position",
+		icon: {
+			url: 'img/icons/blue-dot.png',
+			scaledSize: new google.maps.Size(40, 40),
+			origin: new google.maps.Point(0, 0),
+			labelOrigin: new google.maps.Point(20, -30)
+		}
+	});
+	map.panTo(new google.maps.LatLng(
+		pos.coords.latitude,
+		pos.coords.longitude
+	));
+}
 
- function displayAndWatch(position) {
-		 // set current position
-		 setCurrentPosition(position);
-		 // watch position
-		 watchCurrentPosition();
- }
+function displayAndWatch(position) {
+	// set current position
+	setCurrentPosition(position);
+	// watch position
+	watchCurrentPosition();
+}
 
- function watchCurrentPosition() {
-		 var positionTimer = navigator.geolocation.watchPosition(
-				 function (position) {
-						 setMarkerPosition(
-								 currentPositionMarker,
-								 position
-						 );
-				 });
- }
+function watchCurrentPosition() {
+	var positionTimer = navigator.geolocation.watchPosition(
+		function (position) {
+			setMarkerPosition(
+				currentPositionMarker,
+				position
+			);
+		});
+}
 
 function setMarkerPosition(marker, position) {
-		 marker.setPosition(
-				 new google.maps.LatLng(
-						 position.coords.latitude,
-						 position.coords.longitude)
-		 );
- }
+	marker.setPosition(
+		new google.maps.LatLng(
+			position.coords.latitude,
+			position.coords.longitude)
+	);
+}
 
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
@@ -277,7 +276,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	}
 
 	// Creates new Google Maps marker
-	
+
 	var marker = new google.maps.Marker({
 		position: {
 			lat: latPos,
@@ -294,14 +293,14 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 			url: 'img/icons/chest.png',
 			scaledSize: new google.maps.Size(defaultScaledSize, defaultScaledSize),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point((defaultScaledSize/2), defaultScaledSize + defaultLabelOriginHeightOffset)
+			labelOrigin: new google.maps.Point((defaultScaledSize / 2), defaultScaledSize + defaultLabelOriginHeightOffset)
 		},
 		draggable: draggable,
 		animation: google.maps.Animation.DROP,
 		id: markerNum - 1,
 		opacity: markerOpacity,
 		name: name,
-		mouseOnMarker: false  // used to determine if mouse is on marker; used by event listeners
+		mouseOnMarker: false // used to determine if mouse is on marker; used by event listeners
 	});
 
 	var contentString = '<div id="content" style="text-align:center">' +
@@ -310,7 +309,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
-		
+
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
@@ -322,16 +321,16 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		pixelOffset: new google.maps.Size(0, -16),
 		content: '<div id="bodyContent"><p> This location contains a hidden treasure. Click for more info. </p></div>'
 	});
-	
+
 	// Event listeners for markers when clicked or hovered over
 	addMarkerClickListeners(marker, infoWindow, infoLabel);
 	addMarkerMouseOverListeners(marker, infoWindow, infoLabel);
-	
+
 	markerList.push(marker);
 	markers += 1;
 }
 
-function addMarkerClickListeners(marker, infoWindow, infoLabel){
+function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 	/*
 		Function adds event listeners to the marker for a 'click' event.
 		Parameters:
@@ -396,21 +395,20 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel){
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 					firstClick = false;
 				} else {
-					markerSetAnimation(marker, 'BOUNCE-IF');  // This function has to be used to set the animation.
+					markerSetAnimation(marker, 'BOUNCE-IF'); // This function has to be used to set the animation.
 				}
 			}
 			marker.setOpacity(1);
 			infoWindow.open(map, marker);
 			activeInfoWindow = infoWindow;
 			activeMarker = marker;
-		} 
-		else {
+		} else {
 			markerSetAnimation(markerToBeSet, null);
 			activeInfoWindow = null;
 			activeMarker = null;
 		}
 	});
-	
+
 	// Handles the event when 'X' is pressed to close the Info Window
 	infoWindow.addListener('closeclick', function () {
 		markerSetAnimation(activeMarker, null);
@@ -435,7 +433,7 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel){
 	});
 }
 
-function addMarkerMouseOverListeners(marker, infoWindow, infoLabel){
+function addMarkerMouseOverListeners(marker, infoWindow, infoLabel) {
 	/*
 		Function adds event listeners to a marker for a 'mouseover' and a 'mouseout' event.
 		Parameters:
@@ -500,7 +498,7 @@ function removeMarker(id) {
 	id - Index of marker in array
 	*/
 	markerList[id].setMap(null);
-	marketList.splice(id); // removing an element from an array
+	markerList.splice(id); // removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -515,13 +513,13 @@ function removeMarker(id) {
 
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
-		marketList[id].setMap(null);
+		markerList[i].setMap(null);
 	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
 	}
-	marketList = null;
+	markerList = null;
 	activeMarker = null;
 	activeInfoWindow = null;
 	markers = 0;
@@ -675,7 +673,7 @@ function dayTime() {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
 			markerList[i].setLabel(label);
-			
+
 		}
 	}
 	if (customMarker) {
@@ -710,19 +708,18 @@ function nightTime() {
 	Toggle options used by settings
 */
 
-function toggleHints(){
-	if (showHints){
+function toggleHints() {
+	if (showHints) {
 		showHints = false;
 	} else {
 		showHints = true;
 	}
 }
 
-function toggleMarkerOpacity(){
+function toggleMarkerOpacity() {
 	if (markerOpacity == defaultMarkerOpacity) {
 		setMarkerOpacity(reducedMarkerOpacity);
-	}
-	else {
+	} else {
 		setMarkerOpacity(defaultMarkerOpacity)
 	}
 }
@@ -730,8 +727,7 @@ function toggleMarkerOpacity(){
 function toggleMarkerAnimations() {
 	if (enableAnimations) {
 		enableAnimations = false;
-	}
-	else {
+	} else {
 		enableAnimations = true;
 	}
 }
@@ -747,19 +743,18 @@ function toggleMarkerNames() {
 function setMarkerNames() {
 	if (showMarkerNames) {
 		showAllMarkerNames();
-	}
-	else {
+	} else {
 		hideAllMarkerNames();
 	}
 }
 
 // shows marker names
 function showAllMarkerNames() {
-	
+
 	showMarkerNames = true;
-	defaultFontSize = (defaultFontSize - reduceFontSizeBy);  // reduce font size as names are displayed (which take up more space on screen)
+	defaultFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
-	
+
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
@@ -774,11 +769,11 @@ function showAllMarkerNames() {
 
 // hide marker names
 function hideAllMarkerNames() {
-	
+
 	showMarkerNames = false;
-	defaultFontSize = (defaultFontSize + reduceFontSizeBy);	 // increase font size as names are no longer displayed
+	defaultFontSize = (defaultFontSize + reduceFontSizeBy); // increase font size as names are no longer displayed
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
-	
+
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
