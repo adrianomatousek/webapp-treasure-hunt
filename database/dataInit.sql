@@ -93,28 +93,32 @@ INSERT INTO waypoints VALUES
   '50.735882,-3.534206',
   '1',
   'SAMPLE PRIZE',
-  '1'
+  '1',
+  "The first waypoint, the real OG dude"
 ),
 (
   '2',
   '50.734882,-3.535206',
   '1',
   'SAMPLE PRIZE',
-  '2'
+  '2',
+  "The second waypoint, the second coming"
 ),
 (
   '3',
   '50.735882,-3.536206',
   '1',
   'SAMPLE PRIZE',
-  '3'
+  '3',
+  "The third waypoint, third time lucky"
 ),
 (
   '4',
   '50.736882,-3.534206',
   '1',
   'SAMPLE PRIZE',
-  '4'
+  '4',
+  "The fourth waypoint, four is more"
 );
 
 INSERT INTO clues VALUES
