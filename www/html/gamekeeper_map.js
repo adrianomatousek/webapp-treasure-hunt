@@ -40,10 +40,10 @@ function saveRoute(){
 		dataType:"json",
 		url:"saveRoute.php",
 		data: {passedData: postData},
-		success: function(data){
+		.done: function(data){
 			alert("Route added");
 		},
-		error: function(xhr, textStatus, errorThrown){
+		.fail: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
 			console.log(textStatus);
       console.log(error);
