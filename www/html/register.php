@@ -32,7 +32,7 @@
               <label for="inputFull">* Full name</label>
             </div>
           </div>
-   
+
           <div style="margin-bottom: 8px;" class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
@@ -64,6 +64,7 @@
 
           <div class="row">
             <div class="input-field col s12">
+              <p class="margin medium-small"><a href="index.php">Already got an account?</a></p>
               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
@@ -118,7 +119,7 @@ require_once ("connection.php");
       $query->bind_param("s", $user);
       //Executes query and stores it in memory.
       $query->execute();
-      
+
       $result = $query->get_result();
       $data = $result->fetch_assoc();
       $usernameCount = $data['usernameNo'];
@@ -133,7 +134,7 @@ require_once ("connection.php");
         //References used: https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection.
         $accessLevel1 = 'Student';
         $realName1 = $_POST['inputFull'];
-        $email1 = $_POST['inputEmail']; 
+        $email1 = $_POST['inputEmail'];
         $gamekeeperID1 = 'chiefGamekeeper';
 
 
@@ -141,16 +142,16 @@ require_once ("connection.php");
         $salt = generateRandomString();
         $pwd = hash('sha256',$_POST['inputPassword'].$salt);
         $addAcc = $conn->prepare("INSERT INTO `student_users` (username, hashPass, salt, accessLevel, name, email, gamekeeperID) VALUES (?,?,?,?,?,?,?)");
-        
+
         //Ideally passed as parameters (don't think you can pass as strings in bind_param).
         //Parameters need to be replaced with actual values that we can use and send.
         $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
         $addAcc->execute();
         $addAcc->close();
-        // $registered = true;
-        // if ($registered) {
+
+        if (registered) {
           header("location: index.php");
-        // }
+        }
       }
   }
 ?>
