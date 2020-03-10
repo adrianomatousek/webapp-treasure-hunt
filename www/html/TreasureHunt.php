@@ -95,7 +95,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();"><i class="material-icons">directions_run</i>Show animations</a>
 			<label>
-				<input id="checkBoxNightMode" onchange="toggleMarkerAnimations()" type="checkbox" checked = "true">
+				<input id="checkBoxAnimations" onchange="toggleMarkerAnimations()" type="checkbox" checked = "true">
 				<span style="float: right; margin: 17px;" class="lever"></span>
 			</label>
 		</li>
