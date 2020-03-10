@@ -45,6 +45,4 @@ $waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
 // $conn->query($waypointSQL);
 
 //TODO PHP for adding clues for each waypoint, will require another passed array
-
-*/
 ?>
