@@ -104,6 +104,9 @@ function scaleMarkerSizeOnZoom(){
 		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
 	var scaledSizeMultiplier = 5;  // Do not change this value.
+	var idiotWindow = new google.maps.InfoWindow({
+				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
+	});
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
@@ -128,10 +131,6 @@ function scaleMarkerSizeOnZoom(){
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
 		if (zoom < (defaultZoom - scaledSizeMultiplier + 2)) { 
-			
-			var idiotWindow = new google.maps.InfoWindow({
-				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
-			});
 			
 			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
 				for (i = 0; i < markerList.length; i++) {
