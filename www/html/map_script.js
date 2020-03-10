@@ -570,6 +570,7 @@ function dayTime() {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
+			label.fontSize = '12pt';
 			markerList[i].setLabel(label);
 			var icon = markerList[i].getIcon();
 			icon.scaledSize = new google.maps.Size(20, 20);
