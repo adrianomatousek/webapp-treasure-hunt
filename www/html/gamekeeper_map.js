@@ -34,7 +34,7 @@ function saveRoute(){
 	var postData = {
 		"waypoints":newMarkers,
 		"clues":newClues
-	}
+	};
 
 	/*
 	var postData = newClues;
