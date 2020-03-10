@@ -39,11 +39,12 @@ function saveRoute(){
 		type:"POST",
 		dataType:"json",
 		url:"saveRoute.php",
+		contentType: 'application/json; charset=utf-8',
 		data: {passedData: postData},
-		success: function(data){
+		.done: function(data){
 			alert("Route added");
 		},
-		error: function(xhr, textStatus, errorThrown){
+		.fail: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
 			console.log(textStatus);
       console.log(error);
