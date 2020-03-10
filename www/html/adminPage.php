@@ -21,6 +21,7 @@
             
     </form>
   </body>
+  <br><br><br><br><br>
   <button type="button" onclick="history.back()">Return to hunt </button>
 </html>
 
