@@ -17,7 +17,7 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
-var defaultZoom = 20;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
+var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
 var defaultScaledSize = 50;  // Default size of the icon of the marker
 var defaultLabelOriginHeightOffset = 4;  // 
 var defaultFontSize = 16;
@@ -127,7 +127,7 @@ function scaleMarkerSizeOnZoom(){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultipler - 1)) {
+		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 1)) {
 			for (i = 0; i < markerList.length; i++) {
 				markerList[i].setVisible(false);
 			}
