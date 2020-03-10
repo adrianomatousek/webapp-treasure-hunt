@@ -110,9 +110,9 @@ if ($_SESSION["loggedin"] != true){
 
 	<!-- Animations option in settings -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:enableAnimations = true; tickBox2();">Disable animations</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();">Disable marker animations</a>
 			<label>
-				<input id="checkBoxNightMode" onchange="enableAnimations = false" type="checkbox">
+				<input id="checkBoxNightMode" onchange="toggleMarkerAnimations()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
 			</label>
 		</li>
