@@ -2,9 +2,8 @@
 echo "pretty please";
 require_once ("connection.php");
 // $passed_json = $_POST['data'];
-$passed_json = $_POST[data];
-$newMarkers = $passed_json[0];
-$newClues = $passed_json[1];
+$newMarkers = $_POST['waypoints'];
+$newClues = $_POST['clues'];
 
 
 echo $newClues[0][0];
