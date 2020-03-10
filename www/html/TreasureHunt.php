@@ -192,7 +192,7 @@ if ($_SESSION["loggedin"] != true){
     </div>
     <div class="carousel-page">
       <!-- Page 3: Leaderboard -->
-      <div class="container" style="overflow-y:scroll">
+      <div class="container">
         <div class="score-section">
           <h6>Score: <span id="your-score">0</span></h6>
         </div>

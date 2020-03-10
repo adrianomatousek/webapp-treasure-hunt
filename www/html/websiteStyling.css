@@ -238,3 +238,9 @@ li 	.caret {
   transform: rotate(-180deg);
   transform-origin: 0.6em 0.5em;
 }
+
+table{
+   overflow-y:scroll;
+   height:100px;
+   display:block;
+}
