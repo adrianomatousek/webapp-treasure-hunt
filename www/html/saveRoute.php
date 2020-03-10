@@ -6,6 +6,7 @@ require_once ("connection.php");
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
 
+
 echo $newClues[0][0];
 echo $newMarkers[0];
 
