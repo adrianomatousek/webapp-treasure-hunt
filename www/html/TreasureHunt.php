@@ -89,7 +89,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Animations option in settings -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();"><i class="material-icons">directions_run</i>Show animations</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();"><i class="material-icons">directions_run</i>Animations</a>
 			<label>
 				<input id="checkBoxAnimations" onchange="toggleMarkerAnimations()" type="checkbox" checked = "true">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -99,7 +99,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Marker names option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Show pin names</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Pin names</a>
 			<label>
 				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -109,7 +109,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Help/hints for how to use the app (not used yet - remove later if not used at all)    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();"><i class="material-icons">info</i>Show hints</a>
+		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();"><i class="material-icons">info</i>Hints</a>
 			<label>
 				<input id="checkBoxHints" onchange="toggleHints()" type="checkbox" checked = "true">
 				<span style="float: right; margin: 17px;" class="lever"></span>

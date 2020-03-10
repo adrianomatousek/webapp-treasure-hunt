@@ -11,9 +11,7 @@ function addScore(amount) {
         data: {
             score: playerScore
         },
-        success: function (response) {
-            console.log('my message' + response);
-        },
+        success: function (response) {},
         dataType: "text",
         error: function (req, err) {
             console.log('my message' + err);
@@ -25,13 +23,11 @@ function addScore(amount) {
 //AJAX calls to retrive data from data base from leaderboardsData.php
 
 function update_board() {
-    console.log("updating board");
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("mytable").innerHTML = "";
             var gameData = JSON.parse(this.response);
-            console.log(gameData);
             var alldata = ""; //all data from database stored in variable
             var length = gameData.length;
 

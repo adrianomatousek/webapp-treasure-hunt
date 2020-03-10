@@ -22,51 +22,48 @@ var newMarkers = [];
 var newClues = [];
 
 //NEW handles click on addClue button, TODO add clue to waypoint dialog box
-function addClue (positionInRoute){
+function addClue(positionInRoute) {
 	var clueText = prompt("Enter the clue text:");
-	if (newClues.length>0){
-		newClues[positionInRoute-1].push(clueText);
+	if (newClues.length > 0) {
+		newClues[positionInRoute - 1].push(clueText);
 	}
 }
 
 //NEW sends ajax request and should remove all markers
-function saveRoute(){
+function saveRoute() {
 	var postData = {
 		waypoints: newMarkers,
 		clues: newClues
 	};
 
-	/*
-	var postData = newClues;
-	postData.push(newMarkers);
-	JSON.stringify(postData);
-	*/
-	var my_array = new Array(waypoints, clues);
-	var jsonString = JSON.stringify(my_array);
+	console.log(postData);
 
-	$.ajax({
-		url:"saveRoute.php",
-		type:"POST",
-		// contentType: "application/json; charset=utf-8",
-		data: {data: jsonString}, 
-		// {
-			// passedData: postData
-			// postMarkers: newMarkers,
-			// postClues: newClues
-		// },
-		success: function(returnData){
-			alert("Route added");
-			alert(returnData);
-		},
-		error: function(xhr, textStatus, errorThrown){
-			alert("Route saving unsuccessful"+xhr.statusText);
-			console.log(textStatus);
-      		console.log(error);
-		}
-	});
-	//removeAllMarkers();
-	//newMarkers = [];
-	//newClues = [];
+	if (newMarkers.length == 0){
+		alert("Please add a marker before creating a route!");
+	}
+	else if (newClues.length == 0){
+		alert("Please add atleast one clue.");
+	}
+	else{
+
+		$.ajax({
+			url: "saveRoute.php",
+			type: "POST",
+			data: postData,
+			success: function (returnData) {
+				alert("Route added");
+				alert(returnData);
+			},
+			error: function (xhr, textStatus, errorThrown) {
+				alert("Route saving unsuccessful" + xhr.statusText);
+				console.log(textStatus);
+				console.log(error);
+			}
+		});
+		removeAllMarkers();
+		newMarkers = [];
+		newClues = [];
+	}
 }
 
 
@@ -109,9 +106,9 @@ function myMap() {
 	map = new google.maps.Map(document.getElementById("googleMap"));
 
 	if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
+		navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
 	} else {
-			alert("Your browser does not support the Geolocation API");
+		alert("Your browser does not support the Geolocation API");
 	}
 
 	var directionsService = new google.maps.DirectionsService,
@@ -127,55 +124,55 @@ function myMap() {
 }
 
 function checkError(error) {
-		 // the current position could not be located
-		 alert("The current position could not be found!");
- }
+	// the current position could not be located
+	alert("The current position could not be found!");
+}
 
- function setCurrentPosition(pos) {
-		 currentPositionMarker = new google.maps.Marker({
-				 map: map,
-				 position: new google.maps.LatLng(
-						 pos.coords.latitude,
-						 pos.coords.longitude
-				 ),
-				 title: "Current Position",
-				 icon: {
-		 			url: 'img/icons/blue-dot.png',
-					scaledSize: new google.maps.Size(40, 40),
-					origin: new google.maps.Point(0, 0),
-					labelOrigin: new google.maps.Point(20, -30)
-		 		}
-		 });
-		 map.panTo(new google.maps.LatLng(
-						 pos.coords.latitude,
-						 pos.coords.longitude
-				 ));
- }
+function setCurrentPosition(pos) {
+	currentPositionMarker = new google.maps.Marker({
+		map: map,
+		position: new google.maps.LatLng(
+			pos.coords.latitude,
+			pos.coords.longitude
+		),
+		title: "Current Position",
+		icon: {
+			url: 'img/icons/blue-dot.png',
+			scaledSize: new google.maps.Size(40, 40),
+			origin: new google.maps.Point(0, 0),
+			labelOrigin: new google.maps.Point(20, -30)
+		}
+	});
+	map.panTo(new google.maps.LatLng(
+		pos.coords.latitude,
+		pos.coords.longitude
+	));
+}
 
- function displayAndWatch(position) {
-		 // set current position
-		 setCurrentPosition(position);
-		 // watch position
-		 watchCurrentPosition();
- }
+function displayAndWatch(position) {
+	// set current position
+	setCurrentPosition(position);
+	// watch position
+	watchCurrentPosition();
+}
 
- function watchCurrentPosition() {
-		 var positionTimer = navigator.geolocation.watchPosition(
-				 function (position) {
-						 setMarkerPosition(
-								 currentPositionMarker,
-								 position
-						 );
-				 });
- }
+function watchCurrentPosition() {
+	var positionTimer = navigator.geolocation.watchPosition(
+		function (position) {
+			setMarkerPosition(
+				currentPositionMarker,
+				position
+			);
+		});
+}
 
- function setMarkerPosition(marker, position) {
-		 marker.setPosition(
-				 new google.maps.LatLng(
-						 position.coords.latitude,
-						 position.coords.longitude)
-		 );
- }
+function setMarkerPosition(marker, position) {
+	marker.setPosition(
+		new google.maps.LatLng(
+			position.coords.latitude,
+			position.coords.longitude)
+	);
+}
 
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
@@ -420,7 +417,7 @@ function removeMarker(id) {
 
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
-		markerList[id].setMap(null);
+		markerList[i].setMap(null);
 	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
@@ -507,7 +504,7 @@ function saveCustomMarker() {
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
 	//descriptions for waypoints are not presently stored in the database, maybe have it as clue
-	newMarkers.push(""+latPos+lngPos);
+	newMarkers.push("" + latPos + lngPos);
 	//adds empty clue array to newClues
 	newClues.push([]);
 	addCustomMarker();
