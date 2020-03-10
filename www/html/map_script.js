@@ -103,10 +103,12 @@ function scaleMarkerSizeOnZoom(){
 	Parameter:
 		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
-	var scaledSizeMultiplier = 5;  // Do not change this value.
+	var scaledSizeMultiplier = 5;  // Do not change this value (recommended).
+
 	var idiotWindow = new google.maps.InfoWindow({
-				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
+		content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Click here or zoom back in and<br>continue your treasure hunt. Don`t let your team down!</br></p></div>'
 	});
+	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
@@ -144,13 +146,17 @@ function scaleMarkerSizeOnZoom(){
 					markerList[i].setVisible(true);
 				}
 			}
-		}
-		
+		}	
 	});
-}
-
-function toggleMarkerVisiblity() {
-
+	
+	idiotWindow.addListener('click', function() {
+		map.setOptions({
+			center: new google.maps.LatLng(50.735882, -3.534206),
+			zoom: defaultZoom
+		});
+		idiotWindow.close();
+		markerList[i].setVisible(true);
+	});
 }
 
 function nextWaypoint() {
