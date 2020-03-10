@@ -31,15 +31,16 @@ function addClue (positionInRoute){
 
 //NEW sends ajax request and should remove all markers
 function saveRoute(){
-	var postData = {
+	var obj = {
 		"waypoints":newMarkers,
 		"clues":newClues
 	}
+	var postData = JSON.stringify(obj);
 	$.ajax({
 		type:"POST",
 		dataType:"json",
 		url:"saveRoute.php",
-		contentType: 'application/json; charset=utf-8',
+		contentType: "application/json; charset=utf-8",
 		data: {passedData: postData},
 		success: function(data){
 			alert("Route added");
