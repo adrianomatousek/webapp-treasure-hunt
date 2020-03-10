@@ -10,7 +10,7 @@ var showLabelOnMouseOver = true; // displays small info/help label when mouse cu
 var enableAnimations = true;
 var customMarker;
 var markerOpacity = 0.85;
-var showMarkerNames = true;
+var showMarkerNames = false;
 var showInfoLabels = true;
 var points; //array of all the waypoints
 var clues;
@@ -46,7 +46,7 @@ function myMap() {
 			map: map
 	});
 
-	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
+	addMarker(50.735882, -3.534206, 'Bob`sss place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
@@ -55,7 +55,8 @@ function myMap() {
 	// Load Settings
 	//enableAnimations = true;
 	setTime();
-	setMarkerNames();
+	//setMarkerNames();
+	toggleMarkerNames();
 	showLabelOnMouseOver = true;
 	//setMarkerOpacity(0.85);
 	
