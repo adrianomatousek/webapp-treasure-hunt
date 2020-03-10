@@ -131,9 +131,9 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
       <div class="divider"></div>
     </li>
     <li><a class="subheader">Account & Other</a></li>
-    <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons" id="FAQ">contact_support</i>FAQ</a></li>
+    <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
 
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
       <li><a href="adminPage.php">Admin Page</a></li>
