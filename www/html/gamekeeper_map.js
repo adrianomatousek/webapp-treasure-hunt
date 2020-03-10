@@ -638,7 +638,7 @@ function toggleMarkerAnimations() {
 	} else {
 		enableAnimations = true;
 		if (customMarker) {
-			customMarker.markerSetAnimation('BOUNCE');
+			markerSetAnimation(customMarker, 'BOUNCE');
 		}
 	}
 }
