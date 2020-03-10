@@ -4,6 +4,7 @@ require_once ("connection.php");
 // $passed_json = $_POST['data'];
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
+$routeName = $_POST['route_name'];
 
 
 echo $newClues[0][0];

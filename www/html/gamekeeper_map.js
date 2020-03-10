@@ -16,6 +16,7 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
+var routeName = "";
 
 //NEW stores created markers and clues
 var newMarkers = [];
@@ -31,9 +32,14 @@ function addClue(positionInRoute) {
 
 //NEW sends ajax request and should remove all markers
 function saveRoute() {
+	routeName = askForRouteName();
+	if (routeName = "") {
+		routeName = "Undefinded Route";
+	}
 	var postData = {
 		waypoints: newMarkers,
-		clues: newClues
+		clues: newClues,
+		route_name: routeName
 	};
 
 	console.log(postData);
@@ -61,7 +67,13 @@ function saveRoute() {
 		removeAllMarkers();
 		newMarkers = [];
 		newClues = [];
+		routeName = "";
 	}
+}
+
+function askForRouteName() {
+	var name = prompt("Name of your new route:");
+	return name;
 }
 
 
