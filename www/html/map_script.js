@@ -703,6 +703,17 @@ function nightTime() {
 	}
 }
 
+function toggleMarkerOpacity(){}
+
+function toggleMarkerAnimations() {
+	if (enableAnimations) {
+		enableAnimations = false;
+	}
+	else {
+		enableAnimations = true;
+	}
+}
+
 // utility function changing the numbers to names
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
