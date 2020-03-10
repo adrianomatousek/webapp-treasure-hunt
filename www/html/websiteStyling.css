@@ -9,6 +9,10 @@
     float: left;
 }
 
+#settingsPage {
+	font-size: 14px;
+}
+
 #cluesP {
     font-size: 15px;
     display: inline-block;
