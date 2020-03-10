@@ -14,6 +14,42 @@ function tickBox() { //for night mode
     }
 }
 
+function tickBox2() { //for animations
+    var checker = document.getElementById("checkBoxAnimations");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
+function tickBox3() { //for marker names
+    var checker = document.getElementById("checkBoxMarkerNames");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
+function tickBox4() { //for info/help/hints
+    var checker = document.getElementById("checkBoxHints");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
+function tickBox5() { //for marker opacity
+    var checker = document.getElementById("checkBoxMarkerOpacity");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
 
 $(document).ready(function () { //Initialize the sidenavs with Materializecss
     $('.sidenav').sidenav();

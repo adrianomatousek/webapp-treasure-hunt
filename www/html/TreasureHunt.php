@@ -100,18 +100,58 @@ if ($_SESSION["loggedin"] != true){
 
     <!-- Night Mode option in settings    -->
     <div class="switch">
-      <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
-        <label>
-          <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-          <span style="float: right; margin: 17px;" class="lever"></span>
-        </label>
+		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
     </div>
-    </li>
+	
+	<!-- Animations option in settings -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:enableAnimations = true; tickBox2();">Disable animations</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="enableAnimations = false" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+	
+	<!-- Marker names option in settings    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
+			<label>
+				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+	
+	<!-- Info/Help/Hint option in settings    
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox4();">Hide hints</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div> -->
+	
+	<!-- Marker opacity in settings   
+	<div class="switch">
+		<li><a style="display: inline-block" href="javascript:setMarkerOpacity(0.55); tickBox5();">Reduce marker opacity</a>
+			<label>
+				<input id="checkBoxMarkerOpacity" onchange="setMarkerOpacity(0.85)" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div> -->
 
     <li>
       <div class="divider"></div>
     </li>
-    <li><a class="subheader">Subheader</a></li>
+    <li><a class="subheader">Account & Other</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">contact_support</i>FAQ</a></li>

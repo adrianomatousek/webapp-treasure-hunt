@@ -20,8 +20,9 @@ var showHints = true;  // Idiot-proof hints when openining the app, i.e. a windo
 var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
 var defaultScaledSize = 50;  // Default size of the icon of the marker
 var defaultLabelOriginHeightOffset = 4;  // 
-var defaultFontSize = 18;
-var defaultFontSizeString = '18pt';
+var defaultFontSize = 16;
+var defaultFontSizeString = '16pt';
+var idiotWindow;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -96,31 +97,83 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 	}
 }
 
-function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
+function scaleMarkerSizeOnZoom(){
 	/*
 	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
-	handling the event change, using the "setMarkerSize" function.
+	handling the event change, using the "setMarkerSize" function. The defaultZoom should be set to 16.
 	Parameter:
-		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (default: 5).
+		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
+	var scaledSizeMultiplier = 5;  // Do not change this value (recommended).
+
+	idiotWindow = new google.maps.InfoWindow({
+		content: '<div id="bodyContent" style="text-align:center"><p> Hey! You are zooming too far away! Click the button below or zoom<br>back in and continue your treasure hunt. Don`t let your team down!</br></p>' +
+				 '<input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></div>'
+	});
+	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if(zoom <= defaultZoom && zoom > (defaultZoom - 8)) {
+		if (markerList.length < 1) {
+			console.log('zoom_changed event: marker array is empty');
+			return -1;
+		}
+		if (zoom < defaultZoom && zoom > (defaultZoom - scaledSizeMultiplier)) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
-			if (zoom <= defaultFontSize - 4) {
-				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((defaultFontSize - zoom)));
-				scaledFontSize = scaledFontSizeNum.toString() + 'pt';
-				console.log('scaledFontSize = ' + scaledFontSize);
-			} else {
-				scaledFontSize = defaultFontSizeString;
-			}
+			var scaledFontSizeNum = (defaultFontSize - (defaultZoom - zoom));
+			scaledFontSize = scaledFontSizeNum.toString() + 'pt';
+			console.log('scaledFontSize = ' + scaledFontSize);
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		
+		if (zoom >= defaultZoom) {
+			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
+			var scaledFontSize = defaultFontSizeString;
+			console.log('scaledFontSize = ' + scaledFontSize);
+			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
+			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
+		}
+		if (zoom < (defaultZoom - scaledSizeMultiplier + 2)) { 
+			
+			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
+				for (i = 0; i < markerList.length; i++) {
+					markerList[i].setVisible(false);
+					if (activeInfoWindow) {
+						activeInfoWindow.close();
+						activeInfoWindow = null;
+						activeMarker = null;
+					}
+					if (activeInfoLabel) {
+						activeInfoLabel.close();
+						activeInfoLabel = null;
+					}
+					idiotWindow.open(map, markerList[markerList.length-1]);
+				}
+			}
+			else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
+				for (i = 0; i < markerList.length; i++) {
+					idiotWindow.close();
+					markerList[i].setVisible(true);
+				}
+			}
+		}	
 	});
+}
+
+function resetMapZoom(){
+	map.setOptions({
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: defaultZoom
+	});
+	if (idiotWindow) {
+		idiotWindow.close();
+	}
+	if (markerList.length > 0) {
+		for (i = 0; i < markerList.length; i++) {
+					markerList[i].setVisible(true);
+		}
+	}
 }
 
 function nextWaypoint() {
@@ -251,14 +304,14 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1)" onclick="showNextClue(' + markerNum + ')">' +
+		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
 		
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
-		content: contentString,
+		content: contentString
 	});
 
 	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
@@ -678,8 +731,9 @@ function showAllMarkerNames() {
 			labelContent = i + 1 + '. ' + markerList[i].name;
 			string = labelContent.toString();
 			label.text = string;
-			var fontSize = (defaultFontSize - 4).toString();
-			label.fontSize = fontSize;
+			var fontSize = (defaultFontSize - 4);
+			var fontSizeString = fontSize.toString() + 'pt';
+			label.fontSize = fontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
@@ -693,7 +747,7 @@ function hideAllMarkerNames() {
 			labelContent = markerList[i].id + 1;
 			string = labelContent.toString();
 			label.text = string;
-			label.fontSize = '18px';
+			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
