@@ -48,6 +48,7 @@ function saveRoute(){
 		data: {passedData: postData},
 		success: function(data){
 			alert("Route added");
+			alert(data);
 		},
 		error: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
