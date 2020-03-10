@@ -5,12 +5,13 @@ if ($_SESSION["loggedin"]){
   if (!in_array($_SESSION["accessLevel"], $authorisedUserTypes)) {
     //header("Location: TreasureHunt.php");
     //exit;
-    echo $_SESSION["accessLevel"];
+    echo $_SESSION["accessLevel"]." logged in";
   }
 }
 else{
-  header("Location: index.php");
-  exit;
+  echo $_SESSION["accessLevel"]." not logged in apparently";
+  //header("Location: index.php");
+  //exit;
 }
 // if ($_SESSION["loggedin"] != true){
 //   if ($_SESSION['accessLevel'] != 'Admin' && $_SESSION['accessLevel'] != 'Gamekeeper') {
