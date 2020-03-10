@@ -47,7 +47,7 @@ function saveRoute(){
 	$.ajax({
 		url:"saveRoute.php",
 		type:"POST",
-		contentType: "application/json; charset=utf-8",
+		// contentType: "application/json; charset=utf-8",
 		data: {data: jsonString}, 
 		// {
 			// passedData: postData
