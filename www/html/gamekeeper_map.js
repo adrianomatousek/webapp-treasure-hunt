@@ -44,7 +44,7 @@ function saveRoute(){
 			alert("Route added");
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown){
-			alert("Route saving unsuccessful".textStatus.errorThrown);
+			alert("Route saving unsuccessful",textStatus,errorThrown);
 		}
 	});
 	removeAllMarkers();
