@@ -110,7 +110,7 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			if (zoom <= defaultFontSize - 4) {
-				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((defaultFontSize - zoom)));
+				var scaledFontSizeNum = defaultFontSize - (defaultZoom - zoom);
 				scaledFontSize = scaledFontSizeNum.toString() + 'pt';
 				console.log('scaledFontSize = ' + scaledFontSize);
 			} else {
