@@ -108,6 +108,26 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
+	
+	<!-- Help/hints for how to use the app (not used yet - remove later if not used at all)    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();">Hide hints</a>
+			<label>
+				<input id="checkBoxHints" onchange="toggleHints()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+	
+	<!-- Marker opacity    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();">Reduce marker opacity</a>
+			<label>
+				<input id="checkBoxMarkerOpacity" onchange="toggleMarkerOpacity()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
 
     <li>
       <div class="divider"></div>
