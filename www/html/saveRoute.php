@@ -1,6 +1,7 @@
 <?php
 require_once ("connection.php");
-
+echo "Where does this shit echo if even does";
+/*
 $passed_json = $_POST['passedData'];
 
 $passed_json = json_decode($passed_json);
@@ -47,5 +48,5 @@ $waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
 
 //TODO PHP for adding clues for each waypoint, will require another passed array
 
-
+*/
 ?>
