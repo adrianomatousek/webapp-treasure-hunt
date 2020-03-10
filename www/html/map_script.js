@@ -141,9 +141,12 @@ function scaleMarkerSizeOnZoom(){
 					markerList[i].setVisible(false);
 					if (activeInfoWindow) {
 						activeInfoWindow.close();
+						activeInfoWindow = null;
+						activeMarker = null;
 					}
 					if (activeInfoLabel) {
 						activeInfoLabel.close();
+						activeInfoLabel = null;
 					}
 					idiotWindow.open(map, markerList[markerList.length-1]);
 				}
