@@ -41,41 +41,25 @@ function saveRoute(){
 	postData.push(newMarkers);
 	JSON.stringify(postData);
 	*/
-	// $.ajax({
-	// 	type:"POST",
-	// 	url:"saveRoute.php",
-	// 	contentType: "application/json; charset=utf-8",
-	// 	data: {
-	// 		// passedData: postData
-	// 		postMarkers: newMarkers,
-	// 		postClues: newClues
-	// 	},
-	// 	success: function(returnData){
-	// 		alert("Route added");
-	// 		alert(returnData);
-	// 	},
-	// 	error: function(xhr, textStatus, errorThrown){
-	// 		alert("Route saving unsuccessful"+xhr.statusText);
-	// 		console.log(textStatus);
-  //     console.log(error);
-	// 	}
-	// });
-	var posData = {
-		"waypoints":newMarkers,
-		"clues":newClues
-	callPHP(posData);
-	function callPHP(params) {
-    var httpc = new XMLHttpRequest(); // simplified for clarity
-    var url = "saveRoute.php";
-    httpc.open("POST", url, true); // sending as POST
-
-    httpc.onreadystatechange = function() { //Call a function when the state changes.
-        if(httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
-            alert(httpc.responseText); // some processing here, or whatever you want to do with the response
-        }
-    };
-    httpc.send(params);
-}
+	$.ajax({
+		type:"POST",
+		url:"saveRoute.php",
+		contentType: "application/json; charset=utf-8",
+		data: {
+			// passedData: postData
+			postMarkers: newMarkers,
+			postClues: newClues
+		},
+		success: function(returnData){
+			alert("Route added");
+			alert(returnData);
+		},
+		error: function(xhr, textStatus, errorThrown){
+			alert("Route saving unsuccessful"+xhr.statusText);
+			console.log(textStatus);
+      console.log(error);
+		}
+	});
 	//removeAllMarkers();
 	//newMarkers = [];
 	//newClues = [];
