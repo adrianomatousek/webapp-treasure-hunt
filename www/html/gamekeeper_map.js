@@ -37,6 +37,14 @@ function saveRoute() {
 	};
 
 	console.log(postData);
+
+	if (newClues.length == 0){
+		alert("Please add a clue");
+	}
+	if (newMarkers.length == 0){
+		alert("Please add a marker before creating a route!");
+	}
+
 	$.ajax({
 		url: "saveRoute.php",
 		type: "POST",
