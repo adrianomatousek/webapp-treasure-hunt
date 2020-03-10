@@ -127,7 +127,7 @@ function scaleMarkerSizeOnZoom(){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom < (defaultZoom - scaledSizeMultiplier + 2) { 
+		if (zoom < (defaultZoom - scaledSizeMultiplier + 2)) { 
 			
 			var idiotWindow = new google.maps.InfoWindow({
 				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
