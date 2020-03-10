@@ -45,10 +45,10 @@ function saveRoute(){
 		type:"POST",
 		url:"saveRoute.php",
 		contentType: "application/json; charset=utf-8",
-		data: {passedData: JSON.stringify(postData)},
-		success: function(data){
+		data: {passedData: postData},
+		success: function(returnData){
 			alert("Route added");
-			alert(data);
+			alert(returnData);
 		},
 		error: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
