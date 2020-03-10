@@ -66,7 +66,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
   </div>
 
   <!-- Settings side menu -->
-  <ul id="settingsPage" class="sidenav fixed right-aligned" style="width: 80%;">
+  <ul id="settingsPage" class="sidenav fixed right-aligned">
     <div>
       <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
     </div>
