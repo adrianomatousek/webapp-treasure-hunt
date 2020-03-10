@@ -37,7 +37,7 @@
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input class="validate" id="inputUsername" name="inputUsername" maxlength="10" type="text" required/>
-              <label for="inputUsername">* Username</label>
+              <label for="inputUsername">* Username   (case sensitive)</label>
             </div>
           </div>
           <div style="margin-bottom: 0px;" class="row">
