@@ -17,8 +17,17 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 
-//NEW stores created markers
+//NEW stores created markers and clues
 var newMarkers = [];
+var newClues = [];
+
+//NEW handles click on addClue button
+function addClue (positionInRoute){
+	var clueText = prompt("Enter the clue text:");
+	if (newClues.length>1){
+		newClues[positionInRoute-1].push(clueText);
+	}
+}
 
 
 function nextWaypoint() {
@@ -180,11 +189,11 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	if (!description || description.length < 10) {
 		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
 	}
-
+	//NEW changes text of button to Add Clue, and sets click listener to addClue func
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1)" onclick="showNextClue(' + markerNum + ')">' +
+		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Add Clue" onclick="addClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
 
@@ -459,6 +468,8 @@ function saveCustomMarker() {
 	//NEW adds waypoints to new markers array and sets up new marker
 	//descriptions for waypoints are not presently stored in the database, maybe have it as clue
 	newMarkers.push(""+latPos+lngPos);
+	//adds empty clue array to newClues
+	newClues.push([]);
 	addCustomMarker();
 }
 
