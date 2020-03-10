@@ -45,7 +45,10 @@ function saveRoute(){
 		type:"POST",
 		url:"saveRoute.php",
 		contentType: "application/json; charset=utf-8",
-		data: {passedData: postData},
+		data: {passedData: JSON.stringify(
+			waypoints:newMarkers,
+			clues:newClues
+		)},
 		success: function(data){
 			alert("Route added");
 			alert(data);
@@ -57,8 +60,8 @@ function saveRoute(){
 		}
 	});
 	//removeAllMarkers();
-	newMarkers = [];
-	newClues = [];
+	//newMarkers = [];
+	//newClues = [];
 }
 
 

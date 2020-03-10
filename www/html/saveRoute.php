@@ -1,10 +1,10 @@
 <?php
 echo "pretty please";
 require_once ("connection.php");
-//$passed_json = $_POST['passedData'];
+$passed_json = $_POST['passedData'];
 
-//echo $passed_json->clues;
-//echo $passed_json->waypoints;
+echo $passed_json->clues[0][0];
+echo $passed_json->waypoints[0];
 
 
 $waypointsArray = []; //TODO pass in data from inputted array
