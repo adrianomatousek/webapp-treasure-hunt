@@ -21,12 +21,34 @@ var activeClue = -1; //Would be in database as determines the score. Used in fil
 var newMarkers = [];
 var newClues = [];
 
-//NEW handles click on addClue button
+//NEW handles click on addClue button, TODO add clue to waypoint dialog box
 function addClue (positionInRoute){
 	var clueText = prompt("Enter the clue text:");
 	if (newClues.length>0){
 		newClues[positionInRoute-1].push(clueText);
 	}
+}
+
+function saveRoute(){
+	var postData = {
+		"waypoints":newMarkers,
+		"clues":newClues
+	}
+	$.ajax({
+		type:"POST",
+		dataType:"json",
+		url:"saveRoute.php",
+		data: {passedData: postData},
+		success: function(data){
+			alert("Route added");
+		},
+		error: function(data){
+			alert("Route saving unsuccessful");
+		}
+	});
+	removeAllMarkers();
+	newMarkers = [];
+	newClues = [];
 }
 
 
