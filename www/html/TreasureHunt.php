@@ -198,12 +198,14 @@ if ($_SESSION["loggedin"] != true){
         </div>
         <table width="450" >
           <!-- Table created to store data -->
-          <tr>
-            <th>Place</th>
-            <th>Team</th>
-            <th>Points</th>
-            <th>Time</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Place</th>
+              <th>Team</th>
+              <th>Points</th>
+              <th>Time</th>
+            </tr>
+          </thead>
           <tbody id="mytable">
           </tbody>
         </table>
