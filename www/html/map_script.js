@@ -28,7 +28,6 @@ $.post('loadClues.php', function (data) {
 	console.log(clues);
 });
 
-
 function myMap() {
 	/*
 	Function that initializes the map
@@ -47,13 +46,24 @@ function myMap() {
 			map: map
 	});
 
-	setTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
+	
+	
+	// Load Settings
+	//enableAnimations = true;
+	setTime();
+	setMarkerNames();
+	showLabelOnMouseOver = true;
+	//setMarkerOpacity(0.85);
+	
+	
 
 	addCustomMarker();
+	
+	
 }
 
 function nextWaypoint() {
@@ -200,19 +210,20 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	});
 	
 	// Event listeners for markers when clicked or hovered over
-	addMarkerClickListeners(marker, infoWindow);
-	addMarkerMouseOverListeners(marker, infoWindow);
+	addMarkerClickListeners(marker, infoWindow, infoLabel);
+	addMarkerMouseOverListeners(marker, infoWindow, infoLabel);
 	
 	markerList.push(marker);
 	markers += 1;
 }
 
-function addMarkerClickListeners(marker, infoWindow){
+function addMarkerClickListeners(marker, infoWindow, infoLabel){
 	/*
 		Function adds event listeners to the marker for a 'click' event.
 		Parameters:
 			marker: the object of the marker that is to have event listeners added,
-			infoWindow: the Info Window associated with this marker.
+			infoWindow: the Info Window associated with this marker,
+			infoLabel: the info/help label associated with this marker.
 	*/
 	var firstClick;
 	marker.addListener('click', function () {
@@ -310,12 +321,13 @@ function addMarkerClickListeners(marker, infoWindow){
 	});
 }
 
-function addMarkerMouseOverListeners(marker, infoWindow){
+function addMarkerMouseOverListeners(marker, infoWindow, infoLabel){
 	/*
 		Function adds event listeners to a marker for a 'mouseover' and a 'mouseout' event.
 		Parameters:
 			marker: the object of the marker that is to have event listeners added,
-			infoWindow: the Info Window associated with this marker.
+			infoWindow: the Info Window associated with this marker,
+			infoLabel: the info/help label associated with this marker.
 	*/
 	// Listener for when hovering over the marker; used on PC only
 	marker.addListener('mouseover', function () {
@@ -588,7 +600,18 @@ function nightTime() {
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
+		showMarkerNames = true;
 	} else {
+		hideAllMarkerNames();
+		showAllMarkerNames = false;
+	}
+}
+
+function setMarkerNames() {
+	if (showMarkerNames) {
+		showAllMarkerNames();
+	}
+	else {
 		hideAllMarkerNames();
 	}
 }
@@ -598,7 +621,9 @@ function showAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
-			label.text = i + 1 + '. ' + markerList[i].name;
+			labelContent = i + 1 + '. ' + markerList[i].name;
+			string = labelContent.toString();
+			label.text = string;
 			label.fontSize = '14px';
 			markerList[i].setLabel(label);
 		}
@@ -610,7 +635,9 @@ function hideAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
-			label.text = markerList[i].id + 1;
+			labelContent = markerList[i].id + 1;
+			string = labelContent.toString();
+			label.text = string;
 			label.fontSize = '18px';
 			markerList[i].setLabel(label);
 		}
