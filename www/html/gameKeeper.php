@@ -11,16 +11,7 @@ else{
   header("Location: index.php");
   exit;
 }
-// if ($_SESSION["loggedin"] != true){
-//   if ($_SESSION['accessLevel'] != 'Admin' && $_SESSION['accessLevel'] != 'Gamekeeper') {
-//     header("Location: TreasureHunt.php");
-//     exit;
-//   }
-// }
-// else{
-//   header("Location: index.php");
-//   exit;
-// }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,30 +65,9 @@ else{
       <li>Step 1: Move to your current treasure location </li>
       <li>Step 2: Find and scan QR code at the treasure location </li>
       <li>Step 3: Move to the next treasure location </li>
-      <!-- <a href="" class="button">Close</a> -->
     </div>
 
   </div>
-
-  <!--
-  <div id="helpPage" class="sidenav fixed left-aligned">
-    <ul>
-      <div>
-        <a href="#!" class="sidenav-close"><i class="material-icons md-36">close</i></a>
-      </div>
-
-      <div class="user-view">
-        <h2>How To Play</h2>
-        <li><a href="#!">Step 1: Move to your current treasure location </a></li>
-        <br>
-        <li><a href="#!">Step 2: Find and scan QR code at the treasure location </a></li>
-        <br>
-        <li><a href="#!">Step 3: Move to the next treasure location </a></li>
-        <br>
-      </div>
-    </ul>
-  </div>
--->
 
   <!-- Settings side menu -->
   <ul id="settingsPage" class="sidenav fixed right-aligned">
@@ -121,18 +91,14 @@ else{
     </div>
     </li>
 
-    <li><a href="#!">Second Link</a></li>
     <li>
       <div class="divider"></div>
     </li>
     <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
   </ul>
 
   <br>
-  <!-- <br>
-   <div> this somehow fixes weird bug where map dissapears lol?? -->
   <div>
     <h1>
     </h1>
