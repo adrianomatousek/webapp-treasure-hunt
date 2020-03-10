@@ -6,6 +6,8 @@ if ($_SESSION["loggedin"] != true){
   exit;
 }
 
+$gameKeeperPlus = array("Admin", "Gamekeeper");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -139,7 +141,10 @@ if ($_SESSION["loggedin"] != true){
 
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>
       <li><a href="adminPage.php">Admin Page</a></li>
-    <?php } ?>
+    <?php }
+          if (in_array($_SESSION['accessLevel'], $gameKeeperPlus)) { ?>
+            <li><a href="gameKeeper.php">Gamekeeper page</a></li>
+          <?php } ?>
 
   </ul>
 
