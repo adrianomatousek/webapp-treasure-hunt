@@ -21,6 +21,7 @@
             
     </form>
   </body>
+  <button type="button" onclick="history.back()">Return to hunt </button>
 </html>
 
 <?php
