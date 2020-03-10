@@ -148,13 +148,11 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
   </ul>
 
-  <br>
+<br>
   <!-- <br>
    <div> this somehow fixes weird bug where map dissapears lol?? -->
-  <div>
     <h1>
     </h1>
-  </div>
 
 
   <div class="carousel-pages">
@@ -207,9 +205,9 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-header"><i class="material-icons">camera_enhance</i>How do I scan a QR code?
                 <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body">
-                <span>To scan a QR and verify that you
-                 have been to the location please click the icon at centre of the
-                  bottom navigation which is a circle and use the camera to scan the QR code.
+                <span>To scan a QR code and verify that you
+                 have been to the location please click the icon in the shape of a circle at the centre of the
+                  bottom bar and use the pop-up camera to scan the QR code.
                 </span>
               </div>
             </li>
@@ -219,7 +217,8 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-body">
                 <span>If you are struggling or think
                  you are lost we have made it so your current location is displayed
-                  as a blue marker in the map to help you navigate.
+                  as a blue marker in the map to help you navigate. Updating in real time
+                  it should allow you to see where you are at any given time.
                   </span>
               </div>
             </li>
@@ -227,8 +226,8 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-header"><i class="material-icons">whatshot</i>How can I check how I am doing against other teams?
                  <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body">
-                <span>By clicking on the last item
-                the Leaderboard icon on the navigation bar at the bottom you will be able to see how you are doing against other teams.
+                <span>By clicking on the icon in the bottom right of the page
+                the Leaderboard will be able to show how you're doing against other teams.
                 </span>
               </div>
             </li>
@@ -236,8 +235,9 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-header"><i class="material-icons">place</i>My current location isnt showing?
                 <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body">
-                <span>Please go to setting and ensure
-                 location access is allowed by your browser if you dont recieve the popup when entering the site.
+                <span>Please go to your browser settings and ensure
+                you've given us permission to use your location. If you don't recieve the option to give location
+                when entering the site please try reload the page or seek help.
                 </span>
               </div>
             </li>
@@ -245,9 +245,9 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-header"><i class="material-icons">place</i>Need some help with finding the treasure?
                 <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body">
-                <span>Please click the treasure chest marking the position and click the
-                  green show clue button to get a clue to help you find the place. Please note
-                  that this will cost you one point and can use a mximum of 2 clues for each point.
+                <span>To get a clue, please click the treasure chest marking the treasure and click the
+                  green "show clue" button to get a clue to help you find the place. Please note
+                  that this could cost you quite a few points.
                 </span>
               </div>
             </li>
@@ -255,8 +255,8 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-header"><i class="material-icons">place</i>An error on QR scanner page?
                 <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body">
-                <span>If you get the message "Unable to access video stream" message please make sure you have camera
-                  access enabled for your browser.
+                <span>If you get the message "Unable to access video stream" on the camera,
+                 please make sure you have camera access enabled for your browser and for our website.
                 </span>
               </div>
             </li>
