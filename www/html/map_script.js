@@ -96,17 +96,22 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 	}
 }
 
-function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
+function scaleMarkerSizeOnZoom(){
 	/*
 	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
-	handling the event change, using the "setMarkerSize" function.
+	handling the event change, using the "setMarkerSize" function. The defaultZoom should be set to 16.
 	Parameter:
 		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (recommended: 5).
 	*/
+	var scaledSizeMultiplier = 5;  // Do not change this value.
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if(zoom < defaultZoom && zoom > (defaultZoom - 5)) {
+		if (markerList.length < 1) {
+			console.log('zoom_changed event: marker array is empty');
+			return -1;
+		}
+		if (zoom < defaultZoom && zoom > (defaultZoom - scaledSizeMultiplier)) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			var scaledFontSizeNum = (defaultFontSize - (defaultZoom - zoom));
@@ -122,7 +127,21 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
+		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultipler - 1) {
+			for (i = 0; i < markerList.length; i++) {
+				markerList[i].setVisible(false);
+			}
+		}
+		else if ((zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 1))
+			for (i = 0; i < markerList.length; i++) {
+				markerList[i].setVisible(true);
+			}
+		}
 	});
+}
+
+function toggleMarkerVisiblity() {
+
 }
 
 function nextWaypoint() {
