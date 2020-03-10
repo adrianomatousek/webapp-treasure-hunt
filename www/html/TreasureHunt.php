@@ -123,7 +123,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 	
 	<!-- Marker opacity    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin_circle</i>Reduced pin opacity</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin_circle</i>Transparent pins</a>
 			<label>
 				<input id="checkBoxMarkerOpacity" onchange="toggleMarkerOpacity()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
