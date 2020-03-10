@@ -229,7 +229,7 @@ li .caret {
 }
 
 .active .collapsible-header {
-    background-color: lightcoral;
+    background-color: #FF6F61;
     color: white;
 }
 
