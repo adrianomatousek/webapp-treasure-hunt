@@ -32,16 +32,6 @@ function addClue(positionInRoute) {
 
 //NEW sends ajax request and should remove all markers
 function saveRoute() {
-	routeName = askForRouteName();
-	if (routeName = "") {
-		routeName = "Undefinded Route";
-	}
-	var postData = {
-		waypoints: newMarkers,
-		clues: newClues,
-		route_name: routeName
-	};
-
 	console.log(postData);
 
 	if (newMarkers.length == 0) {
@@ -49,6 +39,15 @@ function saveRoute() {
 	} else if (newClues.length == 0) {
 		alert("Please add atleast one clue.");
 	} else {
+		routeName = askForRouteName();
+		if (routeName = "") {
+			routeName = "Undefinded Route";
+		}
+		var postData = {
+			waypoints: newMarkers,
+			clues: newClues,
+			route_name: routeName
+		};
 
 		$.ajax({
 			url: "saveRoute.php",

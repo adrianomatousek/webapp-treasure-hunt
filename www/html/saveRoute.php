@@ -6,14 +6,6 @@ $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
 $routeName = $_POST['route_name'];
 
-
-echo $newClues[0][0];
-echo $newMarkers[0];
-
-// echo $passed_json->clues[0][0];
-// echo $passed_json->waypoints[0];
-
-
 $waypointsArray = []; //TODO pass in data from inputted array
 
 //grabs the routeID of the last entry in the database, puts in newRouteID
@@ -52,4 +44,5 @@ $waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
 // $conn->query($waypointSQL);
 
 //TODO PHP for adding clues for each waypoint, will require another passed array
+
 ?>
