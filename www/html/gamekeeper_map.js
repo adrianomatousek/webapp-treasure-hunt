@@ -36,6 +36,8 @@ function saveRoute() {
 		clues: newClues
 	};
 
+	console.log(postData);
+
 	/*
 	var postData = newClues;
 	postData.push(newMarkers);
