@@ -22,6 +22,7 @@ var defaultScaledSize = 50;  // Default size of the icon of the marker
 var defaultLabelOriginHeightOffset = 4;  // 
 var defaultFontSize = 16;
 var defaultFontSizeString = '16pt';
+var idiotWindow;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -105,7 +106,7 @@ function scaleMarkerSizeOnZoom(){
 	*/
 	var scaledSizeMultiplier = 5;  // Do not change this value (recommended).
 
-	var idiotWindow = new google.maps.InfoWindow({
+	idiotWindow = new google.maps.InfoWindow({
 		content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Click the button below or zoom<br>back in and continue your treasure hunt. Don`t let your team down!</br></p>' +
 				 '<input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></div>'
 	});
