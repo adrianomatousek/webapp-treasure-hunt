@@ -110,15 +110,14 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			if (zoom <= defaultFontSize - 4) {
-				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
+				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((defaultFontSize - zoom)));
 				scaledFontSize = scaledFontSizeNum.toString() + 'pt';
-				scaledFontSizeString = scaledFontSize;
-				console.log('scaledFontSizeString = ' + scaledFontSizeString);
+				console.log('scaledFontSize = ' + scaledFontSize);
 			} else {
-				scaledFontSizeString = defaultFontSizeString;
+				scaledFontSize = defaultFontSizeString;
 			}
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
-			setMarkerSize(scaledSize, scaledFontSizeString, scaledLabelOriginHeightOffset);
+			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
 		
 	});
