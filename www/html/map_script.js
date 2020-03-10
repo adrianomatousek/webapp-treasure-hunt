@@ -62,7 +62,7 @@ function myMap() {
 	
 	addCustomMarker();
 	
-	
+	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
 }
 
 function nextWaypoint() {
@@ -412,9 +412,31 @@ function removeAllMarkers() {
 	markers = 0;
 }
 
-function setMarkerIcons(size = 50){
+function setMarkerSize(scaledSize = 50, fontSize = 14, labelOriginHeightOffset = 4){
+	if (markerList.length > 0) {
+		for (i = 0; i < markerList.length; i++) {
+			var label = markerList[i].getLabel();
+			label.color = getColor();
+			label.fontSize = fontSize + 'pt';
+			markerList[i].setLabel(label);
+			
+			var icon = markerList[i].getIcon();
+			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
+			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
+		}
+	}
 	
 	
+}
+
+function scaleMarkerSizeOnZoom(){
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		zoom = map.getZoom();
+		console.log('map zoom: ' + zoom);
+		
+		
+		
+	});
 }
 
 // Function that allows the game masters to add a custom marker when needed
@@ -524,7 +546,6 @@ function markerSetAnimation(marker, animation) {
 	}
 }
 
-
 // Utility function for checking time
 function checkTime() {
 	if (isDay) {
@@ -562,19 +583,13 @@ function dayTime() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
 	});
-	
-	zoom = map.getZoom();
-	console.log('map zoom: ' + zoom);
 
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
-			label.fontSize = '12pt';
 			markerList[i].setLabel(label);
-			var icon = markerList[i].getIcon();
-			icon.scaledSize = new google.maps.Size(20, 20);
-			icon.labelOrigin = new google.maps.Point(10, 28);
+			
 		}
 	}
 	if (customMarker) {
