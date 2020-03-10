@@ -218,41 +218,51 @@ p {
 }
 
 /*Styles for FAQ page*/
- li .collapsible-header {
-		justify-content: space-between;
+li .collapsible-header {
+    justify-content: space-between;
 
-	}
+}
 
-li 	.caret {
+li .caret {
     margin-right: 0;
     transition: transform 0.2s ease;
 }
 
 .active .collapsible-header {
-		background-color: lightcoral;
-		color: white;
+    background-color: lightcoral;
+    color: white;
 }
 
 .active .caret {
-  color: white;
-  transform: rotate(-180deg);
-  transform-origin: 0.6em 0.5em;
+    color: white;
+    transform: rotate(-180deg);
+    transform-origin: 0.6em 0.5em;
 }
 
 
 tbody {
-display:block;
-height:59vh;
-overflow:auto;
+    display: block;
+    height: 59vh;
+    overflow: auto;
 }
-thead, tbody tr {
-display:table;
-width:100%;
-table-layout:fixed;
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
+
 thead {
-width: calc( 100% - 1em )
+    width: calc(100% - 1em)
 }
+
 table {
-width:100%;
+    width: 100%;
+}
+
+
+/* Settings */
+.sidenav li>a {
+    padding-left: 10px !important;
 }
