@@ -1,4 +1,5 @@
 <?php
+session_start();
 $authorisedUserTypes = array("Admin", "Gamekeeper");
 if ($_SESSION["loggedin"]){
   if (!in_array($_SESSION["accessLevel"], $authorisedUserTypes)) {
