@@ -758,7 +758,7 @@ function showAllMarkerNames() {
 	
 	showMarkerNames = true;
 	defaultFontSize = (defaultFontSize + reduceFontSizeBy);  // reduce font size as names are displayed (which take up more space on screen)
-	defaultFontSizeString = fontSize.toString() + 'pt';
+	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 	
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
@@ -777,7 +777,7 @@ function hideAllMarkerNames() {
 	
 	showMarkerNames = false;
 	defaultFontSize = (defaultFontSize + reduceFontSizeBy);	 // increase font size as names are no longer displayed
-	defaultFontSizeString = fontSize.toString() + 'pt';
+	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 	
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
