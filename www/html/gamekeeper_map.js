@@ -45,7 +45,6 @@ function saveRoute(){
 		type:"POST",
 		url:"saveRoute.php",
 		contentType: "application/json; charset=utf-8",
-		dataType: "json",
 		data: {passedData: postData},
 		success: function(data){
 			alert("Route added");
