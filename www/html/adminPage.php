@@ -21,6 +21,7 @@
             
     </form>
   </body>
+  <br><br><br><br><br>
   <button type="button" onclick="history.back()">Return to hunt </button>
 </html>
 
@@ -40,7 +41,7 @@ else{
   header("Location: index.php");
 }
 
-echo "Access Level: ".$_SESSION['accessLevel']."<br>";
+echo "<br>Access Level: ".$_SESSION['accessLevel']."<br>";
 echo "Username: ".$_SESSION['username'],"<br>";
 
   if(isset($_POST['assign'])){
