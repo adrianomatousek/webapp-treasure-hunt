@@ -85,7 +85,7 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = getColor();
-			label.fontSize = fontSize + 'pt';
+			label.fontSize = fontSize;
 			markerList[i].setLabel(label);
 			
 			var icon = markerList[i].getIcon();
@@ -112,11 +112,12 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 			if (zoom <= defaultFontSize - 4) {
 				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
 				scaledFontSize = scaledFontSizeNum.toString();
+				scaledFontSizeString = scaledFontSize;
 			} else {
-				scaledFontSize = defaultFontSizeString;
+				scaledFontSizeString = defaultFontSizeString;
 			}
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
-			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
+			setMarkerSize(scaledSize, scaledFontSizeString, scaledLabelOriginHeightOffset);
 		}
 		
 	});
@@ -140,7 +141,7 @@ function nextWaypoint() {
 
 		activeClue = -1; //reset the clue count
 
-		addScore(5);
+		addScore(5); 
 	}
 }
 
@@ -149,7 +150,7 @@ function checkError(error) {
 		 alert("The current position could not be found!");
  }
 
- function setCurrentPosition(pos) {
+function setCurrentPosition(pos) {
 		 currentPositionMarker = new google.maps.Marker({
 				 map: map,
 				 position: new google.maps.LatLng(
