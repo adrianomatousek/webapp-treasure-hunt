@@ -498,7 +498,8 @@ function addCustomMarker() {
 			markerSetAnimation(marker, 'BOUNCE');
 		}
 		infoWindow.isOpen = false;
-
+	});
+	
 	marker.addListener('dblclick', function () {
 		saveCustomMarker();
 	});
