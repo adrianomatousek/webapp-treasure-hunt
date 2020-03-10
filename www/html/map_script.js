@@ -54,7 +54,7 @@ function myMap() {
 	
 	// Apply Settings
 	enableAnimations = true;
-	setTime();
+	setTime();	
 	setMarkerNames();
 	showLabelOnMouseOver = true;
 	setMarkerOpacity(0.85);
@@ -411,6 +411,11 @@ function removeAllMarkers() {
 	markers = 0;
 }
 
+function setMarkerIcons(size = 50){
+	
+	
+}
+
 // Function that allows the game masters to add a custom marker when needed
 function addCustomMarker() {
 	var marker = new google.maps.Marker({
@@ -556,6 +561,9 @@ function dayTime() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
 	});
+	
+	zoom = map.getZoom();
+	console.log('zoom: ' + zoom);
 
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
