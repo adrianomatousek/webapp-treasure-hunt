@@ -16,7 +16,8 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
-var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app' 
+var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
+var defaultZoom = 16;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -33,8 +34,10 @@ function myMap() {
 	/*
 	Function that initializes the map
 	*/
-	map = new google.maps.Map(document.getElementById("googleMap"));
-	map.getZoom();
+	map = new google.maps.Map(document.getElementById("googleMap"), {
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: defaultZoom
+	});
 
 	if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
@@ -423,6 +426,7 @@ function setMarkerSize(scaledSize = 50, fontSize = 18, labelOriginHeightOffset =
 			var icon = markerList[i].getIcon();
 			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
 			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
+			markerList[i].setIcon(icon);
 		}
 	}
 	
@@ -433,8 +437,10 @@ function scaleMarkerSizeOnZoom(){
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		
-		
+		defaultZoom
+		if(zoom < 15) {
+			
+		}
 		
 	});
 }
@@ -578,8 +584,6 @@ function getColor() {
 // sets light mode
 function dayTime() {
 	map.setOptions({
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
 	});
@@ -603,8 +607,6 @@ function dayTime() {
 // sets night mode
 function nightTime() {
 	map.setOptions({
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_nighttime
 	});
