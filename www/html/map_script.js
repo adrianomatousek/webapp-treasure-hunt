@@ -139,6 +139,12 @@ function scaleMarkerSizeOnZoom(){
 			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
 				for (i = 0; i < markerList.length; i++) {
 					markerList[i].setVisible(false);
+					if (activeInfoWindow) {
+						activeInfoWindow.close();
+					}
+					if (activeInfoLabel) {
+						activeInfoLabel.close();
+					}
 					idiotWindow.open(map, markerList[markerList.length-1]);
 				}
 			}
