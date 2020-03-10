@@ -28,6 +28,7 @@
           <div style="margin-bottom: 8px;" class="row">
             <div class="input-field col s12">
             <!-- <i class="material-icons prefix"></i> -->
+              <i class="material-icons prefix">people</i>
               <input class="validate" id="inputFull" name="inputFull" maxlength="45" type="text" required/>
               <label for="inputFull">* Full name</label>
             </div>
