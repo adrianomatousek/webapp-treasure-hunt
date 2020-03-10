@@ -389,7 +389,7 @@ function removeMarker(id) {
 	id - Index of marker in array
 	*/
 	markerList[id].setMap(null);
-	marketList.splice(id); // removing an element from an array
+	markerList.splice(id); // removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -403,13 +403,13 @@ function removeMarker(id) {
 
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
-		marketList[id].setMap(null);
+		markerList[id].setMap(null);
 	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
 	}
-	marketList = null;
+	markerList = null;
 	activeMarker = null;
 	activeInfoWindow = null;
 
