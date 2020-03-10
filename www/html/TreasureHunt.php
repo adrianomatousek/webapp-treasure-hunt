@@ -110,7 +110,7 @@ if ($_SESSION["loggedin"] != true){
 	
 	<!-- Animations option in settings -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:enableAnimations = true; tickBox2();">Disable animations (need to fix)</a>
+		<li><a style="display: inline-block" href="javascript:enableAnimations = true; tickBox2();">Disable animations</a>
 			<label>
 				<input id="checkBoxNightMode" onchange="enableAnimations = false" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -120,7 +120,7 @@ if ($_SESSION["loggedin"] != true){
 	
 	<!-- Marker names option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names (need to fix)</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
 			<label>
 				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
