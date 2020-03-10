@@ -97,21 +97,26 @@ if ($_SESSION["loggedin"] != true){
         <h2>Settings</h2>
       </div>
     </li>
+	
+	<li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Options</a></li>
 
     <!-- Night Mode option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
-			<label>
+		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode<label>
 				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
-			</label>
+			</label></a>
+			
 		</li>
     </div>
 
     <li>
       <div class="divider"></div>
     </li>
-    <li><a class="subheader">Subheader</a></li>
+    <li><a class="subheader">Account & Other</a></li>
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">contact_support</i>FAQ</a></li>
