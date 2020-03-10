@@ -19,8 +19,9 @@ var activeClue = -1; //Would be in database as determines the score. Used in fil
 var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
 var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
 var defaultScaledSize = 50;  // Default size of the icon of the marker
-var defaultLabelOriginHeightOffset = 4;  //
+var defaultLabelOriginHeightOffset = 4;  // 
 var defaultFontSize = 18;
+var defaultFontSizeString = '18pt';
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -109,9 +110,10 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			if (zoom <= defaultFontSize - 4) {
-				scaledFontSize = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
+				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
+				scaledFontSize = scaledFontSize.toString();
 			} else {
-				scaledFontSize = defaultFontSize;
+				scaledFontSize = defaultFontSizeString;
 			}
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
@@ -218,6 +220,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	}
 
 	// Creates new Google Maps marker
+	
 	var marker = new google.maps.Marker({
 		position: {
 			lat: latPos,
@@ -227,7 +230,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		label: {
 			color: color,
 			text: markerNum.toString(),
-			fontSize: defaultFontSize + 'pt',
+			fontSize: defaultFontSizeString,
 			fontWeight: 'bold',
 		},
 		icon: {
