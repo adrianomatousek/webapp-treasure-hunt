@@ -24,6 +24,7 @@ var defaultScaledSize = 50;  // Default size of the icon of the marker
 var defaultLabelOriginHeightOffset = 4;  // 
 var defaultFontSize = 16;
 var defaultFontSizeString = '16pt';
+var reduceFontSizeBy = 4;  // when switching to marker names option in settings
 var idiotWindow;
 
 $.post('loadMarkers.php', function (data) {
@@ -738,10 +739,8 @@ function toggleMarkerAnimations() {
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
-		showMarkerNames = true;
 	} else {
 		hideAllMarkerNames();
-		showAllMarkerNames = false;
 	}
 }
 
@@ -756,15 +755,18 @@ function setMarkerNames() {
 
 // shows marker names
 function showAllMarkerNames() {
+	
+	showMarkerNames = true;
+	defaultFontSize = (defaultFontSize + reduceFontSizeBy);  // reduce font size as names are displayed (which take up more space on screen)
+	defaultFontSizeString = defaultFontSize.toString() + 'pt';
+	
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
 			string = labelContent.toString();
 			label.text = string;
-			var fontSize = (defaultFontSize - 4);
-			var fontSizeString = fontSize.toString() + 'pt';
-			label.fontSize = fontSizeString;
+			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
@@ -772,6 +774,11 @@ function showAllMarkerNames() {
 
 // hide marker names
 function hideAllMarkerNames() {
+	
+	showMarkerNames = false;
+	defaultFontSize = (defaultFontSize + reduceFontSizeBy);	 // increase font size as names are no longer displayed
+	defaultFontSizeString = defaultFontSize.toString() + 'pt';
+	
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
