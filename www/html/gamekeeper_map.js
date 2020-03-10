@@ -38,13 +38,11 @@ function saveRoute() {
 
 	console.log(postData);
 
-	if (newMarkers.length == 0){
+	if (newMarkers.length == 0) {
 		alert("Please add a marker before creating a route!");
-	}
-	else if (newClues.length == 0){
+	} else if (newClues.length == 0) {
 		alert("Please add atleast one clue.");
-	}
-	else{
+	} else {
 
 		$.ajax({
 			url: "saveRoute.php",
@@ -426,7 +424,7 @@ function removeAllMarkers() {
 	markerList = null;
 	activeMarker = null;
 	activeInfoWindow = null;
-
+	markerNum = 0;
 }
 
 // Function that allows the game masters to add a custom marker when needed
