@@ -7,8 +7,8 @@ $newMarkers = $_POST['newMarkers'];
 $newClues = $_POST['newClues'];
 
 
-echo $newClues[0][0];
-echo $newMarkers[0];
+echo $newClues;
+echo $newMarkers;
 
 // echo $passed_json->clues[0][0];
 // echo $passed_json->waypoints[0];
