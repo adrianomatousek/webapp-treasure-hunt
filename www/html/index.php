@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $query->execute();
   //Creates associative array with table output from executing.
   $result = $query->get_result();
-  
+
   //Check if the username matches the password.
   while ($user = $result->fetch_assoc()){
     if (($user['username'] == $CheckUsername) && (hash('sha256',$CheckPassword.$user['salt']) == $user['hashPass'])) {
