@@ -110,7 +110,7 @@ function generateRandomString($length = 16) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
 require_once ("connection.php");
-
+$registered =false;
     if (isset($_POST['register'])) {
       $user = $_POST['inputUsername'];
 
@@ -148,8 +148,8 @@ require_once ("connection.php");
         $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
         $addAcc->execute();
         $addAcc->close();
-
-        if (registered) {
+        $registered = true;
+        if ($registered) {
           header("location: index.php");
         }
       }
