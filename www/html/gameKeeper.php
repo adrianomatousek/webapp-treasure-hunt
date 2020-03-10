@@ -2,8 +2,9 @@
 $authorisedUserTypes = array("Admin", "Gamekeeper");
 if ($_SESSION["loggedin"]){
   if (!in_array($_SESSION["accessLevel"], $authorisedUserTypes)) {
-    header("Location: TreasureHunt.php");
-    exit;
+    //header("Location: TreasureHunt.php");
+    //exit;
+    echo $_SESSION["accessLevel"];
   }
 }
 else{
