@@ -6,7 +6,8 @@ $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
 $routeName = $_POST['route_name'];
 
-$waypointsArray = []; //TODO pass in data from inputted array
+$waypointsArray = $newMarkers; //TODO pass in data from inputted array
+echo $waypointsArray;
 
 //grabs the routeID of the last entry in the database, puts in newRouteID
 $newRouteID;
@@ -43,7 +44,7 @@ $addRoute->close();
 //TEMPLATE loads values from input array into string for SQL statement
 $VALUES = "";
 for ($i=0; $i<count($waypointsArray); $i++){
-  $VALUES.="($newWaypointID,'locationFromPassedArray',$newRouteID,'prize lol',$i+1),";
+  $VALUES.="($newWaypointID,".$waypointsArray[i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
 }
 
 //TEMPLATE loads found values into array
