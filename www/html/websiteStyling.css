@@ -238,3 +238,21 @@ li 	.caret {
   transform: rotate(-180deg);
   transform-origin: 0.6em 0.5em;
 }
+
+
+tbody {
+display:block;
+height:150px;
+overflow:auto;
+}
+thead, tbody tr {
+display:table;
+width:100%;
+table-layout:fixed;
+}
+thead {
+width: calc( 100% - 1em )
+}
+table {
+width:100%;
+}
