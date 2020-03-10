@@ -106,7 +106,7 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if(zoom <= defaultZoom && zoom > (defaultZoom - 8)) {
+		if(zoom <= defaultZoom && zoom > (defaultZoom - 4)) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			if (zoom <= defaultFontSize - 4) {
