@@ -4,6 +4,7 @@ require_once ("connection.php");
 // $passed_json = $_POST['data'];
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
+$routeName = $_POST['route_name'];
 
 
 echo $newClues[0][0];
@@ -36,7 +37,7 @@ if ($lastWaypoint->num_rows == 1) {
 }
 
 //TEMPLATE routeName and gamekeeperID need to be fetched from form that submits route
-$newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,'routeName','gamekeeperID')";
+$newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,$routeName,'gamekeeperID')";
 
 //TEMPLATE loads values from input array into string for SQL statement
 $VALUES = "";
