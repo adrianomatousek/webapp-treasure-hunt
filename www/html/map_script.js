@@ -161,7 +161,9 @@ function resetMapZoom(){
 		idiotWindow.close();
 	}
 	if (markerList.length > 0) {
-		markerList[i].setVisible(true);
+		for (i = 0; i < markerList.length; i++) {
+					markerList[i].setVisible(true);
+		}
 	}
 }
 
