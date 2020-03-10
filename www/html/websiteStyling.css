@@ -242,7 +242,7 @@ li 	.caret {
 
 tbody {
 display:block;
-height:100vh;
+height:90vh;
 overflow:auto;
 }
 thead, tbody tr {
