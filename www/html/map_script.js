@@ -52,20 +52,13 @@ function myMap() {
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 	
 	
-	// Load Settings
-	//enableAnimations = true;
+	// Apply Settings
+	enableAnimations = true;
 	setTime();
 	setMarkerNames();
-	toggleMarkerNames();
-	toggleMarkerNames();
-	toggleMarkerNames();
-	toggleMarkerNames();
-	toggleMarkerNames();
 	showLabelOnMouseOver = true;
-	//setMarkerOpacity(0.85);
+	setMarkerOpacity(0.85);
 	
-	
-
 	addCustomMarker();
 	
 	
