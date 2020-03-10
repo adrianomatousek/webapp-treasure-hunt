@@ -32,8 +32,8 @@ function addClue (positionInRoute){
 //NEW sends ajax request and should remove all markers
 function saveRoute(){
 	var postData = {
-		"waypoints":newMarkers,
-		"clues":newClues
+		waypoints: newMarkers,
+		clues: newClues
 	};
 
 	/*
@@ -45,11 +45,12 @@ function saveRoute(){
 		type:"POST",
 		url:"saveRoute.php",
 		contentType: "application/json; charset=utf-8",
-		data: {
+		data: postData, 
+		// {
 			// passedData: postData
-			postMarkers: newMarkers,
-			postClues: newClues
-		},
+			// postMarkers: newMarkers,
+			// postClues: newClues
+		// },
 		success: function(returnData){
 			alert("Route added");
 			alert(returnData);

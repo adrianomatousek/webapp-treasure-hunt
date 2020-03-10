@@ -3,8 +3,8 @@ echo "pretty please";
 require_once ("connection.php");
 // $passed_json = $_POST['data'];
 // $passed_json = $_POST['data'];
-$newMarkers = $_POST['newMarkers'];
-$newClues = $_POST['newClues'];
+$newMarkers = $_POST['waypoints'];
+$newClues = $_POST['clues'];
 
 echo $newClues[0][0];
 echo $newMarkers[0];
