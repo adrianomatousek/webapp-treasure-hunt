@@ -16,6 +16,12 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
+var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
+var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
+var defaultScaledSize = 50;  // Default size of the icon of the marker
+var defaultLabelOriginHeightOffset = 4;  // 
+var defaultFontSize = 18;
+var defaultFontSizeString = '18pt';
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -28,13 +34,14 @@ $.post('loadClues.php', function (data) {
 	console.log(clues);
 });
 
-
 function myMap() {
 	/*
 	Function that initializes the map
 	*/
-	map = new google.maps.Map(document.getElementById("googleMap"));
-	map.getZoom();
+	map = new google.maps.Map(document.getElementById("googleMap"), {
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: defaultZoom
+	});
 
 	if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(displayAndWatch, checkError);
@@ -47,13 +54,72 @@ function myMap() {
 			map: map
 	});
 
-	setTime();
 	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
+	
+	
+	// Apply Settings
+	setTime();	
+	enableAnimations = true;
+	setMarkerNames();
+	showHints = true;
+	setMarkerOpacity(0.85);
+	
+	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
+	
+	// addCustomMarker();
+}
 
-	addCustomMarker();
+function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset){
+	/*
+	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
+	Parameters:	
+		scaledSize: the scaled size of the marker's icon image,
+		fontSize: the font size of the label corresponding to the marker,
+		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
+								 this must be increased as the marker's get smaller (or vice-versa).
+	*/
+	if (markerList.length > 0) {
+		for (i = 0; i < markerList.length; i++) {
+			var label = markerList[i].getLabel();
+			label.color = getColor();
+			label.fontSize = fontSize + 'pt';
+			markerList[i].setLabel(label);
+			
+			var icon = markerList[i].getIcon();
+			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
+			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
+			markerList[i].setIcon(icon);
+		}
+	}
+}
+
+function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
+	/*
+	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
+	handling the event change, using the "setMarkerSize" function.
+	Parameter:
+		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (default: 5).
+	*/
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		zoom = map.getZoom();
+		console.log('map zoom: ' + zoom);
+		if(zoom <= defaultZoom && zoom > (defaultZoom - 8)) {
+			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
+			var scaledFontSize;
+			if (zoom <= defaultFontSize - 4) {
+				var scaledFontSizeNum = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
+				scaledFontSize = scaledFontSizeNum.toString();
+			} else {
+				scaledFontSize = defaultFontSizeString;
+			}
+			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
+			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
+		}
+		
+	});
 }
 
 function nextWaypoint() {
@@ -145,7 +211,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	markerNum = markers + 1;
 	var color = getColor();
 	// Sets a default name in case the given one is too short or long
-	if (!name || name.length < 3 || name.length > 24) {
+	if (!name || name.length < 3 || name.length > 32) {
 		name = 'Treasure';
 	}
 	// Sets a default description in case the given one is too short or long
@@ -154,6 +220,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	}
 
 	// Creates new Google Maps marker
+	
 	var marker = new google.maps.Marker({
 		position: {
 			lat: latPos,
@@ -163,14 +230,14 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		label: {
 			color: color,
 			text: markerNum.toString(),
-			fontSize: '18px',
+			fontSize: defaultFontSizeString,
 			fontWeight: 'bold',
 		},
 		icon: {
 			url: 'img/icons/chest.png',
-			scaledSize: new google.maps.Size(50, 50),
+			scaledSize: new google.maps.Size(defaultScaledSize, defaultScaledSize),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(25, 54)
+			labelOrigin: new google.maps.Point((defaultScaledSize/2), defaultScaledSize + defaultLabelOriginHeightOffset)
 		},
 		draggable: draggable,
 		animation: google.maps.Animation.DROP,
@@ -200,19 +267,20 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	});
 	
 	// Event listeners for markers when clicked or hovered over
-	addMarkerClickListeners(marker, infoWindow);
-	addMarkerMouseOverListeners(marker, infoWindow);
+	addMarkerClickListeners(marker, infoWindow, infoLabel);
+	addMarkerMouseOverListeners(marker, infoWindow, infoLabel);
 	
 	markerList.push(marker);
 	markers += 1;
 }
 
-function addMarkerClickListeners(marker, infoWindow){
+function addMarkerClickListeners(marker, infoWindow, infoLabel){
 	/*
 		Function adds event listeners to the marker for a 'click' event.
 		Parameters:
 			marker: the object of the marker that is to have event listeners added,
-			infoWindow: the Info Window associated with this marker.
+			infoWindow: the Info Window associated with this marker,
+			infoLabel: the info/help label associated with this marker.
 	*/
 	var firstClick;
 	marker.addListener('click', function () {
@@ -310,12 +378,13 @@ function addMarkerClickListeners(marker, infoWindow){
 	});
 }
 
-function addMarkerMouseOverListeners(marker, infoWindow){
+function addMarkerMouseOverListeners(marker, infoWindow, infoLabel){
 	/*
 		Function adds event listeners to a marker for a 'mouseover' and a 'mouseout' event.
 		Parameters:
 			marker: the object of the marker that is to have event listeners added,
-			infoWindow: the Info Window associated with this marker.
+			infoWindow: the Info Window associated with this marker,
+			infoLabel: the info/help label associated with this marker.
 	*/
 	// Listener for when hovering over the marker; used on PC only
 	marker.addListener('mouseover', function () {
@@ -508,7 +577,6 @@ function markerSetAnimation(marker, animation) {
 	}
 }
 
-
 // Utility function for checking time
 function checkTime() {
 	if (isDay) {
@@ -541,8 +609,6 @@ function getColor() {
 // sets light mode
 function dayTime() {
 	map.setOptions({
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
 	});
@@ -552,6 +618,7 @@ function dayTime() {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
 			markerList[i].setLabel(label);
+			
 		}
 	}
 	if (customMarker) {
@@ -565,8 +632,6 @@ function dayTime() {
 // sets night mode
 function nightTime() {
 	map.setOptions({
-		center: new google.maps.LatLng(50.735882, -3.534206),
-		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_nighttime
 	});
@@ -588,7 +653,18 @@ function nightTime() {
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
+		showMarkerNames = true;
 	} else {
+		hideAllMarkerNames();
+		showAllMarkerNames = false;
+	}
+}
+
+function setMarkerNames() {
+	if (showMarkerNames) {
+		showAllMarkerNames();
+	}
+	else {
 		hideAllMarkerNames();
 	}
 }
@@ -598,7 +674,9 @@ function showAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
-			label.text = i + 1 + '. ' + markerList[i].name;
+			labelContent = i + 1 + '. ' + markerList[i].name;
+			string = labelContent.toString();
+			label.text = string;
 			label.fontSize = '14px';
 			markerList[i].setLabel(label);
 		}
@@ -610,7 +688,9 @@ function hideAllMarkerNames() {
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
-			label.text = markerList[i].id + 1;
+			labelContent = markerList[i].id + 1;
+			string = labelContent.toString();
+			label.text = string;
 			label.fontSize = '18px';
 			markerList[i].setLabel(label);
 		}
