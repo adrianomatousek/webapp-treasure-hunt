@@ -1,7 +1,7 @@
 <?php
 echo "pretty please";
 require_once ("connection.php");
-$passed_json = $_POST['passedData'];
+$passed_json = $_POST['data'];
 
 echo $passed_json->clues[0][0];
 echo $passed_json->waypoints[0];
