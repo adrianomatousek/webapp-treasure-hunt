@@ -127,12 +127,12 @@ function scaleMarkerSizeOnZoom(){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 1)) {
+		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
 			for (i = 0; i < markerList.length; i++) {
 				markerList[i].setVisible(false);
 			}
 		}
-		else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 1)) {
+		else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
 			for (i = 0; i < markerList.length; i++) {
 				markerList[i].setVisible(true);
 			}
