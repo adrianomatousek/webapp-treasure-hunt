@@ -107,7 +107,7 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
-	
+
 	<!-- Animations option in settings -->
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:enableAnimations = true; tickBox2();">Disable animations</a>
@@ -117,7 +117,7 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
-	
+
 	<!-- Marker names option in settings    -->
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
@@ -127,8 +127,8 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div>
-	
-	<!-- Info/Help/Hint option in settings    
+
+	<!-- Info/Help/Hint option in settings
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox4();">Hide hints</a>
 			<label>
@@ -137,8 +137,8 @@ if ($_SESSION["loggedin"] != true){
 			</label>
 		</li>
     </div> -->
-	
-	<!-- Marker opacity in settings   
+
+	<!-- Marker opacity in settings
 	<div class="switch">
 		<li><a style="display: inline-block" href="javascript:setMarkerOpacity(0.55); tickBox5();">Reduce marker opacity</a>
 			<label>
@@ -260,6 +260,15 @@ if ($_SESSION["loggedin"] != true){
                 <span>Please click the treasure chest marking the position and click the
                   green show clue button to get a clue to help you find the place. Please note
                   that this will cost you one point and can use a mximum of 2 clues for each point.
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">place</i>An error on QR scanner page?
+                <i class="caret material-icons">keyboard_arrow_down</i></div>
+              <div class="collapsible-body">
+                <span>If you get the message "Unable to access video stream" message please make sure you have camera
+                  access enabled for your browser.
                 </span>
               </div>
             </li>
