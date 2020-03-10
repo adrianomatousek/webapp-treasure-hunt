@@ -424,7 +424,7 @@ function removeAllMarkers() {
 	markerList = null;
 	activeMarker = null;
 	activeInfoWindow = null;
-	markerNum = 0;
+	markers = 0;
 }
 
 // Function that allows the game masters to add a custom marker when needed
