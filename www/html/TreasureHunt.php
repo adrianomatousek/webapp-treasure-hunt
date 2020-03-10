@@ -100,13 +100,13 @@ if ($_SESSION["loggedin"] != true){
 
     <!-- Night Mode option in settings    -->
     <div class="switch">
-      <li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
-        <label>
-          <input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
-          <span style="float: right; margin: 17px;" class="lever"></span>
-        </label>
+		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
+			<label>
+				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
     </div>
-    </li>
 
     <li>
       <div class="divider"></div>
