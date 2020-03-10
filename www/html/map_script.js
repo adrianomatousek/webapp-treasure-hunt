@@ -17,7 +17,10 @@ var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
 var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
-var defaultZoom = 16;
+var defaultZoom = 16;  // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
+var defaultScaledSize = 50;  // Default size of the icon of the marker
+var defaultLabelOriginHeightOffset = 4;  //
+var defaultFontSize = 18;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -66,6 +69,55 @@ function myMap() {
 	addCustomMarker();
 	
 	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
+}
+
+function setMarkerSize(scaledSize = 50, fontSize = 18, labelOriginHeightOffset = 4){
+	/*
+	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
+	Parameters:	
+		scaledSize: the scaled size of the marker's icon image,
+		fontSize: the font size of the label corresponding to the marker,
+		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
+								 this must be increased as the marker's get smaller (or vice-versa).
+	*/
+	if (markerList.length > 0) {
+		for (i = 0; i < markerList.length; i++) {
+			var label = markerList[i].getLabel();
+			label.color = getColor();
+			label.fontSize = fontSize + 'pt';
+			markerList[i].setLabel(label);
+			
+			var icon = markerList[i].getIcon();
+			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
+			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
+			markerList[i].setIcon(icon);
+		}
+	}
+}
+
+function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
+	/*
+	Scales the size of the markers when zooming in/out the map by adding a 'zoom_changed' listener and
+	handling the event change, using the "setMarkerSize" function.
+	Parameter:
+		scaledSizeMultiplier: the constant used in calculation to set the size of the marker (default: 5).
+	*/
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		zoom = map.getZoom();
+		console.log('map zoom: ' + zoom);
+		if(zoom <= defaultZoom && zoom > (defaultZoom - 8)) {
+			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
+			var scaledFontSize;
+			if (zoom <= defaultFontSize - 4) {
+				scaledFontSize = defaultFontSize - defaultFontSize*(1/((scaledSizeMultiplier)*(defaultFontSize - zoom)));
+			} else {
+				scaledFontSize = defaultFontSize;
+			}
+			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
+			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
+		}
+		
+	});
 }
 
 function nextWaypoint() {
@@ -157,7 +209,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	markerNum = markers + 1;
 	var color = getColor();
 	// Sets a default name in case the given one is too short or long
-	if (!name || name.length < 3 || name.length > 24) {
+	if (!name || name.length < 3 || name.length > 32) {
 		name = 'Treasure';
 	}
 	// Sets a default description in case the given one is too short or long
@@ -175,14 +227,14 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		label: {
 			color: color,
 			text: markerNum.toString(),
-			fontSize: '18px',
+			fontSize: defaultFontSize + 'pt',
 			fontWeight: 'bold',
 		},
 		icon: {
 			url: 'img/icons/chest.png',
-			scaledSize: new google.maps.Size(50, 50),
+			scaledSize: new google.maps.Size(defaultScaledSize, defaultScaledSize),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(25, 54)
+			labelOrigin: new google.maps.Point((defaultScaledSize/2), defaultScaledSize + defaultLabelOriginHeightOffset)
 		},
 		draggable: draggable,
 		animation: google.maps.Animation.DROP,
@@ -413,36 +465,6 @@ function removeAllMarkers() {
 	activeMarker = null;
 	activeInfoWindow = null;
 	markers = 0;
-}
-
-function setMarkerSize(scaledSize = 50, fontSize = 18, labelOriginHeightOffset = 4){
-	if (markerList.length > 0) {
-		for (i = 0; i < markerList.length; i++) {
-			var label = markerList[i].getLabel();
-			label.color = getColor();
-			label.fontSize = fontSize + 'pt';
-			markerList[i].setLabel(label);
-			
-			var icon = markerList[i].getIcon();
-			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
-			icon.labelOrigin = new google.maps.Point((scaledSize/2), scaledSize + labelOriginHeightOffset);
-			markerList[i].setIcon(icon);
-		}
-	}
-	
-	
-}
-
-function scaleMarkerSizeOnZoom(){
-	google.maps.event.addListener(map, 'zoom_changed', function() {
-		zoom = map.getZoom();
-		console.log('map zoom: ' + zoom);
-		defaultZoom
-		if(zoom < 15) {
-			
-		}
-		
-	});
 }
 
 // Function that allows the game masters to add a custom marker when needed
