@@ -106,20 +106,19 @@ function scaleMarkerSizeOnZoom(scaledSizeMultiplier = 5){
 	google.maps.event.addListener(map, 'zoom_changed', function() {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if(zoom <= defaultZoom && zoom > (defaultZoom - 4)) {
+		if(zoom <= defaultZoom && zoom > (defaultZoom - 5)) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize;
 			if (zoom <= defaultFontSize - 4) {
 				var scaledFontSizeNum = defaultFontSize - (defaultZoom - zoom);
 				scaledFontSize = scaledFontSizeNum.toString() + 'pt';
-				console.log('scaledFontSize = ' + scaledFontSize);
 			} else {
 				scaledFontSize = defaultFontSizeString;
 			}
+			console.log('scaledFontSize = ' + scaledFontSize);
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		
 	});
 }
 
