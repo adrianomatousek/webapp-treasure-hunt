@@ -242,12 +242,12 @@ li 	.caret {
 
 tbody {
 display:block;
-height:70vh;
 overflow:auto;
 }
 thead, tbody tr {
 display:table;
 width:100%;
+height: 100%;
 table-layout:fixed;
 }
 thead {
