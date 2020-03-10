@@ -133,8 +133,6 @@ function scaleMarkerSizeOnZoom(){
 				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
 			});
 			
-			var markerUsed = markerList[markerList.length-1];
-			
 			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
 				for (i = 0; i < markerList.length; i++) {
 					markerList[i].setVisible(false);
@@ -143,8 +141,8 @@ function scaleMarkerSizeOnZoom(){
 			}
 			else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
 				for (i = 0; i < markerList.length; i++) {
+					idiotWindow.close();
 					markerList[i].setVisible(true);
-					idiotWindow.close(map, markerUsed);
 				}
 			}
 		}
