@@ -41,7 +41,7 @@ else{
   header("Location: index.php");
 }
 
-echo "Access Level: ".$_SESSION['accessLevel']."<br>";
+echo "<br>Access Level: ".$_SESSION['accessLevel']."<br>";
 echo "Username: ".$_SESSION['username'],"<br>";
 
   if(isset($_POST['assign'])){
