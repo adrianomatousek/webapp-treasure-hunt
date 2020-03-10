@@ -127,16 +127,26 @@ function scaleMarkerSizeOnZoom(){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
-			for (i = 0; i < markerList.length; i++) {
-				markerList[i].setVisible(false);
+		if (zoom < (defaultZoom - scaledSizeMultiplier + 2) { 
+			
+			var idiotWindow = new google.maps.InfoWindow({
+				content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Zoom back in here <br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
+			});
+			
+			if (zoom < (defaultZoom - scaledSizeMultiplier) && zoom > (defaultZoom - scaledSizeMultiplier - 2)) {
+				for (i = 0; i < markerList.length; i++) {
+					markerList[i].setVisible(false);
+					idiotWindow.open(map, markerList[markerList.length-1]);
+				}
+			}
+			else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
+				for (i = 0; i < markerList.length; i++) {
+					markerList[i].setVisible(true);
+					idiotWindow.close(map, markerList[markerList.length-1]);
+				}
 			}
 		}
-		else if (zoom >= (defaultZoom - scaledSizeMultiplier) && zoom < (defaultZoom - scaledSizeMultiplier + 2)) {
-			for (i = 0; i < markerList.length; i++) {
-				markerList[i].setVisible(true);
-			}
-		}
+		
 	});
 }
 
@@ -272,14 +282,14 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1)" onclick="showNextClue(' + markerNum + ')">' +
+		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
 		'</p></div><br>' +
 		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
 		
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
-		content: contentString,
+		content: contentString
 	});
 
 	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
