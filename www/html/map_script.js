@@ -573,7 +573,7 @@ function dayTime() {
 			markerList[i].setLabel(label);
 			var icon = markerList[i].getIcon();
 			icon.scaledSize = new google.maps.Size(20, 20);
-			icon.labelOrigin = new google.maps.Point(10, 24);
+			icon.labelOrigin = new google.maps.Point(10, 28);
 		}
 	}
 	if (customMarker) {
