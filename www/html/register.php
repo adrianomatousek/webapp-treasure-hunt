@@ -147,10 +147,10 @@ require_once ("connection.php");
         $addAcc->bind_param('sssssss', $user, $pwd, $salt, $accessLevel1, $realName1, $email1, $gamekeeperID1);
         $addAcc->execute();
         $addAcc->close();
-
-        if (registered) {
+        // $registered = true;
+        // if ($registered) {
           header("location: index.php");
-        }
+        // }
       }
   }
 ?>
