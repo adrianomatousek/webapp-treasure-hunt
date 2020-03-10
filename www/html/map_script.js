@@ -106,7 +106,8 @@ function scaleMarkerSizeOnZoom(){
 	var scaledSizeMultiplier = 5;  // Do not change this value (recommended).
 
 	var idiotWindow = new google.maps.InfoWindow({
-		content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Click here or zoom back in<br>and continue your treasure hunt. Don`t let your team down!</br></p></div>'
+		content: '<div id="bodyContent"><p> Hey! You are zooming too far away! Click the button below or zoom<br>back in and continue your treasure hunt. Don`t let your team down!</br></p>' +
+				 '<br><input type="button" id="zoomBackInButton" + class="waves-effect waves-light btn-small" value="Zoom Back In" onclick="resetMapZoom()"></br></div>'
 	});
 	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
@@ -148,15 +149,19 @@ function scaleMarkerSizeOnZoom(){
 			}
 		}	
 	});
-	
-	idiotWindow.addListener('click', function() {
-		map.setOptions({
-			center: new google.maps.LatLng(50.735882, -3.534206),
-			zoom: defaultZoom
-		});
-		idiotWindow.close();
-		markerList[i].setVisible(true);
+}
+
+function resetMapZoom(){
+	map.Options({
+		center: new google.maps.LatLng(50.735882, -3.534206),
+		zoom: defaultZoom
 	});
+	if (idiotWindow) {
+		idiotWindow.close();
+	}
+	if (markerList.length > 0) {
+		markerList[i].setVisible(true);
+	}
 }
 
 function nextWaypoint() {
