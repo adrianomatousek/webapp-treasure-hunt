@@ -204,7 +204,7 @@ if ($_SESSION["loggedin"] != true){
             <th>Points</th>
             <th>Time</th>
           </tr>
-          <tbody id="mytable">
+          <tbody id="mytable" style="height: 100px; overflow: auto">
           </tbody>
         </table>
       </div>
