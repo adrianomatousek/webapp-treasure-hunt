@@ -42,10 +42,10 @@ function saveRoute(){
 	JSON.stringify(postData);
 	*/
 	$.ajax({
-		type:"POST",
 		url:"saveRoute.php",
+		type:"POST",
 		contentType: "application/json; charset=utf-8",
-		data: postData, 
+		data: JSON.stringify(postData), 
 		// {
 			// passedData: postData
 			// postMarkers: newMarkers,
@@ -58,7 +58,7 @@ function saveRoute(){
 		error: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
 			console.log(textStatus);
-      console.log(error);
+      		console.log(error);
 		}
 	});
 	//removeAllMarkers();
