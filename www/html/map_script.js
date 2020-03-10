@@ -127,7 +127,7 @@ function scaleMarkerSizeOnZoom(){
 			var scaledLabelOriginHeightOffset = (defaultScaledSize/2)/scaledSizeMultiplier;
 			setMarkerSize(scaledSize, scaledFontSize, scaledLabelOriginHeightOffset);
 		}
-		if (zoom >= defaultZoom) {
+		if (zoom == defaultZoom) {
 			var scaledSize = defaultScaledSize - (scaledSizeMultiplier*(defaultZoom - zoom));
 			var scaledFontSize = defaultFontSizeString;
 			console.log('scaledFontSize = ' + scaledFontSize);
