@@ -10,7 +10,7 @@ var showLabelOnMouseOver = true; // displays small info/help label when mouse cu
 var enableAnimations = true;
 var customMarker;
 var markerOpacity = 0.85;
-var showMarkerNames = false;
+var showMarkerNames = true;
 var showInfoLabels = true;
 var points; //array of all the waypoints
 var clues;
