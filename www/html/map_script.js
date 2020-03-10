@@ -738,10 +738,8 @@ function toggleMarkerAnimations() {
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showAllMarkerNames();
-		showMarkerNames = true;
 	} else {
 		hideAllMarkerNames();
-		showAllMarkerNames = false;
 	}
 }
 
@@ -756,6 +754,7 @@ function setMarkerNames() {
 
 // shows marker names
 function showAllMarkerNames() {
+	showMarkerNames = true;
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
@@ -772,6 +771,7 @@ function showAllMarkerNames() {
 
 // hide marker names
 function hideAllMarkerNames() {
+	showMarkerNames = false;
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
