@@ -569,17 +569,22 @@ function addCustomMarker() {
 	marker.addListener('dragend', function () {
 		infoWindow.open(map, marker);
 		infoWindow.isOpen = true;
-		setTimeout(function () {
-			if (infoWindow.isOpen) {
-				infoWindow.close(map, marker);
-				markerSetAnimation(marker, 'BOUNCE');
-				infoWindow.isOpen = false;
-			}
-		}, 3500);
+		if (enableAnimations) {
+			setTimeout(function () {
+				if (infoWindow.isOpen) {
+					infoWindow.close(map, marker);
+					markerSetAnimation(marker, 'BOUNCE');
+					infoWindow.isOpen = false;
+				}
+			}, 3500);
+		}
+		
 	});
 
 	infoWindow.addListener('closeclick', function () {
-		markerSetAnimation(marker, 'BOUNCE');
+		if (enableAnimations) {
+			markerSetAnimation(marker, 'BOUNCE');
+		}
 		infoWindow.isOpen = false;
 	});
 
