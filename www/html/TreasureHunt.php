@@ -103,7 +103,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 	<!-- Marker names option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Marker names</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Show pin names</a>
 			<label>
 				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -123,7 +123,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 	
 	<!-- Marker opacity    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin_circle</i>Transparent markers</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin_circle</i>Reduced pin opacity</a>
 			<label>
 				<input id="checkBoxMarkerOpacity" onchange="toggleMarkerOpacity()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
