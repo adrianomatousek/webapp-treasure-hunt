@@ -3,8 +3,9 @@ require_once ("connection.php");
 
 $passed_json = $_POST['passedData'];
 
-echo $passed_json->waypoints[0];
-echo $passed_json->clues[0][0];
+$passed_json = json_decode($passed_json);
+
+echo $passed_json[0][0];
 
 
 $waypointsArray = []; //TODO pass in data from inputted array
@@ -28,9 +29,6 @@ if ($lastWaypoint->num_rows == 1) {
         $newWaypointID = $row["waypointID"] + 1;
     }
 }
-//TODO delete
-echo $newRouteID." ";
-echo $newWaypointID." ";
 
 //TEMPLATE routeName and gamekeeperID need to be fetched from form that submits route
 $newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,'routeName','gamekeeperID')";
@@ -48,4 +46,6 @@ $waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
 // $conn->query($waypointSQL);
 
 //TODO PHP for adding clues for each waypoint, will require another passed array
+
+
 ?>
