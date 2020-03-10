@@ -45,7 +45,7 @@ function saveRoute(){
 		url:"saveRoute.php",
 		type:"POST",
 		contentType: "application/json; charset=utf-8",
-		data: JSON.stringify(postData), 
+		data: {givenData: JSON.stringify(postData)}, 
 		// {
 			// passedData: postData
 			// postMarkers: newMarkers,
