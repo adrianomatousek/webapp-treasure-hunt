@@ -16,6 +16,7 @@ var points; //array of all the waypoints
 var clues;
 var activeTreasure = 0; //Ideally in database. Used in fillClues().
 var activeClue = -1; //Would be in database as determines the score. Used in fillClues().
+var showHints = true;  // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app' 
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -53,10 +54,10 @@ function myMap() {
 	
 	
 	// Apply Settings
-	enableAnimations = true;
 	setTime();	
+	enableAnimations = true;
 	setMarkerNames();
-	showLabelOnMouseOver = true;
+	showHints = true;
 	setMarkerOpacity(0.85);
 	
 	addCustomMarker();
@@ -563,13 +564,15 @@ function dayTime() {
 	});
 	
 	zoom = map.getZoom();
-	console.log('zoom: ' + zoom);
+	console.log('map zoom: ' + zoom);
 
 	if (markerList.length > 0) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
 			markerList[i].setLabel(label);
+			var icon = markerList[i].getIcon();
+			icon.scaledSize = new google.maps.Size(20, 20);
 		}
 	}
 	if (customMarker) {
