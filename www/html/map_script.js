@@ -732,8 +732,14 @@ function toggleMarkerOpacity() {
 function toggleMarkerAnimations() {
 	if (enableAnimations) {
 		enableAnimations = false;
+		if (activeMarker) {
+			activeMarker.setAnimation(null);
+		}
 	} else {
 		enableAnimations = true;
+		if (activeMarker) {
+			markerSetAnimation(activeMarker, 'BOUNCE');
+		}
 	}
 }
 
