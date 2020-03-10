@@ -732,7 +732,7 @@ function showAllMarkerNames() {
 			string = labelContent.toString();
 			label.text = string;
 			var fontSize = (defaultFontSize - 4);
-			var fontSizeString = fontSize.toString();
+			var fontSizeString = fontSize.toString() + 'pt';
 			label.fontSize = fontSizeString;
 			markerList[i].setLabel(label);
 		}
