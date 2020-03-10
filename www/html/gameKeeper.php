@@ -81,7 +81,7 @@ if ($_SESSION["loggedin"] != true){
 
     <!-- Night Mode option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();">Night mode</a>
+		<li><a style="display: inline-block" href="javascript:checkTime(); tickBox();"><i class="material-icons">wb_sunny</i>Night mode</a>
 			<label>
 				<input id="checkBoxNightMode" onchange="checkTime()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
@@ -91,9 +91,9 @@ if ($_SESSION["loggedin"] != true){
 
 	<!-- Animations option in settings -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();">Disable animations</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerAnimations(); tickBox2();"><i class="material-icons">directions_run</i>Animations</a>
 			<label>
-				<input id="checkBoxNightMode" onchange="toggleMarkerAnimations()" type="checkbox">
+				<input id="checkBoxAnimations" onchange="toggleMarkerAnimations()" type="checkbox" checked = "true">
 				<span style="float: right; margin: 17px;" class="lever"></span>
 			</label>
 		</li>
@@ -101,9 +101,29 @@ if ($_SESSION["loggedin"] != true){
 
 	<!-- Marker names option in settings    -->
     <div class="switch">
-		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();">Show marker names</a>
+		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Pin names</a>
 			<label>
 				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+
+	<!-- Help/hints for how to use the app (not used yet - remove later if not used at all)    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleHints(); tickBox4();"><i class="material-icons">info</i>Hints</a>
+			<label>
+				<input id="checkBoxHints" onchange="toggleHints()" type="checkbox" checked = "true">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
+
+	<!-- Marker opacity    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleMarkerOpacity(); tickBox5();"><i class="material-icons">person_pin_circle</i>Transparent pins</a>
+			<label>
+				<input id="checkBoxMarkerOpacity" onchange="toggleMarkerOpacity()" type="checkbox">
 				<span style="float: right; margin: 17px;" class="lever"></span>
 			</label>
 		</li>
@@ -116,6 +136,12 @@ if ($_SESSION["loggedin"] != true){
     <li><a href="logout.php"><i class="material-icons">directions_run</i>Logout</a></li>
     <li><a href="tel:01392723999"><i class="material-icons">phone</i>Non-Critical Estate Patrol</a></li>
     <li><a onclick="bottomNavGoTo(3)"><i class="material-icons">contact_support</i>FAQ</a></li>
+	
+	<li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Gamekeeper Tools</a></li>
+	
     <li><a onclick="saveRoute()">Save Route</a></li>
 
     <?php if ($_SESSION['accessLevel'] == 'Admin') { ?>

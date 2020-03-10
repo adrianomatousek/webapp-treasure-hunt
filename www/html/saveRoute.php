@@ -29,7 +29,16 @@ if ($lastWaypoint->num_rows == 1) {
 }
 
 //TEMPLATE routeName and gamekeeperID need to be fetched from form that submits route
-$newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,$routeName,'gamekeeperID')";
+// $newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,'routeName','gamekeeperID')";
+
+// $addRoute = $conn->prepare("INSERT INTO `routes` ($newRouteID, 'routeName', 'gamekeeperID) VALUES (?,?,?)");
+$addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
+//Ideally passed as parameters (don't think you can pass as strings in bind_param).
+//Parameters need to be replaced with actual values that we can use and send.
+$addRoute->bind_param('sss', $newRouteID, $routeName, $_SESSION['keeperID']);
+$addRoute->execute();
+$addRoute->close();
+
 
 //TEMPLATE loads values from input array into string for SQL statement
 $VALUES = "";
