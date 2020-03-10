@@ -407,7 +407,7 @@ function removeMarker(id) {
 
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
-		markerList[id].setMap(null);
+		markerList[i].setMap(null);
 	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
