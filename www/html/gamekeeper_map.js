@@ -41,11 +41,14 @@ function saveRoute(){
 	postData.push(newMarkers);
 	JSON.stringify(postData);
 	*/
+	var my_array = new Array(waypoints, clues);
+	var jsonString = JSON.stringify(my_array);
+
 	$.ajax({
 		url:"saveRoute.php",
 		type:"POST",
 		contentType: "application/json; charset=utf-8",
-		data: {givenData: JSON.stringify(postData)}, 
+		data: {data: jsonString}, 
 		// {
 			// passedData: postData
 			// postMarkers: newMarkers,

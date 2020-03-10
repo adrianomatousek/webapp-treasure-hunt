@@ -2,7 +2,7 @@
 echo "pretty please";
 require_once ("connection.php");
 // $passed_json = $_POST['data'];
-$passed_json = $_POST['givenData'];
+$passed_json = $_POST[data];
 $newMarkers = $passed_json[0];
 $newClues = $passed_json[1];
 
