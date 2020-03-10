@@ -29,6 +29,7 @@ function addClue (positionInRoute){
 	}
 }
 
+//NEW sends ajax request and should remove all markers
 function saveRoute(){
 	var postData = {
 		"waypoints":newMarkers,
@@ -42,8 +43,8 @@ function saveRoute(){
 		success: function(data){
 			alert("Route added");
 		},
-		error: function(data){
-			alert("Route saving unsuccessful");
+		error: function(XMLHttpRequest, textStatus, errorThrown){
+			alert("Route saving unsuccessful".textStatus.errorThrown);
 		}
 	});
 	removeAllMarkers();
