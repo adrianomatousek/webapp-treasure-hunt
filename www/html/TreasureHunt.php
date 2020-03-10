@@ -176,24 +176,24 @@ if ($_SESSION["loggedin"] != true){
         <p>Frequently Asked Questions</p>
         <ul class="collapsible">
             <li>
-              <div class="collapsible-header"><i class="material-icons">filter_drama</i>How do I scan a QR code?</div>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i>How do I scan a QR code? <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body"><span>To scan a QR to verify that you
                  have been to the location please click the ion at centre of the
                   bottom navigation which is a circl and use the camer to scan the QR code.</span></div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>How do I know I am getting close to the waypoint?</div>
+              <div class="collapsible-header"><i class="material-icons">place</i>How do I know I am getting close to the waypoint? <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body"><span>If you are struggling or think
                  you are lost we have made it so your current location is displayed
                   as a blue marker in the map to help you navigate.</span></div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">whatshot</i>How can I check how I am doing against other teams?</div>
+              <div class="collapsible-header"><i class="material-icons">whatshot</i>How can I check how I am doing against other teams?  <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body"><span>By clicking on the last item
                 the Leaderboard icon on the navigation bar at the bottom you will be able to see how you are doing against other teams.</span></div>
             </li>
             <li>
-              <div class="collapsible-header"><i class="material-icons">place</i>My current location isnt showing?</div>
+              <div class="collapsible-header"><i class="material-icons">place</i>My current location isnt showing?  <i class="caret material-icons">keyboard_arrow_down</i></div>
               <div class="collapsible-body"><span>Please go to setting and ensure
                  location access is allowed by your browser if you dont recieve the popup when entering the site.</span></div>
             </li>
@@ -241,7 +241,6 @@ if ($_SESSION["loggedin"] != true){
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="jsQR.js"></script>
   <script src="camera.js"></script>
-
 
 </body>
 
