@@ -67,7 +67,7 @@ function myMap() {
 	// Apply Settings
 	setTime();	
 	enableAnimations = true;
-	setMarkerNames();
+	//setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
 	
@@ -757,7 +757,7 @@ function setMarkerNames() {
 function showAllMarkerNames() {
 	
 	showMarkerNames = true;
-	defaultFontSize = (defaultFontSize + reduceFontSizeBy);  // reduce font size as names are displayed (which take up more space on screen)
+	defaultFontSize = (defaultFontSize - reduceFontSizeBy);  // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 	
 	if (markerList.length > 0) {
