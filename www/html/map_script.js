@@ -678,7 +678,8 @@ function showAllMarkerNames() {
 			labelContent = i + 1 + '. ' + markerList[i].name;
 			string = labelContent.toString();
 			label.text = string;
-			label.fontSize = '14px';
+			var fontSize = (defaultFontSize - 4).toString();
+			label.fontSize = fontSize;
 			markerList[i].setLabel(label);
 		}
 	}
