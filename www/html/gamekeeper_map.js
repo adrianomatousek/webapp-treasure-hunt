@@ -24,7 +24,7 @@ var newClues = [];
 //NEW handles click on addClue button
 function addClue (positionInRoute){
 	var clueText = prompt("Enter the clue text:");
-	if (newClues.length>1){
+	if (newClues.length>0){
 		newClues[positionInRoute-1].push(clueText);
 	}
 }
