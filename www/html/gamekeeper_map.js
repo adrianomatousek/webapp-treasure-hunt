@@ -45,9 +45,11 @@ function saveRoute(){
 		},
 		error: function(xhr, textStatus, errorThrown){
 			alert("Route saving unsuccessful"+xhr.statusText);
+			console.log(textStatus);
+      console.log(error);
 		}
 	});
-	removeAllMarkers();
+	//removeAllMarkers();
 	newMarkers = [];
 	newClues = [];
 }
