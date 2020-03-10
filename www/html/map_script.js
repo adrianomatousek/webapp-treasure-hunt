@@ -66,12 +66,12 @@ function myMap() {
 	showHints = true;
 	setMarkerOpacity(0.85);
 	
-	addCustomMarker();
-	
 	scaleMarkerSizeOnZoom();  // Calls the function which is made to scale the size of markers when zooming in/out.
+	
+	// addCustomMarker();
 }
 
-function setMarkerSize(scaledSize = 50, fontSize = 18, labelOriginHeightOffset = 4){
+function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset){
 	/*
 	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
 	Parameters:	
