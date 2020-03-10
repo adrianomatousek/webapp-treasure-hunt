@@ -613,6 +613,30 @@ function nightTime() {
 	}
 }
 
+function toggleHints() {
+	if (showHints) {
+		showHints = false;
+	} else {
+		showHints = true;
+	}
+}
+
+function toggleMarkerOpacity() {
+	if (markerOpacity == defaultMarkerOpacity) {
+		setMarkerOpacity(reducedMarkerOpacity);
+	} else {
+		setMarkerOpacity(defaultMarkerOpacity)
+	}
+}
+
+function toggleMarkerAnimations() {
+	if (enableAnimations) {
+		enableAnimations = false;
+	} else {
+		enableAnimations = true;
+	}
+}
+
 // utility function changing the numbers to names
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
