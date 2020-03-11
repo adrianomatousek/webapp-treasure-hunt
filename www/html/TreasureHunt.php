@@ -73,7 +73,9 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
     <div id="modal" class="modal">
       <div class="modal-content">
         <h4>Well Done</h4>
-        <p>Hey, you've do it all, the treasures have been found.</p>
+        <p>Hey, you've do it all,
+           the treasures have been found.
+        </p>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
