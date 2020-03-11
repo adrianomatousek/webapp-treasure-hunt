@@ -1014,7 +1014,7 @@ function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
 }
 
 function createDefaultExtraLocations() {
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre", "This is where you come to when you are sick");
 }
 
 
