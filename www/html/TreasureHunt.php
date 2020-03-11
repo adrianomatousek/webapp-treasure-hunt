@@ -53,22 +53,20 @@ $routes = $conn->query($findRoutes);
       <!-- Change route button -->
       <li>
       <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-      <!-- <select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)"> -->
-
+      <option value="" disabled selected name="newRouteID" onchange="changeRoutes(this)">Choose your option</option>
       <?php
-      // if ($routes->num_rows > 0){
-      //   while ($row = $routes->fetch_assoc()) { 
-      //     $routeIDValue = $row['routeID'];
-      //     $routeName = $row['routeName'];
-      //     echo "<option value=\"$routeIDValue\">$routeName</option>"
-      //   }
-      // }
+      if ($routes->num_rows > 0){
+        while ($row = $routes->fetch_assoc()) { 
+          $routeIDValue = $row['routeID'];
+          $routeName = $row['routeName'];
+          echo "<option value=\"$routeIDValue\">$routeName</option>";
+        }
+      }
       ?>
+    </select>
+      <!-- <select style="text-align-last: center;" > -->
+
+
 
 
       </li>
