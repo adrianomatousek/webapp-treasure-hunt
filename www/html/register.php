@@ -65,7 +65,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <p class="margin medium-small"><a href="index.php">Already got an account?</a></p>
+              <p class="margin medium-small"><a href="index.php">Already have an account?</a></p>
               <button type='submit' name='register' class='col s12 btn btn-large waves-effect indigo'>Register</button>
             </div>
           </div>
