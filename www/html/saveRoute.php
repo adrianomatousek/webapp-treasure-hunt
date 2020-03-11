@@ -31,6 +31,8 @@ if ($lastRoute->num_rows == 1) {
     }
 }
 
+echo "Got the last route! ";
+
 //grabs last waypointID and stores it in newRouteID
 $lastWaypoint = $conn->query("SELECT * FROM waypoints ORDER by waypointID DESC LIMIT 1");
 if ($lastWaypoint->num_rows == 1) {
@@ -56,10 +58,13 @@ if ($lastClue->num_rows == 1) {
 $addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
 //Ideally passed as parameters (don't think you can pass as strings in bind_param).
 //Parameters need to be replaced with actual values that we can use and send.
-$addRoute->bind_param('iss', $newRouteID, $routeName, $_SESSION['keeperID']);
-$addRoute->execute();
+$addRoute->bind_param('iss', $newRouteID, "$routeName", "$_SESSION['keeperID'])";
+if (!$addRoute->execute()) {
+    print_r($addRoute->errorInfo());
+}
 $addRoute->close();
 
+echo "added route! ";
 
 //TEMPLATE loads values from input array into string for SQL statement
 $addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
