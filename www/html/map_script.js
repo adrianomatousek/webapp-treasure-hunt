@@ -422,7 +422,7 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 			} else {
 				label.color = '#00ED87';
 			}
-			marker.setLabel(label);
+			this.setLabel(label);
 
 			//sets marker label for new marker
 			if (activeMarker) {
@@ -951,7 +951,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 		map: map,
 		label: {
 			color: color,
-			text: name,
+			text: ' ',
 			fontSize: '12pt',
 			fontWeight: 'bold',
 		},
