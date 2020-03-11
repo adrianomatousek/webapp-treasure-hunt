@@ -968,6 +968,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			text: ' ',
 			fontSize: '12pt',
 			fontWeight: 'bold',
+			name: name,
 		},
 		icon: {
 			url: 'img/icons/' + iconURL,
@@ -984,7 +985,6 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 		}, */
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
-		name: name,
 		type: typeID
 	});
 
