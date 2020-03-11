@@ -60,7 +60,7 @@ $routes = $conn->query($findRoutes);
         while ($row = $routes->fetch_assoc()) {
           $routeIDValue = $row['routeID'];
           $routeName = $row['routeName'];
-          echo "<option value=\"$routeIDValue\">$routeName</option>";
+          echo "<option value=$routeIDValue>$routeName</option>";
         }
       }
       ?>
@@ -369,6 +369,7 @@ function changeRoutes(select){
     routeID = select.value; 
     console.log("Changing route to: " + routeID);
     playerScore = 0;
+    markers = 0;
     addScore(0);
     removeAllMarkers();
     points = [];
