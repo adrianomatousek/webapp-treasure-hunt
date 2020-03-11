@@ -146,7 +146,7 @@ INSERT INTO waypoints VALUES
   "Laver Pond"
 ),
 (
-  '5',
+  '6',
   '50.73792036406959,-3.5306028293609537',
   '2',
   'SAMPLE PRIZE',
@@ -154,7 +154,7 @@ INSERT INTO waypoints VALUES
   "Innovation Centre"
 ),
 (
-  '5',
+  '7',
   '50.73744506563135,-3.5331348346710123',
   '2',
   'SAMPLE PRIZE',
@@ -162,7 +162,7 @@ INSERT INTO waypoints VALUES
   "Harrison"
 ),
 (
-  '5',
+  '8',
   '50.737580865677366,-3.5324052738189615',
   '2',
   'SAMPLE PRIZE',
@@ -170,7 +170,7 @@ INSERT INTO waypoints VALUES
   "Harrison Blue ROom"
 ),
 (
-  '5',
+  '9',
   '50.73642315765491,-3.531689124011985',
   '2',
   'SAMPLE PRIZE',
@@ -193,73 +193,73 @@ INSERT INTO clues VALUES
 ),
 (
   '3',
-  '1',
+  '2',
   'Quack! Quack!',
   '2'
 ),
 (
   '4',
-  '1',
+  '2',
   'On one of the benches!',
   '2'
 ),
 (
   '5',
-  '1',
+  '3',
   'A forest wonderland!',
   '3'
 ),
 (
   '6',
-  '1',
+  '3',
   'Close to the waterfall!',
   '3'
 ),
 (
   '7',
-  '1',
+  '4',
   'You have been walking a lot. How about you take a seat?',
   '4'
 ),
 (
   '8',
-  '1',
+  '4',
   'Look underneath!',
   '4'
 ),
 (
   '9',
-  '1',
+  '5',
   'Up the hill, before the bus stop!',
   '5'
 ),
 (
   '10',
-  '1',
+  '5',
   'The one in the shade',
   '5'
 ),
 (
   '11',
-  '2',
+  '6',
   'Are you tired walking up the stairs? Maybe sit down at a bench',
   '1'
 ),
 (
   '12',
-  '2',
+  '7',
   'Go up the stairs and enter the building',
   '2'
 ),
 (
   '13',
-  '2',
+  '8',
   'The room that is not blue',
   '3'
 ),
 (
   '14',
-  '2',
+  '9',
   'Some say it inspired the JK Rowling moving staircase in Hogwarts',
   '4'
 );
