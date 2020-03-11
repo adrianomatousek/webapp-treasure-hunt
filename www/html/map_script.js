@@ -43,7 +43,7 @@ $.ajax({
 	success: function (returnData) {
 		console.log("return data loadmarkers:");
 		console.log(returnData);
-		points = returnData;
+		points = JSON.parse(returnData);
 		nextWaypoint();
 	},
 	error: function (xhr, textStatus, errorThrown) {
@@ -207,6 +207,7 @@ function nextWaypoint() {
 	Function that displays the next waypoint when the current is found
 	*/
 	if (points.length > 0) {
+		console.log(points[0]);
 		var marker = points[0].split(','); //split at the comma
 		var lat = parseFloat(marker[0]);
 		var lng = parseFloat(marker[1]);
@@ -875,7 +876,7 @@ function getExtraMarkerType(extraMarker) {
 	}
 }
 
-function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'chest.png', imageURL) {
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'health.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
@@ -914,7 +915,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 		},
 		label: {
 			color: color,
-			text: name,
+			text: '',
 			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
 			fontWeight: 'bold',
 		},
