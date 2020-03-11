@@ -95,6 +95,8 @@ function myMap() {
 	// addCustomMarker();
 
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
+
+	createDefaultExtraLocations();
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
@@ -872,7 +874,7 @@ function getExtraMarkerType(extraMarker) {
 	}
 }
 
-function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'chest.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
@@ -909,6 +911,12 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(10, 18)
 		},
+		label: {
+			color: color,
+			text: '',
+			fontSize: defaultFontSize,
+			fontWeight: 'bold',
+		},
 		animation: google.maps.Animation.DROP,
 		id: markerNum - 1,
 		opacity: markerOpacity,
@@ -918,10 +926,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 
 	var contentString = '<div id="siteNotice">' + getExtraMarkerType(marker) + '</div><div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + name +
-		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
-		'</p></div><br>' +
-		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
+		'</h4><div id="bodyContent"><p> ' + description +	'</p></div>';
 
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
@@ -929,12 +934,20 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 		content: contentString
 	});
 
+	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
+	var infoLabel = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -16),
+		content: '<div id="bodyContent"><p> This is a place of interest. Click for more info. </p></div>'
+	});
+
+	addMarkerClickListeners(marker, infoWindow, infoLabel);
+
 	extraMarkersList.push(marker);
 	extraMarkers += 1;
 }
 
 function createDefaultExtraLocations() {
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre")
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
 }
 
 
