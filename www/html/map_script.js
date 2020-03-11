@@ -932,7 +932,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 	var color = getColor();
 	// Sets a default name in case the given one is too short or long
 	if (!name || name.length < 3 || name.length > 32) {
-		name = 'Place of interest';
+		name = 'Place of Interest';
 	}
 	// Sets a default description in case the given one is too short or long
 	if (!description || description.length < 10 || description.length > 500) {
@@ -1072,7 +1072,7 @@ function getExtraMarkerType(extraMarker) {
 		case 4:
 			return 'College';
 		default:
-			return 'Location';
+			return 'Place of Interest';
 	}
 }
 
@@ -1087,7 +1087,17 @@ function createDefaultExtraLocations() {
 	
 	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact 
 	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In laver you will find the office of David Wakeling", 'david.png');
-
+	// DO BELOW //
+	
+	/* ADD: Forum Library (type: 2), 
+			Sports Hall (type: 3), 
+			Ram Bar (type: 1)
+			Matt's office (type: 4), 
+			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
+			One other type 1 food place?
+			something else if you feel like it
+			thanks <3  :*
+	*/
 }
 
 
