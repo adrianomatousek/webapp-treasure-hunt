@@ -7,6 +7,7 @@ $newClues = $_POST['clues'];
 $routeName = $_POST['route_name'];
 
 $waypointsArray = $newMarkers; //TODO pass in data from inputted array
+$cluesArray = $newClues;
 foreach ($newMarkers as $key => $value) {
     echo $value . " ";
 }
@@ -44,17 +45,26 @@ $addRoute->close();
 
 
 //TEMPLATE loads values from input array into string for SQL statement
-$VALUES = "";
+$addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?");
+// $VALUES = "";
 for ($i=0; $i<count($waypointsArray); $i++){
-  $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
+//   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
+    $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i],$newRouteID, 'prize',$i+1,'waypoint name');
+    $addWaypoints->execute();
 }
+$addWaypoints->close();
 
 //TEMPLATE loads found values into array
-$waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
+// $waypointSQL = "INSERT INTO waypoints VALUES".$VALUES;
 
 //TEMPLATE, decomment when implemented fully
 // $conn->query($waypointSQL);
-
+$addClues = $conn->prepare("INSERT INTO `clues` VALUES (?,?,?,?)");
+for ($i=0; $i<count($cluesArray); $i++){
+    $addClues->bind_param("iisi", 'clueID', $newWaypointID, $cluesArray[$i],$i+1);
+    $addClues->execute();
+}
+$addClues->close();
 //TODO PHP for adding clues for each waypoint, will require another passed array
 
 ?>
