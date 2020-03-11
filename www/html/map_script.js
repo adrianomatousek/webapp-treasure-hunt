@@ -913,7 +913,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 		},
 		label: {
 			color: color,
-			text: '',
+			text: 'l',
 			fontSize: defaultFontSize,
 			fontWeight: 'bold',
 		},
