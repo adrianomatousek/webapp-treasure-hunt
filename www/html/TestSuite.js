@@ -48,6 +48,73 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
+function resetAll(){
+	var map2;
+	map = map2;
+	var currentPositionMarker2;
+	currentPositionMarker = currentPositionMarker2;
+	var markerList2 = [];
+	markerList = markerList2;
+	var isDay2 = true;
+	isDay = isDay2;
+	var markers2 = markerList.length;
+	markers = markers2;
+	var activeInfoWindow2;
+	activeInfoWindow = activeInfoWindow2;
+	var activeInfoLabel2;
+	activeInfoLabel = activeInfoLabel2;
+	var activeMarker2;
+	activeMarker = activeMarker2;
+	var showLabelOnMouseOver2 = true; // displays small info/help label when mouse cursor is over a marker
+	showLabelOnMouseOver = showLabelOnMouseOver2;
+	var enableAnimations2 = true;
+	enableAnimations = enableAnimations2;
+	var customMarker2;
+	customMarker = customMarker2;
+	var defaultMarkerOpacity2 = 0.85;
+	defaultMarkerOpacity = defaultMarkerOpacity2;
+	var reducedMarkerOpacity2 = 0.45;
+	reducedMarkerOpacity = reducedMarkerOpacity2;
+	var markerOpacity2 = defaultMarkerOpacity;
+	markerOpacity = markerOpacity2;
+	var showMarkerNames2 = false;
+	showMarkernames = showMarkerNames2;
+	var showInfoLabels2 = true;
+	showInfoLabels = showInfoLabels2;
+	var points2; //array of all the waypoints
+	points = points2;
+	var clues2;
+	clues = clues2;
+	var activeTreasure2 = 0; //Ideally in database. Used in fillClues().
+	activeTreasure = activeTreasure2;
+	var activeClue2 = -1; //Would be in database as determines the score. Used in fillClues().
+	activeClue = activeClue2;
+	var showHints2 = true; // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
+	showHints = showHints2;
+	var defaultZoom2 = 16; // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
+	defaultzoom = defaultZoom2;
+	var defaultScaledSize2 = 50; // Default size of the icon of the marker
+	defaultScaledSize = defaultScaledSize2;
+	var defaultLabelOriginHeightOffset2 = 4; //
+	defaultLabelOriginHeightOffset = defaultLabelOriginHeightOffset2;
+	var defaultFontSize2 = 16;
+	defaultFontSize = defaultFontSize2;
+	var defaultFontSizeString2 = '16pt';
+	defaultFontSizeString = defaultFontSize2;
+	var reduceFontSizeBy2 = 4; // when switching to marker names option in settings
+	reduceFontSizeBy = reduceFontSizeby2;
+	var idiotWindow2;
+	idiotWindow = idiotWindow2;
+	var showExtraLocations2 = true;
+	showExtraLocations = showExtraLocations2;
+	var extraLocations2 = [];
+	extraLocations = extraLocations2;
+	var extraMarkersList2 = [];
+	extraMarkersList = extraMarkersList2;
+	var extraMarkers2 = extraMarkersList.length;
+	extraMarkers = extraMarkers2;
+}
+
 // Initialize test-suite
 function initTests1() {
 	
