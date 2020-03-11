@@ -107,16 +107,40 @@ INSERT INTO routes VALUES
 INSERT INTO waypoints VALUES
 (
   '1',
+  '50.735299372643134,-3.5378018783569254',
+  '1',
+  'SAMPLE PRIZE',
+  '1',
+  "Reed Hall"
+),
+(
+  '2',
+  '50.73412452494373,-3.5373941825866617',
+  '1',
+  'SAMPLE PRIZE',
+  '1',
+  "Reed Pond"
+),
+(
+  '3',
+  '50.73562530702386,-3.532265798950187',
+  '1',
+  'SAMPLE PRIZE',
+  '1',
+  "Forum Hill Pond"
+),
+(
+  '4',
   '50.735299372643134-3.5378018783569254',
   '1',
   'SAMPLE PRIZE',
   '1',
-  "The first waypoint, the real OG dude"
-)
+  "Reed Hall"
+);
 
-10 |  |       7 | prize        |               1 | waypoint name                          |
-|         11 | 50.73412452494373-3.5373941825866617  |       7 | prize        |               2 | waypoint name                          |
-|         12 | 50.73562530702386-3.532265798950187   |       7 | prize        |               3 | waypoint name                          |
+
+|         11 |   |       7 | prize        |               2 | waypoint name                          |
+|         12 |    |       7 | prize        |               3 | waypoint name                          |
 |         13 | 50.7369563548952-3.529293911361686    |       7 | prize        |               4 | waypoint name                          |
 |         14 | 50.73688149123296-3.5340843366622843  |       7 | prize        |               5 | waypoint name   
 INSERT INTO clues VALUES

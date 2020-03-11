@@ -30,16 +30,31 @@ var showExtraLocations = true;
 var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
+var routeID = 1;
 
-$.post('loadMarkers.php', function (data) {
-	points = JSON.parse(data);
-	//retireves a JSON array of points and is converted to a JavaScript array
+var postData = {
+	routeID: routeID,
+};
+
+$.ajax({
+	url: "loadMarkers.php",
+	type: "POST",
+	data: postData,
+	success: function (returnData) {
+		console.log("return data loadmarkers:");
+		console.log(returnData);
+		points = returnData;
+	},
+	error: function (xhr, textStatus, errorThrown) {
+		alert("Load markers" + xhr.statusText);
+		console.log(textStatus);
+		console.log(error);
+	}
 });
+
 
 $.post('loadClues.php', function (data) {
 	clues = JSON.parse(data);
-	console.log(clues[1][1]);
-	console.log(clues);
 });
 
 function myMap() {
@@ -203,14 +218,11 @@ function nextWaypoint() {
 		activeClue = -1; //reset the clue count
 
 		addScore(5);
-	}
-
-	else if(points.length === 0)
-	{
-		$(document).ready(function(){
-    $('#modal').modal();
-    $('#modal').modal('open');
- 		});
+	} else if (points.length === 0) {
+		$(document).ready(function () {
+			$('#modal').modal();
+			$('#modal').modal('open');
+		});
 	}
 }
 
@@ -316,7 +328,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		mouseOnMarker: false // used to determine if mouse is on marker; used by event listeners
 	});
 
-	var contentString = '<div id="content" style="text-align:center">' +  // <div id="siteNotice">Treasure Location</div>
+	var contentString = '<div id="content" style="text-align:center">' + // <div id="siteNotice">Treasure Location</div>
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
@@ -726,11 +738,10 @@ function nightTime() {
 	Toggle options used by settings
 */
 
-function toggleExtraLocations(){
+function toggleExtraLocations() {
 	if (showExtraLocations) {
 		showExtraLocations = false;
-	}
-	else {
+	} else {
 		showExtraLocations = true;
 	}
 }
@@ -846,14 +857,21 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 
 function getExtraMarkerType(extraMarker) {
 	switch (extraMarker.type) {
-		case 0: return 'Health';
-		case 1: return 'Food';
-		case 2: return 'Library';
-		case 3: return 'Fitness';
-		case 4: return 'College';
-		default: return 'Location';
+		case 0:
+			return 'Health';
+		case 1:
+			return 'Food';
+		case 2:
+			return 'Library';
+		case 3:
+			return 'Fitness';
+		case 4:
+			return 'College';
+		default:
+			return 'Location';
 	}
 }
+
 function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
@@ -898,7 +916,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 		type: typeID
 	});
 
-	var contentString = '<div id="siteNotice">'+ getExtraMarkerType(marker) +'</div><div id="content" style="text-align:center">' +
+	var contentString = '<div id="siteNotice">' + getExtraMarkerType(marker) + '</div><div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
@@ -915,7 +933,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 	extraMarkers += 1;
 }
 
-function createDefaultExtraLocations(){
+function createDefaultExtraLocations() {
 	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre")
 }
 
