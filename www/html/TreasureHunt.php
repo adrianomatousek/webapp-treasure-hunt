@@ -54,7 +54,14 @@ $routes = $conn->query($findRoutes);
       <!-- Change route button -->
       <li>
       <!-- <select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)"> -->
-
+      <div class="input-field col s12">
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </div>
       <?php
       // if ($routes->num_rows > 0){
       //   while ($row = $routes->fetch_assoc()) { 
@@ -300,15 +307,6 @@ $routes = $conn->query($findRoutes);
 
     <div class="carousel-page" style="overflow: auto; height: 76vh;">
     <div class="container">
-    <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-  </div>
     </div>
       <div>
       <!-- Page 4: Help Page -->
