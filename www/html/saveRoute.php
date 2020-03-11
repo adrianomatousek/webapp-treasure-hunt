@@ -17,15 +17,6 @@ $routeName = $_POST['route_name'];
 
 $waypointsArray = $newMarkers; //TODO pass in data from inputted array
 $cluesArray = $newClues;
-foreach ($newMarkers as $key => $value) {
-    echo $value . " ";
-}
-
-foreach ($newClues as $key => $value) {
-    foreach ($value as $clue => $single_clue) {
-        echo "Clue: " . $single_clue;
-    }
-}
 
 echo "Route name: " . $routeName;
 
