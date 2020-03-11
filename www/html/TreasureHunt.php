@@ -10,6 +10,8 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 require_once ("connection.php");
 
+$findRoutes = mysql_query("SELECT * FROM routes");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +51,19 @@ require_once ("connection.php");
       class="sidenav-trigger"><i class="material-icons">help</i></a></li>
 
       <!-- Change route button -->
-      <li><select name="changeRouteValue">
-        <option value=""> </option>
+      <li><select name="changeRouteValue" onchange="changeRoutes()">
+      
+      
+      <?php
+        while ($row = mysql_fetch_array($findRoutes)) { 
+        $routeIDValue = $row['routeID'];
+        ?>
+        <option value="<?php $routeIDValue ?>"> <?php echo $routeIDValue; ?> </option>
+      <?php
+        }
+      ?>
+
+
       </select></li>
 
       <!-- Setting Button -->
