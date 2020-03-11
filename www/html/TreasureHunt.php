@@ -75,7 +75,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
       <p>Hey, you've do it all, the treasures have been found.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
 

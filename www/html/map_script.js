@@ -210,6 +210,9 @@ function nextWaypoint() {
 		$(document).ready(function(){
     $('#modal').modal();
     $('#modal').modal('open');
+		$('.modalselector').leanModal({
+      dismissible: false
+			);
  		});
 	}
 }
