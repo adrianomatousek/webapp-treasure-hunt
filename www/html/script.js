@@ -119,3 +119,9 @@ document.querySelector('.close').addEventListener('click', function () {
 $(document).ready(function () {
     $('.collapsible').collapsible();
 });
+
+
+//Route select
+$(document).ready(function () {
+    $('select').formSelect();
+});
