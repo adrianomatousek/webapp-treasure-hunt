@@ -71,11 +71,11 @@ function addMarkerTest(){
 	
 	addMarker(50.735820, -3.538780);
 	
-	length1 = markerList.length();
+	length1 = markerList.length;
 	
 	addMarker(50.735820, -3.538780);
 	
-	length2 = markerList.length();
+	length2 = markerList.length;
 	
 	if (length1 == 1 && length2 == 2) {
 		testSuccessful();
