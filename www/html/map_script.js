@@ -853,7 +853,7 @@ function showAllMarkerNames() {
 	if (extraMarkersList) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
-			label.text = label.name;
+			label.text = (label.name).toString();
 			extraMarkersList[i].setLabel(label);
 		}
 	}
@@ -968,12 +968,13 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			text: ' ',
 			fontSize: '12pt',
 			fontWeight: 'bold',
+			name: name,
 		},
 		icon: {
 			url: 'img/icons/' + iconURL,
 			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(15, 24)
+			labelOrigin: new google.maps.Point(15, 38)
 		},
 		/*
 		label: {
@@ -984,7 +985,6 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 		}, */
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
-		name: name,
 		type: typeID
 	});
 
