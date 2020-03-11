@@ -13,7 +13,7 @@ require_once ("connection.php");
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
 ?>
-<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -56,7 +56,7 @@ $routes = $conn->query($findRoutes);
 
       <?php
       // if ($routes->num_rows > 0){
-      //   while ($row = $routes->fetch_assoc()) { 
+      //   while ($row = $routes->fetch_assoc()) {
       //     $routeIDValue = $row['routeID'];
       //     $routeName = $row['routeName'];
       //     echo "<option value=\"$routeIDValue\">$routeName</option>"
