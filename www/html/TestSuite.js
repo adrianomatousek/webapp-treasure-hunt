@@ -5,7 +5,16 @@
 var fileName = 'map_script.js';
 var testCases = [];
 
-// Pre-defined variables
+function testSuccessful(result = true) {
+	if (result) {
+		testCases.add(testCase);
+	}
+	else {
+		testCases.add(testCase);
+	}
+}
+
+// Pre-defined variables for this test suite
 var map;
 var currentPositionMarker;
 var markerList = [];
@@ -42,18 +51,59 @@ var extraMarkers = extraMarkersList.length;
 // Initialize test-suite
 function initTests1() {
 	
-	// Add markers 
-	addMarker(50.735402, -3.538078);
-	addMarker(50.735902, -3.538078, 'A name', 'A description <br>tags</br>');
-	addMarker();
-	addMarker(50.735002, -3.538078);
+	
+	
+	
+	
 	console.log('add');
 } 
 
 function runTests1() {
-	initTests1();
+	// Test 1: check if marker is added to array
+	
 	console.log('RUNNING TEST CASES FOR: ' + fileName);
+	
+	addMarkerTest();
 }
+
+function addMarkerTest(){
+	// 1 Check if marker is added to array
+	
+	addMarker(50.735820, -3.538780);
+	
+	length1 = markerList.length();
+	
+	addMarker(50.735820, -3.538780);
+	
+	length2 = markerList.length();
+	
+	if (length1 == 1 && length2 == 2) {
+		testSuccessful();
+		console.log('TEST 1 SUCCESSFUL');
+	} else {
+		testSuccessful(false);
+		console.log('TEST 2 NOT');
+	}
+	
+	
+	
+	// 2 Check for coordinates
+	addMarker(50.735820, -3.538780);
+	// 3 Check for name and description
+	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
+	// 4 Check for name and no description
+	addMarker(50.735402, -3.538078, 'A name');
+	// 5 Check for empty / too short name
+	addMarker(50.735402, -3.538078, '', 'A description');
+	// 6 Check for empty / too short description
+	addMarker(50.735402, -3.538078, 'A name', '');
+	// 7 Check for draggable marker
+	addMarker(50.735402, -3.538078, 'A name', 'A description', true);
+	// 8 Check for non-draggable marker
+	addMarker(50.735402, -3.538078, '', '', false);
+}
+
+
 
 // Runs test
 runTests1();
