@@ -7,10 +7,10 @@ var testCases = [];
 
 function testSuccessful(result = true) {
 	if (result) {
-		testCases.add(testCase);
+		testCases.add(result);
 	}
 	else {
-		testCases.add(testCase);
+		testCases.add(result);
 	}
 }
 
