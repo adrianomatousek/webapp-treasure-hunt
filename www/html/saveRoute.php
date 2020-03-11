@@ -1,6 +1,11 @@
 <?php
 echo "pretty please";
 require_once ("connection.php");
+
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
+
 // $passed_json = $_POST['data'];
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
@@ -59,9 +64,10 @@ $addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
 //Ideally passed as parameters (don't think you can pass as strings in bind_param).
 //Parameters need to be replaced with actual values that we can use and send.
 $addRoute->bind_param('iss', $newRouteID, "$routeName", "$_SESSION['keeperID'])";
-if (!$addRoute->execute()) {
-    print_r($addRoute->errorInfo());
-}
+// if (!$addRoute->execute()) {
+//     print_r($addRoute->errorInfo());
+// }
+$addRoute->execute();
 $addRoute->close();
 
 echo "added route! ";
