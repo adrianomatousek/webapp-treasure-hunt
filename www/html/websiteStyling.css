@@ -322,11 +322,5 @@ ol ol {
 }
 
 .modal {
-  width: max-content; /* note, you may sometimes have to use !important */
-}
-@media #{$extra-large-and-up} {
-    .modal-fit-content {
-      width: max-content;
-     /* set width to auto or simply ignore the class on smaller screens */
-    }
+  width: max-content !important; /* note, you may sometimes have to use !important */
 }
