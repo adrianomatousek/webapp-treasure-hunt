@@ -71,8 +71,9 @@ echo "added route! ";
 $addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
 // $VALUES = "";
 $prize = 'prize';
-$waypointName = 'waypoint name';
+$waypointNames = $_POST['waypoint_names'];
 for ($i=0; $i<count($waypointsArray); $i++){
+    $waypointName = $waypointNames[$i];
     $a = $i+1;
 //   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
     $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i], $newRouteID, $prize, $a, $waypointName);
