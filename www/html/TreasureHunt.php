@@ -51,8 +51,18 @@ $routes = $conn->query($findRoutes);
       class="sidenav-trigger"><i class="material-icons">help</i></a></li>
 
       <!-- Change route button -->
-      <li><select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)">
-      
+      <li>
+      <!-- <select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)"> -->
+      <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
+
       <option value="1">routename</option>
       <?php
       // if ($routes->num_rows > 0){
