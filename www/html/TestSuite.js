@@ -2,6 +2,8 @@
 	Test Suite for "map_script.js"
 */
 
+var fileName = 'map_script.js';
+
 // Pre-defined variables
 var map;
 var currentPositionMarker;
@@ -36,11 +38,13 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
-// Initializing the test-suite
+// Test-suite
 
-function runTests() {
-	myMap();
-	console.log('test');
+function runTests1() {
+	console.log('START OF TEST FOR: ' + fileName);
+	
+	addMarker(50.735902, -3.538078, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');	
 } 
 
-runTests();
+// Runs test
+runTests1();
