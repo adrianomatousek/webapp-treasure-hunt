@@ -21,16 +21,17 @@ function addScore(amount) {
 
 
 
-function changeRoutes(routeID){
+function changeRoutes(select){
+    routeID = select.value; 
     playerScore = 0;
     addScore(0);
     removeAllMarkers();
+    $_SESSION['routeID'] = routeID;
     $.post('loadMarkers.php', function (data) {
         points = JSON.parse(data);
         //retireves a JSON array of points and is converted to a JavaScript array
     });
     nextWaypoint();
-    $_SESSION['routeID'] = routeID;
 }
 
 //AJAX calls to retrive data from data base from leaderboardsData.php
@@ -46,7 +47,7 @@ function update_board() {
 
             for (x = 0; x < length; x++) { //table data and drop down list data retrieved
                 alldata += "<tr>" + "<td>" + gameData[x].username + "</td><td>" +
-                    gameData[x].score + "</td><td>" + gameData[x].score + "</td><td>" + gameData[x].username + "</td></tr>";
+                    gameData[x].score + "</td></tr>";
             }
             document.getElementById("mytable").innerHTML = alldata;
         }
