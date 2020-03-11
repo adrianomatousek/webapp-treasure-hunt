@@ -42,3 +42,5 @@ function runTests() {
 	myMap();
 	console.log('test');
 } 
+
+runTests();
