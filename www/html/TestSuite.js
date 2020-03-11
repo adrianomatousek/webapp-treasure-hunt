@@ -6,7 +6,7 @@ var fileName = 'map_script.js';
 var testCases = [];
 
 function testSuccessful(result = true) {
-	if (result) {
+	if (result == true) {
 		testCases.add(result);
 	}
 	else {
