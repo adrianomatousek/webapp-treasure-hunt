@@ -76,7 +76,7 @@ $routes = $conn->query($findRoutes);
           $routeIDValue = $row['routeID'];
           $routeName = $row['routeName'];
         ?>
-        <option value="<?php $routeIDValue ?>"> <?php echo $routeName; ?> </option>
+        <option value="<?php $routeIDValue; ?>"> <?php echo $routeName; ?> </option>
       <?php
         }
       }
