@@ -1,5 +1,5 @@
 <?php
-/*session_start();
+session_start();
 
 if ($_SESSION["loggedin"] != true){
   header("Location: index.php");
@@ -7,7 +7,7 @@ if ($_SESSION["loggedin"] != true){
 }
 
 $gameKeeperPlus = array("Admin", "Gamekeeper");
-*/
+
 ?>
 <!DOCTYPE html>
 <html>
