@@ -30,7 +30,7 @@ var showExtraLocations = true;
 var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
-var routeID;
+var routeID = 1;
 
 var postData = {
 	routeID: routeID,
