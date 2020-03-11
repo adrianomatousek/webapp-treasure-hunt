@@ -951,7 +951,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 		map: map,
 		label: {
 			color: color,
-			//text: markerNum.toString(),
+			text: name,
 			fontSize: '12pt',
 			fontWeight: 'bold',
 		},
