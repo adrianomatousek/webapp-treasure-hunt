@@ -33,8 +33,6 @@ function addClue(positionInRoute) {
 
 //NEW sends ajax request and should remove all markers
 function saveRoute() {
-	console.log(postData);
-
 	if (newMarkers.length == 0) {
 		alert("Please add a marker before creating a route!");
 	} else if (newClues.length == 0) {
@@ -49,9 +47,10 @@ function saveRoute() {
 		var postData = {
 			waypoints: newMarkers,
 			clues: newClues,
-			waypoint_names: newMarkersNames,
+			waypoint_names: newMarkerNames,
 			route_name: routeName
 		};
+		console.log(postData);
 
 		$.ajax({
 			url: "saveRoute.php",
@@ -71,6 +70,7 @@ function saveRoute() {
 		newMarkers = [];
 		newClues = [];
 		routeName = "";
+		newMarkerNames = [];
 	}
 }
 
@@ -514,7 +514,7 @@ function saveCustomMarker() {
 	var name = prompt("Enter the name of the place (minimum 3 characters): ");
 	latPos = customMarker.getPosition().lat();
 	lngPos = customMarker.getPosition().lng();
-  //NEW removed description
+	//NEW removed description
 	addMarker(latPos, lngPos, name, "");
 	customMarker.setMap(null);
 	customMarker = null;
