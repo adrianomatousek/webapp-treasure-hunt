@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 
@@ -14,7 +13,7 @@ require_once ("connection.php");
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
 ?>
-
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -53,20 +52,20 @@ $routes = $conn->query($findRoutes);
 
       <!-- Change route button -->
       <li>
-      <!-- <select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)"> -->
-
+      <select>
+      <option value="" disabled selected>Select a route</option>
       <?php
-      // if ($routes->num_rows > 0){
-      //   while ($row = $routes->fetch_assoc()) {
-      //     $routeIDValue = $row['routeID'];
-      //     $routeName = $row['routeName'];
-      //     echo "<option value=\"$routeIDValue\">$routeName</option>"
-      //   }
-      // }
+      if ($routes->num_rows > 0){
+        while ($row = $routes->fetch_assoc()) {
+          $routeIDValue = $row['routeID'];
+          $routeName = $row['routeName'];
+          echo "<option value=\"$routeIDValue\">$routeName</option>";
+        }
+      }
       ?>
+      </select>
 
-
-      </select></li>
+      </li>
 
       <!-- Setting Button -->
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
@@ -300,12 +299,6 @@ $routes = $conn->query($findRoutes);
 
     <div class="carousel-page" style="overflow: auto; height: 76vh;">
       <div id="">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
       <!-- Page 4: Help Page -->
         <p style="text-align:center;">Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
         <h2 style="text-align: center;">How To Play</h2>
