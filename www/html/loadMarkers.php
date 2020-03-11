@@ -1,11 +1,8 @@
 <?php
 require_once ("connection.php");
 
-$routeID = $_POST['routeID'];
-
-
 session_start();
-$sql = "SELECT * FROM waypoints WHERE routeID=".$routeID." ORDER BY positionInRoute ASC"; //TODO don't hardcode this
+$sql = "SELECT * FROM waypoints WHERE routeID=".$_SESSION['routeID']." ORDER BY positionInRoute ASC"; //TODO don't hardcode this
 $result = $conn->query($sql);
 $table = array();
 if ($result->num_rows > 0) {
