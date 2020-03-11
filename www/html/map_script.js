@@ -845,6 +845,11 @@ function setMarkerOpacity(value) {
 			markerList[i].setOpacity(value);
 		}
 	}
+	if (extraMarkersList.length > 0) {
+		for (i = 0; i < markerList.length; i++) {
+			extraMarkersList[i].setOpacity(value);
+		}
+	}
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
