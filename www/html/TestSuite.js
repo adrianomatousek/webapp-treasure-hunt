@@ -37,5 +37,10 @@ var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
 // Initializing the test-suite
-myMap();
-console.log('test');
+
+function runTests() {
+	myMap();
+	console.log('test');
+} 
+
+runTests();
