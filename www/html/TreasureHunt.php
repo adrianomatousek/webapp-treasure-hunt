@@ -53,7 +53,7 @@ $routes = $conn->query($findRoutes);
 
       <!-- Change route button -->
       <li>
-      <select id="route-select">
+      <select id="route-select" class="browser-default">
       <option value="" disabled selected >Select a route</option>
       <?php
       if ($routes->num_rows > 0){
