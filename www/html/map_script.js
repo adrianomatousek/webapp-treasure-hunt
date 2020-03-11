@@ -940,10 +940,76 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 		content: '<div id="bodyContent"><p> This is a place of interest. Click for more info. </p></div>'
 	});
 
-	addMarkerClickListeners(marker, infoWindow, infoLabel);
+	addExtraMarkerClickListeners(marker, infoWindow, infoLabel);
 
 	extraMarkersList.push(marker);
 	extraMarkers += 1;
+}
+
+function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
+	/*
+		Function adds event listeners to the marker for a 'click' event.
+		Parameters:
+			marker: the object of the marker that is to have event listeners added,
+			infoWindow: the Info Window associated with this marker,
+			infoLabel: the info/help label associated with this marker.
+	*/
+	var firstClick;
+	marker.addListener('click', function () {
+		if (activeInfoLabel) {
+			activeInfoLabel.close(map, marker);
+			activeInfoLabel = null;
+		}
+
+		var markerToBeSet;
+
+		if (activeMarker) {
+			markerToBeSet = activeMarker;
+			markerSetAnimation(markerToBeSet, null);
+
+			activeMarker.setOpacity(markerOpacity);
+		}
+
+		if (activeInfoWindow) {
+			activeInfoWindow.close();
+		}
+
+		// Sets a bounce animation correctly when a marker is clicked on (if animations are enabled)
+		if (activeInfoWindow !== infoWindow) {
+			if (enableAnimations) {
+				if (firstClick) {
+					marker.setAnimation(google.maps.Animation.BOUNCE);
+					firstClick = false;
+				} else {
+					markerSetAnimation(marker, 'BOUNCE-IF'); // This function has to be used to set the animation.
+				}
+			}
+			marker.setOpacity(1);
+			infoWindow.open(map, marker);
+			activeInfoWindow = infoWindow;
+			activeMarker = marker;
+		} else {
+			markerSetAnimation(markerToBeSet, null);
+			activeInfoWindow = null;
+			activeMarker = null;
+		}
+	});
+
+	// Handles the event when 'X' is pressed to close the Info Window
+	infoWindow.addListener('closeclick', function () {
+		markerSetAnimation(activeMarker, null);
+		activeMarker.setOpacity(markerOpacity);
+		activeMarker = null;
+		activeInfoWindow = null;
+
+		marker.mouseOnMarker = false;
+		if (activeInfoLabel) {
+			setTimeout(function () {
+				infoLabel.close(map, marker);
+				activeInfoLabel = null;
+			}, 1200);
+		}
+	});
 }
 
 function createDefaultExtraLocations() {
