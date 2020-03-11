@@ -213,7 +213,7 @@ $routes = $conn->query($findRoutes);
         <div class="score-section">
           <h6>Score: <span id="your-score">0</span></h6>
         </div>
-        <table width="450" >
+        <table class ="centered" width="450" >
           <!-- Table created to store data -->
           <thead>
             <tr>
@@ -372,7 +372,7 @@ function changeRoutes(select){
     points = [];
     activeClue = 0;
     clues = [];
-    
+
     var postData = {
       routeID: routeID,
     };
