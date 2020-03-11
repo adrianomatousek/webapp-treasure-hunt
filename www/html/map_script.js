@@ -266,7 +266,7 @@ function setMarkerPosition(marker, position) {
 }
 
 
-function addMarker(latPos, lngPos, name, description, icon = 'chest.png', draggable = false) {
+function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
 	Function that adds a Google Maps marker with event listeners on the map and
 	stores its information, such as the position and name in an array.
@@ -276,7 +276,6 @@ function addMarker(latPos, lngPos, name, description, icon = 'chest.png', dragga
 		lngPos: longitude coordinates of the marker,
 		name: name of the location, e.g. "Exeter Library",
 		description: a descrition of the location,
-		icon: icon URL for the icon image,
 		draggable: boolean representing whether the marker can be dragged around when clicked on.
 	*/
 	markerNum = markers + 1;
@@ -304,7 +303,7 @@ function addMarker(latPos, lngPos, name, description, icon = 'chest.png', dragga
 			fontWeight: 'bold',
 		},
 		icon: {
-			url: 'img/icons/' + icon,
+			url: 'img/icons/chest.png',
 			scaledSize: new google.maps.Size(defaultScaledSize, defaultScaledSize),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point((defaultScaledSize / 2), defaultScaledSize + defaultLabelOriginHeightOffset)
