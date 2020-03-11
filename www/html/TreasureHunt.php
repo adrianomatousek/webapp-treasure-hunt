@@ -13,21 +13,6 @@ require_once ("connection.php");
 
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
-// $table = array();
-// if ($routes->num_rows > 0){
-//   while ($row = $routes->fetch_assoc()){
-//     $table[] = array($row['routeID'],$row['routeName']);
-//   }
-// }
-
-// require_once("connection.php"); 
-//$sql = "SELECT routeID,routeName FROM routes"; 
-//$result = $conn->query($sql); 
-//$table = array(); 
-//if ($result->num_rows > 0) { // output data of each row
-  //   while($row = $result->fetch_assoc()) {     //appends row to table     
-      // $table[] = array($row["routeID],$row["routeName"]); }
-
 
 =======
 */
