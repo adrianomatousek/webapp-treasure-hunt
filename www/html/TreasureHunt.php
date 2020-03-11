@@ -395,6 +395,4 @@ function changeRoutes(select){
     });
   }
 
-
-screen.orientation.lock('portrait');
 </script>
