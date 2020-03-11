@@ -105,15 +105,6 @@ $(document).ready(function () {
         var instances = M.Sidenav.init(elems, {});
     });
 
-    // help page
-    document.getElementById('helpButton').addEventListener('click', function () {
-        document.querySelector('.bg-modal').style.display = 'flex';
-    });
-
-    // close help page
-    document.querySelector('.close').addEventListener('click', function () {
-        document.querySelector('.bg-modal').style.display = 'none';
-    });
 });
 
 // FAQ
