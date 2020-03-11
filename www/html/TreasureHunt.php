@@ -216,10 +216,8 @@ $routes = $conn->query($findRoutes);
           <!-- Table created to store data -->
           <thead>
             <tr>
-              <th>Place</th>
               <th>Team</th>
               <th>Points</th>
-              <th>Time</th>
             </tr>
           </thead>
           <tbody id="mytable">
