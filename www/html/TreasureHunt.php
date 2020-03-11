@@ -380,7 +380,9 @@ function changeRoutes(select){
 			type: "POST",
 			data: postData,
 			success: function (returnData) {
-				points = JSON.parse(returnData);
+        console.log("return data loadmarkers:");
+        console.log(returnData);
+        points = returnData;
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				alert("Load markers" + xhr.statusText);
@@ -388,7 +390,7 @@ function changeRoutes(select){
 				console.log(error);
 			}
     });
-    
+
     nextWaypoint();
   }
 </script>
