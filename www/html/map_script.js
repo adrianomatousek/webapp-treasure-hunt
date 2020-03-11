@@ -918,7 +918,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 			fontWeight: 'bold',
 		},
 		animation: google.maps.Animation.DROP,
-21		opacity: markerOpacity,
+		opacity: markerOpacity,
 		name: name,
 		type: typeID
 	});
