@@ -83,7 +83,7 @@ $routes = $conn->query($findRoutes);
     <div id="modal" class="modal">
       <div class="modal-content">
         <h4>Well Done</h4>
-        <p>Hey, you've do it all,
+        <p>Hey, you've done it, all
           the treasures have been found.
         </p>
       </div>
