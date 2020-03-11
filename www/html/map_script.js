@@ -918,16 +918,21 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 
 	var contentString = '<div id="siteNotice">' + getExtraMarkerType(marker) + '</div><div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + name +
-		'</h4><div id="bodyContent"><p> ' + description +
-		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
-		'</p></div><br>' +
-		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
+		'</h4><div id="bodyContent"><p> ' + description +	'</p></div>';
 
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -16),
 		content: contentString
 	});
+
+	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
+	var infoLabel = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -16),
+		content: '<div id="bodyContent"><p> This is a place of interest. Click for more info. </p></div>'
+	});
+
+	addMarkerClickListeners(marker, infoWindow, infoLabel);
 
 	extraMarkersList.push(marker);
 	extraMarkers += 1;
