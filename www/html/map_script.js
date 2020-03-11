@@ -915,23 +915,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 		});
 }
 
-function getExtraMarkerType(extraMarker) {
-	switch (extraMarker.type) {
-		case 0:
-			return 'Health';
-		case 1:
-			return 'Food';
-		case 2:
-			return 'Library';
-		case 3:
-			return 'Fitness';
-		case 4:
-			return 'College';
-		default:
-			return 'Location';
-	}
-}
-
 function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'health.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
@@ -1076,10 +1059,34 @@ function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
 	});
 }
 
-function createDefaultExtraLocations() {
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
-	addExtraMarker(50.7374657, -3.5337152, 6, "David's Office","In laver you will find the office of David Wakeling", 'david.png');
+function getExtraMarkerType(extraMarker) {
+	switch (extraMarker.type) {
+		case 0:
+			return 'Health';
+		case 1:
+			return 'Food';
+		case 2:
+			return 'Library';
+		case 3:
+			return 'Fitness';
+		case 4:
+			return 'College';
+		default:
+			return 'Location';
+	}
+}
 
+function createDefaultExtraLocations() {
+	
+	// INSTRUCTIONS:
+		// addExtraMarker(LAT, LNG, TYPE, NAME, DESCRIPTION, ICON)
+		// ICON example: 'nameOfIcon.png' (make sure it's in the www/img/icons folder)
+		// TYPE: use integer representing the type of the place (see the function above to see the types).
+			
+			// use type id '4' for office or other college locations. 
+	
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact 
+	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In laver you will find the office of David Wakeling", 'david.png');
 
 }
 
