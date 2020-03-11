@@ -207,6 +207,7 @@ function nextWaypoint() {
 	Function that displays the next waypoint when the current is found
 	*/
 	if (points.length > 0) {
+		console.log(points[0]);
 		var marker = points[0].split(','); //split at the comma
 		var lat = parseFloat(marker[0]);
 		var lng = parseFloat(marker[1]);
