@@ -298,13 +298,18 @@ $routes = $conn->query($findRoutes);
     </div>
 
     <div class="carousel-page" style="overflow: auto; height: 76vh;">
-      <div id="">
+    <div class="container">
+    <div class="input-field col s12">
     <select>
       <option value="" disabled selected>Choose your option</option>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
     </select>
+    <label>Materialize Select</label>
+  </div>
+    </div>
+      <div>
       <!-- Page 4: Help Page -->
         <p style="text-align:center;">Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
         <h2 style="text-align: center;">How To Play</h2>
