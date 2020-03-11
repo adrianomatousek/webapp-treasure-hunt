@@ -52,6 +52,12 @@ $routes = $conn->query($findRoutes);
 
       <!-- Change route button -->
       <li>
+      <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
       <!-- <select style="text-align-last: center;" name="newRouteID" onchange="changeRoutes(this)"> -->
 
       <?php
@@ -65,7 +71,7 @@ $routes = $conn->query($findRoutes);
       ?>
 
 
-      </select></li>
+      </li>
 
       <!-- Setting Button -->
       <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
@@ -299,12 +305,6 @@ $routes = $conn->query($findRoutes);
 
     <div class="carousel-page" style="overflow: auto; height: 76vh;">
       <div id="">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
       <!-- Page 4: Help Page -->
         <p style="text-align:center;">Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
         <h2 style="text-align: center;">How To Play</h2>
