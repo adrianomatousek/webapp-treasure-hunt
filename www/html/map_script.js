@@ -883,7 +883,6 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(10, 18)
 		},
-		draggable: draggable,
 		animation: google.maps.Animation.DROP,
 		id: markerNum - 1,
 		opacity: markerOpacity,
