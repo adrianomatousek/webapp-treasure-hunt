@@ -130,6 +130,16 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 			</label>
 		</li>
     </div>
+	
+	<!-- Extra locations    -->
+    <div class="switch">
+		<li><a style="display: inline-block" href="javascript:toggleExtraLocations(); tickBox6();"><i class="material-icons">near_me</i>Extra locations</a>
+			<label>
+				<input id="checkBoxExtraLocations" onchange="toggleExtraLocations()" type="checkbox" checked = "true">
+				<span style="float: right; margin: 17px;" class="lever"></span>
+			</label>
+		</li>
+    </div>
 
     <li>
       <div class="divider"></div>

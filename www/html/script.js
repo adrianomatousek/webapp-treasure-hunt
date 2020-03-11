@@ -50,6 +50,15 @@ function tickBox5() { //for marker opacity
     }
 }
 
+function tickBox6() { //for extra locations
+    var checker = document.getElementById("checkBoxExtraLocations");
+    if (checker.checked == true) {
+        checker.checked = false;
+    } else {
+        checker.checked = true;
+    }
+}
+
 
 $(document).ready(function () { //Initialize the sidenavs with Materializecss
     $('.sidenav').sidenav();

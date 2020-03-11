@@ -26,6 +26,7 @@ var defaultFontSize = 16;
 var defaultFontSizeString = '16pt';
 var reduceFontSizeBy = 4; // when switching to marker names option in settings
 var idiotWindow;
+var showExtraLocations = true;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -276,7 +277,6 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 	}
 
 	// Creates new Google Maps marker
-
 	var marker = new google.maps.Marker({
 		position: {
 			lat: latPos,
@@ -712,6 +712,15 @@ function nightTime() {
 /*
 	Toggle options used by settings
 */
+
+function toggleExtraLocations(){
+	if (showExtraLocations) {
+		showExtraLocations = false;
+	}
+	else {
+		showExtraLocations = true;
+	}
+}
 
 function toggleHints() {
 	if (showHints) {
