@@ -915,23 +915,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 		});
 }
 
-function getExtraMarkerType(extraMarker) {
-	switch (extraMarker.type) {
-		case 0:
-			return 'Health';
-		case 1:
-			return 'Food';
-		case 2:
-			return 'Library';
-		case 3:
-			return 'Fitness';
-		case 4:
-			return 'College';
-		default:
-			return 'Location';
-	}
-}
-
 function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'health.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
@@ -949,11 +932,11 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 	var color = getColor();
 	// Sets a default name in case the given one is too short or long
 	if (!name || name.length < 3 || name.length > 32) {
-		name = 'Treasure';
+		name = 'Place of Interest';
 	}
 	// Sets a default description in case the given one is too short or long
 	if (!description || description.length < 10 || description.length > 500) {
-		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
+		var description = 'An additional location that you can visit!';
 	}
 
 	// Creates new Google Maps marker
@@ -1076,11 +1059,45 @@ function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
 	});
 }
 
+function getExtraMarkerType(extraMarker) {
+	switch (extraMarker.type) {
+		case 0:
+			return 'Health';
+		case 1:
+			return 'Food';
+		case 2:
+			return 'Library';
+		case 3:
+			return 'Fitness';
+		case 4:
+			return 'College';
+		default:
+			return 'Place of Interest';
+	}
+}
+
 function createDefaultExtraLocations() {
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
-	addExtraMarker(50.7374657, -3.5337152, 6, "David's Office","In laver you will find the office of David Wakeling", 'david.png');
-
-
+	
+	// INSTRUCTIONS:
+		// addExtraMarker(LAT, LNG, TYPE, NAME, DESCRIPTION, ICON)
+		// ICON example: 'nameOfIcon.png' (make sure it's in the www/img/icons folder)
+		// TYPE: use integer representing the type of the place (see the function above to see the types).
+			
+			// use type id '4' for office or other college locations. 
+	
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact 
+	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png');
+	// DO BELOW //
+	
+	/* ADD: Forum Library (type: 2), 
+			Sports Centre & Gym (type: 3), 
+			Ram Bar (type: 1)
+			Matt's office (type: 4), 
+			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
+			One other type 1 food place?
+			something else if you feel like it, can be any sort of place of interest, a park, statue etc. (Use a type id that is not 0,1,2,3 or 4 in this case)
+			thanks <3  :*
+	*/
 }
 
 
