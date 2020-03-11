@@ -8,6 +8,8 @@ if ($_SESSION["loggedin"] != true){
 
 $gameKeeperPlus = array("Admin", "Gamekeeper");
 
+require_once ("connection.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,15 +41,23 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
   <!-- Top nav bar -->
   <div id="topNavBar">
     <ul class="z-depth-1">
-      <!-- Setting Button -->
-      <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
-          class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
 
       <!-- Help Button -->
       <li><a onclick="bottomNavGoTo(4)"><i class="material-icons">help</i></a></li>
 
       <li class="hide" style="float: left;"><a href="javascript: helpPage();" id="helpButton" data-target="helpPage"
-          class="sidenav-trigger"><i class="material-icons">help</i></a></li>
+      class="sidenav-trigger"><i class="material-icons">help</i></a></li>
+
+      <!-- Change route button -->
+      <li><select name="changeRouteValue">
+        <option value=""> </option>
+      </select></li>
+
+      <!-- Setting Button -->
+      <li style="float: right;"><a href="javascript: settingsPage();" data-target="settingsPage"
+          class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
+
+
 
 
     </ul>
