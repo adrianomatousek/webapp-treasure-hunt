@@ -367,6 +367,7 @@ $routes = $conn->query($findRoutes);
 <script>
 function changeRoutes(select){
     routeID = select.value; 
+    console.log("Changing route to: " + routeID);
     playerScore = 0;
     addScore(0);
     removeAllMarkers();
