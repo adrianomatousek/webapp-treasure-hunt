@@ -111,10 +111,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.collapsible').collapsible();
 
-    $("#route-select").on('change', function () {
-        var select_element = document.getElementById("route-select");
-        changeRoutes(select_element);
-    });
+    // $("#route-select").on('change', function () {
+    //     var select_element = document.getElementById("route-select");
+    //     changeRoutes(select_element);
+    // });
 });
 
 
