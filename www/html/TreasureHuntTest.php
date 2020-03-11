@@ -367,6 +367,8 @@ $routes = $conn->query($findRoutes);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="jsQR.js"></script>
   <script src="camera.js"></script>
+  
+  <script src="TestSuite.js"></script>
 
 </body>
 
