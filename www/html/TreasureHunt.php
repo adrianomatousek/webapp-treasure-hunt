@@ -71,7 +71,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
   <!-- Game over popup -->
   <!-- Modal Structure -->
 
-    <div id="demo-modal" class="modal">
+    <div id="modal" class="modal">
 
       <div class="modal-content">
 

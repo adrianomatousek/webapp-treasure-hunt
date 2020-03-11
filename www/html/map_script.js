@@ -208,8 +208,9 @@ function nextWaypoint() {
 	else if(points.length === 0)
 	{
 		$(document).ready(function(){
-		    $('.modal').modal();
-		  });
+    $('#modal').modal();
+    $('#modal').modal('open');
+ 		});
 	}
 }
 
