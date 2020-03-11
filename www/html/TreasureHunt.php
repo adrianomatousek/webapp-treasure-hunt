@@ -369,7 +369,6 @@ function changeRoutes(select){
     routeID = select.value; 
     console.log("Changing route to: " + routeID);
     playerScore = 0;
-    markers = 0;
     addScore(0);
     removeAllMarkers();
     points = [];
