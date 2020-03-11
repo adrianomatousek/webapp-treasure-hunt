@@ -30,6 +30,7 @@ function changeRoutes(routeID){
         //retireves a JSON array of points and is converted to a JavaScript array
     });
     nextWaypoint();
+    $_SESSION['routeID'] = routeID;
 }
 
 //AJAX calls to retrive data from data base from leaderboardsData.php

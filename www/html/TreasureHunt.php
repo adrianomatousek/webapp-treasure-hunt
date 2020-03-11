@@ -13,6 +13,7 @@ require_once ("connection.php");
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
 ?>
+
 <!DOCTYPE html>
 <html>
 
