@@ -7,10 +7,10 @@ var testCases = [];
 
 function testSuccessful(result = true) {
 	if (result == true) {
-		testCases.add(result);
+		testCases.push(result);
 	}
 	else {
-		testCases.add(result);
+		testCases.push(result);
 	}
 }
 
@@ -145,8 +145,10 @@ function addMarkerTest(){
 	length2 = markerList.length;
 	
 	if (length1 == 1 && length2 == 2) {
+		testSuccessful();
 		console.log('TEST 1 SUCCESSFUL');
 	} else {
+		testSuccessful(false);
 		console.log('TEST 1 NOT');
 	}
 	
