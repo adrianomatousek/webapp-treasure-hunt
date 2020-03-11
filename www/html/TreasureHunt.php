@@ -384,7 +384,8 @@ function changeRoutes(select){
 			success: function (returnData) {
         console.log("return data loadmarkers:");
         console.log(returnData);
-        points = returnData;
+        points = JSON.parse(returnData);
+		    nextWaypoint();
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				alert("Load markers" + xhr.statusText);
@@ -392,7 +393,5 @@ function changeRoutes(select){
 				console.log(error);
 			}
     });
-    points = returndata;
-    nextWaypoint();
   }
 </script>
