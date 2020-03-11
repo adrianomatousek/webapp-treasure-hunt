@@ -56,10 +56,12 @@ $addRoute->close();
 //TEMPLATE loads values from input array into string for SQL statement
 $addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
 // $VALUES = "";
+$prize = 'prize';
+$waypointName = 'waypoint name';
 for ($i=0; $i<count($waypointsArray); $i++){
     $a = $i+1;
 //   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
-    $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i],$newRouteID, 'prize',$a,'waypoint name');
+    $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i], $newRouteID, $prize, $a, $waypointName);
     $addWaypoints->execute();
     $newWaypointID++;
 }
