@@ -44,6 +44,7 @@ $.ajax({
 		console.log("return data loadmarkers:");
 		console.log(returnData);
 		points = returnData;
+		nextWaypoint();
 	},
 	error: function (xhr, textStatus, errorThrown) {
 		alert("Load markers" + xhr.statusText);
@@ -925,7 +926,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 
 	var contentString = '<div id="siteNotice">' + getExtraMarkerType(marker) + '</div><div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + name +
-		'</h4><div id="bodyContent"><p> ' + description +	'</p></div>';
+		'</h4><div id="bodyContent"><p> ' + description + '</p></div>';
 
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
