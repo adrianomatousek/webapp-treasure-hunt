@@ -843,7 +843,7 @@ function getExtraMarkerType(extraMarker) {
 		case 2: return 'Library';
 		case 3: return 'Fitness';
 		case 4: return 'College';
-		default: return: 'Location';
+		default: return 'Location';
 	}
 }
 function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
