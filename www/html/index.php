@@ -115,6 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $_SESSION["username"] = $CheckUsername;
       //Tells us if they're a gamemaker or a player.
       $_SESSION["accessLevel"] = $user["accessLevel"];
+      $_SESSION['routeID'] = '1';
       if (($_SESSION['accessLevel'] == 'Gamekeeper') || ($_SESSION['accessLevel'] == 'Admin')){
         $_SESSION['keeperID'] = $user['gamekeeperID'];
       }
