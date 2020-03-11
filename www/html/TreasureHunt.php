@@ -217,10 +217,8 @@ $routes = $conn->query($findRoutes);
           <!-- Table created to store data -->
           <thead>
             <tr>
-              <th>Place</th>
               <th>Team</th>
               <th>Points</th>
-              <th>Time</th>
             </tr>
           </thead>
           <tbody id="mytable">
@@ -366,14 +364,14 @@ $routes = $conn->query($findRoutes);
 
 <script>
 function changeRoutes(select){
-    routeID = select.value; 
+    routeID = select.value;
     console.log("Changing route to: " + routeID);
     playerScore = 0;
     addScore(0);
     removeAllMarkers();
     points = [];
     activeClue = 0;
-    
+
     var postData = {
       routeID: routeID,
     };
