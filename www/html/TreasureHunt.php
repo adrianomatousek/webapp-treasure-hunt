@@ -69,25 +69,17 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
     </div>
   </div>
   <!-- Game over popup -->
-  <!-- Modal Structure -->
-
-    <div id="modal" class="modal">
-
-      <div class="modal-content">
-
-        <h4>A Demo of Simple Modal</h4>
-
-        <p>Content of the modal goes here. Place marketing text or other information here.</p>
-
-      </div>
-
-      <div class="modal-footer">
-
-        <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
-
-      </div>
-
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h4>Well Done</h4>
+      <p>Hey, you've do it all,
+        the treasures have been found.
+      </p>
     </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
 
   <!-- Settings side menu -->
   <ul id="settingsPage" class="sidenav fixed right-aligned">
