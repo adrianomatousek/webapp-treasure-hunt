@@ -77,7 +77,7 @@ $(document).ready(function () { //Initialize the sidenavs with Materializecss
 // Carousel (slick.js) initialisation
 $(document).ready(function () {
     $('.carousel-pages').slick({
-        initialSlide: 1,
+        initialSlide: 3,
         slidesToShow: 1,
         infinite: !1,
         speed: 500,
@@ -99,20 +99,21 @@ function bottomNavGoTo(i) { //changes to a different carousel page
         cameraEnabled = false;
     }
 }
+$(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+    });
 
-document.addEventListener('DOMContentLoaded', function () { //initialise the sidenavs (settings & clues)
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, {});
-});
+    // help page
+    document.getElementById('helpButton').addEventListener('click', function () {
+        document.querySelector('.bg-modal').style.display = 'flex';
+    });
 
-// help page
-document.getElementById('helpButton').addEventListener('click', function () {
-    document.querySelector('.bg-modal').style.display = 'flex';
-});
-
-// close help page
-document.querySelector('.close').addEventListener('click', function () {
-    document.querySelector('.bg-modal').style.display = 'none';
+    // close help page
+    document.querySelector('.close').addEventListener('click', function () {
+        document.querySelector('.bg-modal').style.display = 'none';
+    });
 });
 
 // FAQ
