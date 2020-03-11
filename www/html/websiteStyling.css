@@ -320,12 +320,3 @@ ol ol {
   border-radius: 2em;
   transition: all .3s ease-out;
 }
-
-
-.center-modal {
-  display: flex;
-}
-.center-modal .modal {
-  position: relative;
-  width: auto;
-}
