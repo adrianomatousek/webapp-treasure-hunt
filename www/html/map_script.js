@@ -1077,22 +1077,23 @@ function getExtraMarkerType(extraMarker) {
 }
 
 function createDefaultExtraLocations() {
-	
+
 	// INSTRUCTIONS:
 		// addExtraMarker(LAT, LNG, TYPE, NAME, DESCRIPTION, ICON)
 		// ICON example: 'nameOfIcon.png' (make sure it's in the www/img/icons folder)
 		// TYPE: use integer representing the type of the place (see the function above to see the types).
-			
-			// use type id '4' for office or other college locations. 
-	
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact 
+
+			// use type id '4' for office or other college locations.
+
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact
 	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png');
+	addExtraMarker(73.2340816, -131.3445122, 5, "Sanata","Merry Christmas", 'santa.png');
 	// DO BELOW //
-	
-	/* ADD: Forum Library (type: 2), 
-			Sports Centre & Gym (type: 3), 
+
+	/* ADD: Forum Library (type: 2),
+			Sports Centre & Gym (type: 3),
 			Ram Bar (type: 1)
-			Matt's office (type: 4), 
+			Matt's office (type: 4),
 			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
 			One other type 1 food place?
 			something else if you feel like it, can be any sort of place of interest, a park, statue etc. (Use a type id that is not 0,1,2,3 or 4 in this case)
