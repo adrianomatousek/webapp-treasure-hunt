@@ -144,7 +144,7 @@ function scaleMarkerSizeOnZoom() {
 	google.maps.event.addListener(map, 'zoom_changed', function () {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if (!markerList.length) {
+		if (!markerList) {
 			console.log('zoom_changed event: marker array is empty');
 			return -1;
 		}
@@ -189,14 +189,14 @@ function scaleMarkerSizeOnZoom() {
 		}
 
 		if (zoom == defaultZoom - 2) {
-			if (extraMarkersList.length) {
+			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(false);
 				}
 			}
 		}
 		else if (zoom == defaultZoom - 1) {
-			if (extraMarkersList.length) {
+			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(true);
 				}
@@ -763,8 +763,18 @@ function nightTime() {
 
 function toggleExtraLocations() {
 	if (showExtraLocations) {
+		if (extraMarkersList.length) {
+			for (i = 0; i < extraMarkersList.length; i++) {
+				extraMarkersList[i].setVisible(false);
+			}
+		}
 		showExtraLocations = false;
 	} else {
+		if (extraMarkersList.length) {
+			for (i = 0; i < extraMarkersList.length; i++) {
+				extraMarkersList[i].setVisible(true);
+			}
+		}
 		showExtraLocations = true;
 	}
 }
