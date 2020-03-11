@@ -43,6 +43,8 @@ function saveRoute() {
 		if (routeName = "") {
 			routeName = "Undefinded Route";
 		}
+
+		console.log("Route Name: " + routeName);
 		var postData = {
 			waypoints: newMarkers,
 			clues: newClues,
@@ -499,7 +501,7 @@ function addCustomMarker() {
 		}
 		infoWindow.isOpen = false;
 	});
-	
+
 	marker.addListener('dblclick', function () {
 		saveCustomMarker();
 	});
