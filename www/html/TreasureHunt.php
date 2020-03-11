@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 
 if ($_SESSION["loggedin"] != true){
   header("Location: index.php");
@@ -7,7 +7,7 @@ if ($_SESSION["loggedin"] != true){
 }
 
 $gameKeeperPlus = array("Admin", "Gamekeeper");
-
+*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,8 +44,12 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
           class="sidenav-trigger"><i class="material-icons">settings</i></a></li>
 
       <!-- Help Button -->
-      <li style="float: left;"><a href="javascript: helpPage();" id="helpButton" data-target="helpPage"
+      <li><a onclick="bottomNavGoTo(4)"><i class="material-icons">help</i></a></li>
+
+      <li class="hide" style="float: left;"><a href="javascript: helpPage();" id="helpButton" data-target="helpPage"
           class="sidenav-trigger"><i class="material-icons">help</i></a></li>
+
+
     </ul>
   </div>
 
@@ -258,6 +262,18 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
           </ul>
 
       </div>
+    </div>
+    <div class="carousel-page">
+      <!-- Page 4: Help Page -->
+      <h2 style="text-align: center;">How To Play</h2>
+      <ol class="rounded-list">
+        <li><a href="">Check your map and locate the next treasure location</a></li>
+        <li><a href="">Move to your current treasure location</a></li>
+        <li><a href="">Find and scan QR code at the treasure location</a></li>
+        <li><a href="">Move to the next treasure location</a></li>
+      </ol>
+      <p style="text-align: center;">Good luck have fun !!!</p>
+
     </div>
   </div>
 
