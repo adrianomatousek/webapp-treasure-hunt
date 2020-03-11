@@ -297,7 +297,13 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
         <li><a href="">Find and scan QR code at the treasure location</a></li>
         <li><a href="">Move to the next treasure location</a></li>
       </ol>
-      <p style="text-align: center;">Good luck have fun !! Please click Below to start!</p>
+
+      <p style="text-align: center;">Good luck have fun !! Please click Below to start!
+      </p>
+      <p style="text-align: center;">
+        <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
+      </p>
+
 
     </div>
   </div>
