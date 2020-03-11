@@ -54,7 +54,7 @@ $addRoute->close();
 
 
 //TEMPLATE loads values from input array into string for SQL statement
-$addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?");
+$addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
 // $VALUES = "";
 for ($i=0; $i<count($waypointsArray); $i++){
 //   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
