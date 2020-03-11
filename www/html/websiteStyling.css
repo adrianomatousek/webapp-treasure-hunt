@@ -320,7 +320,3 @@ ol ol {
   border-radius: 2em;
   transition: all .3s ease-out;
 }
-
-.modal {
-  width: max-content !important; /* note, you may sometimes have to use !important */
-}
