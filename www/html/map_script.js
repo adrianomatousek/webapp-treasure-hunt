@@ -21,7 +21,7 @@ var activeClue = -1; //Would be in database as determines the score. Used in fil
 var showHints = true; // Idiot-proof hints when openining the app, i.e. a window saying 'click here to find out how to play/use the app'
 var defaultZoom = 16; // The zoom level of the map when the app is opened; default value is '16'; scaling works with other values, but the default is recommended
 var defaultScaledSize = 50; // Default size of the icon of the marker
-var defaultLabelOriginHeightOffset = 4; // 
+var defaultLabelOriginHeightOffset = 4; //
 var defaultFontSize = 16;
 var defaultFontSizeString = '16pt';
 var reduceFontSizeBy = 4; // when switching to marker names option in settings
@@ -78,14 +78,14 @@ function myMap() {
 	scaleMarkerSizeOnZoom(); // Calls the function which is made to scale the size of markers when zooming in/out.
 
 	// addCustomMarker();
-	
+
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
 	/*
 	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
-	Parameters:	
+	Parameters:
 		scaledSize: the scaled size of the marker's icon image,
 		fontSize: the font size of the label corresponding to the marker,
 		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
@@ -204,6 +204,11 @@ function nextWaypoint() {
 
 		addScore(5);
 	}
+
+	else if(points.length === 0)
+	{
+		alert("You have done it! All the treaasure have been found. Well done");
+	}
 }
 
 function checkError(error) {
@@ -260,9 +265,9 @@ function setMarkerPosition(marker, position) {
 
 function addMarker(latPos, lngPos, name, description, draggable = false) {
 	/*
-	Function that adds a Google Maps marker with event listeners on the map and 
-	stores its information, such as the position and name in an array. 
-	
+	Function that adds a Google Maps marker with event listeners on the map and
+	stores its information, such as the position and name in an array.
+
 	Parameters:
 		latPos: latitutde coordinates of the marker,
 		lngPos: longitude coordinates of the marker,
@@ -583,7 +588,7 @@ function addCustomMarker() {
 				}
 			}, 3500);
 		}
-		
+
 	});
 
 	infoWindow.addListener('closeclick', function () {
@@ -850,7 +855,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
-	
+
 	Parameters:
 		latPos: latitutde coordinates of the marker,
 		lngPos: longitude coordinates of the marker,
@@ -902,7 +907,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 		pixelOffset: new google.maps.Size(0, -16),
 		content: contentString
 	});
-	
+
 	extraMarkersList.push(marker);
 	extraMarkers += 1;
 }
