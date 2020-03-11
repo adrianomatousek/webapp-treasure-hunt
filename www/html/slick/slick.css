@@ -11,7 +11,6 @@
     -ms-user-select: text;
     user-select: text;
 
-    -webkit-touch-callout: none;
     -khtml-user-select: none;
     -ms-touch-action: pan-y;
     touch-action: pan-y;
