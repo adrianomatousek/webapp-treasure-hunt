@@ -58,6 +58,14 @@ function initTests1() {
 	console.log('add');
 } 
 
+function runTests1() {
+	// Test 1: check if marker is added to array
+	
+	console.log('RUNNING TEST CASES FOR: ' + fileName);
+	
+	addMarkerTest();
+}
+
 function addMarkerTest(){
 	// 1 Check if marker is added to array
 	
@@ -95,11 +103,7 @@ function addMarkerTest(){
 	addMarker(50.735402, -3.538078, '', '', false);
 }
 
-function runTests1() {
-	// Test 1: check if marker is added to array
-	initTests1();
-	console.log('RUNNING TEST CASES FOR: ' + fileName);
-}
+
 
 // Runs test
 runTests1();
