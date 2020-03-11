@@ -21,6 +21,7 @@ var routeName = "";
 //NEW stores created markers and clues
 var newMarkers = [];
 var newClues = [];
+var newMarkerNames = [];
 
 //NEW handles click on addClue button, TODO add clue to waypoint dialog box
 function addClue(positionInRoute) {
@@ -48,6 +49,7 @@ function saveRoute() {
 		var postData = {
 			waypoints: newMarkers,
 			clues: newClues,
+			waypoint_names: newMarkersNames,
 			route_name: routeName
 		};
 
@@ -518,7 +520,8 @@ function saveCustomMarker() {
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
 	//descriptions for waypoints are not presently stored in the database, maybe have it as clue
-	newMarkers.push("" + latPos + lngPos);
+	newMarkers.push("" + latPos + "," + lngPos);
+	newMarkerNames.push(name);
 	//adds empty clue array to newClues
 	newClues.push([]);
 	addCustomMarker();

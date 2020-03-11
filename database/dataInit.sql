@@ -80,47 +80,45 @@ INSERT INTO student_users VALUES
   "ChiefGamekeeper"
 );
 
+INSERT INTO student_users VALUES 
+(
+  "ak666",
+  "769ce07ef2d785ca7531148a3441ee718a078b4eb2e91ae664d792422bfc901d",
+  "lIgqcdaifYtCbZ73",
+  "Admin",
+  "0",
+  "name",
+  "email",
+  "ChiefGamekeeper"
+);
+
 INSERT INTO routes VALUES
 (
   "1",
-  "Main Route",
+  "Wellbeing Route",
+  "ChiefGamekeeper"
+),
+(
+  "2",
+  "Compsci Fun",
   "ChiefGamekeeper"
 );
 
 INSERT INTO waypoints VALUES
 (
   '1',
-  '50.735882,-3.534206',
+  '50.735299372643134-3.5378018783569254',
   '1',
   'SAMPLE PRIZE',
   '1',
   "The first waypoint, the real OG dude"
-),
-(
-  '2',
-  '50.734882,-3.535206',
-  '1',
-  'SAMPLE PRIZE',
-  '2',
-  "The second waypoint, the second coming"
-),
-(
-  '3',
-  '50.735882,-3.536206',
-  '1',
-  'SAMPLE PRIZE',
-  '3',
-  "The third waypoint, third time lucky"
-),
-(
-  '4',
-  '50.736882,-3.534206',
-  '1',
-  'SAMPLE PRIZE',
-  '4',
-  "The fourth waypoint, four is more"
-);
+)
 
+10 |  |       7 | prize        |               1 | waypoint name                          |
+|         11 | 50.73412452494373-3.5373941825866617  |       7 | prize        |               2 | waypoint name                          |
+|         12 | 50.73562530702386-3.532265798950187   |       7 | prize        |               3 | waypoint name                          |
+|         13 | 50.7369563548952-3.529293911361686    |       7 | prize        |               4 | waypoint name                          |
+|         14 | 50.73688149123296-3.5340843366622843  |       7 | prize        |               5 | waypoint name   
 INSERT INTO clues VALUES
 (
   '1',
