@@ -207,7 +207,10 @@ function nextWaypoint() {
 
 	else if(points.length === 0)
 	{
-		alert("You have done it! All the treaasure have been found. Well done");
+		$(document).ready(function(){
+    $('#modal').modal();
+    $('#modal').modal('open');
+ 		});
 	}
 }
 
