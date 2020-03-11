@@ -31,7 +31,7 @@ if ($lastWaypoint->num_rows == 1) {
         $newWaypointID = $row["waypointID"] + 1;
     }
 }
-
+$originalNewWaypointID = $newWaypointID;
 //grabs the cluesID of the last entry, puts in newClueID
 $lastClue = $conn->query("SELECT * FROM clues ORDER by clueID DESC LIMIT 1");
 if ($lastClue->num_rows == 1) {
@@ -72,12 +72,18 @@ $addWaypoints->close();
 
 //TEMPLATE, decomment when implemented fully
 // $conn->query($waypointSQL);
+
+//WaypointID has to match up.
+$newWaypointID = $originalNewWaypointID;
 $addClues = $conn->prepare("INSERT INTO `clues` VALUES (?,?,?,?)");
 for ($i=0; $i<count($cluesArray); $i++){
-    $a = $i+1;
-    $addClues->bind_param("iisi", $newClueID, $newWaypointID, $cluesArray[$i],$a);
-    $addClues->execute();
-    $newClueID++;
+    for ($x=0; $x<count($cluesArray[$i]); $x++){
+        $a = $i+1;
+        $addClues->bind_param("iisi", $newClueID, $newWaypointID, $cluesArray[$i][$x], $a);
+        $addClues->execute();
+        $newClueID++;
+    }
+    $newWaypointID++;
 }
 $addClues->close();
 //TODO PHP for adding clues for each waypoint, will require another passed array
