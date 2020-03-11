@@ -932,11 +932,11 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 	var color = getColor();
 	// Sets a default name in case the given one is too short or long
 	if (!name || name.length < 3 || name.length > 32) {
-		name = 'Treasure';
+		name = 'Place of interest';
 	}
 	// Sets a default description in case the given one is too short or long
 	if (!description || description.length < 10 || description.length > 500) {
-		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
+		var description = 'An additional location that you can visit!';
 	}
 
 	// Creates new Google Maps marker
