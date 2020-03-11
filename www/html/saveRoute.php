@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
 error_reporting(-1);
 
-start_session();
+session_start();
 $_SESSION['keeperID'] = "ChiefGamekeeper";
 
 // $passed_json = $_POST['data'];
