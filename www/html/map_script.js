@@ -112,7 +112,7 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
 								 this must be increased as the marker's get smaller (or vice-versa).
 	*/
-	if (markerList.length > 0) {
+	if (markerList.length) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = getColor();
@@ -144,7 +144,7 @@ function scaleMarkerSizeOnZoom() {
 	google.maps.event.addListener(map, 'zoom_changed', function () {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if (markerList.length < 1) {
+		if (!markerList.length) {
 			console.log('zoom_changed event: marker array is empty');
 			return -1;
 		}
@@ -187,6 +187,22 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
+
+		if (zoom == defaultZoom - 2) {
+			if (extraMarkersList.length) {
+				for (i = 0; i < extraMarkersList.length; i++) {
+					extraMarkersList[i].setVisible(false);
+				}
+			}
+		}
+		else if (zoom == defaultZoom - 1) {
+			if (extraMarkersList.length) {
+				for (i = 0; i < extraMarkersList.length; i++) {
+					extraMarkersList[i].setVisible(true);
+				}
+			}
+		}
+
 	});
 }
 
