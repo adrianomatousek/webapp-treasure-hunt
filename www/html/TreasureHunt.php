@@ -391,7 +391,7 @@ function changeRoutes(select){
 				console.log(error);
 			}
     });
-
+    points = returndata;
     nextWaypoint();
   }
 </script>
