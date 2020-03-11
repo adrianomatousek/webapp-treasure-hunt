@@ -79,9 +79,7 @@ $routes = $conn->query($findRoutes);
         while ($row = $routes->fetch_assoc()) { 
           $routeIDValue = $row['routeID'];
           $routeName = $row['routeName'];
-        ?>
-        <option value="<?php echo $routeIDValue; ?>"> <?php echo $routeName; ?> </option>
-      <?php
+          echo "<option value=\"$routeIDValue\">$routeName</option>"
         }
       }
       ?>
