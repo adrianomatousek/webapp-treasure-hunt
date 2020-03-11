@@ -949,6 +949,12 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			lng: lngPos
 		},
 		map: map,
+		label: {
+			color: color,
+			//text: markerNum.toString(),
+			fontSize: '12pt',
+			fontWeight: 'bold',
+		},
 		icon: {
 			url: 'img/icons/' + iconURL,
 			scaledSize: new google.maps.Size(30, 30),
