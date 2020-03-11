@@ -371,6 +371,7 @@ function changeRoutes(select){
     playerScore = 0;
     addScore(0);
     removeAllMarkers();
+    points = [];
     
     var postData = {
       routeID: routeID,
