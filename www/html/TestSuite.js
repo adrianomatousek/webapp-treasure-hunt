@@ -3,6 +3,7 @@
 */
 
 var fileName = 'map_script.js';
+var testCases = [];
 
 // Pre-defined variables
 var map;
@@ -38,13 +39,20 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
-// Test-suite
+// Initialize test-suite
+function initTests1() {
+	
+	// Add markers 
+	addMarker(50.735902, -3.538078);
+	addMarker(50.735902, -3.538078, 'A name', 'A description <br>tags</br>');
+	addMarker();
+	console.log('add');
+} 
 
 function runTests1() {
-	console.log('START OF TEST FOR: ' + fileName);
-	
-	addMarker(50.735902, -3.538078, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');	
-} 
+	initTests1();
+	console.log('RUNNING TEST CASES FOR: ' + fileName);
+}
 
 // Runs test
 runTests1();
