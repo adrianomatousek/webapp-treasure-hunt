@@ -510,10 +510,10 @@ function addCustomMarker() {
 // Adds a new Treasure Location
 function saveCustomMarker() {
 	var name = prompt("Enter the name of the place (minimum 3 characters): ");
-	var description = prompt("Enter the description of the place (minimum 10 characters): ");
 	latPos = customMarker.getPosition().lat();
 	lngPos = customMarker.getPosition().lng();
-	addMarker(latPos, lngPos, name, description);
+  //NEW removed description
+	addMarker(latPos, lngPos, name, "");
 	customMarker.setMap(null);
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
