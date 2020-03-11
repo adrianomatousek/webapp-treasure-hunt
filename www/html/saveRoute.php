@@ -12,6 +12,14 @@ foreach ($newMarkers as $key => $value) {
     echo $value . " ";
 }
 
+foreach ($newClues as $key => $value) {
+    foreach ($value as $clue => $single_clue) {
+        echo "Clue: " . $single_clue;
+    }
+}
+
+echo "Route name: " . $routeName;
+
 //grabs the routeID of the last entry in the database, puts in newRouteID
 $newRouteID;
 $newWaypointID;
