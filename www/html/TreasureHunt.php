@@ -372,6 +372,7 @@ function changeRoutes(select){
     addScore(0);
     removeAllMarkers();
     points = [];
+    activeClue = 0;
     
     var postData = {
       routeID: routeID,
