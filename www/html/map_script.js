@@ -57,9 +57,12 @@ function getMarkers() {
 }
 getMarkers();
 
-$.post('loadClues.php', function (data) {
-	clues = JSON.parse(data);
-});
+function getClues() {
+	$.post('loadClues.php', function (data) {
+		clues = JSON.parse(data);
+	});
+}
+getClues();
 
 function myMap() {
 	/*
@@ -144,7 +147,7 @@ function scaleMarkerSizeOnZoom() {
 	google.maps.event.addListener(map, 'zoom_changed', function () {
 		zoom = map.getZoom();
 		console.log('map zoom: ' + zoom);
-		if (!markerList.length) {
+		if (!markerList) {
 			console.log('zoom_changed event: marker array is empty');
 			return -1;
 		}
@@ -189,14 +192,19 @@ function scaleMarkerSizeOnZoom() {
 		}
 
 		if (zoom == defaultZoom - 2) {
-			if (extraMarkersList.length) {
+			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(false);
+					if (activeInfoWindow) {
+						activeInfoWindow.close();
+						activeInfoWindow = null;
+						activeMarker = null;
+					}
 				}
 			}
 		}
 		else if (zoom == defaultZoom - 1) {
-			if (extraMarkersList.length) {
+			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(true);
 				}
@@ -414,7 +422,7 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 			} else {
 				label.color = '#00ED87';
 			}
-			marker.setLabel(label);
+			this.setLabel(label);
 
 			//sets marker label for new marker
 			if (activeMarker) {
@@ -763,8 +771,18 @@ function nightTime() {
 
 function toggleExtraLocations() {
 	if (showExtraLocations) {
+		if (extraMarkersList.length) {
+			for (i = 0; i < extraMarkersList.length; i++) {
+				extraMarkersList[i].setVisible(false);
+			}
+		}
 		showExtraLocations = false;
 	} else {
+		if (extraMarkersList.length) {
+			for (i = 0; i < extraMarkersList.length; i++) {
+				extraMarkersList[i].setVisible(true);
+			}
+		}
 		showExtraLocations = true;
 	}
 }
@@ -822,7 +840,7 @@ function showAllMarkerNames() {
 	defaultFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
@@ -830,6 +848,13 @@ function showAllMarkerNames() {
 			label.text = string;
 			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
+		}
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.text = (label.name).toString();
+			extraMarkersList[i].setLabel(label);
 		}
 	}
 }
@@ -849,6 +874,13 @@ function hideAllMarkerNames() {
 			label.text = string;
 			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
+		}
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.text = ' ';
+			extraMarkersList[i].setLabel(label);
 		}
 	}
 }
@@ -931,6 +963,12 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			lng: lngPos
 		},
 		map: map,
+		label: {
+			color: color,
+			text: ' ',
+			fontSize: '12pt',
+			fontWeight: 'bold',
+		},
 		icon: {
 			url: 'img/icons/' + iconURL,
 			scaledSize: new google.maps.Size(30, 30),
