@@ -6,10 +6,14 @@ ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
 error_reporting(-1);
 
+start_session();
+$_SESSION['keeperID'] = "ChiefGamekeeper";
+
 // $passed_json = $_POST['data'];
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
 $routeName = $_POST['route_name'];
+
 
 $waypointsArray = $newMarkers; //TODO pass in data from inputted array
 $cluesArray = $newClues;
