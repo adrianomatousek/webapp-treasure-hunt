@@ -43,7 +43,7 @@ $.ajax({
 	success: function (returnData) {
 		console.log("return data loadmarkers:");
 		console.log(returnData);
-		points = returnData;
+		points = JSON.parse(returnData);
 		nextWaypoint();
 	},
 	error: function (xhr, textStatus, errorThrown) {
