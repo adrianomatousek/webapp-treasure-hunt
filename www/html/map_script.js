@@ -29,7 +29,7 @@ var idiotWindow;
 var showExtraLocations = true;
 var extraLocations = [];
 var extraMarkersList = [];
-var extraMarkers = extraMarkers.length;
+var extraMarkers = extraMarkersList.length;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -878,7 +878,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 		},
 		map: map,
 		icon: {
-			url: 'img/icons/' + iconName + '.png',
+			url: 'img/icons/' + iconURL,
 			scaledSize: new google.maps.Size(20, 20),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(10, 18)
