@@ -1078,6 +1078,9 @@ function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
 
 function createDefaultExtraLocations() {
 	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
+	addExtraMarker(50.7374657, -3.5337152, 6, "Davids Office","In laver you will find the office of David Wakeling", 'david.png');
+
+
 }
 
 
