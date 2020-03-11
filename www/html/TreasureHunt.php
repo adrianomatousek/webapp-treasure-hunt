@@ -51,7 +51,7 @@ $findRoutes = mysql_query("SELECT * FROM routes");
       class="sidenav-trigger"><i class="material-icons">help</i></a></li>
 
       <!-- Change route button -->
-      <li><select name="changeRouteValue" onchange="changeRoutes()">
+      <li><select style="text-align-last: center;" name="changeRouteValue" onchange="changeRoutes()">
       
       
       <?php
