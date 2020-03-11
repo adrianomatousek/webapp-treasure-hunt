@@ -130,7 +130,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
 			</label>
 		</li>
     </div>
-	
+
 	<!-- Extra locations    -->
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:toggleExtraLocations(); tickBox6();"><i class="material-icons">near_me</i>Extra locations</a>
@@ -226,7 +226,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
               <div class="collapsible-body">
                 <span>If you are struggling or think
                  you are lost we have made it so your current location is displayed
-                  as a blue marker in the map to help you navigate. Updating in real time
+                  as a purple marker in the map to help you navigate. Updating in real time
                   it should allow you to see where you are at any given time.
                   </span>
               </div>
