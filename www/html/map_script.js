@@ -913,7 +913,12 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(10, 18)
 		},
-
+		label: {
+			color: color,
+			text: '',
+			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
+			fontWeight: 'bold',
+		},
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
 		name: name,
