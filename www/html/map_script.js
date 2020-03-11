@@ -1095,7 +1095,7 @@ function createDefaultExtraLocations() {
 			Matt's office (type: 4), 
 			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
 			One other type 1 food place?
-			something else if you feel like it, can be any sort of place of interest, a park, statue etc.
+			something else if you feel like it, can be any sort of place of interest, a park, statue etc. (Use a type id that is not 0,1,2,3 or 4 in this case)
 			thanks <3  :*
 	*/
 }
