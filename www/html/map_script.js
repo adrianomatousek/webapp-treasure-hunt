@@ -387,13 +387,13 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 
 		//Changes label content when the marker is clickedon
 		if (activeMarker != marker) {
-			var label = this.getLabel();
+			var label = marker.getLabel();
 			if (isDay) {
 				label.color = '#007766';
 			} else {
 				label.color = '#00ED87';
 			}
-			this.setLabel(label);
+			marker.setLabel(label);
 
 			//sets marker label for new marker
 			if (activeMarker) {
