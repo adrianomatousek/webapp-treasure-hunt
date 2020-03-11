@@ -289,6 +289,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
     </div>
     <div class="carousel-page">
       <!-- Page 4: Help Page -->
+      <p>Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
       <h2 style="text-align: center;">How To Play</h2>
       <ol class="rounded-list">
         <li><a href="">Check your map and locate the next treasure location</a></li>
@@ -296,7 +297,7 @@ $gameKeeperPlus = array("Admin", "Gamekeeper");
         <li><a href="">Find and scan QR code at the treasure location</a></li>
         <li><a href="">Move to the next treasure location</a></li>
       </ol>
-      <p style="text-align: center;">Good luck have fun !!!</p>
+      <p style="text-align: center;">Good luck have fun !! Please click Below to start!</p>
 
     </div>
   </div>
