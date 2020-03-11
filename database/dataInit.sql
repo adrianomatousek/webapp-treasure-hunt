@@ -100,7 +100,7 @@ INSERT INTO routes VALUES
 ),
 (
   "2",
-  "Compsci Fun",
+  "CompSci Fun Route!",
   "ChiefGamekeeper"
 );
 
@@ -118,7 +118,7 @@ INSERT INTO waypoints VALUES
   '50.73412452494373,-3.5373941825866617',
   '1',
   'SAMPLE PRIZE',
-  '1',
+  '2',
   "Reed Pond"
 ),
 (
@@ -126,70 +126,140 @@ INSERT INTO waypoints VALUES
   '50.73562530702386,-3.532265798950187',
   '1',
   'SAMPLE PRIZE',
-  '1',
+  '3',
   "Forum Hill Pond"
 ),
 (
   '4',
-  '50.735299372643134-3.5378018783569254',
+  '50.7369563548952,-3.529293911361686',
   '1',
   'SAMPLE PRIZE',
+  '4',
+  "Innovation Pond"
+),
+(
+  '5',
+  '50.73688149123296,-3.5340843366622843',
   '1',
-  "Reed Hall"
+  'SAMPLE PRIZE',
+  '5',
+  "Laver Pond"
+),
+(
+  '5',
+  '50.73792036406959,-3.5306028293609537',
+  '2',
+  'SAMPLE PRIZE',
+  '1',
+  "Innovation Centre"
+),
+(
+  '5',
+  '50.73744506563135,-3.5331348346710123',
+  '2',
+  'SAMPLE PRIZE',
+  '2',
+  "Harrison"
+),
+(
+  '5',
+  '50.737580865677366,-3.5324052738189615',
+  '2',
+  'SAMPLE PRIZE',
+  '3',
+  "Harrison Blue ROom"
+),
+(
+  '5',
+  '50.73642315765491,-3.531689124011985',
+  '2',
+  'SAMPLE PRIZE',
+  '4',
+  "Amory"
 );
 
-
-|         11 |   |       7 | prize        |               2 | waypoint name                          |
-|         12 |    |       7 | prize        |               3 | waypoint name                          |
-|         13 | 50.7369563548952-3.529293911361686    |       7 | prize        |               4 | waypoint name                          |
-|         14 | 50.73688149123296-3.5340843366622843  |       7 | prize        |               5 | waypoint name   
 INSERT INTO clues VALUES
 (
   '1',
   '1',
-  'Clue 1 Waypoint 1',
+  'Close to God',
   '1'
 ),
 (
   '2',
   '1',
-  'Clue 2 Waypoint 1',
-  '2'
-),
-(
-  '3',
-  '2',
-  'Clue 1 Waypoint 2',
+  'The Pope Seat',
   '1'
 ),
 (
+  '3',
+  '1',
+  'Quack! Quack!',
+  '2'
+),
+(
   '4',
-  '2',
-  'Clue 2 Waypoint 2',
+  '1',
+  'On one of the benches!',
   '2'
 ),
 (
   '5',
-  '3',
-  'Clue 1 Waypoint 3',
-  '1'
+  '1',
+  'A forest wonderland!',
+  '3'
 ),
 (
   '6',
-  '3',
-  'Clue 2 Waypoint 3',
-  '2'
+  '1',
+  'Close to the waterfall!',
+  '3'
 ),
 (
   '7',
-  '4',
-  'Clue 1 Waypoint 4',
-  '1'
+  '1',
+  'You have been walking a lot. How about you take a seat?',
+  '4'
 ),
 (
   '8',
-  '4',
-  'Clue 2 Waypoint 4',
+  '1',
+  'Look underneath!',
+  '4'
+),
+(
+  '9',
+  '1',
+  'Up the hill, before the bus stop!',
+  '5'
+),
+(
+  '10',
+  '1',
+  'The one in the shade',
+  '5'
+),
+(
+  '11',
+  '2',
+  'Are you tired walking up the stairs? Maybe sit down at a bench',
+  '1'
+),
+(
+  '12',
+  '2',
+  'Go up the stairs and enter the building',
   '2'
+),
+(
+  '13',
+  '2',
+  'The room that is not blue',
+  '3'
+),
+(
+  '14',
+  '2',
+  'Some say it inspired the JK Rowling moving staircase in Hogwarts',
+  '4'
 );
-  
