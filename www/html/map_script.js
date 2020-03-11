@@ -909,16 +909,17 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 		map: map,
 		icon: {
 			url: 'img/icons/' + iconURL,
-			scaledSize: new google.maps.Size(20, 20),
+			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(10, 18)
+			labelOrigin: new google.maps.Point(15, 24)
 		},
+		/*
 		label: {
 			color: color,
 			text: '',
 			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
 			fontWeight: 'bold',
-		},
+		}, */
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
 		name: name,
