@@ -32,6 +32,15 @@ if ($lastWaypoint->num_rows == 1) {
     }
 }
 
+//grabs the cluesID of the last entry, puts in newClueID
+$lastClue = $conn->query("SELECT * FROM clues ORDER by clueID DESC LIMIT 1");
+if ($lastClue->num_rows == 1) {
+    // output data of each row
+    while($row = $lastClue->fetch_assoc()) {
+        $newClueID = $row["clueID"] + 1;
+    }
+}
+
 //TEMPLATE routeName and gamekeeperID need to be fetched from form that submits route
 // $newRouteSQL = "INSERT INTO routes VALUES ($newRouteID,'routeName','gamekeeperID')";
 
@@ -51,6 +60,7 @@ for ($i=0; $i<count($waypointsArray); $i++){
 //   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
     $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i],$newRouteID, 'prize',$i+1,'waypoint name');
     $addWaypoints->execute();
+    $newWaypointID++;
 }
 $addWaypoints->close();
 
@@ -61,8 +71,9 @@ $addWaypoints->close();
 // $conn->query($waypointSQL);
 $addClues = $conn->prepare("INSERT INTO `clues` VALUES (?,?,?,?)");
 for ($i=0; $i<count($cluesArray); $i++){
-    $addClues->bind_param("iisi", 'clueID', $newWaypointID, $cluesArray[$i],$i+1);
+    $addClues->bind_param("iisi", $newClueID, $newWaypointID, $cluesArray[$i],$i+1);
     $addClues->execute();
+    $newClueID++;
 }
 $addClues->close();
 //TODO PHP for adding clues for each waypoint, will require another passed array
