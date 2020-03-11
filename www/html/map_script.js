@@ -840,7 +840,7 @@ function showAllMarkerNames() {
 	defaultFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
@@ -848,6 +848,13 @@ function showAllMarkerNames() {
 			label.text = string;
 			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
+		}
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.text = label.name;
+			extraMarkersList[i].setLabel(label);
 		}
 	}
 }
@@ -867,6 +874,13 @@ function hideAllMarkerNames() {
 			label.text = string;
 			label.fontSize = defaultFontSizeString;
 			markerList[i].setLabel(label);
+		}
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.text = ' ';
+			extraMarkersList[i].setLabel(label);
 		}
 	}
 }
