@@ -9,14 +9,11 @@ if ($_SESSION["loggedin"] != true){
 $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 require_once ("connection.php");
-<<<<<<< Updated upstream
 
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
 
-=======
 */
->>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html>
