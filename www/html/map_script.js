@@ -874,7 +874,7 @@ function getExtraMarkerType(extraMarker) {
 	}
 }
 
-function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'chest.png', imageURL) {
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'health.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
@@ -913,7 +913,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 		},
 		label: {
 			color: color,
-			text: name,
+			text: '',
 			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
 			fontWeight: 'bold',
 		},
