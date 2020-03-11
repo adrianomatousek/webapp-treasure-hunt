@@ -195,6 +195,11 @@ function scaleMarkerSizeOnZoom() {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(false);
+					if (activeInfoWindow) {
+						activeInfoWindow.close();
+						activeInfoWindow = null;
+						activeMarker = null;
+					}
 				}
 			}
 		}
