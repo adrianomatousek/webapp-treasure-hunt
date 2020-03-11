@@ -19,21 +19,6 @@ function addScore(amount) {
     });
 }
 
-
-
-function changeRoutes(select){
-    routeID = select.value; 
-    playerScore = 0;
-    addScore(0);
-    removeAllMarkers();
-    $_SESSION['routeID'] = routeID;
-    $.post('loadMarkers.php', function (data) {
-        points = JSON.parse(data);
-        //retireves a JSON array of points and is converted to a JavaScript array
-    });
-    nextWaypoint();
-}
-
 //AJAX calls to retrive data from data base from leaderboardsData.php
 
 function update_board() {

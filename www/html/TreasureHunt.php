@@ -361,3 +361,18 @@ $routes = $conn->query($findRoutes);
 </body>
 
 </html>
+
+<script>
+function changeRoutes(select){
+    routeID = select.value; 
+    playerScore = 0;
+    addScore(0);
+    removeAllMarkers();
+    $_SESSION['routeID'] = routeID;
+    $.post('loadMarkers.php', function (data) {
+        points = JSON.parse(data);
+        //retireves a JSON array of points and is converted to a JavaScript array
+    });
+    nextWaypoint();
+}
+</script>
