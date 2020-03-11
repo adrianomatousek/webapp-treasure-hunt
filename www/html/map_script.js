@@ -27,6 +27,9 @@ var defaultFontSizeString = '16pt';
 var reduceFontSizeBy = 4; // when switching to marker names option in settings
 var idiotWindow;
 var showExtraLocations = true;
+var extraLocations = [];
+var extraMarkersList = [];
+var extraMarkers = extraMarkers.length;
 
 $.post('loadMarkers.php', function (data) {
 	points = JSON.parse(data);
@@ -75,6 +78,8 @@ function myMap() {
 	scaleMarkerSizeOnZoom(); // Calls the function which is made to scale the size of markers when zooming in/out.
 
 	// addCustomMarker();
+	
+	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
@@ -215,7 +220,7 @@ function setCurrentPosition(pos) {
 		),
 		title: "Current Position",
 		icon: {
-			url: 'img/icons/blue-dot.png',
+			url: 'img/icons/purple-custom.png',
 			scaledSize: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(20, -30)
@@ -303,7 +308,7 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		mouseOnMarker: false // used to determine if mouse is on marker; used by event listeners
 	});
 
-	var contentString = '<div id="content" style="text-align:center">' +
+	var contentString = '<div id="siteNotice">Treasure Location</div><div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
@@ -829,6 +834,82 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 				window.alert('Directions request failed due to ' + status);
 			}
 		});
+}
+
+function getExtraMarkerType(extraMarker) {
+	switch (extraMarker.type) {
+		case 0: return 'Health';
+		case 1: return 'Food';
+		case 2: return 'Library';
+		case 3: return 'Fitness';
+		case 4: return 'College';
+		default: return: 'Location';
+	}
+}
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
+	/*
+	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
+	libraries, restaurants
+	
+	Parameters:
+		latPos: latitutde coordinates of the marker,
+		lngPos: longitude coordinates of the marker,
+		name: name of the location, e.g. "Exeter Library",
+		description: a descrition of the location,
+		type: id of type of location, e.g. id 0 being "health", id 1 being "food" etc.,
+		iconURL: URL of the icon (part of URL, e.g. "chest.png" - img/icons/chest.png),
+		imageURL: (Optional) URL of the image (part of URL, e.g. "library.png" - img/photos/library.png).
+	*/
+	var color = getColor();
+	// Sets a default name in case the given one is too short or long
+	if (!name || name.length < 3 || name.length > 32) {
+		name = 'Treasure';
+	}
+	// Sets a default description in case the given one is too short or long
+	if (!description || description.length < 10 || description.length > 500) {
+		var description = 'There is treasure to be found here!<br>Get here fast!</br>';
+	}
+
+	// Creates new Google Maps marker
+	var marker = new google.maps.Marker({
+		position: {
+			lat: latPos,
+			lng: lngPos
+		},
+		map: map,
+		icon: {
+			url: 'img/icons/' + iconName + '.png',
+			scaledSize: new google.maps.Size(20, 20),
+			origin: new google.maps.Point(0, 0),
+			labelOrigin: new google.maps.Point(10, 18)
+		},
+		draggable: draggable,
+		animation: google.maps.Animation.DROP,
+		id: markerNum - 1,
+		opacity: markerOpacity,
+		name: name,
+		type: typeID
+	});
+
+	var contentString = '<div id="siteNotice">'+ getExtraMarkerType(marker) +'</div><div id="content" style="text-align:center">' +
+		'<h4 id="firstHeading" class="firstHeading">' + name +
+		'</h4><div id="bodyContent"><p> ' + description +
+		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
+		'</p></div><br>' +
+		'<div class="clues-section" id="showClue-' + markerNum + '"></div>'
+
+	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
+	var infoWindow = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -16),
+		content: contentString
+	});
+	
+	extraMarkersList.push(marker);
+	extraMarkers += 1;
+}
+
+function createDefaultExtraLocations(){
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre")
 }
 
 
