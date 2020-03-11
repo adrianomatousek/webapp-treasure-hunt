@@ -77,7 +77,7 @@ $(document).ready(function () { //Initialize the sidenavs with Materializecss
 // Carousel (slick.js) initialisation
 $(document).ready(function () {
     $('.carousel-pages').slick({
-        initialSlide: 3,
+        initialSlide: 4,
         slidesToShow: 1,
         infinite: !1,
         speed: 500,
