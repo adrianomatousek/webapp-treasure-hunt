@@ -39,8 +39,8 @@ function saveRoute() {
 	} else if (newClues.length == 0) {
 		alert("Please add atleast one clue.");
 	} else {
-		routeName = askForRouteName();
-		if (routeName = "") {
+		askForRouteName();
+		if (routeName == "") {
 			routeName = "Undefinded Route";
 		}
 
@@ -73,8 +73,7 @@ function saveRoute() {
 }
 
 function askForRouteName() {
-	var name = prompt("Name of your new route:");
-	return name;
+	routeName = prompt("Name of your new route:");
 }
 
 
