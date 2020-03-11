@@ -1,7 +1,13 @@
 <?php
 session_start();
 
-if ($_SESSION["loggedin"] != true){
+if ($_SESSION["loggedin"] == true){
+  if ($_SESSION['accessLevel'] != 'Admin' && $_SESSION['accessLevel'] != 'Gamekeeper') {
+    header("Location: TreasureHunt.php");
+    exit;
+  }
+}
+else{
   header("Location: index.php");
   exit;
 }

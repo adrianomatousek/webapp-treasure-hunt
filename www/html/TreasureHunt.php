@@ -9,7 +9,7 @@ if ($_SESSION["loggedin"] != true){
 $gameKeeperPlus = array("Admin", "Gamekeeper");
 
 require_once ("connection.php");
-
+$conn
 $findRoutes = mysql_query("SELECT * FROM routes");
 
 ?>

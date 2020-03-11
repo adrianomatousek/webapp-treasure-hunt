@@ -31,15 +31,15 @@ session_start();
 
 require_once ("connection.php");
 
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//   if ($_SESSION["accessLevel"] != 'Admin'){
-//     header("Location: TreasureHunt.php");
-//     exit;
-//   }
-// }
-// else{
-//   header("Location: index.php");
-// }
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  if ($_SESSION["accessLevel"] != 'Admin'){
+    header("Location: TreasureHunt.php");
+    exit;
+  }
+}
+else{
+  header("Location: index.php");
+}
 
 $authorisedUserTypes = array("Admin", "Gamekeeper");
 if ($_SESSION["loggedin"]){
@@ -53,16 +53,6 @@ else{
   header("Location: index.php");
   exit;
 }
-// if ($_SESSION["loggedin"] != true){
-//   if ($_SESSION['accessLevel'] != 'Admin' && $_SESSION['accessLevel'] != 'Gamekeeper') {
-//     header("Location: TreasureHunt.php");
-//     exit;
-//   }
-// }
-// else{
-//   header("Location: index.php");
-//   exit;
-// }
 
 
 echo "<br>Access Level: ".$_SESSION['accessLevel']."<br>";
