@@ -21,6 +21,7 @@ var routeName = "";
 //NEW stores created markers and clues
 var newMarkers = [];
 var newClues = [];
+var newMarkerNames = [];
 
 //NEW handles click on addClue button, TODO add clue to waypoint dialog box
 function addClue(positionInRoute) {
@@ -32,8 +33,6 @@ function addClue(positionInRoute) {
 
 //NEW sends ajax request and should remove all markers
 function saveRoute() {
-	console.log(postData);
-
 	if (newMarkers.length == 0) {
 		alert("Please add a marker before creating a route!");
 	} else if (newClues.length == 0) {
@@ -48,8 +47,10 @@ function saveRoute() {
 		var postData = {
 			waypoints: newMarkers,
 			clues: newClues,
+			waypoint_names: newMarkerNames,
 			route_name: routeName
 		};
+		console.log(postData);
 
 		$.ajax({
 			url: "saveRoute.php",
@@ -69,6 +70,7 @@ function saveRoute() {
 		newMarkers = [];
 		newClues = [];
 		routeName = "";
+		newMarkerNames = [];
 	}
 }
 
@@ -512,13 +514,14 @@ function saveCustomMarker() {
 	var name = prompt("Enter the name of the place (minimum 3 characters): ");
 	latPos = customMarker.getPosition().lat();
 	lngPos = customMarker.getPosition().lng();
-  //NEW removed description
+	//NEW removed description
 	addMarker(latPos, lngPos, name, "");
 	customMarker.setMap(null);
 	customMarker = null;
 	//NEW adds waypoints to new markers array and sets up new marker
 	//descriptions for waypoints are not presently stored in the database, maybe have it as clue
-	newMarkers.push("" + latPos + lngPos);
+	newMarkers.push("" + latPos + "," + lngPos);
+	newMarkerNames.push(name);
 	//adds empty clue array to newClues
 	newClues.push([]);
 	addCustomMarker();
