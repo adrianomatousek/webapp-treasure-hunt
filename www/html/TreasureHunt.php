@@ -310,22 +310,27 @@ $findRoutes = mysql_query("SELECT * FROM routes");
 
       </div>
     </div>
-    <div class="carousel-page">
-      <!-- Page 4: Help Page -->
-      <p>Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
-      <h2 style="text-align: center;">How To Play</h2>
-      <ol class="rounded-list">
-        <li><a href="">Check your map and locate the next treasure location</a></li>
-        <li><a href="">Move to your current treasure location</a></li>
-        <li><a href="">Find and scan QR code at the treasure location</a></li>
-        <li><a href="">Move to the next treasure location</a></li>
-      </ol>
 
-      <p style="text-align: center;">Good luck have fun !! Please click Below to start!
-      </p>
-      <p style="text-align: center;">
-        <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
-      </p>
+    <div class="carousel-page">
+      <div id="" style="overflow:auto; height:400px;">
+      <!-- Page 4: Help Page -->
+        <p>Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
+        <h2 style="text-align: center;">How To Play</h2>
+        <div class ="cont" style="width:100%; text-align:center;">
+          <ol class="rounded-list">
+            <li><a href="">Check your map and locate the next treasure location</a></li>
+            <li><a href="">Move to your current treasure location</a></li>
+            <li><a href="">Find and scan QR code at the treasure location</a></li>
+            <li><a href="">Move to the next treasure location</a></li>
+          </ol>
+        </div>
+
+        <p style="text-align: center;">Good luck have fun !! Please click Below to start!
+        </p>
+        <p style="text-align: center;">
+          <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
+        </p>
+      </div>
 
 
     </div>
