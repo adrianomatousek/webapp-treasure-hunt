@@ -551,7 +551,7 @@ function removeAllMarkers() {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
 	}
-	markerList = null;
+	markerList = [];
 	activeMarker = null;
 	activeInfoWindow = null;
 	markers = 0;
