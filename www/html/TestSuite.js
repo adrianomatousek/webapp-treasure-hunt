@@ -2,6 +2,9 @@
 	Test Suite for "map_script.js"
 */
 
+var fileName = 'map_script.js';
+var testCases = [];
+
 // Pre-defined variables
 var map;
 var currentPositionMarker;
@@ -36,11 +39,21 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
-// Initializing the test-suite
-
-function runTests() {
-	myMap();
-	console.log('test');
+// Initialize test-suite
+function initTests1() {
+	
+	// Add markers 
+	addMarker(50.735402, -3.538078);
+	addMarker(50.735902, -3.538078, 'A name', 'A description <br>tags</br>');
+	addMarker();
+	addMarker(50.735002, -3.538078);
+	console.log('add');
 } 
 
-runTests();
+function runTests1() {
+	initTests1();
+	console.log('RUNNING TEST CASES FOR: ' + fileName);
+}
+
+// Runs test
+runTests1();
