@@ -853,7 +853,7 @@ function showAllMarkerNames() {
 	if (extraMarkersList) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
-			label.text = label.name;
+			label.text = (label.name).toString();
 			extraMarkersList[i].setLabel(label);
 		}
 	}
