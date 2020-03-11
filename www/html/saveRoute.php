@@ -1,10 +1,19 @@
 <?php
 echo "pretty please";
 require_once ("connection.php");
+
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
+
+session_start();
+$_SESSION['keeperID'] = "ChiefGamekeeper";
+
 // $passed_json = $_POST['data'];
 $newMarkers = $_POST['waypoints'];
 $newClues = $_POST['clues'];
 $routeName = $_POST['route_name'];
+
 
 $waypointsArray = $newMarkers; //TODO pass in data from inputted array
 $cluesArray = $newClues;
@@ -30,6 +39,8 @@ if ($lastRoute->num_rows == 1) {
         $newRouteID = $row["routeID"] + 1;
     }
 }
+
+echo "Got the last route! ";
 
 //grabs last waypointID and stores it in newRouteID
 $lastWaypoint = $conn->query("SELECT * FROM waypoints ORDER by waypointID DESC LIMIT 1");
@@ -57,9 +68,13 @@ $addRoute = $conn->prepare("INSERT INTO `routes` VALUES (?,?,?)");
 //Ideally passed as parameters (don't think you can pass as strings in bind_param).
 //Parameters need to be replaced with actual values that we can use and send.
 $addRoute->bind_param('iss', $newRouteID, $routeName, $_SESSION['keeperID']);
+// if (!$addRoute->execute()) {
+//     print_r($addRoute->errorInfo());
+// }
 $addRoute->execute();
 $addRoute->close();
 
+echo "added route! ";
 
 //TEMPLATE loads values from input array into string for SQL statement
 $addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
