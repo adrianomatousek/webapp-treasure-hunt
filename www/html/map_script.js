@@ -1090,7 +1090,7 @@ function createDefaultExtraLocations() {
 	// DO BELOW //
 	
 	/* ADD: Forum Library (type: 2), 
-			Sports Hall (type: 3), 
+			Sports Centre & Gym (type: 3), 
 			Ram Bar (type: 1)
 			Matt's office (type: 4), 
 			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
