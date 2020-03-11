@@ -913,8 +913,8 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'ch
 		},
 		label: {
 			color: color,
-			text: 'l',
-			fontSize: defaultFontSize,
+			text: name,
+			fontSize: defaultFontSize - reduceFontSizeBy,
 			fontWeight: 'bold',
 		},
 		animation: google.maps.Animation.DROP,
