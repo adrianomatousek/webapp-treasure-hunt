@@ -58,7 +58,7 @@ $addWaypoints = $conn->prepare("INSERT INTO `waypoints` VALUES (?,?,?,?,?,?)");
 // $VALUES = "";
 for ($i=0; $i<count($waypointsArray); $i++){
 //   $VALUES.="($newWaypointID,".$waypointsArray[$i].",$newRouteID,'prize lol',$i+1,'waypoint name'),";
-    $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i],$newRouteID, 'prize',$i+1,'waypoint name');
+    $addWaypoints->bind_param("isisis", $newWaypointID, $waypointsArray[$i],$newRouteID, 'prize',$a = $i+1,'waypoint name');
     $addWaypoints->execute();
     $newWaypointID++;
 }
@@ -71,7 +71,7 @@ $addWaypoints->close();
 // $conn->query($waypointSQL);
 $addClues = $conn->prepare("INSERT INTO `clues` VALUES (?,?,?,?)");
 for ($i=0; $i<count($cluesArray); $i++){
-    $addClues->bind_param("iisi", $newClueID, $newWaypointID, $cluesArray[$i],$i+1);
+    $addClues->bind_param("iisi", $newClueID, $newWaypointID, $cluesArray[$i],$a = $i+1);
     $addClues->execute();
     $newClueID++;
 }
