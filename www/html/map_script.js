@@ -913,12 +913,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'he
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(10, 18)
 		},
-		label: {
-			color: color,
-			text: '',
-			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
-			fontWeight: 'bold',
-		},
+
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
 		name: name,
@@ -1014,7 +1009,7 @@ function addExtraMarkerClickListeners(marker, infoWindow, infoLabel) {
 }
 
 function createDefaultExtraLocations() {
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre", "This is where you come to when you are sick");
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");
 }
 
 
