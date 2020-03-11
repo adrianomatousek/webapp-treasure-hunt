@@ -1,7 +1,9 @@
 <?php
-require("connection.php");
+session_start();
+
+require_once("connection.php");
 //grabs waypoints for selected route
-$routeSQL = "SELECT waypointID FROM waypoints WHERE routeID='1' ORDER BY positionInRoute ASC"; //TODO don't hardcode this
+$routeSQL = "SELECT waypointID FROM waypoints WHERE routeID='".$_SESSION['routeID']."' ORDER BY positionInRoute ASC";
 //grabs all clues
 $sql = "SELECT * FROM clues ORDER BY clueNumber ASC";
 $routeResult = $conn->query($routeSQL);
