@@ -320,3 +320,13 @@ ol ol {
   border-radius: 2em;
   transition: all .3s ease-out;
 }
+
+.modal {
+  width: max-content; /* note, you may sometimes have to use !important */
+}
+@media #{$extra-large-and-up} {
+    .modal-fit-content {
+      width: max-content;
+     /* set width to auto or simply ignore the class on smaller screens */
+    }
+}
