@@ -133,7 +133,7 @@ function runTests1() {
 	addMarkerTest();
 }
 
-function addMarkerTest(){
+function addMarkerArrayTest(){
 	// 1 Check if marker is added to array
 	
 	addMarker(50.735820, -3.538780);
@@ -147,10 +147,18 @@ function addMarkerTest(){
 	if (length1 == 1 && length2 == 2) {
 		testSuccessful();
 		console.log('TEST 1 SUCCESSFUL');
+		
 	} else {
 		testSuccessful(false);
 		console.log('TEST 1 NOT');
 	}
+	resetAll();
+}
+
+function addMarkerCoordinatesTest(){
+	addMarker(50.735820, -3.538780);
+	markerList[0].
+}
 	
 	
 	
