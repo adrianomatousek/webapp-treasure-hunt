@@ -13,7 +13,9 @@ foreach ($newMarkers as $key => $value) {
 }
 
 foreach ($newClues as $key => $value) {
-    echo "Clue: " . $value;
+    foreach ($value as $clue => $single_clue) {
+        echo "Clue: " . $single_clue;
+    }
 }
 
 echo "Route name: " . $routeName;
