@@ -36,23 +36,26 @@ var postData = {
 	routeID: routeID,
 };
 
-$.ajax({
-	url: "loadMarkers.php",
-	type: "POST",
-	data: postData,
-	success: function (returnData) {
-		console.log("return data loadmarkers:");
-		console.log(returnData);
-		points = JSON.parse(returnData);
-		nextWaypoint();
-	},
-	error: function (xhr, textStatus, errorThrown) {
-		alert("Load markers" + xhr.statusText);
-		console.log(textStatus);
-		console.log(error);
-	}
-});
 
+function getMarkers() {
+	$.ajax({
+		url: "loadMarkers.php",
+		type: "POST",
+		data: postData,
+		success: function (returnData) {
+			console.log("return data loadmarkers:");
+			console.log(returnData);
+			points = JSON.parse(returnData);
+			nextWaypoint();
+		},
+		error: function (xhr, textStatus, errorThrown) {
+			alert("Load markers" + xhr.statusText);
+			console.log(textStatus);
+			console.log(error);
+		}
+	});
+}
+getMarkers();
 
 $.post('loadClues.php', function (data) {
 	clues = JSON.parse(data);

@@ -378,14 +378,12 @@ function changeRoutes(select){
       routeID: routeID,
     };
 
-		$.ajax({
-			url: "loadMarkers.php",
+    $.ajax({
+			url: "changeRouteID.php",
 			type: "POST",
 			data: postData,
-			success: function (returnData) {
-        console.log("return data loadmarkers:");
-        console.log(returnData);
-        points = returnData;
+			success: function () {
+        getMarkers();
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				alert("Load markers" + xhr.statusText);
@@ -393,7 +391,5 @@ function changeRoutes(select){
 				console.log(error);
 			}
     });
-
-    nextWaypoint();
   }
 </script>
