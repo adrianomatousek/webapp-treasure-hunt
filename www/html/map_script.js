@@ -77,7 +77,7 @@ function myMap() {
 			map: map
 		});
 
-	addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
+	// addMarker(50.735882, -3.534206, 'Bob`s place', 'A nice and cozy place. Very well known by all Exeter students.<br>Bob likes to spend his time here. </br>');
 
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
