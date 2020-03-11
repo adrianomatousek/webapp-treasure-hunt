@@ -57,9 +57,12 @@ function getMarkers() {
 }
 getMarkers();
 
-$.post('loadClues.php', function (data) {
-	clues = JSON.parse(data);
-});
+function getClues() {
+	$.post('loadClues.php', function (data) {
+		clues = JSON.parse(data);
+	});
+}
+getClues();
 
 function myMap() {
 	/*

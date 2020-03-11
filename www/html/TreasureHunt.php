@@ -373,6 +373,7 @@ function changeRoutes(select){
     removeAllMarkers();
     points = [];
     activeClue = 0;
+    clues = [];
     
     var postData = {
       routeID: routeID,
@@ -384,6 +385,7 @@ function changeRoutes(select){
 			data: postData,
 			success: function () {
         getMarkers();
+        getClues();
 			},
 			error: function (xhr, textStatus, errorThrown) {
 				alert("Load markers" + xhr.statusText);
