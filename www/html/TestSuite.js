@@ -432,7 +432,111 @@ function checkTimeTest() {
 }
 
 // TEST 14
-//function 
+function toggleHintsTest() {
+	showHints = true;
+	toggleHints();  // should change showHints to false
+	var a1 = assertEquals(showHints, false);
+	
+	showHints = false;
+	toggleHints();  // should change showHints to true
+	var a2 = assertEquals(showHints, true);
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 15
+function toggleMarkerAnimationsTest_NoActiveMarker() {
+	
+	addMarker(50.735402, -3.538078);
+	
+	enableAnimations = true;
+	toggleMarkerAnimations();  // should change enableAnimations to false
+	var a1 = assertEquals(enableAnimations, false);
+	
+	enableAnimations = false;
+	toggleMarkerAnimations();  // should change enableAnimations to true
+	var a2 = assertEquals(enableAnimations, true);
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 16
+function toggleMarkerAnimationsTest_WithActiveMarker() {
+	
+	addMarker(50.735402, -3.538078);
+	activeMarker = markersList[0];
+	
+	enableAnimations = true;
+	toggleMarkerAnimations();  // should change enableAnimations to false
+	var a1 = assertEquals(enableAnimations, false);
+	
+	var a2 = assertEquals(activeMarker.getAnimation(), null);
+	
+	enableAnimations = false;
+	toggleMarkerAnimations();  // should change enableAnimations to true
+	var a3 = assertEquals(enableAnimations, true);
+	
+	var a4 = assertEquals(activeMarker.getAnimation(), google.maps.Animation.BOUNCE);
+	
+	if (a1 && a2 && a3 && a4) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 17
+function markerSetAnimationTest() {
+	
+	addMarker(50.735402, -3.538078);
+	targetMarker = markersList[0];
+	
+	targetMarker.setAnimation(null);
+	
+	markerSetAnimation(targetMarker, 'BOUNCE');
+	
+	var a1 = assertEquals(targetMarker.getAnimation(), 'BOUNCE');
+	
+	targetMarker.setAnimation(null);
+	
+	markerSetAnimation(targetMarker, 'BOUNCE-IF');
+	
+	var a2 = assertEquals(targetMarker.getAnimation(), 'BOUNCE');
+	
+	targetMarker.setAnimation(null);
+	
+	markerSetAnimation(targetMarker, 'DROP');
+	
+	var a3 = assertEquals(targetMarker.getAnimation(), 'DROP');
+	
+	targetMarker.setAnimation(google.maps.Animation.BOUNCE);
+	
+	markerSetAnimation(targetMarker, null);
+	
+	var a4 = assertEquals(targetMarker.getAnimation(), null);
+	
+	if (a1 && a2 && a3 && a4) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
 
 
 
