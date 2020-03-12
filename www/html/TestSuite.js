@@ -228,7 +228,7 @@ function addMarkerNameDescriptionTest(){
 }
 
 // TEST 4
-function addMarkerNameDescriptionTest(){
+function addMarkerNameDescriptionTest2(){
 	test = 4;
 	// 3 Check for name and description
 	
