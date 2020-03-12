@@ -212,7 +212,7 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		if (zoom == defaultZoom + 1 && showMarkerNames) {
+		if ((zoom == defaultZoom + 1 || zoom == defaultZoom + 2) && showMarkerNames) {
 			showAllMarkerNames();
 		}
 		else if (zoom == defaultZoom) {
@@ -874,7 +874,7 @@ function showAllMarkerNames() {
 	var newFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	var newFontSizeString = newFontSize.toString() + 'pt';
 
-	if (markerList && map.getZoom() >= defaultZoom) {
+	if (markerList && map.getZoom() > defaultZoom + 1) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
