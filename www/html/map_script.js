@@ -93,7 +93,7 @@ function myMap() {
 	// Apply Settings
 	setTime();
 	enableAnimations = true;
-	//setMarkerNames();
+	setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
 
