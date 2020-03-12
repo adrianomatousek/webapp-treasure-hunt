@@ -209,8 +209,8 @@ function addMarkerCoordinatesTest(){
 	addMarker(50.735820, -3.538780);
 	var lat = markerList[0].getPosition().lat();
 	var lng = markerList[0].getPosition().lng();
-	a1 = assertEquals(lat, 50.735820);
-	a2 = assertEquals(lng, -3.538780);
+	var a1 = assertEquals(lat, 50.735820);
+	var a2 = assertEquals(lng, -3.538780);
 	
 	if (a1 && a2) {
 		testSuccessful();
@@ -227,8 +227,8 @@ function addMarkerNameDescriptionTest(){
 	// 3 Check for name and description
 	
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
-	a1 = assertEquals(markerList[0].name, 'A name');
-	a2 = assertEquals(markerList[0].description, 'A description <br>tags</br>');
+	var a1 = assertEquals(markerList[0].name, 'A name');
+	var a2 = assertEquals(markerList[0].description, 'A description <br>tags</br>');
 	
 	if (a1 && a2) {
 		testSuccessful();
@@ -240,15 +240,14 @@ function addMarkerNameDescriptionTest(){
 }
 
 // TEST 4
-function addMarkerNameDescriptionTest2(){
+function addMarkerNoDescriptionTest(){
 	test = 4;
-	// 3 Check for name and description
+	// 4 Check for name and description
 	
-	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
-	a1 = assertEquals(markerList[0].name, 'A name');
-	a2 = assertEquals(markerList[0].description, 'A description <br>tags</br>');
+	addMarker(50.735402, -3.538078, 'A name');
+	var a1 = assertEquals(markerList[0].description, 'There is treasure to be found here!<br>Get here fast!</br>');
 	
-	if (a1 && a2) {
+	if (a1) {
 		testSuccessful();
 	}
 	else {
@@ -257,10 +256,8 @@ function addMarkerNameDescriptionTest2(){
 	endTest();
 }
 /*
-	
-	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
 	// 4 Check for name and no description
-	addMarker(50.735402, -3.538078, 'A name');
+	
 	// 5 Check for empty / too short name
 	addMarker(50.735402, -3.538078, '', 'A description');
 	// 6 Check for empty / too short description
