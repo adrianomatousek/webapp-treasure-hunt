@@ -176,6 +176,7 @@ function runTests1() {
 	addMarkerNotDraggableTest();
 	resetMapZoomTest();
 	removeMarkerTest();
+	removeAllMarkersTest()
 	
 	logTestResults();
 }
@@ -373,7 +374,7 @@ function setMarkerSizeTest(){
 	addMarker(50.735402, -3.538078);
 	var iconSizeBefore1 = markerList[0].getIcon().scaledSize;
 	var iconSizeBefore2 = markerList[1].getIcon().scaledSize;
-	//setMarkerSizeTest(20);
+	setMarkerSizeTest(20);
 	var iconSizeAfter1 = markerList[0].getIcon().scaledSize;
 	var iconSizeAfter2 = markerList[1].getIcon().scaledSize;
 	
