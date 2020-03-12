@@ -1085,7 +1085,8 @@ function createDefaultExtraLocations() {
 
 			// use type id '4' for office or other college locations.
 
-	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact
+	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
+	//addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact
 	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png');
 	addExtraMarker(90.00, 0.00, 5, "Santa","Merry Christmas", 'santa.png');
 	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'sports.png');
