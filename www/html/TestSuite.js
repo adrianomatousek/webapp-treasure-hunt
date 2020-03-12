@@ -155,6 +155,8 @@ function runTests1() {
 	addMarkerArrayTest();
 	addMarkerCoordinatesTest();
 	addMarkerNameDescriptionTest()
+	
+	logTestResults();
 }
 
 var test;
