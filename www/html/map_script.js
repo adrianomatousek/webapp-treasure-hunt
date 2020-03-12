@@ -563,8 +563,6 @@ function removeMarker(id) {
 	parameter:
 	id - Index of marker in array
 	*/
-	markerList[id].setMap(null);
-	markerList.splice(id); // removing an element from an array
 	if (activeInfoLabel == markerList[id].infoWindow) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -573,6 +571,9 @@ function removeMarker(id) {
 		activeMarker = null;
 		activeInfoWindow = null;
 	}
+	markerList[id].setMap(null);
+	markerList.splice(id); // removing an element from an array
+	
 	markers -= 1;
 }
 
