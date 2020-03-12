@@ -597,9 +597,7 @@ function getColorTest(){
 	endTest();
 }
 
-
-
-// TEST X
+// TEST 19
 function setMarkerSizeTest(){
 	// Checks icon size change for multiple markers (should change all)
 	addMarker(50.735402, -3.538078);
