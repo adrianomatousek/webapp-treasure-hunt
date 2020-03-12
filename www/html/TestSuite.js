@@ -28,6 +28,7 @@ function assertEquals(valueTested, expectedResult) {
 
 function getTestResult(id) {
 	var value = testCases[id];
+	console.log('FFFFFFFFFFFFF ' + value);
 	if (typeof value === 'boolean' && !value) {
 		var result = 'Successful';
 		return result;
