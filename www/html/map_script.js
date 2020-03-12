@@ -203,7 +203,7 @@ function scaleMarkerSizeOnZoom() {
 			}
 		}
 		else if (zoom == defaultZoom - scaledSizeMultiplier + 4) {
-			if (extraMarkersList) {
+			if (extraMarkersList && showExtraLocations) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(true);
 				}
@@ -228,7 +228,7 @@ function resetMapZoom() {
 			markerList[i].setVisible(true);
 		}
 	}
-	if (extraMarkersList) {
+	if (extraMarkersList && showExtraLocations) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			extraMarkersList[i].setVisible(true);
 		}
