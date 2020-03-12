@@ -563,11 +563,11 @@ function removeMarker(id) {
 	parameter:
 	id - Index of marker in array
 	*/
-	if (activeInfoLabel == markerList[id].infoWindow) {
+	if (activeInfoLabel) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
 	}
-	if (activeMarker == markerList[id].infoWindow) {
+	if (activeMarker === markerList[id]) {
 		activeMarker = null;
 		activeInfoWindow = null;
 	}
