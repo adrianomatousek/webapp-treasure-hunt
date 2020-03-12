@@ -313,11 +313,11 @@ $routes = $conn->query($findRoutes);
           </ol>
         </div>
 
-    
+
         <p style="text-align: center;">
           <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
         </p>
-        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">explore</i>This icon leads to the map page</a></li>
+        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">explore</i>This icon opens the map page</a></li>
         <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">adjust</i>This icon opens the camera for scanning QR code</a></li>
         <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">account_circle</i>This icon opens the leaderboard page</a></li>
 
