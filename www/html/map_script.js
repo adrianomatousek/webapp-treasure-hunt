@@ -957,9 +957,9 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 		},
 		icon: {
 			url: iconURL,
-			scaledSize: new google.maps.Size(30, 30),
+			scaledSize: new google.maps.Size(24, 24),
 			origin: new google.maps.Point(0, 0),
-			labelOrigin: new google.maps.Point(15, 38)
+			labelOrigin: new google.maps.Point(12, 32)
 		},
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
