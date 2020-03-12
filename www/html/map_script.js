@@ -684,7 +684,7 @@ function markerSetAnimation(marker, animation) {
 			// Has to be done this way because Google's API has a bug that breaks the animation sometimes
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			setTimeout(function () {
-				if (activeMarker == marker) {
+				if (activeMarker == marker && enableAnimations) {
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 				}
 			}, 800);
@@ -693,7 +693,9 @@ function markerSetAnimation(marker, animation) {
 			// Has to be done this way because Google's API has a bug that breaks the animation sometimes
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			setTimeout(function () {
-				marker.setAnimation(google.maps.Animation.BOUNCE);
+				if (enableAnimations) {
+					marker.setAnimation(google.maps.Animation.BOUNCE);
+				}
 			}, 800);
 			break;
 		case 'DROP':
@@ -740,7 +742,7 @@ function dayTime() {
 		styles: map_theme_daytime
 	});
 
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
@@ -752,6 +754,13 @@ function dayTime() {
 		var label = customMarker.getLabel();
 		label.color = 'black';
 		customMarker.setLabel(label);
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.color = 'black';
+			extraMarkersList[i].setLabel(label);
+		}
 	}
 
 }
@@ -773,6 +782,13 @@ function nightTime() {
 		var label = customMarker.getLabel();
 		label.color = 'white';
 		customMarker.setLabel(label);
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var label = extraMarkersList[i].getLabel();
+			label.color = 'white';
+			extraMarkersList[i].setLabel(label);
+		}
 	}
 }
 
@@ -905,7 +921,7 @@ function setMarkerOpacity(value) {
 		}
 	}
 	if (extraMarkersList) {
-		for (i = 0; i < markerList.length; i++) {
+		for (i = 0; i < extraMarkersList.length; i++) {
 			extraMarkersList[i].setOpacity(value);
 		}
 	}
