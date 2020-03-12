@@ -12,7 +12,7 @@ var customMarker;
 var defaultMarkerOpacity = 0.85;
 var reducedMarkerOpacity = 0.45;
 var markerOpacity = defaultMarkerOpacity;
-var showMarkerNames = false;
+var showMarkerNames = true;
 var showInfoLabels = true;
 var points; //array of all the waypoints
 var clues;
@@ -211,6 +211,13 @@ function scaleMarkerSizeOnZoom() {
 					extraMarkersList[i].setVisible(true);
 				}
 			}
+		}
+		if (zoom == defaultZoom + 1 && showMarkerNames) {
+			showAllMarkerNames();
+		}
+		else if (zoom == defaultZoom) {
+			hideAllMarkerNames();
+			showAllMarkerNames();
 		}
 	});
 }
@@ -846,8 +853,10 @@ function toggleMarkerAnimations() {
 
 function toggleMarkerNames() {
 	if (!showMarkerNames) {
+		showMarkerNames = true;
 		showAllMarkerNames();
 	} else {
+		showMarkerNames = false;
 		hideAllMarkerNames();
 	}
 }
@@ -863,11 +872,10 @@ function setMarkerNames() {
 // shows marker names
 function showAllMarkerNames() {
 
-	showMarkerNames = true;
 	defaultFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 
-	if (markerList) {
+	if (markerList && map.getZoom() >== defaultZoom) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
@@ -877,7 +885,7 @@ function showAllMarkerNames() {
 			markerList[i].setLabel(label);
 		}
 	}
-	if (extraMarkersList) {
+	if (extraMarkersList && map.getZoom() >== defaultZoom + 1) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
 			label.text = (label.name).toString();
@@ -889,7 +897,6 @@ function showAllMarkerNames() {
 // hide marker names
 function hideAllMarkerNames() {
 
-	showMarkerNames = false;
 	defaultFontSize = (defaultFontSize + reduceFontSizeBy); // increase font size as names are no longer displayed
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 

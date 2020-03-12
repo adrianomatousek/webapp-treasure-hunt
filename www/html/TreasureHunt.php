@@ -132,7 +132,7 @@ $routes = $conn->query($findRoutes);
     <div class="switch">
 		<li><a style="display: inline-block" href="javascript:toggleMarkerNames(); tickBox3();"><i class="material-icons">pin_drop</i>Pin names</a>
 			<label>
-				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox">
+				<input id="checkBoxMarkerNames" onchange="toggleMarkerNames()" type="checkbox" checked = "true">
 				<span style="float: right; margin: 17px;" class="lever"></span>
 			</label>
 		</li>
