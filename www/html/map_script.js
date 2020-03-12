@@ -807,6 +807,9 @@ function nightTime() {
 
 function toggleExtraLocations() {
 	if (showExtraLocations) {
+		if (activeInfoWindow) {
+			activeInfoWindow.close();
+		}
 		if (extraMarkersList) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				extraMarkersList[i].setVisible(false);
