@@ -190,8 +190,7 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-
-		if (zoom == defaultZoom - 2) {
+		if (zoom == defaultZoom - scaledSizeMultiplier + 2) {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(false);
@@ -203,18 +202,20 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		else if (zoom == defaultZoom - 1) {
+		else if (zoom == defaultZoom - scaledSizeMultiplier + 3) {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(true);
 				}
 			}
 		}
-
 	});
 }
 
 function resetMapZoom() {
+	/*
+	Resets the map zoom level and places the view at the centre. Used when zooming out too far.
+	*/
 	map.setOptions({
 		center: new google.maps.LatLng(50.735882, -3.534206),
 		zoom: defaultZoom
@@ -866,7 +867,7 @@ function hideAllMarkerNames() {
 	defaultFontSize = (defaultFontSize + reduceFontSizeBy); // increase font size as names are no longer displayed
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = markerList[i].id + 1;
@@ -888,12 +889,12 @@ function hideAllMarkerNames() {
 // sets opacity of markers
 function setMarkerOpacity(value) {
 	markerOpacity = value;
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			markerList[i].setOpacity(value);
 		}
 	}
-	if (extraMarkersList.length > 0) {
+	if (extraMarkersList) {
 		for (i = 0; i < markerList.length; i++) {
 			extraMarkersList[i].setOpacity(value);
 		}
