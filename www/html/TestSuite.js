@@ -333,13 +333,23 @@ function resetMapZoomTest(){
 
 // TEST 9
 function setMarkerSizeTest(){
+	// Checks icon size change for multiple markers (should change all)
 	addMarker(50.735402, -3.538078);
-	console.log('TESTERETETETETSD ' + markerList[0].getIcon().scaledSize);
-	resetMapZoom();
+	addMarker(50.735402, -3.538078);
+	var iconSizeBefore1 = markerList[0].getIcon().scaledSize;
+	var iconSizeBefore2 = markerList[1].getIcon().scaledSize;
+	setMarkerSizeTest(20, '12pt');
+	var iconSizeAfter1 = markerList[0].getIcon().scaledSize;
+	var iconSizeAfter2 = markerList[1].getIcon().scaledSize;
 	
-	var a1 = assertEquals(map.getZoom(), 16);
+	a1 = assertEquals(iconSizeBefore1, 50);
+	a2 = assertEquals(iconSizeBefore2, 50);
 	
-	if (a1) {
+	a3 = assertEquals(iconSizeAfter1, 20);
+	a4 = assertEquals(iconSizeAfter1, 20);
+	
+	
+	if (a1 && a2 && a3 && a4) {
 		testSuccessful();
 	}
 	else {
