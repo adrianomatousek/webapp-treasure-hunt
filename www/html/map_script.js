@@ -117,15 +117,18 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 	*/
 	if (markerList.length) {
 		for (i = 0; i < markerList.length; i++) {
-			var label = markerList[i].getLabel();
-			label.color = getColor();
-			label.fontSize = fontSize;
-			markerList[i].setLabel(label);
-
-			var icon = markerList[i].getIcon();
-			icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
-			icon.labelOrigin = new google.maps.Point((scaledSize / 2), scaledSize + labelOriginHeightOffset);
-			markerList[i].setIcon(icon);
+			if (markerList[i].getLabel()) {
+				var label = markerList[i].getLabel();
+				label.color = getColor();
+				label.fontSize = fontSize;
+				markerList[i].setLabel(label);
+			}	
+			if (markerList[i].getIcon()) {
+				var icon = markerList[i].getIcon();
+				icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
+				icon.labelOrigin = new google.maps.Point((scaledSize / 2), scaledSize + labelOriginHeightOffset);
+				markerList[i].setIcon(icon);
+			}
 		}
 	}
 }
@@ -432,7 +435,7 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 			this.setLabel(label);
 
 			//sets marker label for new marker
-			if (activeMarker) {
+			if (activeMarker && activeMarker.getLabel()) {
 				var oldLabel = activeMarker.getLabel();
 				if (isDay) {
 					oldLabel.color = 'black';
