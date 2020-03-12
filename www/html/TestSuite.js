@@ -186,6 +186,8 @@ function runTests1() {
 	resetMapZoomTest();
 	removeMarkerTest();
 	removeAllMarkersTest();
+	addCustomMarkerTest()
+	addExtraMarkerTest()
 	
 	logTestResults();
 }
