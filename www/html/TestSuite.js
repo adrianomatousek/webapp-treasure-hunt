@@ -4,16 +4,16 @@
 
 var fileName = 'map_script.js';
 var testCases = [];
-var test;
+//var test;
 
 function testSuccessful(result = true) {
 	if (result == true) {
 		testCases.push(result);
-		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1]);
+		//console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1]);
 	}
 	else {
 		testCases.push(result);
-		console.log('TEST ' + test + ' FAILED!');
+		//console.log('TEST ' + test + ' FAILED!');
 	}
 }
 
@@ -24,20 +24,6 @@ function assertEquals(valueTested, expectedResult) {
 	else {
 		return false;
 	}
-}
-
-function getTestResult(id) {
-	console.log('OMG');
-	var value = testCases[id];
-	console.log('FFFFFFFFFFFFF ' + value);
-	var result;
-	if (typeof value === 'boolean' && value == true) {
-		result = 'Successful';
-	}
-	else {
-		result = 'FAILED!';
-	}
-	return result;
 }
 
 function logTestResults() {
@@ -171,6 +157,7 @@ function runTests1() {
 	addMarkerCoordinatesTest();
 	addMarkerNameDescriptionTest();
 	addMarkerNoDescriptionTest();
+	addMarkerNoName();
 	
 	logTestResults();
 }
@@ -178,7 +165,7 @@ function runTests1() {
 
 // TEST 1
 function addMarkerArrayTest(){
-	test = 1;
+	//test = 1;
 	// 1 Check if marker is added to array
 	
 	addMarker(50.735820, -3.538780);
@@ -204,7 +191,7 @@ function addMarkerArrayTest(){
 
 // TEST 2
 function addMarkerCoordinatesTest(){
-	test = 2;
+	//test = 2;
 	// 2 Check for coordinates
 	
 	addMarker(50.735820, -3.538780);
@@ -224,7 +211,7 @@ function addMarkerCoordinatesTest(){
 
 // TEST 3
 function addMarkerNameDescriptionTest(){
-	test = 3;
+	//test = 3;
 	// 3 Check for name and description
 	
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
@@ -242,11 +229,27 @@ function addMarkerNameDescriptionTest(){
 
 // TEST 4
 function addMarkerNoDescriptionTest(){
-	test = 4;
-	// 4 Check for name and description
+	//test = 4;
+	// 4 Check for no / too short description
 	
 	addMarker(50.735402, -3.538078, 'A name');
-	var a1 = assertEquals(markerList[0].description, 'There is treasure to be found here!<br>Get here fast!</br>');
+	var a1 = assertEquals(markerList[0].description, 'There is treasure to be found here!<br>Get here fast!</br>');  // default description
+	
+	if (a1) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 5
+function addMarkerNoName(){
+	// 5 Check for empty / too short name
+	
+	addMarker(50.735402, -3.538078, '');
+	var a1 = assertEquals(markerList[0].name, 'Treasure');  // default name
 	
 	if (a1) {
 		testSuccessful();
