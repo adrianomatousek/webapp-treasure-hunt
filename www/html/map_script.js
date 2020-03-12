@@ -1166,7 +1166,6 @@ function createDefaultExtraLocations() {
 
 	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'health.png', '');
 	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png','');
-	addExtraMarker2(90.00, 0.00, 5, "Santa","Merry Christmas", 'santa.png');
 	addExtraMarker2(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
 	addExtraMarker2(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png','');
 	addExtraMarker2(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
