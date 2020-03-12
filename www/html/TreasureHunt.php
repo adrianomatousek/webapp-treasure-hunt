@@ -88,7 +88,7 @@ $routes = $conn->query($findRoutes);
         <p style="text-align: center;">Hey you've done it, all
           the treasures have been found!
         </p>
-        <img style="text-align: center; padding: 5px; display: block; width: 150px; margin-left: auto;  margin-right: auto;" src="https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png" alt=""></img>
+        <img style="text-align: center; padding: 5px; display: block; width: 150px; margin-left: auto;  margin-right: auto;" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/trophy.png" alt=""></img>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
