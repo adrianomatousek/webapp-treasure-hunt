@@ -32,7 +32,7 @@ function getTestResult(id) {
 		return result;
 	}
 	else {
-		var result = 'FAILED!'
+		var result = 'FAILED!';
 		return result;
 	}
 }
