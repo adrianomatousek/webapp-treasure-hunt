@@ -381,7 +381,7 @@ function removeAllMarkersTest() {
 // TEST 11
 function addCustomMarkerTest() {
 	
-	var a1 = assertEquals(customMarker, null);
+	var a1 = assertEquals(customMarker, undefined);
 	addCustomMarker();
 	
 	var a2 = customMarker;
