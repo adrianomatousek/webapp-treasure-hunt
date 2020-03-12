@@ -28,12 +28,30 @@ function assertEquals(valueTested, expectedResult) {
 
 function getTestResult(id) {
 	console.log('OMG');
-
+	var value = testCases[id];
+	console.log('FFFFFFFFFFFFF ' + value);
+	var result;
+	if (typeof value === 'boolean' && value == true) {
+		result = 'Successful';
+	}
+	else {
+		result = 'FAILED!';
+	}
+	return result;
 }
 
 function logTestResults() {
-	for (i = 0; i < testCases.length; i++) { 
-		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
+	for (i = 0; i < testCases.length; i++) {
+		var value = testCases[id];
+		console.log('FFFFFFFFFFFFF ' + value);
+		var result;
+		if (testCases[id] === true) {
+			result = 'Successful';
+		}
+		else {
+			result = 'FAILED!';
+		}
+		console.log('TEST ' + (i+1) + ': ' + result);
 	}
 }
 
