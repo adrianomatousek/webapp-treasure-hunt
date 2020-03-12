@@ -336,7 +336,7 @@ function removeMarkerTest(){
 	addMarker(50.735402, -3.538078);
 	removeMarker(0);
 	
-	var a1 = assertEquals(markerList[i], null);
+	var a1 = assertEquals(markerList[i], undefined);
 	var a2 = assertEquals(markers, 0);
 	
 	if (a1 && a2) {
