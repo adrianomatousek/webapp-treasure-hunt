@@ -42,10 +42,9 @@ function getTestResult(id) {
 
 function logTestResults() {
 	for (i = 0; i < testCases.length; i++) {
-		var value = testCases[id];
 		console.log('FFFFFFFFFFFFF ' + value);
 		var result;
-		if (testCases[id] === true) {
+		if (testCases[i] === true) {
 			result = 'Successful';
 		}
 		else {
