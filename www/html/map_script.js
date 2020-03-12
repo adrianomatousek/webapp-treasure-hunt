@@ -93,7 +93,7 @@ function myMap() {
 	// Apply Settings
 	setTime();
 	enableAnimations = true;
-	setMarkerNames();
+	//setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
 
@@ -531,7 +531,7 @@ function addMarkerMouseOverListeners(marker, infoWindow, infoLabel) {
 		}
 		this.setLabel(label);
 
-		if (showLabelOnMouseOver) {
+		if (showLabelOnMouseOver && showHints) {
 			marker.mouseOnMarker = true;
 			setTimeout(function () {
 				if (marker.mouseOnMarker && !activeInfoWindow && !activeInfoLabel) {
@@ -572,6 +572,10 @@ function removeMarker(id) {
 	parameter:
 	id - Index of marker in array
 	*/
+	if (activeInfoWindow) {
+		activeInfoWindow.close();
+		activeInfoWindow = null;
+	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
 		activeInfoLabel = null;
@@ -586,10 +590,13 @@ function removeMarker(id) {
 	markers -= 1;
 }
 
-
 function removeAllMarkers() {
 	for (i = 0; i < markerList.length; i++) {
 		markerList[i].setMap(null);
+	}
+	if (activeInfoWindow) {
+		activeInfoWindow.close();
+		activeInfoWindow = null;
 	}
 	if (activeInfoLabel) {
 		activeInfoLabel.close();
