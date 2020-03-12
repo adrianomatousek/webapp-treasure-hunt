@@ -14,6 +14,15 @@ function testSuccessful(result = true) {
 	}
 }
 
+function assertEquals(valueTested, expectedResult) {
+	if (valueTested === expectedResult) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 // Pre-defined variables for this test suite
 var map;
 var currentPositionMarker;
@@ -48,7 +57,10 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
-function resetAll(){
+function endTest(){
+	/*
+		Resets all the variables when the test ends, so the next one is not affected by them.
+	*/
 	var map2;
 	map = map2;
 	var currentPositionMarker2;
@@ -115,24 +127,15 @@ function resetAll(){
 	extraMarkers = extraMarkers2;
 }
 
-// Initialize test-suite
-function initTests1() {
-	
-	
-	
-	
-	
-	console.log('add');
-} 
-
 function runTests1() {
-	// Test 1: check if marker is added to array
 	
 	console.log('RUNNING TEST CASES FOR: ' + fileName);
 	
-	addMarkerTest();
+	// Tests
+	addMarkerArrayTest();
 }
 
+// TEST 1
 function addMarkerArrayTest(){
 	// 1 Check if marker is added to array
 	
@@ -144,7 +147,11 @@ function addMarkerArrayTest(){
 	
 	length2 = markerList.length;
 	
-	if (length1 == 1 && length2 == 2) {
+	assert1 = assertEquals(length1, 1);
+	
+	assert2 = assertEquals(length2, 2);
+	
+	if (assert1 && assert2) {
 		testSuccessful();
 		console.log('TEST 1 SUCCESSFUL');
 		
@@ -152,18 +159,27 @@ function addMarkerArrayTest(){
 		testSuccessful(false);
 		console.log('TEST 1 NOT');
 	}
-	resetAll();
+	endTest();
 }
 
+// TEST 2
 function addMarkerCoordinatesTest(){
-	addMarker(50.735820, -3.538780);
-	markerList[0].getCoo
-}
-	
-	
-	
 	// 2 Check for coordinates
 	addMarker(50.735820, -3.538780);
+	var lat = markerList[0].getPosition().lat();
+	var lng = markerList[0].getPosition().lng();
+	a1 = assertEquals(lat, 50.735820);
+	a2 = assertEquals(lng, -3.538780);
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+}
+
+/*
 	// 3 Check for name and description
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
 	// 4 Check for name and no description
@@ -176,8 +192,7 @@ function addMarkerCoordinatesTest(){
 	addMarker(50.735402, -3.538078, 'A name', 'A description', true);
 	// 8 Check for non-draggable marker
 	addMarker(50.735402, -3.538078, '', '', false);
-}
-
+*/
 
 
 // Runs test
