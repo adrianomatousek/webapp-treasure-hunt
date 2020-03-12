@@ -217,9 +217,9 @@ function scaleMarkerSizeOnZoom() {
 		}
 		else if (zoom == defaultZoom || zoom == defaultZoom + 1) {
 			hideAllMarkerNames();
-			if (showMarkerNames) {
-				showAllMarkerNames();
-			}	
+			//if (showMarkerNames) {
+			//	showAllMarkerNames();
+			//}	
 		}
 	});
 }
