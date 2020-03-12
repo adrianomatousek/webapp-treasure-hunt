@@ -43,9 +43,9 @@ function logTestResults() {
 	}
 	var total = failed + passed;
 	
-	console.log('TESTS FINISHED');
-	console.log('Passed ' + passed + '/' + total + ' test cases successfully.');
-	console.log('(FAILED: ' + failed);
+	console.log('TESTS FINISHED\n' + 
+				'Passed ' + passed + '/' + total + ' test cases successfully.' +
+				'(FAILED: ' + failed + ')');
 }
 
 // Pre-defined variables for this test suite
