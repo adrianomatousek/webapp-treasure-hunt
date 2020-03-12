@@ -296,8 +296,8 @@ function addMarkerNotDraggableTest(){
 	addMarker(50.735402, -3.538078, 'A name', 'A description', false);
 	var a1 = assertEquals(markerList[0].draggable, false); 
 	
-	addMarker(50.735402, -3.538078, 'A name', 'A description');
-	var a2 = assertEquals(markerList[1].draggable, true); 
+	addMarker(50.735402, -3.538078, 'A name', 'A description');  // should also be false by default
+	var a2 = assertEquals(markerList[1].draggable, false); 
 	
 	if (a1 && a2) {
 		testSuccessful();
