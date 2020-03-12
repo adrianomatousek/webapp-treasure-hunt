@@ -398,9 +398,9 @@ function addCustomMarkerTest() {
 // TEST 12
 function addExtraMarkerTest() {
 	
-	var a1 = assertEquals(extraMarkersList, null);
 	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'img/icons/health.png', '');
-	var a2 = assertExists(extraMarkersList); 
+	var a1 = assertExists(extraMarkersList); 
+	var a2 = assertEquals(extraMarkersList.length, 1);
 	
 	if (a1 && a2) {
 		testSuccessful();
