@@ -785,7 +785,7 @@ function toggleExtraLocations() {
 		}
 		showExtraLocations = false;
 	} else {
-		if (extraMarkersList && map.getZoom() >= defaultZoom - 2) {
+		if (extraMarkersList && map.getZoom() > defaultZoom - 2) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				extraMarkersList[i].setVisible(true);
 			}
