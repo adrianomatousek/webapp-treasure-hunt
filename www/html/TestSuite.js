@@ -26,6 +26,15 @@ function assertEquals(valueTested, expectedResult) {
 	}
 }
 
+function assertExists(valueTested, expectedResult == true) {
+	if (assertExists) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 function logTestResults() {
 
 	console.log('RUNNING TEST CASES FOR: ' + testTarget);
@@ -359,6 +368,39 @@ function removeAllMarkersTest() {
 	var a1 = assertEquals(markerList[i], undefined);
 	var a2 = assertEquals(markers, 0);
 	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 11
+function addCustomMarkerTest() {
+	
+	var a1 = assertEquals(customMarker, null);
+	addCustomMarker();
+	var a2 = assertExists(customMarker); 
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 12
+function addExtraMarkerTest() {
+	
+	var a1 = assertExists(extraMarkersList, false);
+	addExtraMarker(50.735402, -3.538078, 0);
+	var a2 = assertExists(extraMarkersList); 
+	var a3 = assertEquals(extraMarkers, 1);
+	
+	if (a1 && a2 && a3) {
 		testSuccessful();
 	}
 	else {
