@@ -175,6 +175,7 @@ function addMarkerArrayTest(){
 function addMarkerCoordinatesTest(){
 	test = 2;
 	// 2 Check for coordinates
+	
 	addMarker(50.735820, -3.538780);
 	var lat = markerList[0].getPosition().lat();
 	var lng = markerList[0].getPosition().lng();
@@ -189,8 +190,25 @@ function addMarkerCoordinatesTest(){
 	}
 }
 
-/*
+// TEST 3
+function addMarkerCoordinatesTest(){
+	test = 3;
 	// 3 Check for name and description
+	
+	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
+	a1 = assertEquals(markerList[0].name, 'A name');
+	a2 = assertEquals(markerList[0].description, 'A description <br>tags</br>');
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+}
+
+/*
+	
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
 	// 4 Check for name and no description
 	addMarker(50.735402, -3.538078, 'A name');

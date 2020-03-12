@@ -357,10 +357,11 @@ function addMarker(latPos, lngPos, name, description, draggable = false) {
 		id: markerNum - 1,
 		opacity: markerOpacity,
 		name: name,
+		description: description, // used for testing
 		mouseOnMarker: false // used to determine if mouse is on marker; used by event listeners
 	});
 
-	var contentString = '<div id="content" style="text-align:center">' + // <div id="siteNotice">Treasure Location</div>
+	var contentString = '<div id="content" style="text-align:center">' +
 		'<h4 id="firstHeading" class="firstHeading">' + markerNum + '. ' + name +
 		'</h4><div id="bodyContent"><p> ' + description +
 		'<br><input type="button" id="showClueButton-' + markerNum + '" + class="waves-effect waves-light btn-small" value="Show Clue (-1 point)" onclick="showNextClue(' + markerNum + ')">' +
