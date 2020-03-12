@@ -27,8 +27,12 @@ function assertEquals(valueTested, expectedResult) {
 }
 
 function logTestResults() {
+
+	console.log('RUNNING TEST CASES FOR: ' + fileName);
+
 	var failed = 0;
 	var passed = 0;
+	
 	for (i = 0; i < testCases.length; i++) {
 		var result;
 		if (testCases[i] === true) {
@@ -158,8 +162,6 @@ function endTest(){
 }
 
 function runTests1() {
-	
-	console.log('RUNNING TEST CASES FOR: ' + fileName);
 	
 	// Tests
 	addMarkerArrayTest();
