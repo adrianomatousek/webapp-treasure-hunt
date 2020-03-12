@@ -189,6 +189,10 @@ function runTests1() {
 	addCustomMarkerTest()
 	addExtraMarkerTest()
 	checkTimeTest();
+	toggleHintsTest();
+	toggleMarkerAnimationsTest_NoActiveMarker();
+	toggleMarkerAnimationsTest_WithActiveMarker();
+	markerSetAnimationTest();
 	
 	logTestResults();
 }
