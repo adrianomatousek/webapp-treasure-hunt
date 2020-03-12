@@ -178,6 +178,8 @@ function addMarkerCoordinatesTest(){
 		testSuccessful(false);
 	}
 }
+
+/*
 	// 3 Check for name and description
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
 	// 4 Check for name and no description
@@ -190,8 +192,7 @@ function addMarkerCoordinatesTest(){
 	addMarker(50.735402, -3.538078, 'A name', 'A description', true);
 	// 8 Check for non-draggable marker
 	addMarker(50.735402, -3.538078, '', '', false);
-}
-
+*/
 
 
 // Runs test
