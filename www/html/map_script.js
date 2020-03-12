@@ -926,7 +926,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 		});
 }
 
-function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'img/icons/yellow.png', imageURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
