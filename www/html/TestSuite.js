@@ -63,11 +63,6 @@ function endTest(){
 	/*
 		Resets all the variables when the test ends, so the next one is not affected by them.
 	*/
-	var map2 = new google.maps.Map(document.getElementById("googleMap"), {
-					center: new google.maps.LatLng(50.735882, -3.534206),
-					zoom: defaultZoom
-	});
-	map = map2;
 	var currentPositionMarker2;
 	currentPositionMarker = currentPositionMarker2;
 	var markerList2 = [];
@@ -130,6 +125,13 @@ function endTest(){
 	extraMarkersList = extraMarkersList2;
 	var extraMarkers2 = extraMarkersList.length;
 	extraMarkers = extraMarkers2;
+	
+	var map2 = new google.maps.Map(document.getElementById("googleMap"), {
+					center: new google.maps.LatLng(50.735882, -3.534206),
+					zoom: defaultZoom
+	});
+	map = map2;
+	myMap();
 }
 
 function runTests1() {
