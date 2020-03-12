@@ -1085,7 +1085,14 @@ function createDefaultExtraLocations() {
 
 			// use type id '4' for office or other college locations.
 
-	
+	addExtraMarker(50.736132, -3.538045, 0, "Student Health Centre");  // <---- maybe add telephone number for contact
+	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png');
+	addExtraMarker(90.00, 0.00, 5, "Santa","Merry Christmas", 'santa.png');
+	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'sports.png');
+	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'books.png');
+	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'cafe.png');
+	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe.png');
+	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'swim.png');
 }
 
 
