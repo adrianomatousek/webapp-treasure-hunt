@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-
+/*
 session_start();
 
 if ($_SESSION["loggedin"] != true){
@@ -14,7 +14,7 @@ require_once ("connection.php");
 
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
-
+*/
 ?>
 
 <html>
@@ -318,6 +318,10 @@ $routes = $conn->query($findRoutes);
         <p style="text-align: center;">
           <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
         </p>
+        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">explore</i>This icon leads to the map page</a></li>
+        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">adjust</i>This icon opens the camera for scanning QR code</a></li>
+        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">account_circle</i>This icon opens the leaderboard page</a></li>
+
       </div>
     </div>
   </div>

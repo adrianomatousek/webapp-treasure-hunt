@@ -1032,7 +1032,6 @@ function addExtraMarker2(latPos, lngPos, typeID, name, description, iconURL, ima
 			name: name,
 		},
 		icon: {
-			//url: 'img/icons/' + iconURL,
 			url: iconURL,
 			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
