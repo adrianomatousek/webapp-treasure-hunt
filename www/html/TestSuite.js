@@ -30,14 +30,14 @@ function getTestResult(id) {
 	console.log('OMG');
 	var value = testCases[id];
 	console.log('FFFFFFFFFFFFF ' + value);
-	if (typeof value === 'boolean' && !value) {
-		var result = 'Successful';
-		return result;
+	var result;
+	if (typeof value === 'boolean' && value == true) {
+		result = 'Successful';
 	}
 	else {
-		var result = 'FAILED!';
-		return result;
+		result = 'FAILED!';
 	}
+	return result;
 }
 
 function logTestResults() {
