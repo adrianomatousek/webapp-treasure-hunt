@@ -383,7 +383,8 @@ function addCustomMarkerTest() {
 	
 	var a1 = assertEquals(customMarker, null);
 	addCustomMarker();
-	var a2 = assertExists(customMarker); 
+	
+	var a2 = customMarker;
 	
 	if (a1 && a2) {
 		testSuccessful();
@@ -399,7 +400,7 @@ function addExtraMarkerTest() {
 	
 	var a1 = assertEquals(extraMarkersList, null);
 	addExtraMarker(50.735402, -3.538078, 0);
-	var a2 = assertExists(extraMarkersList); 
+	var a2 = assertEquals(extraMarkersList.length, 1); 
 	var a3 = assertEquals(extraMarkers, 1);
 	
 	if (a1 && a2 && a3) {
