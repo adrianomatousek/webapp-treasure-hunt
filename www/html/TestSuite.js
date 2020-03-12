@@ -167,7 +167,7 @@ function addMarkerCoordinatesTest(){
 	// 2 Check for coordinates
 	addMarker(50.735820, -3.538780);
 	var lat = markerList[0].getPosition().lat();
-	var lng markerList[0].getPosition().lng();
+	var lng = markerList[0].getPosition().lng();
 	a1 = assertEquals(lat, 50.735820);
 	a2 = assertEquals(lng, -3.538780);
 	
