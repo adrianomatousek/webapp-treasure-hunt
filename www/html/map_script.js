@@ -104,7 +104,6 @@ function myMap() {
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 
 	createDefaultExtraLocations();
-	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'cafe.png', '');
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
@@ -955,7 +954,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 			name: name,
 		},
 		icon: {
-			url: 'img/icons/' + iconURL,
+			url: 'img/icons/' + iconURL.toString(),
 			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(15, 38)
