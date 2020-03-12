@@ -135,6 +135,7 @@ function runTests1() {
 	
 	// Tests
 	addMarkerArrayTest();
+	addMarkerCoordinatesTest();
 }
 
 var test;
