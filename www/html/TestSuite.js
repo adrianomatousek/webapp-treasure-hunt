@@ -2,7 +2,7 @@
 	Test Suite for "map_script.js" (used by the TreasureHunt.php page and gameKeeper.php page)
 */
 
-var fileName = 'map_script.js';
+var testTarget = 'map_script.js (TreasureHunt.php and gameKeeper.php)';
 var testCases = [];
 //var test;
 
@@ -28,7 +28,7 @@ function assertEquals(valueTested, expectedResult) {
 
 function logTestResults() {
 
-	console.log('RUNNING TEST CASES FOR: ' + fileName);
+	console.log('RUNNING TEST CASES FOR: ' + testTarget);
 
 	var failed = 0;
 	var passed = 0;
