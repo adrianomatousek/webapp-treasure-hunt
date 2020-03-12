@@ -44,7 +44,7 @@ function logTestResults() {
 	var total = failed + passed;
 	
 	console.log('TESTS FINISHED\n' + 
-				'Passed ' + passed + '/' + total + ' test cases successfully.' +
+				'Passed ' + passed + '/' + total + ' test cases successfully.\n' +
 				'(FAILED: ' + failed + ')');
 }
 
