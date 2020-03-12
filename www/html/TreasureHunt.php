@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+/*
 session_start();
 
 if ($_SESSION["loggedin"] != true){
@@ -13,7 +14,7 @@ require_once ("connection.php");
 
 $findRoutes = "SELECT routeID, routeName FROM routes";
 $routes = $conn->query($findRoutes);
-
+*/
 ?>
 
 <html>
