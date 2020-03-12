@@ -875,7 +875,7 @@ function showAllMarkerNames() {
 	defaultFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	defaultFontSizeString = defaultFontSize.toString() + 'pt';
 
-	if (markerList && map.getZoom() >== defaultZoom) {
+	if (markerList && map.getZoom() >= defaultZoom) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
@@ -885,7 +885,7 @@ function showAllMarkerNames() {
 			markerList[i].setLabel(label);
 		}
 	}
-	if (extraMarkersList && map.getZoom() >== defaultZoom + 1) {
+	if (extraMarkersList && map.getZoom() > defaultZoom) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
 			label.text = (label.name).toString();
