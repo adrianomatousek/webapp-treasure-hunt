@@ -189,6 +189,7 @@ function addMarkerCoordinatesTest(){
 	else {
 		testSuccessful(false);
 	}
+	endTest();
 }
 
 // TEST 3
@@ -206,6 +207,7 @@ function addMarkerNameDescriptionTest(){
 	else {
 		testSuccessful(false);
 	}
+	endTest();
 }
 
 /*
