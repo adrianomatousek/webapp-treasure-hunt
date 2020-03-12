@@ -753,11 +753,22 @@ function getColor() {
 
 // sets light mode
 function dayTime() {
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			var icon = extraMarkersList[i].getIcon();
+			var url = icon.url;
+			icon.url = icon.url2;
+			icon.url2 = url;
+			extraMarkersList[i].setIcon(icon);
+			var label = extraMarkersList[i].getLabel();
+			label.color = 'black';
+			extraMarkersList[i].setLabel(label);
+		}
+	}
 	map.setOptions({
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
 	});
-
 	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
@@ -771,22 +782,22 @@ function dayTime() {
 		label.color = 'black';
 		customMarker.setLabel(label);
 	}
+}
+
+// sets night mode
+function nightTime() {
 	if (extraMarkersList) {
 		for (i = 0; i < extraMarkersList.length; i++) {
-			var label = extraMarkersList[i].getLabel();
-			label.color = 'black';
-			extraMarkersList[i].setLabel(label);
 			var icon = extraMarkersList[i].getIcon();
 			var url = icon.url;
 			icon.url = icon.url2;
 			icon.url2 = url;
 			extraMarkersList[i].setIcon(icon);
+			var label = extraMarkersList[i].getLabel();
+			label.color = 'white';
+			extraMarkersList[i].setLabel(label);
 		}
 	}
-}
-
-// sets night mode
-function nightTime() {
 	map.setOptions({
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_nighttime
@@ -802,18 +813,6 @@ function nightTime() {
 		var label = customMarker.getLabel();
 		label.color = 'white';
 		customMarker.setLabel(label);
-	}
-	if (extraMarkersList) {
-		for (i = 0; i < extraMarkersList.length; i++) {
-			var label = extraMarkersList[i].getLabel();
-			label.color = 'white';
-			extraMarkersList[i].setLabel(label);
-			var icon = extraMarkersList[i].getIcon();
-			var url = icon.url;
-			icon.url = icon.url2;
-			icon.url2 = url;
-			extraMarkersList[i].setIcon(icon);
-		}
 	}
 }
 
