@@ -553,19 +553,19 @@ function markerSetAnimationTest() {
 	
 	markerSetAnimation(targetMarker, 'BOUNCE');
 	
-	var a1 = assertEquals(targetMarker.getAnimation(), 'BOUNCE');
+	var a1 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
 	
 	targetMarker.setAnimation(null);
 	
 	markerSetAnimation(targetMarker, 'BOUNCE-IF');
 	
-	var a2 = assertEquals(targetMarker.getAnimation(), 'BOUNCE');
+	var a2 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
 	
 	targetMarker.setAnimation(null);
 	
 	markerSetAnimation(targetMarker, 'DROP');
 	
-	var a3 = assertEquals(targetMarker.getAnimation(), 'DROP');
+	var a3 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.DROP);
 	
 	targetMarker.setAnimation(google.maps.Animation.BOUNCE);
 	
