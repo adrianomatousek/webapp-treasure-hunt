@@ -141,6 +141,7 @@ function runTests1() {
 	// Tests
 	addMarkerArrayTest();
 	addMarkerCoordinatesTest();
+	addMarkerNameDescriptionTest()
 }
 
 var test;
@@ -191,7 +192,7 @@ function addMarkerCoordinatesTest(){
 }
 
 // TEST 3
-function addMarkerCoordinatesTest(){
+function addMarkerNameDescriptionTest(){
 	test = 3;
 	// 3 Check for name and description
 	
