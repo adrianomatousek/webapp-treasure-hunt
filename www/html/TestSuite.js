@@ -8,9 +8,11 @@ var testCases = [];
 function testSuccessful(result = true) {
 	if (result == true) {
 		testCases.push(result);
+		console.log('TEST ' + test + ' SUCCESSFUL');
 	}
 	else {
 		testCases.push(result);
+		console.log('TEST ' + test + ' FAILED!');
 	}
 }
 
@@ -135,8 +137,11 @@ function runTests1() {
 	addMarkerArrayTest();
 }
 
+var test;
+
 // TEST 1
 function addMarkerArrayTest(){
+	test = 1;
 	// 1 Check if marker is added to array
 	
 	addMarker(50.735820, -3.538780);
@@ -153,17 +158,16 @@ function addMarkerArrayTest(){
 	
 	if (assert1 && assert2) {
 		testSuccessful();
-		console.log('TEST 1 SUCCESSFUL');
 		
 	} else {
 		testSuccessful(false);
-		console.log('TEST 1 NOT');
 	}
 	endTest();
 }
 
 // TEST 2
 function addMarkerCoordinatesTest(){
+	test = 2;
 	// 2 Check for coordinates
 	addMarker(50.735820, -3.538780);
 	var lat = markerList[0].getPosition().lat();
