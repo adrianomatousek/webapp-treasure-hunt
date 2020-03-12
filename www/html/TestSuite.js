@@ -401,9 +401,8 @@ function addExtraMarkerTest() {
 	var a1 = assertEquals(extraMarkersList, undefined);
 	addExtraMarker(50.735402, -3.538078, 0);
 	var a2 = assertExists(extraMarkersList); 
-	var a3 = assertEquals(extraMarkers, 1);
 	
-	if (a1 && a2 && a3) {
+	if (a1 && a2) {
 		testSuccessful();
 	}
 	else {
