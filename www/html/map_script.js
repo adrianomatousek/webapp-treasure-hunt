@@ -776,9 +776,13 @@ function dayTime() {
 			var label = extraMarkersList[i].getLabel();
 			label.color = 'black';
 			extraMarkersList[i].setLabel(label);
+			var icon = extraMarkersList[i].getIcon();
+			var url = icon.url;
+			icon.url = icon.url2;
+			icon.url2 = url;
+			extraMarkersList[i].setIcon(icon);
 		}
 	}
-
 }
 
 // sets night mode
@@ -804,6 +808,11 @@ function nightTime() {
 			var label = extraMarkersList[i].getLabel();
 			label.color = 'white';
 			extraMarkersList[i].setLabel(label);
+			var icon = extraMarkersList[i].getIcon();
+			var url = icon.url;
+			icon.url = icon.url2;
+			icon.url2 = url;
+			extraMarkersList[i].setIcon(icon);
 		}
 	}
 }
@@ -961,7 +970,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, 
 		});
 }
 
-function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'img/icons/yellow.png', imageURL) {
+function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'img/icons/yellow.png', iconURL2 = ironURL) {
 	/*
 	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
 	libraries, restaurants
@@ -1001,6 +1010,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'im
 		},
 		icon: {
 			url: iconURL,
+			url2: iconURL2,
 			scaledSize: new google.maps.Size(24, 24),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(12, 32)
@@ -1126,11 +1136,11 @@ function createDefaultExtraLocations() {
 
 	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'img/icons/health.png', '');
 	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'img/icons/david.png','');
-	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
-	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png','');
-	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
-	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
-	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'https://cdn3.iconfinder.com/data/icons/summer/512/swim-512.png','');
+	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn1.iconfinder.com/data/icons/basketball-13/66/27-512.png','https://cdn1.iconfinder.com/data/icons/basketball-14/66/27-512.png');
+	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png','https://cdn3.iconfinder.com/data/icons/eldorado-stroke-culture/40/books_1-512.png');
+	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','https://cdn1.iconfinder.com/data/icons/beauty-and-spa-line-vol-2/52/coffee__cup__tea__break__cafe-512.png');
+	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','https://cdn1.iconfinder.com/data/icons/beauty-and-spa-line-vol-2/52/coffee__cup__tea__break__cafe-512.png');
+	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'https://cdn3.iconfinder.com/data/icons/summer/512/swim-512.png','https://cdn1.iconfinder.com/data/icons/ios-edge-11/25/Swimming-512.png');
 }
 
 
