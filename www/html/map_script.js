@@ -435,7 +435,7 @@ function addMarkerClickListeners(marker, infoWindow, infoLabel) {
 			this.setLabel(label);
 
 			//sets marker label for new marker
-			if (activeMarker) {
+			if (activeMarker && activeMarker.getLabel()) {
 				var oldLabel = activeMarker.getLabel();
 				if (isDay) {
 					oldLabel.color = 'black';
