@@ -190,7 +190,7 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		if (zoom == defaultZoom - scaledSizeMultiplier + 1) {
+		if (zoom == defaultZoom - scaledSizeMultiplier + 3) {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(false);
@@ -202,7 +202,7 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		else if (zoom == defaultZoom - scaledSizeMultiplier + 2) {
+		else if (zoom == defaultZoom - scaledSizeMultiplier + 4) {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					extraMarkersList[i].setVisible(true);
