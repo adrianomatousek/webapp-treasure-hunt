@@ -488,7 +488,7 @@ function toggleMarkerAnimationsTest_WithActiveMarker() {
 		map: map,
 		label: {
 			color: 'black',
-			text: 'Drag Me',
+			text: 'Test',
 			fontSize: '16px',
 			fontWeight: 'bold',
 		},
@@ -536,7 +536,7 @@ function markerSetAnimationTest() {
 		map: map,
 		label: {
 			color: 'black',
-			text: 'Drag Me',
+			text: 'Test',
 			fontSize: '16px',
 			fontWeight: 'bold',
 		},
@@ -573,12 +573,10 @@ function markerSetAnimationTest() {
 	
 	markerSetAnimation(targetMarker, null);
 	
-	var a4 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
-	
-	var a5;
+	var a4;
 	// function has a timeout, so we need to wait to see if the change happens correctly
 	setTimeout(function () {
-				a5 = assertEquals(targetMarker.getAnimation(), null);
+		a4 = assertEquals(targetMarker.getAnimation(), null);
 	}, 500);
 	
 	if (a1 && a2 && a3 && a4 && a5) {
