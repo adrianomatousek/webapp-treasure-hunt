@@ -315,15 +315,13 @@ function addMarkerNotDraggableTest(){
 // TEST 8
 function resetMapZoomTest(){
 	map.setOptions({
-		center: new google.maps.LatLng(69, -3.5),
 		zoom: 12
 	});
 	resetMapZoom();
 	
 	var a1 = assertEquals(map.getZoom(), 16);
-	var a2 = assertEquals(map.getCentre(), (50.735882, -3.534206));
 	
-	if (a1 && a2) {
+	if (a1) {
 		testSuccessful();
 	}
 	else {
