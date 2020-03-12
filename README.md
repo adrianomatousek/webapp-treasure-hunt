@@ -26,7 +26,7 @@ Quickly boot up a Docker container with everything preinstalled (Linux, Apache, 
 ## Technical Overview
 We are using a LAMP stack. For the frontend we use the Materialize CSS framework. jsQR for QR code scanning.
 
-## Testing The Source Code - Quick Guide
+## Unit Testing The Source Code - Quick Guide
 You can access and run the Test Suite by following these steps: 
 - Make sure you are logged onto the website,
 - Open the test page: https://thehunt.uk/TreasureHuntTest.php, 
