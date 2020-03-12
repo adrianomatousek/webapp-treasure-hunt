@@ -27,16 +27,25 @@ function assertEquals(valueTested, expectedResult) {
 }
 
 function logTestResults() {
+	var failed = 0;
+	var passed = 0;
 	for (i = 0; i < testCases.length; i++) {
 		var result;
 		if (testCases[i] === true) {
 			result = 'Successful';
+			passed += 1;
 		}
 		else {
 			result = 'FAILED!';
+			failed += 1;
 		}
 		console.log('TEST ' + (i+1) + ': ' + result);
 	}
+	var total = failed + passed;
+	
+	console.log('TESTS FINISHED');
+	console.log('Passed ' + passed + '/' + total + ' test cases successfully.');
+	console.log('(FAILED: ' + failed);
 }
 
 // Pre-defined variables for this test suite
