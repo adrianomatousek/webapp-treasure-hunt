@@ -217,7 +217,6 @@ function scaleMarkerSizeOnZoom() {
 		}
 		else if (zoom == defaultZoom) {
 			hideAllMarkerNames();
-			showAllMarkerNames();
 		}
 	});
 }
