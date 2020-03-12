@@ -96,7 +96,6 @@ var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
 
-
 function endTest(){
 	/*
 		Resets all the variables when the test ends, so the next one is not affected by them.
@@ -193,6 +192,7 @@ function runTests1() {
 	toggleMarkerAnimationsTest_NoActiveMarker();
 	toggleMarkerAnimationsTest_WithActiveMarker();
 	markerSetAnimationTest();
+	getColorTest();
 	
 	logTestResults();
 }
@@ -572,6 +572,23 @@ function markerSetAnimationTest() {
 	targetMarker.setAnimation(google.maps.Animation.BOUNCE);
 	
 	if (a1 && a2 && a3) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 18
+function getColorTest(){
+	isDay = true;
+	var a1 = assertEquals(getColor(), 'black');
+	
+	isDay = false;
+	var a2 = assertEquals(getColor(), 'white');
+	
+	if (a1 && a2) {
 		testSuccessful();
 	}
 	else {
