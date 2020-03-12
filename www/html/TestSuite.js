@@ -334,17 +334,17 @@ function resetMapZoomTest(){
 // TEST 9
 function removeMarkerTest(){
 	addMarker(50.735402, -3.538078);
-	removeMarker(0);
+	removeMarker2(0);
 	
 	var a1 = assertEquals(markerList[i], undefined);
 	var a2 = assertEquals(markers, 0);
 	
-	/*if (a1 && a2) {
+	if (a1 && a2) {
 		testSuccessful();
 	}
 	else {
 		testSuccessful(false);
-	}*/
+	}
 	endTest();
 }
 
@@ -375,6 +375,75 @@ function setMarkerSizeTest(){
 	endTest();
 }
 
+
+
+/*
+
+	functions from map_script.js that are required here
+	
+	(copied directly from map_script.js - no difference in code)
+
+*/
+
+function setMarkerSize2(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
+	/*
+	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
+	Parameters:
+		scaledSize: the scaled size of the marker's icon image,
+		fontSize: the font size of the label corresponding to the marker,
+		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
+								 this must be increased as the marker's get smaller (or vice-versa).
+	*/
+	if (markerList) {
+		for (i = 0; i < markerList.length; i++) {
+			if (markerList[i].getLabel()) {
+				var label = markerList[i].getLabel();
+				label.color = getColor();
+				label.fontSize = fontSize;
+				markerList[i].setLabel(label);
+			}	
+			if (markerList[i].getIcon()) {
+				var icon = markerList[i].getIcon();
+				icon.scaledSize = new google.maps.Size(scaledSize, scaledSize);
+				icon.labelOrigin = new google.maps.Point((scaledSize / 2), scaledSize + labelOriginHeightOffset);
+				markerList[i].setIcon(icon);
+			}
+		}
+	}
+}
+
+function removeMarker2(id) {
+	/*
+	Function to remove a marker
+	parameter:
+	id - Index of marker in array
+	*/
+	markerList[id].setMap(null);
+	markerList.splice(id); // removing an element from an array
+	if (activeInfoLabel == markerList[id].infoWindow) {
+		activeInfoLabel.close();
+		activeInfoLabel = null;
+	}
+	if (activeMarker == markerList[id].infoWindow) {
+		activeMarker = null;
+		activeInfoWindow = null;
+	}
+	markers -= 1;
+}
+
+function removeAllMarkers2() {
+	for (i = 0; i < markerList.length; i++) {
+		markerList[i].setMap(null);
+	}
+	if (activeInfoLabel) {
+		activeInfoLabel.close();
+		activeInfoLabel = null;
+	}
+	markerList = [];
+	activeMarker = null;
+	activeInfoWindow = null;
+	markers = 0;
+}
 
 
 

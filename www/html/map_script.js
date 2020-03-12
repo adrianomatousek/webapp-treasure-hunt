@@ -115,7 +115,7 @@ function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeig
 		labelOriginHeightOffset: the gap between the top of the label and the bottom of the icon of the marker;
 								 this must be increased as the marker's get smaller (or vice-versa).
 	*/
-	if (markerList.length) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			if (markerList[i].getLabel()) {
 				var label = markerList[i].getLabel();
