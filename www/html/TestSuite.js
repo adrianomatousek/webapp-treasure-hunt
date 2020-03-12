@@ -557,6 +557,8 @@ function markerSetAnimationTest() {
 	
 	targetMarker.setAnimation(null);
 	
+	activeMarker = targetMarker;
+	
 	markerSetAnimation(targetMarker, 'BOUNCE-IF');
 	
 	var a2 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
