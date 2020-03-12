@@ -175,6 +175,7 @@ function runTests1() {
 	addMarkerDraggableTest();
 	addMarkerNotDraggableTest();
 	resetMapZoomTest();
+	setMarkerSizeTest();
 	
 	logTestResults();
 }
@@ -317,6 +318,23 @@ function resetMapZoomTest(){
 	map.setOptions({
 		zoom: 12
 	});
+	resetMapZoom();
+	
+	var a1 = assertEquals(map.getZoom(), 16);
+	
+	if (a1) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 9
+function setMarkerSizeTest(){
+	addMarker(50.735402, -3.538078);
+	console.log('TESTERETETETETSD ' + markerList[0].getIcon().scaledSize);
 	resetMapZoom();
 	
 	var a1 = assertEquals(map.getZoom(), 16);
