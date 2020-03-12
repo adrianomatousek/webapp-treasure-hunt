@@ -575,7 +575,7 @@ function markerSetAnimationTest() {
 	
 	var a4 = assertEquals(targetMarker.getAnimation(), null);
 	
-	if (a1 && a2 && a3) {
+	if (a1 && a2 && a3 && a4) {
 		testSuccessful();
 	}
 	else {
