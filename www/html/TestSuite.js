@@ -1,5 +1,5 @@
 /*
-	Test Suite for "map_script.js"
+	Test Suite for "map_script.js" (used by the TreasureHunt.php page and gameKeeper.php page)
 */
 
 var fileName = 'map_script.js';
@@ -58,6 +58,21 @@ var showExtraLocations = true;
 var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
+
+function getTestResult(id) {
+	if (testCases[id] == true) {
+		return 'Successful';
+	}
+	else {
+		return 'FAILED!';
+	}
+}
+
+function logTestResults() {
+	for (i = 0; i < testCases.length; i++) { 
+		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
+	}
+}
 
 function endTest(){
 	/*
@@ -130,21 +145,6 @@ function endTest(){
 		center: new google.maps.LatLng(50.735882, -3.534206),
 		zoom: defaultZoom
 	});
-}
-
-function getTestResult(id) {
-	if (testCases[id] == true) {
-		return 'Successful';
-	}
-	else {
-		return 'FAILED!'
-	}
-}
-
-function logTestResults() {
-	for (i = 0; i < testCases.length; i++) { 
-		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
-	}
 }
 
 function runTests1() {
