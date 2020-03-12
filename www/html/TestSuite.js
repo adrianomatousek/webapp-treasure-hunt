@@ -168,7 +168,7 @@ function runTests1() {
 	addMarkerCoordinatesTest();
 	addMarkerNameDescriptionTest();
 	addMarkerNoDescriptionTest();
-	addMarkerNoName();
+	addMarkerNoNameTest();
 	
 	logTestResults();
 }
@@ -256,7 +256,7 @@ function addMarkerNoDescriptionTest(){
 }
 
 // TEST 5
-function addMarkerNoName(){
+function addMarkerNoNameTest(){
 	// 5 Check for empty / too short name
 	
 	addMarker(50.735402, -3.538078, '');
@@ -270,15 +270,45 @@ function addMarkerNoName(){
 	}
 	endTest();
 }
-/*
-	// 4 Check for name and no description
+
+// TEST 6
+function addMarkerNoNameTest(){
+	// 6 Check for draggable marker
 	
-	// 5 Check for empty / too short name
-	addMarker(50.735402, -3.538078, '', 'A description');
-	// 6 Check for empty / too short description
-	addMarker(50.735402, -3.538078, 'A name', '');
-	// 7 Check for draggable marker
 	addMarker(50.735402, -3.538078, 'A name', 'A description', true);
+	var a1 = assertEquals(markerList[0].draggable, true); 
+	
+	if (a1) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 7
+function addMarkerNoNameTest(){
+	// 7 Check for non-draggable marker
+	
+	addMarker(50.735402, -3.538078, 'A name', 'A description', false);
+	var a1 = assertEquals(markerList[0].draggable, false); 
+	
+	addMarker(50.735402, -3.538078, 'A name', 'A description');
+	var a2 = assertEquals(markerList[1].draggable, true); 
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+/*
+	// 7 Check for draggable marker
+	
 	// 8 Check for non-draggable marker
 	addMarker(50.735402, -3.538078, '', '', false);
 */
