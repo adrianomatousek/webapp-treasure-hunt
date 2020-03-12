@@ -1093,17 +1093,6 @@ function createDefaultExtraLocations() {
 	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'cafe.png');
 	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe.png');
 	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'swim.png');
-	// DO BELOW //
-
-	/* ADD: Forum Library (type: 2),
-			Sports Centre & Gym (type: 3),
-			Ram Bar (type: 1)
-			Matt's office (type: 4),
-			Few other type 4 buildings (e.g. harrison building, armory, queens, newman lecture hall, etc.)
-			One other type 1 food place?
-			something else if you feel like it, can be any sort of place of interest, a park, statue etc. (Use a type id that is not 0,1,2,3 or 4 in this case)
-			thanks <3  :*
-	*/
 }
 
 
