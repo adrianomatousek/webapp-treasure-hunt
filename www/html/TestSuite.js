@@ -27,7 +27,7 @@ function assertEquals(valueTested, expectedResult) {
 }
 
 function getTestResult(id) {
-	if (testCases[id] == true) {
+	if (testCases[id] === true) {
 		var result = 'Successful';
 		return result;
 	}
