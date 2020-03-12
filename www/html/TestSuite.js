@@ -169,6 +169,8 @@ function runTests1() {
 	addMarkerNameDescriptionTest();
 	addMarkerNoDescriptionTest();
 	addMarkerNoNameTest();
+	addMarkerDraggableTest();
+	addMarkerNotDraggableTest();
 	
 	logTestResults();
 }
@@ -272,7 +274,7 @@ function addMarkerNoNameTest(){
 }
 
 // TEST 6
-function addMarkerNoNameTest(){
+function addMarkerDraggableTest(){
 	// 6 Check for draggable marker
 	
 	addMarker(50.735402, -3.538078, 'A name', 'A description', true);
@@ -288,7 +290,7 @@ function addMarkerNoNameTest(){
 }
 
 // TEST 7
-function addMarkerNoNameTest(){
+function addMarkerNotDraggableTest(){
 	// 7 Check for non-draggable marker
 	
 	addMarker(50.735402, -3.538078, 'A name', 'A description', false);
