@@ -215,11 +215,11 @@ function scaleMarkerSizeOnZoom() {
 		if ((zoom == defaultZoom + 1 || zoom == defaultZoom + 2) && showMarkerNames) {
 			showAllMarkerNames();
 		}
-		else if (zoom == defaultZoom || zoom == defaultZoom + 1) {
+		if (zoom == defaultZoom || zoom == defaultZoom + 1) {
 			hideAllMarkerNames();
-			//if (showMarkerNames) {
-			//	showAllMarkerNames();
-			//}	
+			if (showMarkerNames) {
+				showAllMarkerNames();
+			}	
 		}
 	});
 }
