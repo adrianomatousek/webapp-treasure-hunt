@@ -348,6 +348,24 @@ function removeMarkerTest(){
 	endTest();
 }
 
+// TEST 10
+function removeAllMarkersTest() {
+	addMarker(50.735402, -3.538078);
+	addMarker(50.735402, -3.538078);
+	addMarker(50.735402, -3.538078);
+	removeAllMarkers();
+	
+	var a1 = assertEquals(markerList[i], undefined);
+	var a2 = assertEquals(markers, 0);
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
 // TEST X
 function setMarkerSizeTest(){
 	// Checks icon size change for multiple markers (should change all)
