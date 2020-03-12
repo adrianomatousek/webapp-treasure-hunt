@@ -954,6 +954,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 			name: name,
 		},
 		icon: {
+<<<<<<< HEAD
 			url: 'img/icons/' + iconURL,
 			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
@@ -1032,18 +1033,13 @@ function addExtraMarker2(latPos, lngPos, typeID, name, description, iconURL, ima
 			name: name,
 		},
 		icon: {
+=======
+>>>>>>> 85e81ae872e2bba6e2abe52048c1c57e858e4b6b
 			url: iconURL,
 			scaledSize: new google.maps.Size(30, 30),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(15, 38)
 		},
-		/*
-		label: {
-			color: color,
-			text: '',
-			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
-			fontWeight: 'bold',
-		}, */
 		animation: google.maps.Animation.DROP,
 		opacity: markerOpacity,
 		type: typeID
@@ -1163,13 +1159,13 @@ function createDefaultExtraLocations() {
 
 			// use type id '4' for office or other college locations.
 
-	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'health.png', '');
-	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png','');
-	addExtraMarker2(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
-	addExtraMarker2(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png','');
-	addExtraMarker2(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
-	addExtraMarker2(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
-	addExtraMarker2(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'https://cdn3.iconfinder.com/data/icons/summer/512/swim-512.png','');
+	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'img/icons/health.png', '');
+	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'img/icons/david.png','');
+	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
+	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png','');
+	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
+	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'https://cdn.onlinewebfonts.com/svg/img_208830.png','');
+	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'https://cdn3.iconfinder.com/data/icons/summer/512/swim-512.png','');
 }
 
 
