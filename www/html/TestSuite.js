@@ -174,6 +174,7 @@ function runTests1() {
 	addMarkerNoNameTest();
 	addMarkerDraggableTest();
 	addMarkerNotDraggableTest();
+	resetMapZoomTest();
 	
 	logTestResults();
 }
