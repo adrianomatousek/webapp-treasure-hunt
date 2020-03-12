@@ -134,6 +134,21 @@ function endTest(){
 	myMap();
 }
 
+function getTestResult(id) {
+	if (testCases[id] == true) {
+		return 'Successful';
+	}
+	else {
+		return 'FAILED!'
+	}
+}
+
+function logTestResults() {
+	for (i = 0; i < testCases.length; i++) { 
+		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
+	}
+}
+
 function runTests1() {
 	
 	console.log('RUNNING TEST CASES FOR: ' + fileName);
@@ -210,6 +225,23 @@ function addMarkerNameDescriptionTest(){
 	endTest();
 }
 
+// TEST 4
+function addMarkerNameDescriptionTest(){
+	test = 4;
+	// 3 Check for name and description
+	
+	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
+	a1 = assertEquals(markerList[0].name, 'A name');
+	a2 = assertEquals(markerList[0].description, 'A description <br>tags</br>');
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
 /*
 	
 	addMarker(50.735402, -3.538078, 'A name', 'A description <br>tags</br>');
