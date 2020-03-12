@@ -26,6 +26,14 @@ Quickly boot up a Docker container with everything preinstalled (Linux, Apache, 
 ## Technical Overview
 We are using a LAMP stack. For the frontend we use the Materialize CSS framework. jsQR for QR code scanning.
 
+## Testing The Source Code - Quick Guide
+You can access and run the Test Suite by following these steps: 
+- Make sure you are logged onto the website,
+- Open the test page, using the URL: https://thehunt.uk/TreasureHunt.php, 
+- Open the Console with Developer Tools (by pressing F12 if you are on Google Chrome).
+
+In the console, you will see the result for each individual test case, which will either say ‘Successful’ or ‘FAILED!’. There will be a summary after all test cases are completed, detailing how many test cases were passed and how many tests failed. If a test case fails, you should refer to the open source TestSuite.js file (webapp-treasure-hunt/www/html/TestSuite.js) and find the corresponding test that failed to investigate. Report any issues with this to the repository owner.
+
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
 | :-------------: | :-------------: | :-------------: |
