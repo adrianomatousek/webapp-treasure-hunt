@@ -161,6 +161,9 @@ function endTest(){
 	});
 }
 
+// Runs test
+runTests1();
+
 function runTests1() {
 	
 	// Tests
@@ -308,13 +311,26 @@ function addMarkerNotDraggableTest(){
 	endTest();
 }
 
-/*
-	// 7 Check for draggable marker
+// TEST 8
+function resetMapZoomTest(){
+	map.setOptions({
+		center: new google.maps.LatLng(69, -3.5),
+		zoom: 12
+	});
+	resetMapZoom();
 	
-	// 8 Check for non-draggable marker
-	addMarker(50.735402, -3.538078, '', '', false);
-*/
+	var a1 = assertEquals(map.getZoom(), 16);
+	var a2 = assertEquals(map.getCentre(), {50.735882, -3.534206});
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
 
 
-// Runs test
-runTests1();
+
+
