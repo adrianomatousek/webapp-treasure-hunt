@@ -169,7 +169,8 @@ function runTests1() {
 	// Tests
 	addMarkerArrayTest();
 	addMarkerCoordinatesTest();
-	addMarkerNameDescriptionTest()
+	addMarkerNameDescriptionTest();
+	addMarkerNoDescriptionTest();
 	
 	logTestResults();
 }
