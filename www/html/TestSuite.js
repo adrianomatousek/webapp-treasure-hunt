@@ -28,10 +28,12 @@ function assertEquals(valueTested, expectedResult) {
 
 function getTestResult(id) {
 	if (testCases[id] == true) {
-		return 'Successful';
+		var result = 'Successful';
+		return result;
 	}
 	else {
-		return 'FAILED!';
+		var result = 'FAILED!'
+		return result;
 	}
 }
 
