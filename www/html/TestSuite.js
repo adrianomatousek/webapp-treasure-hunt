@@ -4,14 +4,15 @@
 
 var fileName = 'map_script.js';
 var testCases = [];
+var test;
 
 function testSuccessful(result = true) {
 	if (result == true) {
-		testCases.push('1');
-		console.log('TEST ' + test + ' SUCCESSFUL');
+		testCases.push(result);
+		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1]);
 	}
 	else {
-		testCases.push('0');
+		testCases.push(result);
 		console.log('TEST ' + test + ' FAILED!');
 	}
 }
@@ -161,7 +162,6 @@ function runTests1() {
 	logTestResults();
 }
 
-var test;
 
 // TEST 1
 function addMarkerArrayTest(){
