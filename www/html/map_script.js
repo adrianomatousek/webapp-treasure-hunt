@@ -104,8 +104,6 @@ function myMap() {
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 
 	createDefaultExtraLocations();
-	
-	removeMarker(0);
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
