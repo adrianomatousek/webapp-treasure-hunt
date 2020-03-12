@@ -778,14 +778,14 @@ function nightTime() {
 
 function toggleExtraLocations() {
 	if (showExtraLocations) {
-		if (extraMarkersList.length) {
+		if (extraMarkersList) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				extraMarkersList[i].setVisible(false);
 			}
 		}
 		showExtraLocations = false;
 	} else {
-		if (extraMarkersList.length) {
+		if (extraMarkersList && map.getZoom() >= defaultZoom - 2) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				extraMarkersList[i].setVisible(true);
 			}
