@@ -554,28 +554,20 @@ function markerSetAnimationTest() {
 	markerSetAnimation(targetMarker, 'BOUNCE');
 	
 	var a1 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
-	
-	targetMarker.setAnimation(null);
-	
-	activeMarker = targetMarker;
-	
-	markerSetAnimation(targetMarker, 'BOUNCE-IF');
-	
-	var a2 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.BOUNCE);
-	
+		
 	targetMarker.setAnimation(null);
 	
 	markerSetAnimation(targetMarker, 'DROP');
 	
-	var a3 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.DROP);
+	var a2 = assertEquals(targetMarker.getAnimation(), google.maps.Animation.DROP);
 	
 	targetMarker.setAnimation(google.maps.Animation.BOUNCE);
 	
 	markerSetAnimation(targetMarker, null);
 	
-	var a4 = assertEquals(targetMarker.getAnimation(), null);
+	var a3 = assertEquals(targetMarker.getAnimation(), null);
 	
-	if (a1 && a2 && a3 && a4) {
+	if (a1 && a2 && a3) {
 		testSuccessful();
 	}
 	else {
