@@ -223,9 +223,14 @@ function resetMapZoom() {
 	if (idiotWindow) {
 		idiotWindow.close();
 	}
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			markerList[i].setVisible(true);
+		}
+	}
+	if (extraMarkersList) {
+		for (i = 0; i < extraMarkersList.length; i++) {
+			extraMarkersList[i].setVisible(true);
 		}
 	}
 }
