@@ -84,10 +84,11 @@ $routes = $conn->query($findRoutes);
   <div class="modcontainer">
     <div id="modal" class="modal">
       <div class="modal-content">
-        <h4>Well Done</h4>
-        <p>Hey you've done it, all
+        <h4 style="text-align: center;">Well Done</h4>
+        <p style="text-align: center;">Hey you've done it, all
           the treasures have been found!
         </p>
+        <img style="text-align: center;" src="prize.png" alt=""></img>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
