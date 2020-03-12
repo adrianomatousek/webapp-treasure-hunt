@@ -43,8 +43,8 @@ function logTestResults() {
 	}
 	var total = failed + passed;
 	
-	console.log('TESTS FINISHED\n' + 
-				'Passed ' + passed + '/' + total + ' test cases successfully.\n' +
+	console.log('TESTS FINISHED:\n' + 
+				'PASSED ' + passed + '/' + total + ' test cases successfully!\n' +
 				'(FAILED: ' + failed + ')');
 }
 
