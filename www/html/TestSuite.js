@@ -114,7 +114,7 @@ function endTest(){
 	var defaultFontSizeString2 = '16pt';
 	defaultFontSizeString = defaultFontSize2;
 	var reduceFontSizeBy2 = 4; // when switching to marker names option in settings
-	reduceFontSizeBy = reduceFontSizeby2;
+	reduceFontSizeBy = reduceFontSizeBy2;
 	var idiotWindow2;
 	idiotWindow = idiotWindow2;
 	var showExtraLocations2 = true;
