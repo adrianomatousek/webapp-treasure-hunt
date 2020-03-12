@@ -26,8 +26,8 @@ function assertEquals(valueTested, expectedResult) {
 	}
 }
 
-function assertExists(valueTested, expectedResult == true) {
-	if (assertExists) {
+function assertExists(valueTested) {
+	if (valueTested) {
 		return true;
 	}
 	else {
@@ -395,7 +395,7 @@ function addCustomMarkerTest() {
 // TEST 12
 function addExtraMarkerTest() {
 	
-	var a1 = assertExists(extraMarkersList, false);
+	var a1 = assertEquals(extraMarkersList, null);
 	addExtraMarker(50.735402, -3.538078, 0);
 	var a2 = assertExists(extraMarkersList); 
 	var a3 = assertEquals(extraMarkers, 1);
