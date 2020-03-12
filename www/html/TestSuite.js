@@ -2,7 +2,7 @@
 	Test Suite for "map_script.js" (used by the TreasureHunt.php page and gameKeeper.php page)
 */
 
-var testTarget = 'map_script.js (TreasureHunt.php and gameKeeper.php)';
+var testTarget = 'script.js, map_script.js, gamekeeper_map.js (TreasureHunt.php and gameKeeper.php, including settingsNavBar)';
 var testCases = [];
 //var test;
 
@@ -188,6 +188,7 @@ function runTests1() {
 	removeAllMarkersTest();
 	addCustomMarkerTest()
 	addExtraMarkerTest()
+	checkTimeTest();
 	
 	logTestResults();
 }
@@ -411,6 +412,30 @@ function addExtraMarkerTest() {
 	endTest();
 }
 
+// TEST 13
+function checkTimeTest() {
+	isDay = true;
+	checkTime();  // should change isDay to false
+	var a1 = assertEquals(isDay, false);
+	
+	isDay = false;
+	checkTime();  // should change isDay to true
+	var a2 = assertEquals(isDay, true);
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST 14
+//function 
+
+
+
 // TEST X
 function setMarkerSizeTest(){
 	// Checks icon size change for multiple markers (should change all)
@@ -437,16 +462,6 @@ function setMarkerSizeTest(){
 	}
 	endTest();
 }
-
-
-
-/*
-
-	functions from map_script.js that are required here
-	
-	(copied directly from map_script.js - no difference in code)
-
-*/
 
 
 

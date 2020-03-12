@@ -762,7 +762,7 @@ function nightTime() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_nighttime
 	});
-	if (markerList.length > 0) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			label.color = 'white';
