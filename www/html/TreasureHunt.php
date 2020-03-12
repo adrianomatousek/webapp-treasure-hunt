@@ -313,7 +313,7 @@ $routes = $conn->query($findRoutes);
           </ol>
         </div>
 
-        <p style="text-align: center;">Good luck have fun !! Please click Below to start!</p>
+        <p style="text-align: center;">Good luck have fun !! Please click BEGIN to start!</p>
         <p style="text-align: center;">
           <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
         </p>
