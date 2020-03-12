@@ -106,7 +106,7 @@ function myMap() {
 	createDefaultExtraLocations();
 }
 
-function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
+function setMarkerSize(scaledSize = defaultScaledSize, fontSize = defaultFontSizeString, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
 	/*
 	Sets the size of the marker's icon and labels accordingly. Used by the "scaleMarkerSizeOnZoom()" function.
 	Parameters:
