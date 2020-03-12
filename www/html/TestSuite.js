@@ -176,7 +176,8 @@ function runTests1() {
 	addMarkerNotDraggableTest();
 	resetMapZoomTest();
 	removeMarkerTest();
-	removeAllMarkersTest()
+	removeAllMarkersTest();
+	setMarkerSizeTest();
 	
 	logTestResults();
 }
