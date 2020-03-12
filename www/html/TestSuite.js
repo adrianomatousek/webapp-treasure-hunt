@@ -190,7 +190,7 @@ function addMarkerArrayTest(){
 	
 	assert1 = assertEquals(length1, 1);
 	
-	assert2 = assertEquals(length2, 3);
+	assert2 = assertEquals(length2, 2);
 	
 	if (assert1 && assert2) {
 		testSuccessful();
