@@ -157,7 +157,7 @@ function addMarkerArrayTest(){
 
 function addMarkerCoordinatesTest(){
 	addMarker(50.735820, -3.538780);
-	markerList[0].
+	markerList[0].getCoo
 }
 	
 	
