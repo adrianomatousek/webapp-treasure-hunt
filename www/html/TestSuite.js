@@ -332,6 +332,23 @@ function resetMapZoomTest(){
 }
 
 // TEST 9
+function removeMarkerTest(){
+	addMarker(50.735402, -3.538078);
+	removeMarker(0);
+	
+	var a1 = assertEquals(markerList[i], null);
+	var a2 = assertEquals(markers, 0);
+	
+	if (a1 && a2) {
+		testSuccessful();
+	}
+	else {
+		testSuccessful(false);
+	}
+	endTest();
+}
+
+// TEST X
 function setMarkerSizeTest(){
 	// Checks icon size change for multiple markers (should change all)
 	addMarker(50.735402, -3.538078);
@@ -342,11 +359,11 @@ function setMarkerSizeTest(){
 	var iconSizeAfter1 = markerList[0].getIcon().scaledSize;
 	var iconSizeAfter2 = markerList[1].getIcon().scaledSize;
 	
-	a1 = assertEquals(iconSizeBefore1, 50);
-	a2 = assertEquals(iconSizeBefore2, 50);
+	var a1 = assertEquals(iconSizeBefore1, 50);
+	var a2 = assertEquals(iconSizeBefore2, 50);
 	
-	a3 = assertEquals(iconSizeAfter1, 20);
-	a4 = assertEquals(iconSizeAfter2, 20);
+	var a3 = assertEquals(iconSizeAfter1, 20);
+	var a4 = assertEquals(iconSizeAfter2, 20);
 	
 	
 	if (a1 && a2 && a3 && a4) {
