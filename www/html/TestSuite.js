@@ -338,7 +338,7 @@ function setMarkerSizeTest(){
 	addMarker(50.735402, -3.538078);
 	var iconSizeBefore1 = markerList[0].getIcon().scaledSize;
 	var iconSizeBefore2 = markerList[1].getIcon().scaledSize;
-	setMarkerSizeTest(20, '12pt', 4);
+	//setMarkerSizeTest(20, '12pt', 4);
 	var iconSizeAfter1 = markerList[0].getIcon().scaledSize;
 	var iconSizeAfter2 = markerList[1].getIcon().scaledSize;
 	
