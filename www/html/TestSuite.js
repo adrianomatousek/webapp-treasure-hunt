@@ -9,7 +9,7 @@ var test;
 function testSuccessful(result = true) {
 	if (result == true) {
 		testCases.push(result);
-		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1] + getTestResult[test-1]);
+		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1]);
 	}
 	else {
 		testCases.push(result);
@@ -190,7 +190,7 @@ function addMarkerArrayTest(){
 	
 	assert1 = assertEquals(length1, 1);
 	
-	assert2 = assertEquals(length2, 2);
+	assert2 = assertEquals(length2, 3);
 	
 	if (assert1 && assert2) {
 		testSuccessful();
