@@ -1085,7 +1085,9 @@ function createDefaultExtraLocations() {
 
 			// use type id '4' for office or other college locations.
 
-	
+
+	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'sports.png');
+
 }
 
 
