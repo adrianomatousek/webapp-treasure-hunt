@@ -381,12 +381,12 @@ function removeAllMarkersTest() {
 // TEST 11
 function addCustomMarkerTest() {
 	
-	var a1 = customMarker;
+	var a1 = assertEquals(customMarker, null);
 	addCustomMarker();
 	
 	var a2 = customMarker;
 	
-	if (!a1 && a2) {
+	if (a1 && a2) {
 		testSuccessful();
 	}
 	else {
