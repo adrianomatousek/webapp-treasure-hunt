@@ -32,7 +32,7 @@ You can access and run the Test Suite by following these steps:
 - Open the test page: https://thehunt.uk/TreasureHuntTest.php, 
 - Open the Console with Developer Tools (by pressing F12 if you are on Google Chrome).
 
-In the console, you will see the result for each individual test case, which will either say ‘Successful’ or ‘FAILED!’. There will be a summary after all test cases are completed, detailing how many test cases were passed and how many tests failed. If a test case fails, you should refer to the open source TestSuite.js file (webapp-treasure-hunt/www/html/TestSuite.js) and find the corresponding test that failed to investigate. Report any issues with this to the repository owner.
+In the Console, you will see the result for each individual test case, which will either say ‘Successful’ or ‘FAILED!’. There will be a summary after all test cases are completed, detailing how many test cases were passed and how many tests failed. If a test case fails, you should refer to the open source TestSuite.js file (webapp-treasure-hunt/www/html/TestSuite.js) and find the corresponding test that failed to investigate. Report any issues with this to the repository owner.
 
 ## Find Out More
 | **Setup Guide** | **Process Documentation** | **Project & Community** |
