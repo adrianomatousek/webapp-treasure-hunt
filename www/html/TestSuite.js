@@ -384,7 +384,7 @@ function addCustomMarkerTest() {
 	var a1 = assertEquals(customMarker, undefined);
 	addCustomMarker();
 	
-	var a2 = assertEquals(customMarker, !undefined);
+	var a2 = assertExists(customMarker);
 	
 	if (a1 && a2) {
 		testSuccessful();
