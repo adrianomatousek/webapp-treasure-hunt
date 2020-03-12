@@ -7,11 +7,11 @@ var testCases = [];
 
 function testSuccessful(result = true) {
 	if (result == true) {
-		testCases.push(result);
+		testCases.push('1');
 		console.log('TEST ' + test + ' SUCCESSFUL');
 	}
 	else {
-		testCases.push(result);
+		testCases.push('0');
 		console.log('TEST ' + test + ' FAILED!');
 	}
 }
@@ -22,6 +22,21 @@ function assertEquals(valueTested, expectedResult) {
 	}
 	else {
 		return false;
+	}
+}
+
+function getTestResult(id) {
+	if (testCases[id] == true) {
+		return 'Successful';
+	}
+	else {
+		return 'FAILED!';
+	}
+}
+
+function logTestResults() {
+	for (i = 0; i < testCases.length; i++) { 
+		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
 	}
 }
 
@@ -59,20 +74,7 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 
-function getTestResult(id) {
-	if (testCases[id] == true) {
-		return 'Successful';
-	}
-	else {
-		return 'FAILED!';
-	}
-}
 
-function logTestResults() {
-	for (i = 0; i < testCases.length; i++) { 
-		console.log('TEST ' + (i+1) + ': ' + getTestResult[i]);
-	}
-}
 
 function endTest(){
 	/*
