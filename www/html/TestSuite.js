@@ -9,7 +9,7 @@ var test;
 function testSuccessful(result = true) {
 	if (result == true) {
 		testCases.push(result);
-		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1]);
+		console.log('TEST ' + test + ' SUCCESSFUL' + testCases[test-1] + getTestResult[test-1]);
 	}
 	else {
 		testCases.push(result);
