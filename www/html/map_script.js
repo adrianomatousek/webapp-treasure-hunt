@@ -104,7 +104,7 @@ function myMap() {
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 
 	//createDefaultExtraLocations();
-	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'sports.png');
+	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'david.png');
 	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'books.png');
 	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'cafe.png');
 	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe.png');
