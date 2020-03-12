@@ -954,6 +954,84 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL, imag
 			name: name,
 		},
 		icon: {
+			url: 'img/icons/' + iconURL,
+			scaledSize: new google.maps.Size(30, 30),
+			origin: new google.maps.Point(0, 0),
+			labelOrigin: new google.maps.Point(15, 38)
+		},
+		/*
+		label: {
+			color: color,
+			text: '',
+			fontSize: (defaultFontSize - reduceFontSizeBy).toString() + 'pt',
+			fontWeight: 'bold',
+		}, */
+		animation: google.maps.Animation.DROP,
+		opacity: markerOpacity,
+		type: typeID
+	});
+
+	var contentString = '<div id="siteNotice">' + getExtraMarkerType(marker) + '</div><div id="content" style="text-align:center">' +
+		'<h4 id="firstHeading" class="firstHeading">' + name +
+		'</h4><div id="bodyContent"><p> ' + description + '</p></div>';
+
+	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
+	var infoWindow = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -16),
+		content: contentString
+	});
+
+	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
+	var infoLabel = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -16),
+		content: '<div id="bodyContent"><p> This is a place of interest. Click for more info. </p></div>'
+	});
+
+	addExtraMarkerClickListeners(marker, infoWindow, infoLabel);
+
+	extraMarkersList.push(marker);
+	extraMarkers += 1;
+}
+
+function addExtraMarker2(latPos, lngPos, typeID, name, description, iconURL, imageURL) {
+	/*
+	Function that adds a Google Maps marker that shows places such as the health centre, restaurants,
+	libraries, restaurants
+
+	Parameters:
+		latPos: latitutde coordinates of the marker,
+		lngPos: longitude coordinates of the marker,
+		name: name of the location, e.g. "Exeter Library",
+		description: a descrition of the location,
+		type: id of type of location, e.g. id 0 being "health", id 1 being "food" etc.,
+		iconURL: URL of the icon (part of URL, e.g. "chest.png" - img/icons/chest.png),
+		imageURL: (Optional) URL of the image (part of URL, e.g. "library.png" - img/photos/library.png).
+	*/
+	var color = getColor();
+	// Sets a default name in case the given one is too short or long
+	if (!name || name.length < 3 || name.length > 32) {
+		name = 'Place of Interest';
+	}
+	// Sets a default description in case the given one is too short or long
+	if (!description || description.length < 10 || description.length > 500) {
+		var description = 'An additional location that you can visit!';
+	}
+
+	// Creates new Google Maps marker
+	var marker = new google.maps.Marker({
+		position: {
+			lat: latPos,
+			lng: lngPos
+		},
+		map: map,
+		label: {
+			color: color,
+			text: ' ',
+			fontSize: '12pt',
+			fontWeight: 'bold',
+			name: name,
+		},
+		icon: {
 			//url: 'img/icons/' + iconURL,
 			url: iconURL,
 			scaledSize: new google.maps.Size(30, 30),
@@ -1087,13 +1165,13 @@ function createDefaultExtraLocations() {
 			// use type id '4' for office or other college locations.
 
 	addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', 'Come here when you are feeling sick', 'health.png', '');
-	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'img/icons/david.png','');
-	//addExtraMarker(90.00, 0.00, 5, "Santa","Merry Christmas", 'santa.png');
-	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
-	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'books.png','');
-	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'cafe.png','');
-	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe.png','');
-	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'swim.png','');
+	addExtraMarker(50.7374657, -3.5337152, 4, "David's Office","In Laver you will find the office of David Wakeling.", 'david.png','');
+	addExtraMarker2(90.00, 0.00, 5, "Santa","Merry Christmas", 'santa.png');
+	addExtraMarker2(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'https://cdn3.iconfinder.com/data/icons/basketball-icons/393/Basketball_Player_With_Ball-512.png','');
+	addExtraMarker2(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'books.png','');
+	addExtraMarker2(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'cafe.png','');
+	addExtraMarker2(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe.png','');
+	addExtraMarker2(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'swim.png','');
 }
 
 
