@@ -303,7 +303,7 @@ $routes = $conn->query($findRoutes);
       <div id="">
       <!-- Page 4: Help Page -->
         <p style="text-align:center;">Welcome to the hunt! This is a game where you'll move to different places to find some treasure.</p>
-        <h2 style="text-align: center;">How To Play</h2>
+        <h3 style="text-align: center;">How To Play</h3>
         <div class ="cont" style="width:100%; text-align:center;">
           <ol class="rounded-list">
             <li><a href="">Check your map and locate the next treasure location</a></li>
@@ -313,11 +313,11 @@ $routes = $conn->query($findRoutes);
           </ol>
         </div>
 
-
+        <p style="text-align: center;">Good luck have fun !! Please click Below to start!</p>
         <p style="text-align: center;">
           <a href="javascript: bottomNavGoTo(0);" class="waves-effect waves-light btn"><i class="material-icons left">near_me</i>Begin</a>
         </p>
-        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">explore</i>This icon opens the map page</a></li>
+        <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">explore</i>This icon opens the map</a></li>
         <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">adjust</i>This icon opens the camera for scanning QR code</a></li>
         <li style="text-align: center;" class="tab col s3 white-text"><a href="" class="active black-text"><i class="material-icons">account_circle</i>This icon opens the leaderboard page</a></li>
 
