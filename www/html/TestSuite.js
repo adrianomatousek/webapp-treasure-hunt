@@ -320,7 +320,7 @@ function resetMapZoomTest(){
 	resetMapZoom();
 	
 	var a1 = assertEquals(map.getZoom(), 16);
-	var a2 = assertEquals(map.getCentre(), {50.735882, -3.534206});
+	var a2 = assertEquals(map.getCentre(), (50.735882, -3.534206));
 	
 	if (a1 && a2) {
 		testSuccessful();
