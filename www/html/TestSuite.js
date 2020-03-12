@@ -506,8 +506,27 @@ function toggleMarkerAnimationsTest_WithActiveMarker() {
 // TEST 17
 function markerSetAnimationTest() {
 	
-	addMarker(50.735402, -3.538078);
-	targetMarker = markersList[0];
+	// marker for testing
+	var targetMarker = new google.maps.Marker({
+		position: {
+			lat: 50.735700,
+			lng: -3.531150
+		},
+		map: map,
+		label: {
+			color: 'black',
+			text: 'Drag Me',
+			fontSize: '16px',
+			fontWeight: 'bold',
+		},
+		icon: {
+			url: 'img/icons/blue.png',
+			scaledSize: new google.maps.Size(40, 40),
+			origin: new google.maps.Point(0, 0),
+			labelOrigin: new google.maps.Point(20, -30)
+		},
+		animation: google.maps.Animation.BOUNCE
+	});
 	
 	targetMarker.setAnimation(null);
 	
