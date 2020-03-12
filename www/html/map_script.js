@@ -23,9 +23,7 @@ var defaultZoom = 16; // The zoom level of the map when the app is opened; defau
 var defaultScaledSize = 50; // Default size of the icon of the marker
 var defaultLabelOriginHeightOffset = 4; //
 var defaultFontSize = 16;
-var tempFontSize = 16;
 var defaultFontSizeString = '16pt';
-var tempFontSizeString = '16pt';
 var reduceFontSizeBy = 4; // when switching to marker names option in settings
 var idiotWindow;
 var showExtraLocations = true;
@@ -873,8 +871,8 @@ function setMarkerNames() {
 // shows marker names
 function showAllMarkerNames() {
 
-	tempFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
-	tempFontSizeString = tempFontSize.toString() + 'pt';
+	var newFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
+	var newFontSizeString = newFontSize.toString() + 'pt';
 
 	if (markerList && map.getZoom() >= defaultZoom) {
 		for (i = 0; i < markerList.length; i++) {
@@ -882,7 +880,7 @@ function showAllMarkerNames() {
 			labelContent = i + 1 + '. ' + markerList[i].name;
 			string = labelContent.toString();
 			label.text = string;
-			label.fontSize = tempFontSizeString;
+			label.fontSize = newFontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
@@ -898,8 +896,8 @@ function showAllMarkerNames() {
 // hide marker names
 function hideAllMarkerNames() {
 
-	tempFontSize = (defaultFontSize + reduceFontSizeBy); // increase font size as names are no longer displayed
-	tempFontSizeString = tempFontSize.toString() + 'pt';
+	newFontSize = (defaultFontSize); // increase font size as names are no longer displayed
+	newFontSizeString = newFontSize.toString() + 'pt';
 
 	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
@@ -907,7 +905,7 @@ function hideAllMarkerNames() {
 			labelContent = markerList[i].id + 1;
 			string = labelContent.toString();
 			label.text = string;
-			label.fontSize = tempFontSizeString;
+			label.fontSize = newFontSizeString;
 			markerList[i].setLabel(label);
 		}
 	}
