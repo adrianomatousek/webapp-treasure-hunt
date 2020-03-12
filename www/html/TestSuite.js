@@ -398,7 +398,7 @@ function addCustomMarkerTest() {
 // TEST 12
 function addExtraMarkerTest() {
 	
-	var a1 = assertEquals(extraMarkersList, undefined);
+	var a1 = assertEquals(extraMarkersList, null);
 	addExtraMarker(50.735402, -3.538078, 0);
 	var a2 = assertExists(extraMarkersList); 
 	
