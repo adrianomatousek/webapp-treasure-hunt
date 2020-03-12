@@ -896,8 +896,8 @@ function showAllMarkerNames() {
 // hide marker names
 function hideAllMarkerNames() {
 
-	newFontSize = (defaultFontSize); // increase font size as names are no longer displayed
-	newFontSizeString = newFontSize.toString() + 'pt';
+	var newFontSize = (defaultFontSize); // increase font size as names are no longer displayed
+	var newFontSizeString = newFontSize.toString() + 'pt';
 
 	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
