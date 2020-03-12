@@ -105,10 +105,10 @@ function myMap() {
 
 	//createDefaultExtraLocations();
 	addExtraMarker(50.737943, -3.537214, 3, "Sports Park", "This is where sports activities take place", 'david.png');
-	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'cafe3.png');
+	addExtraMarker(50.735618, -3.533184, 2, "Forum Library", "Our university's library and central hub", 'cafe4.png');
 	addExtraMarker(50.735311, -3.534423, 1, "The Ram Bar", "Most popular cafe in the campus!", 'david.png');
-	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe3.png');
-	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'cafe.png');
+	addExtraMarker(50.735034, -3.529763, 1, "Lemon Grove", "Bar, Club, Concert, we have it all here!", 'cafe4.png');
+	addExtraMarker(50.734611, -3.529446, 3, "Outdoor Pool", "Wanna go for a swim?", 'cafe4.png');
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
