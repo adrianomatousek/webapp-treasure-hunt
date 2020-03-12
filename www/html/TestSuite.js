@@ -205,15 +205,15 @@ function addMarkerArrayTest(){
 	
 	addMarker(50.735820, -3.538780);
 	
-	length1 = markerList.length;
+	var length1 = markerList.length;
 	
 	addMarker(50.735820, -3.538780);
 	
-	length2 = markerList.length;
+	var length2 = markerList.length;
 	
-	assert1 = assertEquals(length1, 1);
+	var assert1 = assertEquals(length1, 1);
 	
-	assert2 = assertEquals(length2, 2);
+	var assert2 = assertEquals(length2, 2);
 	
 	if (assert1 && assert2) {
 		testSuccessful();
