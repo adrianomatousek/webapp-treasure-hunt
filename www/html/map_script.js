@@ -221,7 +221,9 @@ function scaleMarkerSizeOnZoom() {
 			hideAllMarkerNames();
 		}
 		if (zoom == defaultZoom || zoom == defaultZoom + 1) {
-			showAllExtraMarkerNames();
+			if (showMarkerNames) {
+				showAllExtraMarkerNames();
+			}
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					var label = extraMarkersList[i].getLabel();
@@ -229,7 +231,7 @@ function scaleMarkerSizeOnZoom() {
 						label.fontSize = '9pt';
 						label.fontWeight = 'normal';
 					}
-					else {
+					else if (zoom > defaultZoom) {
 						label.fontSize = '12pt';
 						label.fontWeight = 'bold';
 					}
@@ -904,9 +906,13 @@ function toggleMarkerNames() {
 	if (!showMarkerNames) {
 		showMarkerNames = true;
 		showAllMarkerNames();
+		if (map.getZoom() >= (defaultZoom-1)) {
+			showAllExtraMarkerNames();
+		}
 	} else {
 		showMarkerNames = false;
 		hideAllMarkerNames();
+		hideAllExtraMarkerNames();
 	}
 }
 
