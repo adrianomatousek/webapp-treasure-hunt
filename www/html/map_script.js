@@ -782,8 +782,7 @@ function getColor() {
 
 // sets light mode
 function dayTime() {
-	if (!init) {
-		if (extraMarkersList) {
+	if (extraMarkersList) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				var icon = extraMarkersList[i].getIcon();
 				var url = icon.url;
@@ -796,7 +795,6 @@ function dayTime() {
 			}
 		}
 	}
-	init = true;
 	map.setOptions({
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
@@ -1054,8 +1052,8 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'im
 			name: name,
 		},
 		icon: {
-			url: iconURL,
-			url2: iconURL2,
+			url: iconURL2,
+			url2: iconURL,
 			scaledSize: new google.maps.Size(24, 24),
 			origin: new google.maps.Point(0, 0),
 			labelOrigin: new google.maps.Point(12, 32)
