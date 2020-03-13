@@ -223,8 +223,8 @@ function scaleMarkerSizeOnZoom() {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					var label = extraMarkersList[i].getLabel();
-					label.fontSize: '12pt';
-					label.fontWeight: 'bold';
+					label.fontSize = '12pt';
+					label.fontWeight = 'bold';
 					extraMarkersList[i].setLabel(label)
 				}
 			}
@@ -232,8 +232,8 @@ function scaleMarkerSizeOnZoom() {
 		if (zoom == defaultZoom - 1 && extraMarkersList) {
 			for (i = 0; i < extraMarkersList.length; i++) {
 				var label = extraMarkersList[i].getLabel();
-				label.fontSize: '10pt';
-				label.fontWeight: 'normal';
+				label.fontSize = '10pt';
+				label.fontWeight = 'normal';
 				extraMarkersList[i].setLabel(label)
 			}
 		}
