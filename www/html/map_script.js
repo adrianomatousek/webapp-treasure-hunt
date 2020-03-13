@@ -93,7 +93,7 @@ function myMap() {
 	// Apply Settings
 	setTime();
 	enableAnimations = true;
-	setMarkerNames();
+	//setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
 
@@ -905,7 +905,7 @@ function showAllMarkerNames() {
 			markerList[i].setLabel(label);
 		}
 	}
-	if (extraMarkersList && map.getZoom() >= defaultZoom) {
+	if (extraMarkersList && map.getZoom() > defaultZoom) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
 			label.text = (label.name).toString();
