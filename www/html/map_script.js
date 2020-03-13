@@ -793,7 +793,6 @@ function dayTime() {
 				label.color = 'black';
 				extraMarkersList[i].setLabel(label);
 			}
-		}
 	}
 	map.setOptions({
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
