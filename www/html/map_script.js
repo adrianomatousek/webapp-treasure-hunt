@@ -220,9 +220,25 @@ function scaleMarkerSizeOnZoom() {
 		}
 		if (zoom == defaultZoom) {
 			showAllExtraMarkerNames();
+			if (extraMarkersList) {
+				for (i = 0; i < extraMarkersList.length; i++) {
+					var label = extraMarkersList[i].getLabel();
+					label.fontSize = '12pt';
+					label.fontWeight = 'bold';
+					extraMarkersList[i].setLabel(label);
+				}
+			}
 		}
 		else if (zoom == defaultZoom - 1) {
 			hideAllExtraMarkerNames();
+			if (extraMarkersList) {
+				for (i = 0; i < extraMarkersList.length; i++) {
+					var label = extraMarkersList[i].getLabel();
+					label.fontSize = '10pt';
+					label.fontWeight = 'normal';
+					extraMarkersList[i].setLabel(label);
+				}
+			}
 		}
 	});
 }
