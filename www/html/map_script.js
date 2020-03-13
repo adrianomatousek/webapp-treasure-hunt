@@ -1025,13 +1025,13 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'im
 
 	// Creates a new Google Maps Info Window for the marker (pop-up window when marker is clicked)
 	var infoWindow = new google.maps.InfoWindow({
-		pixelOffset: new google.maps.Size(0, -16),
+		pixelOffset: new google.maps.Size(0, -20),
 		content: contentString
 	});
 
 	// Creates a new Google Maps Info Window for the marker (that will act as an 'info/help' window when hovered over)
 	var infoLabel = new google.maps.InfoWindow({
-		pixelOffset: new google.maps.Size(0, -16),
+		pixelOffset: new google.maps.Size(0, -20),
 		content: '<div id="bodyContent"><p> This is a place of interest. Click for more info. </p></div>'
 	});
 
