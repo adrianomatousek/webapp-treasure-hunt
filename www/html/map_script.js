@@ -226,6 +226,9 @@ function scaleMarkerSizeOnZoom() {
 				var label = extraMarkersList[i].getLabel();
 				label.fontSize = '10pt';
 				label.fontWeight = 'normal';
+				if (showExtraLocations) {
+					label.setVisible(true);
+				}
 				extraMarkersList[i].setLabel(label)
 			}
 		}
@@ -234,6 +237,9 @@ function scaleMarkerSizeOnZoom() {
 				var label = extraMarkersList[i].getLabel();
 				label.fontSize = '12pt';
 				label.fontWeight = 'bold';
+				if (showExtraLocations) {
+					label.setVisible(true);
+				}
 				extraMarkersList[i].setLabel(label)
 			}
 		}
