@@ -31,6 +31,7 @@ var extraLocations = [];
 var extraMarkersList = [];
 var extraMarkers = extraMarkersList.length;
 var routeID = 1;
+var init = true;
 
 var postData = {
 	routeID: routeID,
@@ -92,7 +93,7 @@ function myMap() {
 	createDefaultExtraLocations();
 
 	// Apply Settings
-	//setTime();
+	setTime();
 	enableAnimations = true;
 	setMarkerNames();
 	showHints = true;
@@ -773,18 +774,21 @@ function getColor() {
 
 // sets light mode
 function dayTime() {
-	if (extraMarkersList) {
-		for (i = 0; i < extraMarkersList.length; i++) {
-			var icon = extraMarkersList[i].getIcon();
-			var url = icon.url;
-			icon.url = icon.url2;
-			icon.url2 = url;
-			extraMarkersList[i].setIcon(icon);
-			var label = extraMarkersList[i].getLabel();
-			label.color = 'black';
-			extraMarkersList[i].setLabel(label);
+	if (!init) {
+		if (extraMarkersList) {
+			for (i = 0; i < extraMarkersList.length; i++) {
+				var icon = extraMarkersList[i].getIcon();
+				var url = icon.url;
+				icon.url = icon.url2;
+				icon.url2 = url;
+				extraMarkersList[i].setIcon(icon);
+				var label = extraMarkersList[i].getLabel();
+				label.color = 'black';
+				extraMarkersList[i].setLabel(label);
+			}
 		}
 	}
+	init = true;
 	map.setOptions({
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: map_theme_daytime
@@ -794,7 +798,6 @@ function dayTime() {
 			var label = markerList[i].getLabel();
 			label.color = 'black';
 			markerList[i].setLabel(label);
-
 		}
 	}
 	if (customMarker) {
