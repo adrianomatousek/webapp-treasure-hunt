@@ -226,7 +226,7 @@ function scaleMarkerSizeOnZoom() {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					var label = extraMarkersList[i].getLabel();
 					if (zoom == defaultZoom) {
-						label.fontSize = '10pt';
+						label.fontSize = '9pt';
 						label.fontWeight = 'normal';
 					}
 					else {
@@ -1043,7 +1043,7 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'im
 		label: {
 			color: color,
 			text: ' ',
-			fontSize: '10pt',
+			fontSize: '9pt',
 			fontWeight: 'normal',
 			name: name,
 		},
