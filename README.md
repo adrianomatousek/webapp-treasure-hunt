@@ -5,7 +5,7 @@ This project has been developed for Computer Science module [ECM2434 - Group Sof
 ## Introduction
 The Treasure Hunt webapp helps new students find their way around campus and learn about points of interest. In this game, gamekeepers (tutors) can define 'routes' for players (students) to follow. A route consists of a list of waypoints. Students can use clues to help them find where a waypoint is. Students can scan the QR code to verify they've found a waypoint.
 
-## Showcase - Project Demo
+## Showcase - Quick Project Demo
 ![](app_demo_sprint3.gif)
 
 ## Prerequisites
