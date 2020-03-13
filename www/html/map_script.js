@@ -212,14 +212,17 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		if ((zoom == defaultZoom + 1 || zoom == defaultZoom + 2) && showMarkerNames) {
+		if (zoom >= (defaultZoom + 2) && showMarkerNames) {
 			showAllMarkerNames();
 		}
-		if (zoom == defaultZoom || zoom == defaultZoom + 1) {
+		else if (zoom == (defaultZoom + 1)) {
 			hideAllMarkerNames();
-			if (showMarkerNames) {
-				showAllMarkerNames();
-			}	
+		}
+		if (zoom == defaultZoom) {
+			showAllExtraMarkerNames();
+		}
+		else if (zoom == defaultZoom - 1) {
+			hideAllExtraMarkerNames();
 		}
 	});
 }
@@ -895,7 +898,7 @@ function showAllMarkerNames() {
 	var newFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
 	var newFontSizeString = newFontSize.toString() + 'pt';
 
-	if (markerList && map.getZoom() > defaultZoom + 1) {
+	if (markerList) {
 		for (i = 0; i < markerList.length; i++) {
 			var label = markerList[i].getLabel();
 			labelContent = i + 1 + '. ' + markerList[i].name;
@@ -905,7 +908,13 @@ function showAllMarkerNames() {
 			markerList[i].setLabel(label);
 		}
 	}
-	if (extraMarkersList && map.getZoom() > defaultZoom) {
+}
+
+function showAllExtraMarkerNames() {
+	var newFontSize = (defaultFontSize - reduceFontSizeBy); // reduce font size as names are displayed (which take up more space on screen)
+	var newFontSizeString = newFontSize.toString() + 'pt';
+
+	if (extraMarkersList) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
 			label.text = (label.name).toString();
@@ -930,6 +939,9 @@ function hideAllMarkerNames() {
 			markerList[i].setLabel(label);
 		}
 	}
+}
+
+function hideAllExtraMarkerNames() {
 	if (extraMarkersList) {
 		for (i = 0; i < extraMarkersList.length; i++) {
 			var label = extraMarkersList[i].getLabel();
