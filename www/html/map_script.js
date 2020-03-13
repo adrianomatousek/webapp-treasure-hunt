@@ -212,33 +212,14 @@ function scaleMarkerSizeOnZoom() {
 				}
 			}
 		}
-		if (zoom == defaultZoom + 2 && markerList) {
+		if ((zoom == defaultZoom + 1 || zoom == defaultZoom + 2) && showMarkerNames) {
+			showAllMarkerNames();
+		}
+		if (zoom == defaultZoom || zoom == defaultZoom + 1) {
 			hideAllMarkerNames();
 			if (showMarkerNames) {
 				showAllMarkerNames();
-			}
-		}
-		if (zoom == defaultZoom && extraMarkersList) {
-			for (i = 0; i < extraMarkersList.length; i++) {
-				var label = extraMarkersList[i].getLabel();
-				label.fontSize = '10pt';
-				label.fontWeight = 'normal';
-				if (showExtraLocations) {
-					extraMarkersList[i].setVisible(true);
-				}
-				extraMarkersList[i].setLabel(label)
-			}
-		}
-		else if (zoom == defaultZoom + 1 && extraMarkersList) {
-			for (i = 0; i < extraMarkersList.length; i++) {
-				var label = extraMarkersList[i].getLabel();
-				label.fontSize = '12pt';
-				label.fontWeight = 'bold';
-				if (showExtraLocations) {
-					extraMarkersList[i].setVisible(true);
-				}
-				extraMarkersList[i].setLabel(label)
-			}
+			}	
 		}
 	});
 }
