@@ -225,8 +225,14 @@ function scaleMarkerSizeOnZoom() {
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
 					var label = extraMarkersList[i].getLabel();
-					label.fontSize = '12pt';
-					label.fontWeight = 'bold';
+					if (zoom == defaultZoom) {
+						label.fontSize = '10pt';
+						label.fontWeight = 'normal';
+					}
+					else {
+						label.fontSize = '12pt';
+						label.fontWeight = 'bold';
+					}
 					extraMarkersList[i].setLabel(label);
 				}
 			}
@@ -1037,8 +1043,8 @@ function addExtraMarker(latPos, lngPos, typeID, name, description, iconURL = 'im
 		label: {
 			color: color,
 			text: ' ',
-			fontSize: '12pt',
-			fontWeight: 'bold',
+			fontSize: '10pt',
+			fontWeight: 'normal',
 			name: name,
 		},
 		icon: {
