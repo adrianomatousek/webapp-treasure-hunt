@@ -89,6 +89,7 @@ function myMap() {
 	var pointA = new google.maps.LatLng(50.734882, -3.535206);
 	var pointB = new google.maps.LatLng(50.736882, -3.534206);
 
+	createDefaultExtraLocations();
 
 	// Apply Settings
 	setTime();
@@ -103,7 +104,7 @@ function myMap() {
 
 	//addExtraMarker(50.735902, -3.538078, 0, 'Student Health Centre', '', 'health.png', '');
 
-	createDefaultExtraLocations();
+	
 }
 
 function setMarkerSize(scaledSize = defaultScaledSize, fontSize = defaultFontSizeString, labelOriginHeightOffset = defaultLabelOriginHeightOffset) {
