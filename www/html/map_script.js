@@ -92,7 +92,7 @@ function myMap() {
 	createDefaultExtraLocations();
 
 	// Apply Settings
-	setTime();
+	//setTime();
 	enableAnimations = true;
 	setMarkerNames();
 	showHints = true;
