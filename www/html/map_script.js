@@ -93,7 +93,7 @@ function myMap() {
 	// Apply Settings
 	setTime();
 	enableAnimations = true;
-	//setMarkerNames();
+	setMarkerNames();
 	showHints = true;
 	setMarkerOpacity(0.85);
 
@@ -218,7 +218,7 @@ function scaleMarkerSizeOnZoom() {
 		else if (zoom == (defaultZoom + 1)) {
 			hideAllMarkerNames();
 		}
-		if (zoom == defaultZoom) {
+		if (zoom == defaultZoom || zoom == defaultZoom + 1) {
 			showAllExtraMarkerNames();
 			if (extraMarkersList) {
 				for (i = 0; i < extraMarkersList.length; i++) {
@@ -903,8 +903,10 @@ function toggleMarkerNames() {
 function setMarkerNames() {
 	if (showMarkerNames) {
 		showAllMarkerNames();
+		showAllExtraMarkerNames();
 	} else {
 		hideAllMarkerNames();
+		hideAllExtraMarkerNames();
 	}
 }
 
